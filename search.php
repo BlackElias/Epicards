@@ -7,35 +7,22 @@
       <title></title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
       <link rel="stylesheet" href="src/css/style.css">
   </head>
 
 
-  <div class="navbar-fixed">
+ 
     <nav>
       
-      <div class="nav-wrapper">
+     
 
       
-      <a href="https://github.com/wron1/team-project" target="_blank" class="brand-logo center yellow-text">PokeCardCollector</a>
-
-
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-          <li><button id="show-saved"><img src="images/Pcard.jpg" alt=""></button></li>
-
-
-        </ul>
-      </div>
+      
     
     </nav>
-  </div>
+  
   <body>
-      <div class="row"> 
-        <div class="col s12 m4 l3">
-          <ul id="slide-out" class="sidenav sidenav-fixed">
-            <br></br><br></br><br></br><br></br>
+     
             <h3>Search for Pokemon cards by name , type, or generation.</h3>
             <div class="input-field col s12">
               <label for="current-search">Pokemon Name</label>
@@ -109,7 +96,7 @@
           </tbody>
         </table>
         <img class="responsive-img" src="" alt="" id="modal-card-image">
-        <button id="card-saver" > <img class="responsive-img" src=images/Pball.jpg></button>
+        <button id="card-saver" > <img class="responsive-img"></button>
 
       </div>
     </div>
@@ -126,9 +113,7 @@
       </div>
     </div>
 
-    <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="src/js/pokesearch.js"></script>
+     <script src="src/js/pokesearch.js"></script>
     </body>
 
     </html>

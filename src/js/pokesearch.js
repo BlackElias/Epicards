@@ -128,7 +128,7 @@ function getCardsOfType(type, genArray) {
       method: "GET",
       withCredentials: true,
       headers: {
-        "X-API-KEY": "f67d2ff5-723b-4794-bbfb-6b0a4e846179",
+        "X-API-KEY": "5a31ade9-b98e-4294-ac61-d47c25d4dae0",
         "Content-Type": "application/json",
       },
     })
@@ -158,7 +158,7 @@ function searchingTCGData(pokemonData) {
       method: "GET",
       withCredentials: true,
       headers: {
-        "X-API-KEY": "f67d2ff5-723b-4794-bbfb-6b0a4e846179",
+        "X-API-KEY": "5a31ade9-b98e-4294-ac61-d47c25d4dae0",
         "Content-Type": "application/json",
       },
     })
@@ -220,7 +220,7 @@ function cardClickInformation(cardObject) {
     method: "GET",
     withCredentials: true,
     headers: {
-      "X-API-KEY": "f67d2ff5-723b-4794-bbfb-6b0a4e846179",
+      "X-API-KEY": "5a31ade9-b98e-4294-ac61-d47c25d4dae0",
       "Content-Type": "application/json",
     },
   })
@@ -339,7 +339,7 @@ function getSavedCards(cardObject) {
       method: "GET",
       withCredentials: true,
       headers: {
-        "X-API-KEY": "f67d2ff5-723b-4794-bbfb-6b0a4e846179",
+        "X-API-KEY": "5a31ade9-b98e-4294-ac61-d47c25d4dae0",
         "Content-Type": "application/json",
       },
     })
@@ -353,32 +353,6 @@ function getSavedCards(cardObject) {
   }
 }
 
-function postSavedCards(dataTCG) {
-  console.log(dataTCG);
-  var collectionImage = document.createElement("img");
-  collectionResults.appendChild(collectionImage);
-  collectionImage.id = dataTCG.id;
-  collectionImage.setAttribute("class", "resultsImage");
-  collectionImage.src = dataTCG.images.small;
 
-  collectionImage.addEventListener("click", function (e) {
-    console.log(this);
-    var cardID = this.id;
-    modal.style.display = "block";
-    collectionsModal.style.display = "none";
-    cardClickInformation(cardID);
-  });
-}
-
-cardDisplayClose.addEventListener("click", function () {
-  console.log("youre a fucking idiot");
-  modal.style.display = "none";
-});
-
-collectionsDisplayClose.addEventListener("click", function () {
-  console.log("youre a fucking idiot");
-
-  collectionsModal.style.display = "none";
-});
 
 startPageSearch();
