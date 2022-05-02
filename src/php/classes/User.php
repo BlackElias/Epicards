@@ -5,13 +5,11 @@ class User
 {
     private $userId;
     private $username;
-    private $firstname;
-    private $lastname;
     private $password;
     private $email;
     private $picture;
     private $description;
-    private $location;
+  
 
 
     /**
@@ -36,22 +34,7 @@ class User
     /**
      * Get the value of picture
      */
-    public function getLocation()
-    {
-        return $this->location;
-    }
-
-    /**
-     * Set the value of picture
-     *
-     * @return  self
-     */
-    public function setLocation($location)
-    {
-        $this->location = $location;
-
-        return $this;
-    }
+   
 
     /**
      * Get the value of username
@@ -92,51 +75,8 @@ class User
         return $this;
     }
 
-    /**
-     * Get the value of firstname
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
 
-    /**
-     * Set the value of firstname
-     *
-     * @return  self
-     */
-    public function setFirstname($firstname)
-    {
-        if (empty($firstname)) {
-            throw new Exception("First name may not be empty!");
-        }
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of lastname
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * Set the value of lastname
-     *
-     * @return  self
-     */
-    public function setLastname($lastname)
-    {
-        if (empty($lastname)) {
-            throw new Exception("Last name may not be empty!");
-        }
-        $this->lastname = $lastname;
-
-        return $this;
-    }
+  
 
     /**
      * Get the value of password
@@ -233,17 +173,14 @@ class User
     {
         $conn = Db::getConnection();
 
-        $sql = "INSERT INTO users (email, firstname, lastname, username, password, picture) VALUES (:email, :firstname, :lastname, :username, :password, 'uploads/profilePictures/default.png')";
+        $sql = "INSERT INTO users (email, username, password) VALUES (:email, :username, :password)";
         $statement = $conn->prepare($sql);
         $email = $this->getEmail();
-        $firstname = $this->getFirstname();
-        $lastname = $this->getLastname();
+       
         $username = $this->getUsername();
         $password = $this->getPassword();
 
         $statement->bindValue(":email", $email);
-        $statement->bindValue(":firstname", $firstname);
-        $statement->bindValue(":lastname", $lastname);
         $statement->bindValue(":username", $username);
         $statement->bindValue(":password", $password);
         $statement->execute();
@@ -306,15 +243,13 @@ class User
         $statement->bindValue(":currentUserId", $currentUserId);
 
         $username = $this->getUsername();
-        $firstname = $this->getFirstname();
-        $lastname = $this->getLastname();
+       
         $description = $this->getDescription();
         $email = $this->getEmail();
         $picture = $this->getPicture();
 
         $statement->bindValue(":username", $username);
-        $statement->bindValue(":firstname", $firstname);
-        $statement->bindValue(":lastname", $lastname);
+       
         $statement->bindValue(":description", $description);
         $statement->bindValue(":email", $email);
         $statement->bindValue(":picture", $picture);
