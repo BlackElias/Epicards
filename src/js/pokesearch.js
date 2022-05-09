@@ -29,14 +29,6 @@ var collectionResults = document.getElementById("collection-results");
 
 var savedCardsBtn1 = document.getElementById("show-saved");
 
-// Saved Cards Array
-var collectedCards = [];
-
-var savedCollectedCards = localStorage.getItem("ItemID");
-
-if (savedCollectedCards !== null) {
-  collectedCards = JSON.parse(savedCollectedCards);
-}
 
 // Function that returns both the name and parameter search inputs
 function searchingPokeData(theGeneration, theType, name) {
@@ -235,35 +227,35 @@ function cardClickInformation(cardObject) {
 
 // Handles information inside the Card Modal
 function cardModalInformation(modalCard) {
-  modalCardName.innerHTML = "Pokemon Card Title: " + modalCard.name;
+  modalCardName.innerHTML =  modalCard.name;
   modalCardImage.src = modalCard.images.large;
   cardSaveBtn.setAttribute("class", modalCard.id);
 
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {
       normalPrice.innerHTML =
-        "Market Price: " + modalCard.tcgplayer.prices.normal.market.toFixed(2);
+        "Price: " + modalCard.tcgplayer.prices.normal.market.toFixed(2);
     } else {
-      normalPrice.innerHTML = "Market Price: N/A";
+      normalPrice.innerHTML = " N/A";
     }
 
-    if (modalCard.tcgplayer.prices.reverseHolofoil) {
+    if (modalCard.tcgplayer.prices.reverseholofoil) {
       reverseHolofoilPrice.innerHTML =
-        "Market Price: " +
-        modalCard.tcgplayer.prices.reverseHolofoil.market.toFixed(2);
+        "Price: " +
+        modalCard.tcgplayer.prices.reverseholofoil.market.toFixed(2);
     } else {
-      reverseHolofoilPrice.innerHTML = "Market Price: N/A";
+      reverseHolofoilPrice.innerHTML = " N/A";
     }
 
-    if (modalCard.tcgplayer.prices.holoFoil) {
+    if (modalCard.tcgplayer.prices.holofoil) {
       holoFoilPrice.innerHTML =
-        "Market Price: " +
-        modalCard.tcgplayer.prices.holoFoil.market.toFixed(2);
+        "Price: " +
+        modalCard.tcgplayer.prices.holofoil.market.toFixed(2);
     } else {
-      holoFoilPrice.innerHTML = "Market Price: N/A";
+      holoFoilPrice.innerHTML = " N/A";
     }
   }
-  //modalCardType.innerHTML = modalCard.types[0];
+  modalCardType.innerHTML = "Type " + modalCard.types[0];
 
   modal.style.display = "block";
 }
@@ -272,7 +264,7 @@ function cardModalInformation(modalCard) {
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
-  }
+    consol.log('click')  }
 
   if (event.target == collectionsModal) {
     collectionsModal.style.display = "none";
@@ -313,20 +305,9 @@ searchButton1.addEventListener("click", function () {
   resultsContainer.innerHTML = "";
 });
 
-// Save Card Functionality
-cardSaveBtn.addEventListener("click", function () {
-  collectedCards.push(cardSaveBtn.className);
-  localStorage.setItem("ItemID", JSON.stringify(collectedCards));
-  console.log(collectedCards);
-});
 
-// Handle Collections Modal
-savedCardsBtn1.addEventListener("click", function (e) {
-  console.log(e);
-  collectionsModal.style.display = "block";
-  getSavedCards(collectedCards);
-  console.log(collectedCards);
-});
+
+
 
 // Runs a search query based on the current card you clicked
 function getSavedCards(cardObject) {

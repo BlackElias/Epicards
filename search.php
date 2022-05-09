@@ -7,29 +7,21 @@
       <title></title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+   
       <link rel="stylesheet" href="src/css/style.css">
   </head>
-
-
- 
     <nav>
-      
-     
-
-      
-      
-    
+ 
     </nav>
-  
   <body>
-     
-            <h3>Search for Pokemon cards by name , type, or generation.</h3>
-            <div class="input-field col s12">
-              <label for="current-search">Pokemon Name</label>
-              <input type="text" id="name-input" name="current-search">
+             <div class="input-field col s12">
+              
+              <input type="text" id="name-input" placeholder="search name" name="current-search">
                 
-              <h5>Generation</h5>
-              <select class="browser-default" id="generation-search">
+             
+              <select class="browser-default" id="generation-search" style="display:none ;">
                 <option value="" >Choose your option</option>
                 <option value="generation/1">1</option>
                 <option value="generation/2">2</option>
@@ -40,8 +32,8 @@
                 <option value="generation/7">7</option>
               </select>
 
-              <h5>Pokemon Type</h5>
-              <select class="browser-default" id="type-search">
+              
+              <select class="browser-default" id="type-search" style="display:none ;" >
                 <option value="" >Choose your option</option>
                 <option value="Grass">Grass</option>
                 <option value="Fire">Fire</option>
@@ -72,9 +64,9 @@
 
       <!-- Modal content -->
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span onclick="document.getElementById('myModal').style.display='none'"class="close">&times; close</span>
             <h4 id="modal-card-name"></h4> 
-            <h2 id="modal-card-type"></h2>
+            <p id="modal-card-type"></p>
         <table class ="responsive-table highlight">
   
     
@@ -102,17 +94,7 @@
     </div>
 
     <!-- The Modal -->
-    <div id="collections-modal" class="modal">
-
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <div class="col s12 m8 l9">
-          <div class="row" id="collection-results"></div>
-        </div>
-      </div>
-    </div>
-
+   
      <script src="src/js/pokesearch.js"></script>
     </body>
 
