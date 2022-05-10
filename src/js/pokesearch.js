@@ -334,6 +334,26 @@ function getSavedCards(cardObject) {
   }
 }
 
+//yugioh
+
+const getValueInput = () =>{
+  const cardname = document.querySelector('input').value;
+  console.log(cardname)   
+   fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
+.then(response => response.json())
+.then(data => console.log(data))
+fetch(' https://api.magicthegathering.io/v1/cards?name='+ cardname)
+.then(response => response.json())
+.then(data => console.log(data))
+
+}
+function getCardInfo() {
+ 
+}
 
 
 startPageSearch();
+
+
+
+

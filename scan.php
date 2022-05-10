@@ -47,7 +47,7 @@
                 <option value="Fairy">Fairy</option>
                 <option value="Colorless">Colorless</option>
               </select>
-              <button id="search-button"onclick="getValueInput()">search</button>
+              <button id="search-button" onclick="getValueInput()">search</button>
 
             </div>
           </ul>
@@ -88,14 +88,13 @@
           </tbody>
         </table>
         <img class="responsive-img" src="" alt="" id="modal-card-image">
-        <button id="card-saver" > <img class="responsive-img"></button>
-
+       
       </div>
     </div>
 
     <!-- The Modal -->
    
-     <script src="src/js/pokesearch.js"></script>
+     <script src="src/js/yugioh.js"></script>
     </body>
 
     </html>
