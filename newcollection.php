@@ -23,7 +23,7 @@ if (!empty($_POST["pokemon"])) {
   $col->setCollectionPrivate($_POST["private"]);
  
 $col->saveCollection($currentUserId);
-   // header("Location: index.php");
+    header("Location: index.php");
   } catch (\Throwable $th) {
     $error = $th->getMessage();
   }
@@ -31,48 +31,40 @@ $col->saveCollection($currentUserId);
 
 if (!empty($_POST["yugioh"])) {
     try {
-      $col = new Collection();
-      $col->setCollectionName($_POST["name"]);
-     // $user->checkEmail();
-  
-      $col->setCollectionType($_POST["yugioh"]);
-    //  $user->checkUsername();
-  
-    $col->setCollectionPrivate($_POST["private"]);
-      
-   $username = $user->getUsername();
-      $currentUser = $user->getLoggedUser($username);
+        $col = new Collection();
+   
+        $currentUserId = $_SESSION["userId"];
+       
+        $col->setCollectionName($_POST["name"]);
+       // $user->checkEmail();
     
-  
+        $col->setCollectionType($_POST["yugioh"]);
+      //  $user->checkUsername();
+    
+      $col->setCollectionPrivate($_POST["private"]);
      
-      session_start();
-      $_SESSION["userId"] = $currentUser["id"];
-  $col->saveCollection($currentUser);
-      header("Location: index.php");
+    $col->saveCollection($currentUserId);
+        header("Location: index.php");
     } catch (\Throwable $th) {
       $error = $th->getMessage();
     }
   }
   if (!empty($_POST["MTG"])) {
     try {
-      $col = new Collection();
-      $col->setCollectionName($_POST["name"]);
-     // $user->checkEmail();
-  
-      $col->setCollectionType($_POST["MTG"]);
-    //  $user->checkUsername();
-  
+        $col = new Collection();
+   
+        $currentUserId = $_SESSION["userId"];
+       
+        $col->setCollectionName($_POST["name"]);
+       // $user->checkEmail();
+    
+        $col->setCollectionType($_POST["MTG"]);
+      //  $user->checkUsername();
+    
       $col->setCollectionPrivate($_POST["private"]);
-      
-  
-      
-  
-      $username = $user->getUsername();
-      $currentUser = $user->getLoggedUser($username);
-      session_start();
-      $_SESSION["userId"] = $currentUser["id"];
-  $col->saveCollection($currentUser);
-      header("Location: index.php");
+     
+    $col->saveCollection($currentUserId);
+        header("Location: index.php");
     } catch (\Throwable $th) {
       $error = $th->getMessage();
     }
@@ -91,9 +83,9 @@ if (!empty($_POST["yugioh"])) {
 <body>
     
 <form action="" method="POST">
-<h2>Private collection</h2>
+<h2>Make collection Public</h2>
 
-  <input type="checkbox" name="private"value="private2">
+  <input type="checkbox" name="private"value="unprivate">
  
 
 <label for="">Collection Name</label>
