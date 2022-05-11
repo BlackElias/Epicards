@@ -12,5 +12,5 @@ spl_autoload_register(function () {
 session_start();
 if (isset($_SESSION["userId"]) || preg_match('(signup.php|login.php)', $_SERVER['SCRIPT_NAME'])) {
 } else {
-    header("Location: signup.php");
+    header("Location: login.php");
 }

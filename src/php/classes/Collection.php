@@ -96,15 +96,15 @@ class Collection
     {
         $conn = Db::getConnection();
 
-        $sql = "INSERT INTO collection (collection_private, collection_name, collection_type) VALUES (:collection_private, :collection_name, :collection_type WHERE id = :currentUserId)";
+        $sql = "INSERT INTO collection (user_id, collection_private, collection_name, collection_type) VALUES (:user_id, :collection_private, :collection_name, :collection_type )";
         
         $statement = $conn->prepare($sql);
-
-        $$collection_private = $this->getCollectionPrivate();
-        $$collection_name = $this->getCollectionName();
+       // $currentUserId =$this->getUserId();
+        $collection_private = $this->getCollectionPrivate();
+        $collection_name = $this->getCollectionName();
         $collection_type = $this->getCollectionType();
         
-        $statement->bindValue(":currentUserId", $currentUserId);
+        $statement->bindValue(":user_id", $currentUserId);
         $statement->bindValue(":collection_private", $collection_private);
         $statement->bindValue(":collection_name", $collection_name);
         $statement->bindValue(":collection_type", $collection_type);

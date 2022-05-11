@@ -1,12 +1,19 @@
 <?php
 
-var_dump($_POST);
 
 include_once("bootstrap.php");
+
+
+var_dump($_POST);
+var_dump($_SESSION["userId"]);
+
 
 if (!empty($_POST["pokemon"])) {
   try {
     $col = new Collection();
+   
+    $currentUserId = $_SESSION["userId"];
+   
     $col->setCollectionName($_POST["name"]);
    // $user->checkEmail();
 
@@ -14,13 +21,9 @@ if (!empty($_POST["pokemon"])) {
   //  $user->checkUsername();
 
   $col->setCollectionPrivate($_POST["private"]);
- $user = new User();
-    $currentUserId = $_SESSION["userId"];
-    $currentUser = $user->getLoggedUser($currentUserId);;
  
-    
 $col->saveCollection($currentUserId);
-    header("Location: index.php");
+   // header("Location: index.php");
   } catch (\Throwable $th) {
     $error = $th->getMessage();
   }
