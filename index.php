@@ -17,6 +17,11 @@ try {
     <title>Epicards Home</title>
 </head>
 <body>
-    
+    <h1>My collection</h1>
+    <!-- collectie me php -->
+
+
+
+    <button class="btn-collection"><a href="newcollection.php">New collection</a></button>
 </body>
 </html>
