@@ -1,10 +1,10 @@
 <?php
 spl_autoload_register(function () {
-    //include_once("classes/Comment.php");
+    include_once("src/php/classes/Collection.php");
     include_once("src/php/classes/Db.php");
     //include_once("classes/Post.php");
     include_once("src/php/classes/User.php");
-    //include_once("classes/Image.php");
+    include_once("src/php/classes/Image.php");
     //include_once("classes/Followers.php");
     
 });
