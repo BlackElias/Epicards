@@ -114,14 +114,14 @@ class Collection
     {
         $conn = Db::getConnection();
 
-        $sql = "SELECT *, collection_id as collectionId FROM collection JOIN users ON users_id=collection.user_id WHERE  user_id = :user_id ";
+        $sql = "SELECT *, collection_id as collectionId FROM collection JOIN users ON users.id=collection.user_id WHERE  user_id = :user_id ";
         $statement = $conn->prepare($sql);
         $user_id = $_SESSION["userId"];
 
         $statement->bindValue(":user_id", $user_id);
         $statement->execute();
-        $posts = $statement->fetchAll();
-        return $posts;
+        $collection = $statement->fetchAll();
+        return $collection;
     }
 
 

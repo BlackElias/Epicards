@@ -23,14 +23,15 @@ try {
     <?php
        
       $feed = Collection::getFeedCollections();
-       $i = 0;
-      
-       foreach ($feed as $id => $collection) : if ($i == 20) {
-             break;var_dump($i);
-          } ?>
-          <?php include("collection.inc.php") ?>
-       <?php $i++;
-       endforeach; ?>
+      var_dump(Collection::getFeedCollections());
+      $i = 0;
+      foreach ($feed as $collection) : if ($i == 20) {
+            break;
+         } ?>
+         
+         <?php include("collection.inc.php"); ?>
+      <?php $i++;
+      endforeach;  ?>
 
     <button class="btn-collection"><a href="newcollection.php">New collection</a></button>
 </body>
