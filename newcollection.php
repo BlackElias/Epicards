@@ -19,11 +19,13 @@ if (!empty($_POST["pokemon"])) {
 
     $col->setCollectionType($_POST["pokemon"]);
   //  $user->checkUsername();
-
+ if (empty($_POST["private"])) {
+    $_POST["private"] = "private";
+ }
   $col->setCollectionPrivate($_POST["private"]);
- 
+
 $col->saveCollection($currentUserId);
-    header("Location: index.php");
+   header("Location: index.php");
   } catch (\Throwable $th) {
     $error = $th->getMessage();
   }
