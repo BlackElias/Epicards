@@ -19,8 +19,19 @@ try {
 <body>
     <h1>My collection</h1>
     <!-- collectie me php -->
-
-
+   
+    <?php
+       
+      $feed = Collection::getFeedCollections();
+      var_dump(Collection::getFeedCollections());
+      $i = 0;
+      foreach ($feed as $collection) : if ($i == 20) {
+            break;
+         } ?>
+         
+         <?php include("collection.inc.php"); ?>
+      <?php $i++;
+      endforeach;  ?>
 
     <button class="btn-collection"><a href="newcollection.php">New collection</a></button>
 </body>
