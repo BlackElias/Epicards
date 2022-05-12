@@ -54,20 +54,21 @@ if (!empty($_POST)) {
     </div>
   <?php endif; ?>
   <main>
+    <img src="assets/logo.png" alt="logo" class="logo">
     <div style="padding: 2rem 2rem;" class="box-container-medium">
       <h1 class="form-title">Sign up</h1>
       <form enctype="multipart/form-data" method="POST">
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control form-border" id="email" name="email" placeholder="Email"></input>
+          <input type="email" class="form-control form-border email_input" id="email" name="email" placeholder="Email"></input>
         </div>
         <div class="mb-3">
           <label for="postDescription" class="form-label">Username</label>
-          <input class="form-control form-border" id="postDescription" name="username" placeholder="Username"></input>
+          <input class="form-control form-border user_input" id="postDescription" name="username" placeholder="Username"></input>
         </div>
         <div class="mb-3">
           <label for="postTags" class="form-label">Password</label>
-          <input type="password" name="password" class="form-control form-border" id="postTags" name="tags" placeholder='Password' />
+          <input type="password" name="password" class="form-control form-border password_input" id="postTags" name="tags" placeholder='Password' />
         </div>
         <button type="submit" class="w-100 btn btn-lg submit">Sign up</button>
         <h6 class="mt-4 mb-3 text-muted">Already have an account? <a href="login.php">Login</a></h6>
