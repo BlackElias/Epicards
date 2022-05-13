@@ -24,6 +24,7 @@ try {
        
       $feed = Collection::getFeedCollections();
       var_dump(Collection::getFeedCollections());
+      
       $i = 0;
       foreach ($feed as $collection) : if ($i == 20) {
             break;
