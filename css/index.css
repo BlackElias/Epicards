@@ -1,6 +1,9 @@
 .index_container{
     border-radius: 60px 60px 0px 0px;
     background-color: white;
+    height: 100%;
+    margin-top: 90px;
+
 }
 h1{
     margin-top: 0;
