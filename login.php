@@ -48,7 +48,7 @@ if (!empty($_POST)) {
     <main>
     <img src="assets/logo.png" alt="logo" class="logo">
         <div style="padding: 2rem 2rem;" class="box-container-medium">
-            <h1 class="form-title">Login in</h1>
+            <h1 class="form-title">Login</h1>
             <form enctype="multipart/form-data" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>

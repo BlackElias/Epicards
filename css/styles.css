@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+}
+
+@font-face {
+    font-family: "futuraPT medium";
+    src: url(../font/FuturaPTMedium.otf);
+}
+
+@font-face {
+    font-family: "futuraPT bold";
+    src: url(../font/FuturaPTBold.otf);
+}
+
+@font-face {
+    font-family: "apex mk3";
+    src: url(../font/Apex\ Mk3-Medium.otf);
+}
+
+body {
+    font-family: "futuraPT medium";
+}
+
+h1 {
+    font-family: "futuraPT bold";
+    text-align: center;
+}
+
+.btn {
+    font-family: "apex mk3";
+    color: white;
+    border-radius: 10px;
+    top: 40px;
+    position: relative;
+}

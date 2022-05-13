@@ -1,0 +1,25 @@
+body{
+    background-color: rgb(228, 228, 228);
+}
+.container_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0px 20px;
+}
+.favicon{
+    width: 50px;
+    float: left;
+}
+.btn_premium{
+    color: #15680F;
+    font-family: "apex mk3";
+    text-decoration: none;
+    vertical-align: middle;
+}
+.btn_premium:hover{
+    color: #5a9e55;
+}
+.icon{
+    width: 30px;
+}
