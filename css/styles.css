@@ -33,3 +33,8 @@ h1 {
     top: 40px;
     position: relative;
 }
+button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
