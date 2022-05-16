@@ -3,7 +3,7 @@
         const SETTINGS = [
                 "db" =>[
                         "user"          =>"root",
-                        "password"      =>"root",
+                        "password"      =>"",
                         "host"          =>"localhost",
                         "dbname"        =>"epicards"
                 ]

@@ -9,7 +9,6 @@ include_once("bootstrap.php");
         <p>cards</p>
         <p><?php echo htmlspecialchars($collection['collection_name']) ?></p>
     </div>
-    <div class="collection-yugioh"></div>
-    <div class="collection-mtg"></div>
+    
 
     </div>

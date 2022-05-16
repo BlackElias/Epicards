@@ -47,7 +47,7 @@
                 <option value="Fairy">Fairy</option>
                 <option value="Colorless">Colorless</option>
               </select>
-              <button id="search-button"onclick="getValueInput()">search</button>
+              <button id="search-button">search</button>
 
             </div>
           </ul>
@@ -68,7 +68,7 @@
             <h4 id="modal-card-name"></h4> 
             <p id="modal-card-type"></p>
         <table class ="responsive-table highlight">
-  
+  <p id="test"></p>
     
           <tbody>
             <tr>
@@ -93,9 +93,10 @@
       </div>
     </div>
 
-    <!-- The Modal -->
+    <!-- The Modal 
    
-     <script src="src/js/pokesearch.js"></script>
+     <script src="src/js/pokesearch.js"></script>-->
+     <script src="src/js/yugioh.js" ></script>
     </body>
 
     </html>

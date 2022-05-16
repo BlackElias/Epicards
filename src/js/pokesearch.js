@@ -189,13 +189,13 @@ function postPokemonCardInfo(dataTCG) {
 // Takes the TCG data and pulls individual card data
 // Sets the card id as the actual html item id
 function postTypePokemonCardInfo(dataTCG) {
-  console.log(dataTCG);
+  console.log("datattcg"+dataTCG);
   var cardImage = document.createElement("img");
   resultsContainer.appendChild(cardImage);
   cardImage.id = dataTCG.id;
   cardImage.setAttribute("class", "resultsImage");
   cardImage.src = dataTCG.images.small;
-
+  console.log("datattcg"+dataTCG);
   cardImage.addEventListener("click", function (e) {
     console.log(this);
     var cardID = this.id;
@@ -335,7 +335,7 @@ function getSavedCards(cardObject) {
 }
 
 //yugioh
-
+/*
 const getValueInput = () =>{
   const cardname = document.querySelector('input').value;
   console.log(cardname)   
@@ -344,13 +344,27 @@ const getValueInput = () =>{
 .then(data => console.log(data))
 fetch(' https://api.magicthegathering.io/v1/cards?name='+ cardname)
 .then(response => response.json())
-.then(data => console.log(data))
-
+.then(data => console.log( data))
+postTypeYugiohCardInfo(cardname)
 }
-function getCardInfo() {
+function postTypeYugiohCardInfo(cardname) {
+  console.log("cardname:" +cardname);
+  var cardImage = document.createElement("img");
+  resultsContainer.appendChild(cardImage);
  
-}
+  cardImage.id = data.id;
+ 
+  cardImage.setAttribute("class", "resultsImage");
+  cardImage.src = image_url;
 
+  cardImage.addEventListener("click", function (e) {
+    console.log(this);
+    var cardID = this.id;
+
+    cardClickInformation(cardID);
+  });
+}
+*/
 
 startPageSearch();
 
