@@ -93,10 +93,12 @@
       </div>
     </div>
 
-    <!-- The Modal 
-   -->
+    <!-- The Modal -->
+ 
+  
      <script src="src/js/pokesearch.js"></script>
-     <script src="src/js/yugioh.js" ></script>
+     <script src="src/js/yugioh.js" ></script>   
+     <script src="src/js/mtg.js"></script>
     </body>
 
     </html>
