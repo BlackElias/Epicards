@@ -6,9 +6,9 @@ var cardSaveBtn = document.getElementById("card-saver");
 var modal = document.getElementById("myModal");
 var normalPrice = document.getElementById("modal-normal-price");
 var holoFoilPrice = document.getElementById("modal-HoloFoil-price");
-var reverseHolofoilPrice = document.getElementById(
-  "modal-reverseHolofoil-price"
-);
+var reverseHolofoilPrice = document.getElementById( "modal-reverseHolofoil-price");
+var priceH = document.getElementById("priceH");
+var priceR = document.getElementById( "priceR");
 
 document.getElementById("search-button").addEventListener("click", () => {
   const cardname = document.getElementById('name-input').value;
@@ -85,15 +85,19 @@ function cardModalyugiohInformation(modalCardYugioh) {
         "Price: " + modalCardYugioh[0].card_prices[0].tcgplayer_price;
         reverseHolofoilPrice.style.display = "none";
         holoFoilPrice.style.display = "none";
+        priceH.style.display = "none";
+        priceR.style.display = "none";
     } else {
       normalPrice.innerHTML = " N/A";
       reverseHolofoilPrice.style.display = "none";
         holoFoilPrice.style.display = "none";
+        priceH.style.display = "none";
+        priceR.style.display = "none";
     }
 
   
   }
- // modalCardType.innerHTML = "Type " + modalCard.types[0];
+  modalCardType.innerHTML = " ";
 
   modal.style.display = "block";
 }

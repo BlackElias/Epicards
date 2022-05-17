@@ -72,11 +72,11 @@
     
           <tbody>
             <tr>
-              <td>Holofoil Market Price</td>
+              <td id="priceH">Holofoil Market Price</td>
               <td id="modal-HoloFoil-price"></td>
             </tr>
             <tr>
-              <td>Reverse Holofoil Market Price</td>
+              <td id="priceR">Reverse Holofoil Market Price</td>
               <td id="modal-reverseHolofoil-price"></td>
               
             </tr>
@@ -94,8 +94,8 @@
     </div>
 
     <!-- The Modal 
-   
-     <script src="src/js/pokesearch.js"></script>-->
+   -->
+     <script src="src/js/pokesearch.js"></script>
      <script src="src/js/yugioh.js" ></script>
     </body>
 
