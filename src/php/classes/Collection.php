@@ -6,7 +6,7 @@ class Collection
     private $collectionName;
     private $collectionPrivate;
     private $collectionType;
-
+    private $collectonId;
 
 
 
@@ -86,6 +86,26 @@ class Collection
      *
      * @return  self
      */ 
+ /**
+     * Get the value of collectonId
+     */ 
+    public function getCollectonId()
+    {
+        return $this->collectonId;
+    }
+
+    /**
+     * Set the value of collectonId
+     *
+     * @return  self
+     */ 
+    public function setCollectonId($collectonId)
+    {
+        $this->collectonId = $collectonId;
+
+        return $this;
+    }
+     
     public function setCollectionType($collectionType)
     {
         $this->collectionType = $collectionType;
@@ -123,6 +143,17 @@ class Collection
         $collection = $statement->fetchAll();
         return $collection;
     }
+    public static function getCollectionId()
+    {
+        $conn = Db::getConnection();
+
+        $sql = "SELECT *, collection_id as collectionId FROM collection  ";
+        $statement = $conn->prepare($sql);
+       
+        $statement->execute();
+        $collection = $statement->fetchAll();
+        return $collection;
+    }
 
 
 
@@ -134,4 +165,6 @@ class Collection
 
 
 
+
+   
 }
