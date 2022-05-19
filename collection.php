@@ -8,7 +8,9 @@ try {
 } catch (\Throwable $th) {
    $error = $th->getMessage();
 }
- 
+
+
+$_SESSION["collection"] = $_GET["id"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +46,7 @@ try {
         <?php
 
 $feed = Cards::getFeedCards();
-  var_dump(Cards::getFeedCards());
+ // var_dump(Cards::getFeedCards());
 
 $i = 0;
 foreach ($feed as $card) : if ($i == 20) {

@@ -8,6 +8,8 @@ try {
 } catch (\Throwable $th) {
    $error = $th->getMessage();
 }
+
+unset($_SESSION['collection_id']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

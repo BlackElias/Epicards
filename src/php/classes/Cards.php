@@ -135,9 +135,9 @@ class Cards
     {
         $conn = Db::getConnection();
 
-        $sql = "SELECT * FROM cards ";
+        $sql = "SELECT * FROM cards WHERE collection_id = :collection_id ";
         $statement = $conn->prepare($sql);
-        $collection_id = "";
+        $collection_id = $_SESSION["collection"];
 
         $statement->bindValue(":collection_id", $collection_id);
         $statement->execute();
