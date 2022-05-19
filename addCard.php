@@ -124,10 +124,10 @@ if (!empty($_POST["cardName"])) {
       <img class="responsive-img" src="" alt="" id="modal-card-image">
       <form action="" method="POST">
           
-          <input id="addCard-data" type="text" value="" name="cardName"></input>
-          <input id="addCard-price" type="text" value="" name="cardPrice"></input>
-          <input id="addCard-image" type="text" value="" name="cardImage"></input>
-          <input  type="text" value="<?php echo $_POST['id']?>" name="id"></input>
+          <input id="addCard-data" type="hidden" value="" name="cardName"></input>
+          <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
+          <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
+          <input  type="hidden" value="<?php echo $_POST['id']?>" name="id"></input>
          
       <button id="card-saver" type="submit"> add card<img class="responsive-img"></button>
       </form>

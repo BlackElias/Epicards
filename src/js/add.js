@@ -232,7 +232,7 @@ function cardClickInformation(cardObject) {
 // Handles information inside the Card Modal
 function cardModalInformation(modalCard) {
         addCardPokemon.value = modalCard.name;
-        console.log(modalCard.tcgplayer.prices.holofoil.market)
+        //console.log(modalCard.tcgplayer.prices.holofoil.market)
 if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
 
     addCardPokemonPrice.value = modalCard.tcgplayer.prices.reverseholofoil.market.toFixed(2);
@@ -241,7 +241,7 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
 
     addCardPokemonPrice.value = modalCard.tcgplayer.prices.holofoil.market.toFixed(2);
 
-} else if(typeof modalCard.tcgplayer.prices.normal.market !== 'undefined'){
+} else if(typeof modalCard.tcgplayer.prices.normal !== 'undefined'){
 
      addCardPokemonPrice.value = modalCard.tcgplayer.prices.normal.market;
 
