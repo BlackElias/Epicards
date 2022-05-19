@@ -1,0 +1,9 @@
+.collection_icon{
+    background-image: url(../assets/collection_icon.svg);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    width: 200px;
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+}
