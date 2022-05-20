@@ -20,6 +20,10 @@ h1 {
     bottom: 50px;
 }
 
+a{
+    color: black;
+}
+
 .collection-text {
     text-decoration: none;
     color: black;
@@ -33,7 +37,7 @@ h1 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     padding: 9% 0;
 }
 .collection_card_text{

@@ -52,7 +52,7 @@ a {
     text-decoration: none;
 }
 
-.button_sec a {
+.button_sec{
     border: solid 4px red;
     border-radius: 15px;
     padding: 15px 30px;
