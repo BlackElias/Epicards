@@ -27,21 +27,21 @@ unset($_SESSION['collection_id']);
    <div class="index_container">
       <h1>My collections</h1>
       <!-- collectie me php -->
+      <div class="collections_scroll">
+         <?php
 
-      <?php
+         $feed = Collection::getFeedCollections();
+         //  var_dump(Collection::getFeedCollections());
 
-      $feed = Collection::getFeedCollections();
-     //  var_dump(Collection::getFeedCollections());
+         $i = 0;
+         foreach ($feed as $collection) : if ($i == 20) {
+               break;
+            } ?>
 
-      $i = 0;
-      foreach ($feed as $collection) : if ($i == 20) {
-            break;
-         } ?>
-
-         <?php include("collection.inc.php"); ?>
-      <?php $i++;
-      endforeach;  ?>
-
+            <?php include("collection.inc.php"); ?>
+         <?php $i++;
+         endforeach;  ?>
+      </div>
       <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
    </div>
 </body>
