@@ -2,105 +2,124 @@
 
 
 include_once("bootstrap.php");
+include_once("header.inc.php");
 
-
-var_dump($_POST);
-var_dump($_SESSION["userId"]);
+//var_dump($_POST);
+//var_dump($_SESSION["userId"]);
 
 
 if (!empty($_POST["pokemon"])) {
   try {
     $col = new Collection();
-   
+
     $currentUserId = $_SESSION["userId"];
-   
+
     $col->setCollectionName($_POST["name"]);
-   // $user->checkEmail();
+    // $user->checkEmail();
 
     $col->setCollectionType($_POST["pokemon"]);
-  //  $user->checkUsername();
- if (empty($_POST["private"])) {
-    $_POST["private"] = "private";
- }
-  $col->setCollectionPrivate($_POST["private"]);
+    //  $user->checkUsername();
+    if (empty($_POST["private"])) {
+      $_POST["private"] = "private";
+    }
+    $col->setCollectionPrivate($_POST["private"]);
 
-$col->saveCollection($currentUserId);
-   header("Location: index.php");
+    $col->saveCollection($currentUserId);
+    header("Location: index.php");
   } catch (\Throwable $th) {
     $error = $th->getMessage();
   }
 }
 
 if (!empty($_POST["yugioh"])) {
-    try {
-        $col = new Collection();
-   
-        $currentUserId = $_SESSION["userId"];
-       
-        $col->setCollectionName($_POST["name"]);
-       // $user->checkEmail();
-    
-        $col->setCollectionType($_POST["yugioh"]);
-      //  $user->checkUsername();
-    
-      $col->setCollectionPrivate($_POST["private"]);
-     
+  try {
+    $col = new Collection();
+
+    $currentUserId = $_SESSION["userId"];
+
+    $col->setCollectionName($_POST["name"]);
+    // $user->checkEmail();
+
+    $col->setCollectionType($_POST["yugioh"]);
+    //  $user->checkUsername();
+
+    $col->setCollectionPrivate($_POST["private"]);
+
     $col->saveCollection($currentUserId);
-        header("Location: index.php");
-    } catch (\Throwable $th) {
-      $error = $th->getMessage();
-    }
+    header("Location: index.php");
+  } catch (\Throwable $th) {
+    $error = $th->getMessage();
   }
-  if (!empty($_POST["MTG"])) {
-    try {
-        $col = new Collection();
-   
-        $currentUserId = $_SESSION["userId"];
-       
-        $col->setCollectionName($_POST["name"]);
-       // $user->checkEmail();
-    
-        $col->setCollectionType($_POST["MTG"]);
-      //  $user->checkUsername();
-    
-      $col->setCollectionPrivate($_POST["private"]);
-     
+}
+if (!empty($_POST["MTG"])) {
+  try {
+    $col = new Collection();
+
+    $currentUserId = $_SESSION["userId"];
+
+    $col->setCollectionName($_POST["name"]);
+    // $user->checkEmail();
+
+    $col->setCollectionType($_POST["MTG"]);
+    //  $user->checkUsername();
+
+    $col->setCollectionPrivate($_POST["private"]);
+
     $col->saveCollection($currentUserId);
-        header("Location: index.php");
-    } catch (\Throwable $th) {
-      $error = $th->getMessage();
-    }
+    header("Location: index.php");
+  } catch (\Throwable $th) {
+    $error = $th->getMessage();
   }
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>new collection</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/newcollection.css">
+  <title>new collection</title>
 </head>
+
 <body>
-    
-<form action="" method="POST">
-<h2>Make collection Public</h2>
+  <div class="newcollection_container">
+    <div class="top">
+      <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button>
+      <h1>Add collection</h1>
+    </div>
 
-  <input type="checkbox" name="private"value="unprivate">
- 
+    <form action="" method="POST">
+      <div class="checkbox_public">
+        <label for="unprivate" class="pointer">Make collection Public</label>
+        <input type="checkbox" name="private" value="unprivate" id="unprivate" class="pointer">
+      </div>
 
-<label for="">Collection Name</label>
-<input type="text" name="name">
+      <div class="collection_input">
+        <!-- <h3>Collection name</h3> -->
+        <label for="collection_input" class="input_label">Collection name</label>
+        <input type="text" name="name" class="input_field" id="collection_input">
+      </div>
 
+      <div class="collection_type">
+        <h3>Type collection</h3>
+        <div class="type_buttons">
+          <button type="submit" name="pokemon" value="pokemon" class="collection_type_button pkmn_type"><img src="assets/pkmn_logo.svg" alt=""></img>
+            <p class="type_class">poke</p> </input>
+            <button type="submit" name="yugioh" value="yugioh" class="collection_type_button yug_type"><img src="assets/yug_logo.svg" alt=""></img>
+              <p class="type_class">yugi</p> </input>
+              <button type="submit" name="MTG" value="MTG" class="collection_type_button mtg_type"><img src="assets/mtg_logo.svg" alt=""></img>
+                <p class="type_class">mtg</p> </input>
+        </div>
 
-<h3>type collection</h3>
-<button type="submit" name="pokemon" value="pokemon"><img src="" alt=""></img>poke</input>
-<button type="submit"name="yugioh" value="yugioh"><img src="" alt=""></img>yugi</input>
-<button type="submit" name="MTG" value="MTG"><img src="" alt=""></img>mtg</input>
+      </div>
 
-
-</form>
+    </form>
+  </div>
 </body>
 
 </html>
