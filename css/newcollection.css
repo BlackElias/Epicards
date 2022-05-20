@@ -1,0 +1,110 @@
+.newcollection_container {
+    border-radius: 60px 60px 0px 0px;
+    background-color: white;
+    height: 100%;
+    margin-top: 90px;
+    position: fixed;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.45) -20px 25px 0px -25px;
+}
+
+div.top {
+    display: flex;
+    align-items: center;
+    padding-top: 35px;
+    padding-bottom: 25px;
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    width: 80%;
+}
+
+.back_arrow {
+    width: 20px;
+    padding-left: 30px;
+    padding-bottom: 25px;
+    vertical-align: middle;
+}
+
+p {
+    margin: 0;
+}
+
+.checkbox_public {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    text-decoration: underline;
+}
+
+label.input_label {
+    font-size: 1.17em;
+    font-weight: normal;
+}
+
+.input_field {
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 8px;
+    border: none;
+    padding: 1rem 0.75rem 0.7rem 1rem;
+    border-radius: 0.45rem;
+    width: 90%;
+    margin-top: 15px;
+}
+
+.collection_input {
+    margin-bottom: 3rem !important;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+.collection_type {
+    margin-bottom: 1rem !important;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.collection_type_button {
+    width: 40vw;
+    padding: 10px 20px;
+    border-radius: 1.5em;
+    margin: 0px 15px 15px 0px;
+}
+
+.pkmn_type {
+    background-color: #B9C7D6;
+}
+
+.yug_type{
+    background-color: #EDB6BC;
+}
+
+.mtg_type{
+    background-color: #E5BFBB;
+}
+.type_class{
+    position: absolute;
+    display: none;
+}
+div.type_buttons{
+    display: flex;
+    flex-wrap: wrap;
+}
