@@ -60,3 +60,8 @@ div.cards_amount{
     align-items: center;
     flex-direction: column;
 }
+.collections_scroll{
+    height: 60%;
+    overflow: hidden;
+    overflow-y: scroll;
+}

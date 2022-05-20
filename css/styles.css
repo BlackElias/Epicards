@@ -60,6 +60,7 @@ a {
     color: black;
     font-size: 1.1rem;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 img.plus_icon{
     width: 11px;
