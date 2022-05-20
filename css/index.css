@@ -1,11 +1,62 @@
-.index_container{
+.index_container {
     border-radius: 60px 60px 0px 0px;
     background-color: white;
     height: 100%;
     margin-top: 90px;
-
+    position: fixed;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.45) -20px 25px 0px -25px;
 }
-h1{
+
+h1 {
     margin-top: 0;
     padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.btn-collection {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+}
+
+.collection-text {
+    text-decoration: none;
+    color: black;
+
+}
+
+.collection-pokemon {
+    background-color: #86AACC;
+    width: 90%;
+    border-radius: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding: 9% 0;
+}
+.collection_card_text{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+p{
+    color: white;
+    margin: 0;
+    font-size: 20px;
+}
+.card_icon{
+    width: 30px;
+    padding-right: 15px;
+}
+p.collection_title{
+    font-family: "apex mk3";
+    display: flex;
+    align-items: center;
+}
+div.cards_amount{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

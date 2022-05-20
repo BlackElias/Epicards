@@ -25,7 +25,7 @@ unset($_SESSION['collection_id']);
 
 <body>
    <div class="index_container">
-      <h1>My collection</h1>
+      <h1>My collections</h1>
       <!-- collectie me php -->
 
       <?php
@@ -42,7 +42,7 @@ unset($_SESSION['collection_id']);
       <?php $i++;
       endforeach;  ?>
 
-      <button class="btn-collection"><a href="newcollection.php">New collection</a></button>
+      <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
    </div>
 </body>
 
