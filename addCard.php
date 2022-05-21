@@ -138,7 +138,7 @@ if (!empty($_POST["cardName"])) {
     </div>
   </div>
   <!-- The Modal -->
-
+  <button onclick="history.go(-2);" class="button_sec back_btn">back to collection</button>
 
   <script src="src/js/add.js"></script>
 
