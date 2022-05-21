@@ -1,0 +1,19 @@
+div.top {
+    display: flex;
+    align-items: center;
+    padding-top: 115px;
+    padding-bottom: 15px;
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    width: 80%;
+}
+
+.back_arrow {
+    width: 20px;
+    padding-left: 30px;
+    padding-bottom: 25px;
+    vertical-align: middle;
+}
