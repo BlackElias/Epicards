@@ -69,3 +69,7 @@ div.cards_amount{
     overflow: hidden;
     overflow-y: scroll;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
