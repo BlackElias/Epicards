@@ -1,6 +1,7 @@
 <?php
 include_once("bootstrap.php");
 include_once("header.inc.php");
+include_once("navbar.inc.php");
 ?>
 
 <!DOCTYPE html>
