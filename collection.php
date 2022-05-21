@@ -61,19 +61,21 @@ $_SESSION["collection"] = $_GET["id"];
             <input type="hidden" name="id" value="<?php echo  $_GET['id'] ?>"></input>
             <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
         </form>
-        <?php
+        <div class="card_scroll">
+            <?php
 
-        $feed = Cards::getFeedCards();
-        // var_dump(Cards::getFeedCards());
+            $feed = Cards::getFeedCards();
+            // var_dump(Cards::getFeedCards());
 
-        $i = 0;
-        foreach ($feed as $card) : if ($i == 20) {
-                break;
-            } ?>
+            $i = 0;
+            foreach ($feed as $card) : if ($i == 20) {
+                    break;
+                } ?>
 
-            <?php include("card.inc.php"); ?>
-        <?php $i++;
-        endforeach;  ?>
+                <?php include("card.inc.php"); ?>
+            <?php $i++;
+            endforeach;  ?>
+        </div>
     </div>
 </body>
 
