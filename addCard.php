@@ -1,6 +1,6 @@
 <?php
 include_once("bootstrap.php");
-include_once("header.inc.php");
+include_once("header2.inc.php");
 include_once("navbar.inc.php");
 try {
   $user = new User();
@@ -41,7 +41,7 @@ if (!empty($_POST["cardName"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="css/add_card.css">
   <link rel="stylesheet" href="src/css/style.css">
 </head>
 <nav>
@@ -51,9 +51,12 @@ if (!empty($_POST["cardName"])) {
 <body>
   <div class="input-field col s12">
 
-    <input type="text" id="name-input" placeholder="search name" name="current-search">
-
-
+    <div class="search">
+      <input type="text" id="name-input" placeholder="search name" name="current-search" class="form_input card_input">
+      <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn">
+        <p class="hide_text">hi</p>
+      </button>
+    </div>
     <select class="browser-default" id="generation-search" style="display:none ;">
       <option value="">Choose your option</option>
       <option value="generation/1">1</option>
@@ -80,59 +83,60 @@ if (!empty($_POST["cardName"])) {
       <option value="Fairy">Fairy</option>
       <option value="Colorless">Colorless</option>
     </select>
-    <button id="search-button">search</button>
+
 
   </div>
   </ul>
   </div>
-  <div class="col s12 m8 l9">
-    <!-- Teal page content  -->
-    <div class="row" class="responsive-img" id="pokeResults">
+  <div class="card_scroll">
+    <div>
+      <div class="col s12 m8 l9">
+        <!-- Teal page content  -->
+        <div class="row responsive-img" id="pokeResults">
 
+        </div>
+      </div>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times; close</span>
+        <h4 id="modal-card-name"></h4>
+        <p id="modal-card-type"></p>
+        <table class="responsive-table highlight">
+          <p id="test"></p>
+
+          <tbody style="display: none;">
+            <tr>
+              <td id="priceH">Holofoil Market Price</td>
+              <td id="modal-HoloFoil-price"></td>
+            </tr>
+            <tr>
+              <td id="priceR">Reverse Holofoil Market Price</td>
+              <td id="modal-reverseHolofoil-price"></td>
+
+            </tr>
+            <tr>
+              <td>Normal Market Price</td>
+              <td id="modal-normal-price"></td>
+
+            </tr>
+          </tbody>
+        </table>
+        <img class="responsive-img" src="" alt="" id="modal-card-image">
+        <form action="" method="POST">
+
+          <input id="addCard-data" type="hidden" value="" name="cardName"></input>
+          <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
+          <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
+          <input type="hidden" value="<?php echo $_POST['id'] ?>" name="id"></input>
+          <button id="card-saver" type="submit"> add card<img class="responsive-img"></button>
+        </form>
+      </div>
     </div>
   </div>
-  </div>
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times; close</span>
-      <h4 id="modal-card-name"></h4>
-      <p id="modal-card-type"></p>
-      <table class="responsive-table highlight">
-        <p id="test"></p>
-
-        <tbody style="display: none;">
-          <tr>
-            <td id="priceH">Holofoil Market Price</td>
-            <td id="modal-HoloFoil-price"></td>
-          </tr>
-          <tr>
-            <td id="priceR">Reverse Holofoil Market Price</td>
-            <td id="modal-reverseHolofoil-price"></td>
-
-          </tr>
-          <tr>
-            <td>Normal Market Price</td>
-            <td id="modal-normal-price"></td>
-
-          </tr>
-        </tbody>
-      </table>
-      <img class="responsive-img" src="" alt="" id="modal-card-image">
-      <form action="" method="POST">
-
-        <input id="addCard-data" type="hidden" value="" name="cardName"></input>
-        <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
-        <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
-        <input type="hidden" value="<?php echo $_POST['id'] ?>" name="id"></input>
-
-        <button id="card-saver" type="submit"> add card<img class="responsive-img"></button>
-      </form>
-    </div>
-  </div>
-
   <!-- The Modal -->
 
 
