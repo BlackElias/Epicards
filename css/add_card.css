@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(228, 228, 228);
+}
 .form_input {
     box-shadow: rgb(50 50 93 / 25%) 1px 1px 9px 2px inset;
     border: none;
@@ -22,6 +25,7 @@
     width: 100%;
     background-color: white;
     padding-bottom: 15px;
+    box-shadow: rgb(100 100 111 / 5%) 0px 35px 60px 0px;
 }
 .hide_text{
     opacity: 0%;
@@ -33,7 +37,7 @@
     z-index: -1;
 }
 .row{
-    padding-top: 150px;
+    padding-top: 160px;
     width: 90%;
     display: block;
     margin-left: auto;
@@ -44,4 +48,7 @@
     margin-bottom: 10px;
     border-radius: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+::-webkit-scrollbar {
+    display: none;
 }
