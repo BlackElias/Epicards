@@ -52,3 +52,9 @@ body{
 ::-webkit-scrollbar {
     display: none;
 }
+.back_btn{
+    position: fixed;
+    bottom: 95px;
+    left: 20%;
+    right: 20%;
+}
