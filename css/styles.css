@@ -27,14 +27,16 @@ h1 {
 }
 
 .btn {
-    width: 120px !important;
+    width: 130px !important;
     font-family: "apex mk3";
     display: block;
     margin-left: auto;
     margin-right: auto;
     background-image: linear-gradient(0deg, rgba(225, 27, 56, 1) 0%, rgba(232, 69, 51, 1) 100%);
     color: white;
-    border-radius: 10px;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 1.25em;
 }
 
 .btn:hover {
