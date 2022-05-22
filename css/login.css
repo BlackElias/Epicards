@@ -50,19 +50,10 @@ h1, h6 {
     background-color: white;
 }
 
-.w-100 {
-    width: 120px !important;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: linear-gradient(0deg, rgba(225, 27, 56, 1) 0%, rgba(232, 69, 51, 1) 100%);
-}
-
 .btn {
-    color: white;
-    border-radius: 10px;
     top: 40px;
     position: relative;
+    padding: 10px;
 }
 
 .btn:hover {

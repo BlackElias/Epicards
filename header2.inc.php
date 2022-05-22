@@ -16,7 +16,7 @@ include_once("bootstrap.php");
 <body>
   <div class="container_header">
     <a href="index.php"> <img src="assets/favicon.svg" alt="logo" class="favicon"></a>
-    <a href="#" class="btn_premium">go premium</a>
+    <a href="premium.php" class="btn_premium">go premium</a>
     <a href="#"><img src="assets/cart_icon.svg" alt="cart icon" class="icon cart_icon"></a>
     <a href="appsettings.php"><img src="assets/settings_icon.svg" alt="cart icon" class="icon cart_icon"></a>
   </div>
