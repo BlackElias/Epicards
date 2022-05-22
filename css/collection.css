@@ -113,6 +113,9 @@ p {
 .card_img {
     width: 10%;
 }
+.bin_icon{
+    width: 27px;
+}
 .card_scroll{
     position: relative;
     height: 45%;

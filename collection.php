@@ -10,7 +10,6 @@ try {
     $error = $th->getMessage();
 }
 
-
 $_SESSION["collection"] = $_GET["id"];
 ?>
 <!DOCTYPE html>
@@ -44,7 +43,9 @@ $_SESSION["collection"] = $_GET["id"];
             <div class="collection_column">
                 <p>Collection price:</p>
                 <div class="price_inline">
-                    <span>0</span>&nbsp;
+                    <span>
+                        0
+                    </span>&nbsp;
                     <p>euro</p>
                 </div>
 
