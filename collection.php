@@ -11,6 +11,8 @@ try {
 }
 
 $_SESSION["collection"] = $_GET["id"];
+$counter = Cards::getFeedCards();
+ //var_dump(Cards::getFeedCards());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +46,11 @@ $_SESSION["collection"] = $_GET["id"];
                 <p>Collection price:</p>
                 <div class="price_inline">
                     <span>
-                        0
+                        <?php  
+                       
+                         $price = array_column($counter, 'card_price');
+                         echo  array_sum($price) ; 
+                        ?>
                     </span>&nbsp;
                     <p>euro</p>
                 </div>
@@ -65,9 +71,9 @@ $_SESSION["collection"] = $_GET["id"];
         <div class="card_scroll">
             <?php
 
-            $feed = Cards::getFeedCards();
-            // var_dump(Cards::getFeedCards());
-
+           
+$feed = Cards::getFeedCards();
+ //var_dump(Cards::getFeedCards());
             $i = 0;
             foreach ($feed as $card) : if ($i == 20) {
                     break;
@@ -79,5 +85,5 @@ $_SESSION["collection"] = $_GET["id"];
         </div>
     </div>
 </body>
-
+<script src="src/js/app.js"></script>
 </html>
