@@ -65,8 +65,12 @@ $counter = Cards::getFeedCards();
             </div>
         </div>
         <!-- if image -->
-        <img src="" alt="">
-        <p class="empty_state">There are no cards in this collection</p>
+        <?php 
+         if( sizeof($counter) <= "0" ){
+        
+     echo'   <img src="" alt="">
+        <p class="empty_state">There are no cards in this collection</p>';
+        }?>
         <form action="addCard.php" method="POST">
             <input type="hidden" name="id" value="<?php echo  $_GET['id'] ?>"></input>
             <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
