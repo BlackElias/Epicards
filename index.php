@@ -9,8 +9,10 @@ try {
 } catch (\Throwable $th) {
    $error = $th->getMessage();
 }
-
+$cards = Collection::getCards();
+$total = array_column($cards, 'collection_id');
 unset($_SESSION['collection_id']);
+var_dump($total);
 ?>
 <!DOCTYPE html>
 <html lang="en">
