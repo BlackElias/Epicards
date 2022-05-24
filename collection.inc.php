@@ -8,7 +8,7 @@ include_once("bootstrap.php");
         <div class="collection-pokemon">
             <div class="collection_card_text">
                 <div class="cards_amount">
-                    <p>0</p>
+                    <p><?php echo  count($collection)   ?></p>
                     <p class="">cards</p>
                 </div>
                
