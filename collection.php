@@ -58,7 +58,10 @@ $counter = Cards::getFeedCards();
             </div>
             <div class="collection_column">
                 <p>Card amount:</p>
-                <span>0</span>
+                <span> <?php  
+                       
+                       echo  count($counter) ; 
+                      ?></span>
             </div>
         </div>
         <!-- if image -->
