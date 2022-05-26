@@ -42,6 +42,7 @@ if (!empty($_POST["cardName"])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="css/add_card.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="src/css/style.css">
 </head>
 <nav>
@@ -102,38 +103,42 @@ if (!empty($_POST["cardName"])) {
 
       <!-- Modal content -->
       <div class="modal-content">
-        <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times; close</span>
-        <h4 id="modal-card-name"></h4>
-        <p id="modal-card-type"></p>
-        <table class="responsive-table highlight">
-          <p id="test"></p>
+        <div class="modal-background">
+          <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times; close</span>
+          <div class="title_img_center">
+            <h4 id="modal-card-name"></h4>
+            <p id="modal-card-type"></p>
+            <table class="responsive-table highlight">
+              <p id="test"></p>
 
-          <tbody style="display: none;">
-            <tr>
-              <td id="priceH">Holofoil Market Price</td>
-              <td id="modal-HoloFoil-price"></td>
-            </tr>
-            <tr>
-              <td id="priceR">Reverse Holofoil Market Price</td>
-              <td id="modal-reverseHolofoil-price"></td>
+              <tbody style="display: none;">
+                <tr>
+                  <td id="priceH">Holofoil Market Price</td>
+                  <td id="modal-HoloFoil-price"></td>
+                </tr>
+                <tr>
+                  <td id="priceR">Reverse Holofoil Market Price</td>
+                  <td id="modal-reverseHolofoil-price"></td>
 
-            </tr>
-            <tr>
-              <td>Normal Market Price</td>
-              <td id="modal-normal-price"></td>
+                </tr>
+                <tr>
+                  <td>Normal Market Price</td>
+                  <td id="modal-normal-price"></td>
 
-            </tr>
-          </tbody>
-        </table>
-        <img class="responsive-img" src="" alt="" id="modal-card-image">
-        <form action="" method="POST">
+                </tr>
+              </tbody>
+            </table>
+            <img class="responsive-img" src="" alt="" id="modal-card-image">
+          </div>
+          <form action="" method="POST">
 
-          <input id="addCard-data" type="hidden" value="" name="cardName"></input>
-          <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
-          <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
-          <input type="hidden" value="<?php echo $_POST['id'] ?>" name="id"></input>
-          <button id="card-saver" type="submit"> add card<img class="responsive-img"></button>
-        </form>
+            <input id="addCard-data" type="hidden" value="" name="cardName"></input>
+            <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
+            <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
+            <input type="hidden" value="<?php echo $_POST['id'] ?>" name="id"></input>
+            <button id="card-saver" type="submit" class="btn">add card</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
