@@ -3,7 +3,7 @@ include_once("bootstrap.php");
 
 ?>
 
-<a class="collection-text" href="collection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>">
+<a class="collection-text" href="collection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
     <div class="container">
         <div class="collection-pokemon">
             <div class="collection_card_text">

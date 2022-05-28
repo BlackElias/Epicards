@@ -16,6 +16,11 @@ var holoFoilPrice = document.getElementById("modal-HoloFoil-price");
 var normalPrice = document.getElementById("modal-normal-price");
 var modalCardImage = document.getElementById("modal-card-image");
 var modalCardType = document.getElementById("modal-card-type");
+var addCardPokemon= document.getElementById( "addCard-data");
+var addCardPokemonPrice= document.getElementById( "addCard-price");
+var addCardPokemonImage= document.getElementById( "addCard-image");
+var url = document.getElementById( "buyCard");
+
 
 var cardSaveBtn = document.getElementById("card-saver");
 
@@ -227,14 +232,33 @@ function cardClickInformation(cardObject) {
 
 // Handles information inside the Card Modal
 function cardModalInformation(modalCard) {
+        addCardPokemon.value = modalCard.name;
+        //console.log(modalCard.tcgplayer.prices.holofoil.market)
+if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
+
+    addCardPokemonPrice.value = modalCard.tcgplayer.prices.reverseholofoil.market.toFixed(2);
+
+} else if(typeof modalCard.tcgplayer.prices.holofoil !== 'undefined'){
+
+    addCardPokemonPrice.value = modalCard.tcgplayer.prices.holofoil.market.toFixed(2);
+
+} else if(typeof modalCard.tcgplayer.prices.normal !== 'undefined'){
+
+     addCardPokemonPrice.value = modalCard.tcgplayer.prices.normal.market;
+
+} else {addCardPokemonPrice.value = "0"}
+
+
+       
+        addCardPokemonImage.value = modalCard.images.large;
   modalCardName.innerHTML =  modalCard.name;
   modalCardImage.src = modalCard.images.large;
   cardSaveBtn.setAttribute("class", modalCard.id);
-
+  
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {
       normalPrice.innerHTML =
-        "Price: " + modalCard.tcgplayer.prices.normal.market.toFixed(2);
+        "Price: " + modalCard.tcgplayer.prices.market.toFixed(2);
     } else {
       normalPrice.innerHTML = " N/A";
     }
@@ -333,41 +357,4 @@ function getSavedCards(cardObject) {
       });
   }
 }
-
-//yugioh
-/*
-const getValueInput = () =>{
-  const cardname = document.querySelector('input').value;
-  console.log(cardname)   
-   fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
-.then(response => response.json())
-.then(data => console.log(data))
-fetch(' https://api.magicthegathering.io/v1/cards?name='+ cardname)
-.then(response => response.json())
-.then(data => console.log( data))
-postTypeYugiohCardInfo(cardname)
-}
-function postTypeYugiohCardInfo(cardname) {
-  console.log("cardname:" +cardname);
-  var cardImage = document.createElement("img");
-  resultsContainer.appendChild(cardImage);
- 
-  cardImage.id = data.id;
- 
-  cardImage.setAttribute("class", "resultsImage");
-  cardImage.src = image_url;
-
-  cardImage.addEventListener("click", function (e) {
-    console.log(this);
-    var cardID = this.id;
-
-    cardClickInformation(cardID);
-  });
-}
-*/
-
 startPageSearch();
-
-
-
-

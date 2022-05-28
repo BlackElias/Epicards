@@ -73,6 +73,7 @@ $counter = Cards::getFeedCards();
         }?>
         <form action="addCard.php" method="POST">
             <input type="hidden" name="id" value="<?php echo  $_GET['id'] ?>"></input>
+            <input type="hidden" name="type" value="<?php echo  $_GET['type'] ?>"></input>
             <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
         </form>
         <div class="card_scroll">
