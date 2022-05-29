@@ -254,11 +254,11 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
   modalCardName.innerHTML =  modalCard.name;
   modalCardImage.src = modalCard.images.large;
   cardSaveBtn.setAttribute("class", modalCard.id);
-  
+  url.href = "buy.php?title=" + modalCard.name;
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {
       normalPrice.innerHTML =
-        "Price: " + modalCard.tcgplayer.prices.market.toFixed(2);
+        "Price: " + modalCard.tcgplayer.prices.normal.market.toFixed(2);
     } else {
       normalPrice.innerHTML = " N/A";
     }
@@ -357,4 +357,274 @@ function getSavedCards(cardObject) {
       });
   }
 }
+
+//yugioh
+/*
+const getValueInput = () =>{
+  const cardname = document.querySelector('input').value;
+  console.log(cardname)   
+   fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
+.then(response => response.json())
+.then(data => console.log(data))
+fetch(' https://api.magicthegathering.io/v1/cards?name='+ cardname)
+.then(response => response.json())
+.then(data => console.log( data))
+postTypeYugiohCardInfo(cardname)
+}
+function postTypeYugiohCardInfo(cardname) {
+  console.log("cardname:" +cardname);
+  var cardImage = document.createElement("img");
+  resultsContainer.appendChild(cardImage);
+ 
+  cardImage.id = data.id;
+ 
+  cardImage.setAttribute("class", "resultsImage");
+  cardImage.src = image_url;
+
+  cardImage.addEventListener("click", function (e) {
+    console.log(this);
+    var cardID = this.id;
+
+    cardClickInformation(cardID);
+  });
+}
+*/
+
+resultsContainer = document.getElementById("pokeResults");
+var modalCardYugiohImage = document.getElementById("modal-card-image");
+var modalCardYugiohName = document.getElementById("modal-card-name");
+var cardSaveBtn = document.getElementById("card-saver");
+var modal = document.getElementById("myModal");
+var normalPrice = document.getElementById("modal-normal-price");
+var holoFoilPrice = document.getElementById("modal-HoloFoil-price");
+var reverseHolofoilPrice = document.getElementById( "modal-reverseHolofoil-price");
+var priceH = document.getElementById("priceH");
+var priceR = document.getElementById( "priceR");
+var addCardYugioh= document.getElementById( "addCard-data");
+var addCardYugiohPrice= document.getElementById( "addCard-price");
+var addCardYugiohImage= document.getElementById( "addCard-image");
+
+
+document.getElementById("search-button").addEventListener("click", () => {
+    const cardname = document.getElementById('name-input').value;
+    console.log(cardname)   
+     fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
+    
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+  
+      postyugiohCardInfo(data.data);
+    });
+  })
+  function postyugiohCardInfo(datayugioh) {
+    for (i = 0; i < datayugioh.length; i++) {
+      console.log(datayugioh[i].card_images[0].image_url);
+      var cardImage = document.createElement("img");
+      resultsContainer.appendChild(cardImage);
+      cardImage.id = datayugioh[i].id;
+      cardImage.setAttribute("class", "resultsImage");
+      cardImage.src = datayugioh[i].card_images[0].image_url;
+  
+      cardImage.addEventListener("click", function (e) {
+        console.log(this);
+        var cardID = this.id;
+  
+        cardClickInformationyugioh(cardID);
+      });
+    }
+  }
+  
+  function postTypeyugiohCardInfo(datayugioh) {
+    console.log("datattcg");
+    var cardImage = document.createElement("img");
+    resultsContainer.appendChild(cardImage);
+    cardImage.id = datayugioh.id;
+    cardImage.setAttribute("class", "resultsImage");
+    cardImage.src = datayugioh.card_images.image_url;
+    console.log("datattcg"+datayugioh);
+    cardImage.addEventListener("click", function (e) {
+      console.log(this);
+      var cardIDyugioh = this.id;
+  
+      cardClickInformationyugioh(cardIDyugioh);
+    });
+  }
+  function cardClickInformationyugioh(cardObject) {
+    fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?id='+ cardObject)
+    
+   
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log("te"+data.data);
+        cardModalyugiohInformation(data.data);
+        
+      });
+  }
+  
+  // Handles information inside the Card Modal
+  function cardModalyugiohInformation(modalCardYugioh) {
+    console.log()
+    addCardYugioh.value = modalCardYugioh[0].name;
+    if( modalCardYugioh[0].card_prices[0].tcgplayer_price == null){
+        addCardYugiohPrice.value = "0"
+    }else{addCardYugiohPrice.value = modalCardYugioh[0].card_prices[0].tcgplayer_price;}
+    
+    addCardYugiohImage.value = modalCardYugioh[0].card_images[0].image_url;
+    modalCardYugiohName.innerHTML =  modalCardYugioh[0].name;
+    modalCardYugiohImage.src = modalCardYugioh[0].card_images[0].image_url;
+    
+    cardSaveBtn.setAttribute("class", modalCardYugioh.id);
+  
+    if (modalCardYugioh) {
+      if (modalCardYugioh[0].card_prices[0].tcgplayer_price) {
+        normalPrice.innerHTML =
+          "Price: " + modalCardYugioh[0].card_prices[0].tcgplayer_price;
+          reverseHolofoilPrice.style.display = "none";
+          holoFoilPrice.style.display = "none";
+          priceH.style.display = "none";
+          priceR.style.display = "none";
+      } else {
+        normalPrice.innerHTML = " N/A";
+        reverseHolofoilPrice.style.display = "none";
+          holoFoilPrice.style.display = "none";
+          priceH.style.display = "none";
+          priceR.style.display = "none";
+      }
+  
+    
+    }
+   // modalCardType.innerHTML = " ";
+  
+    modal.style.display = "block";
+    
+  }
+  
+resultsContainer = document.getElementById("pokeResults");
+var modalCardMtgImage = document.getElementById("modal-card-image");
+var modalCardMtgName = document.getElementById("modal-card-name");
+var cardSaveBtn = document.getElementById("card-saver");
+var modal = document.getElementById("myModal");
+var normalPrice = document.getElementById("modal-normal-price");
+var holoFoilPrice = document.getElementById("modal-HoloFoil-price");
+var reverseHolofoilPrice = document.getElementById( "modal-reverseHolofoil-price");
+var priceH = document.getElementById("priceH");
+var priceR = document.getElementById( "priceR");
+var addCardMtg= document.getElementById( "addCard-data");
+var addCardMtgPrice= document.getElementById( "addCard-price");
+var addCardMtgImage= document.getElementById( "addCard-image");
+
+
+  document.getElementById("search-button").addEventListener("click", () => {
+    const cardname = document.getElementById('name-input').value;
+    console.log(cardname)   
+     fetch(' https://api.scryfall.com/cards/search?order=name&q='+ cardname)
+    
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+  
+      postMtgCardInfo(data.data);
+    });
+  })
+  function postMtgCardInfo(datamtg) {
+     
+    for (i = 0; i < datamtg.length; i++) {
+    //    if(datamtg[i].imageUrl !== undefined){
+      console.log(datamtg[i].image_uris.large);
+      var cardImage = document.createElement("img");
+      resultsContainer.appendChild(cardImage);
+      cardImage.id = datamtg[i].id;
+      console.log(datamtg[i].image_uris.large);
+      cardImage.setAttribute("class", "resultsImage");
+      cardImage.src = datamtg[i].image_uris.large;
+  
+      cardImage.addEventListener("click", function (e) {
+        console.log(this);
+        var cardIDmtg = this.id;
+  
+        cardClickInformationMtg(cardIDmtg);
+      });
+    }
+  }
+  //}
+  /*function postTypeMtgCard(datamtg) {
+    console.log("datattcg");
+    var cardImage = document.createElement("img");
+    resultsContainer.appendChild(cardImage);
+    cardImage.id = datamtg.id;
+    cardImage.setAttribute("class", "resultsImage");
+    cardImage.src = datamtg.image_uris.large;
+    console.log("datattcg"+datamtg);
+    cardImage.addEventListener("click", function (e) {
+      console.log(this);
+      var cardIDmtg = this.id;
+  
+      cardClickInformationMtg(cardIDmtg);
+    });
+  }*/
+  function cardClickInformationMtg(cardObject) {
+    fetch('https://api.scryfall.com/cards/'+ cardObject)
+    
+   
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        
+        cardModalMtgInformation(data);
+        console.log("te"+data);
+      });
+  }
+  
+  // Handles information inside the Card Modal
+  function cardModalMtgInformation(modalCardmtg) {
+    console.log(modalCardmtg.id)
+    addCardMtg.value = modalCardmtg.name;
+    addCardMtgImage.value = modalCardmtg.image_uris.large;
+    if(modalCardmtg.prices.eur == null){
+        addCardMtgPrice.value = "0"
+    }else{
+      addCardMtgPrice.value = modalCardmtg.prices.eur;  
+    }
+    
+    modalCardMtgName.innerHTML =  modalCardmtg.name;
+    modalCardMtgImage.src = modalCardmtg.image_uris.large;
+    
+    cardSaveBtn.setAttribute("class", modalCardmtg.id);
+  
+    if (modalCardmtg) {
+      if (modalCardmtg.prices.eur) {
+        normalPrice.innerHTML =
+          "Price: " + modalCardmtg.prices.eur;
+          reverseHolofoilPrice.style.display = "none";
+          holoFoilPrice.style.display = "none";
+          priceH.style.display = "none";
+          priceR.style.display = "none";
+      } else {
+        normalPrice.innerHTML = " N/A";
+        reverseHolofoilPrice.style.display = "none";
+          holoFoilPrice.style.display = "none";
+          priceH.style.display = "none";
+          priceR.style.display = "none";
+      }
+  
+    
+    }
+    //modalCardType.innerHTML = " ";
+  
+    modal.style.display = "block";
+  }
+  
+  
 startPageSearch();
+
+
+
+
