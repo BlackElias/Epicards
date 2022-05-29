@@ -1,0 +1,9 @@
+.chat_text{
+    display: block;
+    filter: invert(38%) sepia(14%) saturate(2466%) hue-rotate(-769deg) brightness(92%) contrast(529%);
+}
+.chat_icon{
+    filter: invert(38%) sepia(14%) saturate(2466%) hue-rotate(-769deg) brightness(92%) contrast(529%);
+    top: -10px;
+    position: relative;
+}

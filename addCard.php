@@ -44,6 +44,7 @@ if (!empty($_POST["cardName"])) {
   <link rel="stylesheet" href="css/add_card.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
 </head>
 <nav>
 
@@ -111,7 +112,9 @@ if (!empty($_POST["cardName"])) {
             <table class="responsive-table highlight">
               <p id="test"></p>
 
+
               <tbody style="">
+
                 <tr>
                   <td id="priceH">Holofoil Market Price</td>
                   <td id="modal-HoloFoil-price"></td>

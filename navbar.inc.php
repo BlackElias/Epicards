@@ -12,11 +12,22 @@
 
 <body>
     <div class="bar_position">
-        <div class="bttm_navbar">
-            <a href="index.php"> <img src="assets/archive_icon.svg" alt="archive icon" class="nav_icons"></a>
-            <a href="trade_sell.php"> <img src="assets/trade_sell_icon.svg" alt="archive icon" class="nav_icons"></a>
-            <a href="chat.php"> <img src="assets/chat_icon.svg" alt="archive icon" class="nav_icons"></a>
-            <a href="profile.php"> <img src="assets/profile_icon.svg" alt="archive icon" class="nav_icons"></a>
+        <div id="myDiv">
+            <div class="bttm_navbar ">
+                <div class="nav_item active">
+                    <a href="index.php"> <img src="assets/archive_icon.svg" alt="archive icon" class="nav_icons archive_icon"></a><span class="nav_text collection_text">Collection</span>
+                </div>
+                <div class="nav_item">
+                    <a href="trade_sell.php"><img src="assets/trade_sell_icon.svg" alt="archive icon" class="nav_icons trade_sell_icon"></a><span class="nav_text trade_sell_text">Trade & Sell</span>
+                </div>
+                <div class="nav_item">
+                    <a href="chat.php"> <img src="assets/chat_icon.svg" alt="archive icon" class="nav_icons chat_icon"></a><span class="nav_text chat_text">Chat</span>
+                </div>
+                <div class="nav_item">
+                    <a href="profile.php"> <img src="assets/profile_icon.svg" alt="archive icon" class="nav_icons profile_icon"></a><span class="nav_text profile_text">Profile</span>
+                </div>
+
+            </div>
         </div>
     </div>
 </body>
