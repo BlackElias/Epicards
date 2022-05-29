@@ -93,7 +93,7 @@ p {
 .btn-add_card {
     position: fixed;
     right: 20px;
-    bottom: 95px;
+    bottom: 100px;
     z-index: 1;
 }
 
