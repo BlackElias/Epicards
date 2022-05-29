@@ -1,3 +1,7 @@
+#overlay {
+    display: none;
+}
+
 .nav_icons {
     width: 30px;
     z-index: 2;
@@ -11,11 +15,12 @@ div.nav_item a {
     color: black;
 }
 
-.nav_item{
+.nav_item {
     display: flex;
     justify-content: center;
 }
-.nav_text{
+
+.nav_text {
     display: none;
     position: absolute;
     top: 50px;
@@ -37,4 +42,67 @@ div.nav_item a {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+@media only screen and (min-width: 650px) {
+    #overlay {
+        background-image: url(../assets/background_img.png);
+        background-size: cover;
+        background-repeat: none;
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgb(255, 255, 255);
+        z-index: 5;
+    }
+
+    .overlay_contents {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-55%);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    .overlay_logo {
+        width: 270px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 80px;
+    }
+
+    .overlay_text {
+        color: black;
+        font-size: 3.1em;
+        width: 70%;
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 90px;
+    }
+
+    div.overlay_icon {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .monitor_icon {
+        width: 90px;
+        padding-right: 50px;
+    }
+
+    .mobile_icon {
+        width: 65px;
+    }
 }
