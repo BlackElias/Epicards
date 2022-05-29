@@ -21,6 +21,7 @@ $_SESSION["collection"] = $_GET["id"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
+    <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
     <title>Document</title>
 </head>
 
