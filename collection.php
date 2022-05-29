@@ -11,6 +11,8 @@ try {
 }
 
 $_SESSION["collection"] = $_GET["id"];
+$counter = Cards::getFeedCards();
+ //var_dump(Cards::getFeedCards());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +47,11 @@ $_SESSION["collection"] = $_GET["id"];
                 <p>Collection price:</p>
                 <div class="price_inline">
                     <span>
-                        0
+                        <?php  
+                       
+                         $price = array_column($counter, 'card_price');
+                         echo  array_sum($price) ; 
+                        ?>
                     </span>&nbsp;
                     <p>euro</p>
                 </div>
@@ -53,22 +59,30 @@ $_SESSION["collection"] = $_GET["id"];
             </div>
             <div class="collection_column">
                 <p>Card amount:</p>
-                <span>0</span>
+                <span> <?php  
+                       
+                       echo  count($counter) ; 
+                      ?></span>
             </div>
         </div>
         <!-- if image -->
-        <img src="" alt="">
-        <p class="empty_state">There are no cards in this collection</p>
+        <?php 
+         if( sizeof($counter) <= "0" ){
+        
+     echo'   <img src="" alt="">
+        <p class="empty_state">There are no cards in this collection</p>';
+        }?>
         <form action="addCard.php" method="POST">
             <input type="hidden" name="id" value="<?php echo  $_GET['id'] ?>"></input>
+            <input type="hidden" name="type" value="<?php echo  $_GET['type'] ?>"></input>
             <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
         </form>
         <div class="card_scroll">
             <?php
 
-            $feed = Cards::getFeedCards();
-            // var_dump(Cards::getFeedCards());
-
+           
+$feed = Cards::getFeedCards();
+ //var_dump(Cards::getFeedCards());
             $i = 0;
             foreach ($feed as $card) : if ($i == 20) {
                     break;
@@ -80,5 +94,5 @@ $_SESSION["collection"] = $_GET["id"];
         </div>
     </div>
 </body>
-
+<script src="src/js/app.js"></script>
 </html>

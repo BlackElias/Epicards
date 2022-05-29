@@ -154,6 +154,15 @@ class Collection
         $collection = $statement->fetchAll();
         return $collection;
     }
+    public static function getCards(){
+        $conn = Db::getConnection();
+        $sql = " SELECT *  FROM collection JOIN users ON users.id=collection.user_id JOIN cards where cards.collection_id=collection.collection_id";
+        $statement = $conn->prepare($sql);
+       
+        $statement->execute();
+        $collection = $statement->fetchAll();
+        return $collection;
+    }
 
 
 

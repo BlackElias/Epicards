@@ -19,7 +19,7 @@ var modalCardType = document.getElementById("modal-card-type");
 var addCardPokemon= document.getElementById( "addCard-data");
 var addCardPokemonPrice= document.getElementById( "addCard-price");
 var addCardPokemonImage= document.getElementById( "addCard-image");
-
+var url = document.getElementById( "buyCard").href;
 
 var cardSaveBtn = document.getElementById("card-saver");
 
@@ -253,6 +253,7 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
   modalCardName.innerHTML =  modalCard.name;
   modalCardImage.src = modalCard.images.large;
   cardSaveBtn.setAttribute("class", modalCard.id);
+  
 
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {

@@ -112,7 +112,9 @@ if (!empty($_POST["cardName"])) {
             <table class="responsive-table highlight">
               <p id="test"></p>
 
-              <tbody>
+
+              <tbody style="">
+
                 <tr>
                   <td id="priceH">Holofoil Market Price</td>
                   <td id="modal-HoloFoil-price"></td>
@@ -137,6 +139,7 @@ if (!empty($_POST["cardName"])) {
             <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
             <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
             <input type="hidden" value="<?php echo $_POST['id'] ?>" name="id"></input>
+            <input type="hidden" value="<?php echo $_POST['type'] ?>" name="type"></input>
             <button id="card-saver" type="submit" class="btn">add card</button>
           </form>
         </div>
@@ -145,9 +148,17 @@ if (!empty($_POST["cardName"])) {
   </div>
   <!-- The Modal -->
   <button onclick="history.go(-2);" class="button_sec back_btn">back to collection</button>
-
-  <script src="src/js/add.js"></script>
-
+<?php if($_POST['type'] == "pokemon"){
+  echo  '<script src="src/js/pokesearch.js"></script>';
+} elseif($_POST['type'] == "yugioh"){
+  echo '<script src="src/js/yugioh.js"></script>';
+} else {
+  echo '<script src="src/js/mtg.js"></script>';
+}
+ 
+  
+  
+?>
 </body>
 
 </html>
