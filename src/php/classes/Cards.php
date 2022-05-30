@@ -6,7 +6,7 @@ class Cards
     private $card_name;
     private $card_price;
     private $card_image;
-    
+    private $card_id;
 
 
 
@@ -111,6 +111,27 @@ class Cards
 
         return $this;
     }
+
+  /**
+     * Get the value of card_id
+     */ 
+    public function getCard_id()
+    {
+        return $this->card_id;
+    }
+
+    /**
+     * Set the value of card_id
+     *
+     * @return  self
+     */ 
+    public function setCard_id($card_id)
+    {
+        $this->card_id = $card_id;
+
+        return $this;
+    }
+
     public function saveCards()
     {
         $conn = Db::getConnection();
@@ -144,6 +165,20 @@ class Cards
         $collection = $statement->fetchAll();
         return $collection;
     }
+    public function DeleteCards()
+    {
+        $conn = Db::getConnection();
+
+        $sql = "DELETE FROM cards WHERE cards_id = :id";
+        $statement = $conn->prepare($sql);
+
+        $id = $this->getCard_id();
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+
+        return $this;
+        
+    }
    
 
 
@@ -151,4 +186,6 @@ class Cards
 
   
 
+
+  
 }

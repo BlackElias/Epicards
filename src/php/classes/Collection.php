@@ -163,7 +163,66 @@ class Collection
         $collection = $statement->fetchAll();
         return $collection;
     }
+    public function getCollectionInfo($colId)
+    {
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM collection WHERE collection_id = :userId");
+        $statement->bindValue(":userId", $colId);
+        $statement->execute();
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        if (empty($user)) {
+            throw new Exception(" No user is logged in.");
+        }
+        return $user;
+    }
 
+    public function updateInfo($currentCollectonId)
+    {
+
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("UPDATE collection SET collection_name = :collection_name, collection_private = :collection_private WHERE collection_id = :currentcollectionId");
+        $statement->bindValue(":currentcollectionId", $currentCollectonId);
+
+        $collection_name = $this->getCollectionName();
+        $collection_private = $this->getCollectionPrivate();
+      
+
+        $statement->bindValue(":collection_name", $collection_name);
+        $statement->bindValue(":collection_private", $collection_private);
+   
+
+        $user = $statement->execute();
+
+        return $user;
+    }
+    public function DeleteCollection()
+    {
+        $conn = Db::getConnection();
+
+        $sql = "DELETE FROM collection WHERE collection_id = :id";
+        $statement = $conn->prepare($sql);
+
+        $id = $this->getCollectionId();
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+
+        return $this;
+        
+    }
+    public function DeleteCollection2()
+    {
+        $conn = Db::getConnection();
+
+        $sql = "DELETE FROM collection WHERE collection_id = :id";
+        $statement = $conn->prepare($sql);
+
+        $id = $this->getCollectonId();
+        $statement->bindValue(":id", $id);
+        $statement->execute();
+
+        return $this;
+        
+    }
 
 
 

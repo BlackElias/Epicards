@@ -1,6 +1,7 @@
 <?php
 include_once("bootstrap.php");
 include_once("header.inc.php");
+n
 include_once("navbar.inc.php");
 try {
     $user = new User();
@@ -73,6 +74,7 @@ if (isset($_POST["collection_id"])) {
             </div>
         </form>
     </div>
+
 </body>
 
 </html>
