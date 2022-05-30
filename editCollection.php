@@ -1,7 +1,6 @@
 <?php
 include_once("bootstrap.php");
 include_once("header.inc.php");
-n
 include_once("navbar.inc.php");
 try {
     $user = new User();
@@ -26,7 +25,7 @@ if (isset($_POST["info"])) {
     
   
 }
-var_dump($_POST["collection_id"]);
+//var_dump($_POST["collection_id"]);
 if (isset($_POST["collection_id"])) {
   
     $col = new Collection();
