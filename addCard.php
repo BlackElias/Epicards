@@ -113,7 +113,7 @@ if (!empty($_POST["cardName"])) {
               <p id="test"></p>
 
 
-              <tbody style="">
+              <tbody>
 
                 <tr>
                   <td id="priceH">Holofoil Market Price</td>
