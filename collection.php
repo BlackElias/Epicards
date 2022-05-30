@@ -41,6 +41,7 @@ $counter = Cards::getFeedCards();
         <div class="top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button>
             <h1 class="collection-name"><?php echo htmlspecialchars($_GET["title"]) ?></h1>
+            <a href="#"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
         <!-- if change text and icon -->
         <a href="">
