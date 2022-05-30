@@ -1,0 +1,90 @@
+.edit_coll_container {
+    border-radius: 60px 60px 0px 0px;
+    background-color: white;
+    height: 100%;
+    margin-top: 90px;
+    position: fixed;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
+}
+
+div.top {
+    display: flex;
+    align-items: center;
+    padding-top: 35px;
+    padding-bottom: 5px;
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    width: 80%;
+}
+
+.back_arrow {
+    width: 20px;
+    padding-left: 30px;
+    padding-bottom: 25px;
+    vertical-align: middle;
+}
+
+.rename_coll {
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 10px;
+}
+
+.checkbox_public {
+    margin-right: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-top: 30px;
+}
+
+select {
+    padding: 10px 8px;
+    border-color: white;
+    font-family: 'futuraPT medium';
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 9px 2px;
+    border-radius: 0.45rem;
+    font-size: 1em;
+    margin-bottom: 50px;
+}
+
+input {
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 9px 2px inset;
+    border: none;
+    padding: 0.9rem 0.05rem 0.9rem 0.9rem;
+    border-radius: 0.45rem;
+    font-family: "futuraPT medium";
+    font-size: 0.9em;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+.flex_delete_btn {
+    display: flex;
+    position: fixed;
+    bottom: 110px;
+    width: 100%;
+    justify-content: center;
+}
+
+.bin_icon {
+    width: 20px;
+    padding-right: 15px;
+}
+
+.delete_btn {
+    filter: invert(38%) sepia(14%) saturate(2466%) hue-rotate(-769deg) brightness(92%) contrast(529%);
+    font-size: 1em;
+    font-family: "futuraPT medium";
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+}
