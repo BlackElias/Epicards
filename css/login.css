@@ -1,5 +1,7 @@
 body {
-    background-color: #F4F4F5;
+    background-image: url(../assets/background_img.png);
+    background-repeat: no-repeat;
+    background-size: inherit;
 }
 
 .logo {

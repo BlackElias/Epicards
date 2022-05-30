@@ -1,5 +1,10 @@
 body{
-    background-color: rgb(228, 228, 228);
+    background-image: url(../assets/background_img.png);
+    background-repeat: no-repeat;
+    background-size: initial;
+    background-position-y: -340px;
+    background-position-x: -950px;
+    background-color: rgba(243, 243, 243, 0.5);
 }
 .container_header{
     display: flex;
