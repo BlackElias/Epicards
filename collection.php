@@ -9,10 +9,16 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
-
+if (isset($_POST["delete"])) {
+   
+    $card = new Cards();
+    $card->setCard_id($_POST["cards_id"]);
+    $card->DeleteCards();
+    
+}
 $_SESSION["collection"] = $_GET["id"];
 $counter = Cards::getFeedCards();
- //var_dump(Cards::getFeedCards());
+ var_dump($_POST["delete"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
