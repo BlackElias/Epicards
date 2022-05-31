@@ -13,7 +13,8 @@ $cards = Collection::getCards();
 $total = array_column($cards, 'collection_id');
 unset($_SESSION['collection_id']);
 // var_dump($total);
-
+// $collection = new Collection();
+// $collectionID = $collection->getCollectonId();
 ?>
 <!DOCTYPE html>
 <html lang="en">
