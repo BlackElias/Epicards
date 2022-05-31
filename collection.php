@@ -68,7 +68,7 @@ $counter = Cards::getFeedCards();
                 <p>Card amount:</p>
                 <span> <?php  
                        
-                       echo  count($counter) ; 
+                       echo  count($counter); 
                       ?></span>
             </div>
         </div>

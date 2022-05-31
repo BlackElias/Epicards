@@ -258,7 +258,8 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {
       normalPrice.innerHTML =
-        "Price: " + modalCard.tcgplayer.prices.market.toFixed(2);
+        "Price: " + modalCard.tcgplayer.prices.normal.market;
+        
     } else {
       normalPrice.innerHTML = " N/A";
     }
@@ -266,7 +267,7 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
     if (modalCard.tcgplayer.prices.reverseholofoil) {
       reverseHolofoilPrice.innerHTML =
         "Price: " +
-        modalCard.tcgplayer.prices.reverseholofoil.market.toFixed(2);
+        modalCard.tcgplayer.prices.reverseholofoil.market;
     } else {
       reverseHolofoilPrice.innerHTML = " N/A";
     }
@@ -274,7 +275,7 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
     if (modalCard.tcgplayer.prices.holofoil) {
       holoFoilPrice.innerHTML =
         "Price: " +
-        modalCard.tcgplayer.prices.holofoil.market.toFixed(2);
+        modalCard.tcgplayer.prices.holofoil.market;
     } else {
       holoFoilPrice.innerHTML = " N/A";
     }
