@@ -23,7 +23,7 @@ if (isset($_POST["info"])) {
     $col->updateInfo($currentCollectionId);
     
     
-  
+    header("Location: index.php");
 }
 //var_dump($_POST["collection_id"]);
 if (isset($_POST["collection_id"])) {

@@ -7,7 +7,7 @@ include_once("navbar.inc.php");
 //var_dump($_SESSION["userId"]);
 
 
-if (!empty($_POST["pokemon"])) {
+if (isset($_POST["pokemon"])) {
   try {
     $col = new Collection();
 
@@ -30,7 +30,7 @@ if (!empty($_POST["pokemon"])) {
   }
 }
 
-if (!empty($_POST["yugioh"])) {
+if (isset($_POST["yugioh"])) {
   try {
     $col = new Collection();
 
@@ -50,7 +50,7 @@ if (!empty($_POST["yugioh"])) {
     $error = $th->getMessage();
   }
 }
-if (!empty($_POST["MTG"])) {
+if (isset($_POST["MTG"])) {
   try {
     $col = new Collection();
 
@@ -81,8 +81,8 @@ if (!empty($_POST["MTG"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/newcollection.css">
   <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
+  <link rel="stylesheet" href="css/newcollection.css">
   <title>new collection</title>
 </head>
 
@@ -108,12 +108,13 @@ if (!empty($_POST["MTG"])) {
       <div class="collection_type">
         <h3>Type collection</h3>
         <div class="type_buttons">
-          <button type="submit" name="pokemon" value="pokemon" class="collection_type_button pkmn_type"><img src="assets/pkmn_logo.svg" alt=""></img>
+          <input type="radio" name="pokemon" value="pokemon" class="collection_type_button pkmn_type"><img src="assets/pkmn_logo.svg" alt=""></img>
             <p class="type_class">poke</p> </input>
-            <button type="submit" name="yugioh" value="yugioh" class="collection_type_button yug_type"><img src="assets/yug_logo.svg" alt=""></img>
+            <input type="radio" name="yugioh" value="yugioh" class="collection_type_button yug_type"><img src="assets/yug_logo.svg" alt=""></img>
               <p class="type_class">yugi</p> </input>
-              <button type="submit" name="MTG" value="MTG" class="collection_type_button mtg_type"><img src="assets/mtg_logo.svg" alt=""></img>
+              <input type="radio" name="MTG" value="MTG" class="collection_type_button mtg_type"><img src="assets/mtg_logo.svg" alt=""></img>
                 <p class="type_class">mtg</p> </input>
+                <button type="submit" name="collection" class="btn">Make collection</button>
         </div>
 
       </div>
