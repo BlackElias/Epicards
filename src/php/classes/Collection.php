@@ -224,14 +224,13 @@ class Collection
         
     }
 
-
-
-
-
-
-
-
-
+    public static function countCards($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from cards where collection_id = :collection_id");
+        $statement->bindValue(":collection_id", $id);
+        //var_dump("aantal kaarten: " . $count);
+        // return $count;
+    }
 
 
    
