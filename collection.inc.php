@@ -20,6 +20,7 @@ include_once("bootstrap.php");
                 //} 
                          //  var_dump(  $collection["collection_id"]== $total);
                    // echo  count(Collection::getCards()) 
+                   //echo Collection::countCards(1) 
                      ?></p>
                     <p class="">cards</p>
                 </div>
