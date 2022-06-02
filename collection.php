@@ -19,6 +19,7 @@ if (isset($_POST["delete"])) {
 $_SESSION["collection"] = $_GET["id"];
 $counter = Cards::getFeedCards();
  //var_dump($_POST["delete"]);
+ $feed = Cards::getFeedCards();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +48,9 @@ $counter = Cards::getFeedCards();
         <a href="">
             <p class="visibility">Visible to friends only</p>
         </a>
-        <img src="" alt="">
+       
 
-        <div class="collection-flex">
+        <div class="collection-flex" id="collection">
             <div class="collection_column">
                 <p>Collection price:</p>
                 <div class="price_inline">
@@ -93,7 +94,7 @@ $counter = Cards::getFeedCards();
             <?php
 
            
-$feed = Cards::getFeedCards();
+
  //var_dump(Cards::getFeedCards());
             $i = 0;
             foreach ($feed as $card) : if ($i == 20) {
@@ -107,4 +108,7 @@ $feed = Cards::getFeedCards();
     </div>
 </body>
 <script src="src/js/app.js"></script>
+<style>
+
+</style>
 </html>
