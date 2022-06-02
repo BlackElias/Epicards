@@ -27,7 +27,7 @@ if(isset($_POST['image'])){
     file_put_contents($file, $image_base64);
   
   //print_r($fileName);
- // header("Location: photo.php");
+  header("Location: photo.php");
 }
 ?>
 <!DOCTYPE html>
