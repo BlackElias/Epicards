@@ -315,7 +315,7 @@ function startPageSearch() {
 }
 
 // Button click event that passes input info
-searchButton1.addEventListener("click", function () {
+
   parameterType = selectType.value;
   parameterGeneration = selectGeneration.value;
   searchedName = nameSearch1.value;
@@ -327,7 +327,7 @@ searchButton1.addEventListener("click", function () {
   searchingPokeData(parameterGeneration, parameterType, searchedName);
 
   resultsContainer.innerHTML = "";
-});
+
 
 
 
@@ -405,10 +405,10 @@ var addCardYugiohPrice= document.getElementById( "addCard-price");
 var addCardYugiohImage= document.getElementById( "addCard-image");
 var urlYugioh = document.getElementById( "buyCard");
 
-document.getElementById("search-button").addEventListener("click", () => {
-    const cardname = document.getElementById('name-input').value;
-    console.log(cardname)   
-     fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
+
+    const cardnameyugioh = document.getElementById('name-input').value;
+    console.log(cardnameyugioh)   
+     fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardnameyugioh)
     
     .then(function (response) {
       return response.json();
@@ -418,7 +418,7 @@ document.getElementById("search-button").addEventListener("click", () => {
   
       postyugiohCardInfo(data.data);
     });
-  })
+  
   function postyugiohCardInfo(datayugioh) {
     for (i = 0; i < datayugioh.length; i++) {
       console.log(datayugioh[i].card_images[0].image_url);
@@ -519,7 +519,7 @@ var addCardMtgPrice= document.getElementById( "addCard-price");
 var addCardMtgImage= document.getElementById( "addCard-image");
 var urlMTG= document.getElementById( "buyCard");
 
-  document.getElementById("search-button").addEventListener("click", () => {
+  
     const cardname = document.getElementById('name-input').value;
     console.log(cardname)   
      fetch(' https://api.scryfall.com/cards/search?order=name&q='+ cardname)
@@ -532,7 +532,7 @@ var urlMTG= document.getElementById( "buyCard");
   
       postMtgCardInfo(data.data);
     });
-  })
+  
   function postMtgCardInfo(datamtg) {
      
     for (i = 0; i < datamtg.length; i++) {

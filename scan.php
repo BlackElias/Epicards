@@ -10,25 +10,38 @@ try {
 } catch (\Throwable $th) {
    $error = $th->getMessage();
 }
-
+var_dump($_POST['image']);
 if(isset($_POST['image'])){
     
     $img = $_POST['image'];
-    $folderPath = "upload/";
+    
   
     $image_parts = explode(";base64,", $img);
     $image_type_aux = explode("image/", $image_parts[0]);
     $image_type = $image_type_aux[1];
-  
+    $folderPath = "upload/";
     $image_base64 = base64_decode($image_parts[1]);
-    $fileName = "card" . '.png';
+    $fileName = "card". $_SESSION["userId"] . '.png';
   
     $file = $folderPath . $fileName;
     file_put_contents($file, $image_base64);
-  
+    $del = new Image();
+    
+    $del->DeleteImages();
+    try {
+        $image = new Image();
+        $image->setUserId($_SESSION["userId"]);
+        $image->setImage($fileName);
+      
+        $image->saveImage();
+        header("Location: photo.php");
+      } catch (\Throwable $th) {
+        $error = $th->getMessage();
   //print_r($fileName);
-  header("Location: photo.php");
+ 
 }
+}
+$images = Image::getFeedImage();
 ?>
 <!DOCTYPE html>
 <html>
@@ -64,7 +77,17 @@ if(isset($_POST['image'])){
         </div>
     </form>
 </div>
-  
+<?php
+$i = 0;
+         foreach ($images as $image) : if ($i == 20) {
+           
+               break;
+               
+            } ?>
+
+         <img src="<?php echo "upload/". htmlspecialchars($image['image'])?>" alt="">
+         <?php var_dump($image['image']); $i++;
+         endforeach;  ?>
 <!-- Configure a few settings and attach camera -->
 <script language="JavaScript">
     Webcam.set({
