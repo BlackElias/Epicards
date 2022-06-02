@@ -254,7 +254,7 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
   modalCardName.innerHTML =  modalCard.name;
   modalCardImage.src = modalCard.images.large;
   cardSaveBtn.setAttribute("class", modalCard.id);
-  url.href = "buy.php?title=" + modalCard.name;
+  url.href = "buy.php?title=" + modalCard.name; 
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {
       normalPrice.innerHTML =
@@ -403,7 +403,7 @@ var priceR = document.getElementById( "priceR");
 var addCardYugioh= document.getElementById( "addCard-data");
 var addCardYugiohPrice= document.getElementById( "addCard-price");
 var addCardYugiohImage= document.getElementById( "addCard-image");
-
+var urlYugioh = document.getElementById( "buyCard");
 
 document.getElementById("search-button").addEventListener("click", () => {
     const cardname = document.getElementById('name-input').value;
@@ -478,8 +478,8 @@ document.getElementById("search-button").addEventListener("click", () => {
     modalCardYugiohName.innerHTML =  modalCardYugioh[0].name;
     modalCardYugiohImage.src = modalCardYugioh[0].card_images[0].image_url;
     
-    cardSaveBtn.setAttribute("class", modalCardYugioh.id);
-  
+   
+    urlYugioh.href = "buy.php?title=" + modalCardYugioh.name; 
     if (modalCardYugioh) {
       if (modalCardYugioh[0].card_prices[0].tcgplayer_price) {
         normalPrice.innerHTML =
@@ -517,7 +517,7 @@ var priceR = document.getElementById( "priceR");
 var addCardMtg= document.getElementById( "addCard-data");
 var addCardMtgPrice= document.getElementById( "addCard-price");
 var addCardMtgImage= document.getElementById( "addCard-image");
-
+var urlMTG= document.getElementById( "buyCard");
 
   document.getElementById("search-button").addEventListener("click", () => {
     const cardname = document.getElementById('name-input').value;
@@ -597,8 +597,8 @@ var addCardMtgImage= document.getElementById( "addCard-image");
     modalCardMtgName.innerHTML =  modalCardmtg.name;
     modalCardMtgImage.src = modalCardmtg.image_uris.large;
     
-    cardSaveBtn.setAttribute("class", modalCardmtg.id);
-  
+   
+    urlMTG.href = "buy.php?title=" + modalCardmtg.name; 
     if (modalCardmtg) {
       if (modalCardmtg.prices.eur) {
         normalPrice.innerHTML =
