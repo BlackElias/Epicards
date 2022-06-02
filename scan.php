@@ -1,11 +1,16 @@
 <?php
-require 'vendor/autoload.php';
 
-    use Google\Cloud\Vision\V1\Feature\Type;
-    use Google\Cloud\Vision\V1\ImageAnnotatorClient;
-    use Google\Cloud\Vision\V1\Likelihood;
-    use Google\Cloud\Vision\VisionClient;
-    putenv('GOOGLE_APPLICATION_CREDENTIALS=key.json');
+include_once("bootstrap.php");
+include_once("header.inc.php");
+include_once("navbar.inc.php");
+try {
+   $user = new User();
+   $currentUserId = $_SESSION["userId"];
+   $currentUser = $user->getUserInfo($currentUserId);
+} catch (\Throwable $th) {
+   $error = $th->getMessage();
+}
+
 if(isset($_POST['image'])){
     
     $img = $_POST['image'];
@@ -22,7 +27,7 @@ if(isset($_POST['image'])){
     file_put_contents($file, $image_base64);
   
   //print_r($fileName);
-//  header("Location: photo.php");
+  header("Location: photo.php");
 }
 ?>
 <!DOCTYPE html>
