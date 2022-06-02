@@ -3,7 +3,7 @@
     background-color: white;
     height: 100%;
     margin-top: 90px;
-    position: fixed;
+   /* position: fixed;*/
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.45) -20px 25px 0px -25px;
 }

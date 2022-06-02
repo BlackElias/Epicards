@@ -7,7 +7,7 @@ include_once("navbar.inc.php");
 //var_dump($_SESSION["userId"]);
 
 
-if (!empty($_POST["pokemon"])) {
+if (isset($_POST["pokemon"])) {
   try {
     $col = new Collection();
 
@@ -30,7 +30,7 @@ if (!empty($_POST["pokemon"])) {
   }
 }
 
-if (!empty($_POST["yugioh"])) {
+if (isset($_POST["yugioh"])) {
   try {
     $col = new Collection();
 
@@ -50,7 +50,7 @@ if (!empty($_POST["yugioh"])) {
     $error = $th->getMessage();
   }
 }
-if (!empty($_POST["MTG"])) {
+if (isset($_POST["MTG"])) {
   try {
     $col = new Collection();
 
@@ -81,8 +81,8 @@ if (!empty($_POST["MTG"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/newcollection.css">
   <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
+  <link rel="stylesheet" href="css/newcollection.css">
   <title>new collection</title>
 </head>
 
@@ -101,13 +101,16 @@ if (!empty($_POST["MTG"])) {
 
       <div class="collection_input">
         <!-- <h3>Collection name</h3> -->
+
         <label for="collection_input" class="input_label">Collection name</label>
+        
         <input type="text" name="name" class="input_field" required="required" id="collection_input">
       </div>
 
       <div class="collection_type">
         <h3>Type collection</h3>
         <div class="type_buttons">
+
           <label>
             <input type="radio" name="pokemon" value="pokemon" class="collection_type_button pkmn_type">
             <img src="assets/pkmn_logo.svg" alt="pokemon logo" class="cardlogos pkmn_type">
@@ -120,6 +123,7 @@ if (!empty($_POST["MTG"])) {
             <input type="radio" name="MTG" value="MTG" class="collection_type_button mtg_type">
             <img src="assets/mtg_logo.svg" alt="Magic: The Gathering logo" class="cardlogos mtg_type">
           </label>
+
         </div>
       </div>
       <button type="submit" name="collection" class="btn make-coll_btn">save</button>
