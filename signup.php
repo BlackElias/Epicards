@@ -70,7 +70,7 @@ if (!empty($_POST)) {
           <label for="postTags" class="form-label">Password</label>
           <input type="password" name="password" class="form-control form-border password_input" id="postTags" name="tags" placeholder='Password' />
         </div>
-        <button type="submit" class="w-100 btn btn-lg submit">Sign up</button>
+        <button type="submit" class="btn btn-lg submit">Sign up</button>
         <h6 class="mt-4 mb-3 text-muted">Already have an account? <a href="login.php">Login</a></h6>
       </form>
     </div>

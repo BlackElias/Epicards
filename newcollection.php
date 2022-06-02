@@ -101,24 +101,32 @@ if (isset($_POST["MTG"])) {
 
       <div class="collection_input">
         <!-- <h3>Collection name</h3> -->
-        <label for="collection_input"  class="input_label">Collection name</label>
+
+        <label for="collection_input" class="input_label">Collection name</label>
+        
         <input type="text" name="name" class="input_field" required="required" id="collection_input">
       </div>
 
       <div class="collection_type">
         <h3>Type collection</h3>
         <div class="type_buttons">
-          <input type="radio" name="pokemon" value="pokemon" class="collection_type_button pkmn_type"><img src="assets/pkmn_logo.svg" alt=""></img>
-            <p class="type_class">poke</p> </input>
-            <input type="radio" name="yugioh" value="yugioh" class="collection_type_button yug_type"><img src="assets/yug_logo.svg" alt=""></img>
-              <p class="type_class">yugi</p> </input>
-              <input type="radio" name="MTG" value="MTG" class="collection_type_button mtg_type"><img src="assets/mtg_logo.svg" alt=""></img>
-                <p class="type_class">mtg</p> </input>
-                <button type="submit" name="collection" class="btn">Make collection</button>
+
+          <label>
+            <input type="radio" name="pokemon" value="pokemon" class="collection_type_button pkmn_type">
+            <img src="assets/pkmn_logo.svg" alt="pokemon logo" class="cardlogos pkmn_type">
+          </label>
+          <label>
+            <input type="radio" name="yugioh" value="yugioh" class="collection_type_button yug_type">
+            <img src="assets/yug_logo.svg" alt="yu-gi-oh! logo" class="cardlogos yug_type">
+          </label>
+          <label>
+            <input type="radio" name="MTG" value="MTG" class="collection_type_button mtg_type">
+            <img src="assets/mtg_logo.svg" alt="Magic: The Gathering logo" class="cardlogos mtg_type">
+          </label>
+
         </div>
-
       </div>
-
+      <button type="submit" name="collection" class="btn make-coll_btn">save</button>
     </form>
   </div>
 </body>
