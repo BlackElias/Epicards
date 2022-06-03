@@ -16,18 +16,18 @@ $currentCollection = $col->getCollectionInfo($currentCollectionId);
 //var_dump($_POST["collection_id"]);
 
 if (isset($_POST["info"])) {
-    
+
     $col->setCollectionName($_POST['collection_name']);
     $col->setCollectionPrivate($_POST['private']);
-    
+
     $col->updateInfo($currentCollectionId);
-    
-    
+
+
     header("Location: index.php");
 }
 //var_dump($_POST["collection_id"]);
 if (isset($_POST["collection_id"])) {
-  
+
     $col = new Collection();
     $col->setCollectonId($_POST["collection_id"]);
     $col->DeleteCollection2();
@@ -37,6 +37,7 @@ if (isset($_POST["collection_id"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,6 +47,7 @@ if (isset($_POST["collection_id"])) {
     <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="edit_coll_container">
         <div class="top">
@@ -66,12 +68,24 @@ if (isset($_POST["collection_id"])) {
             </div>
             <button type="submit" name="info" class="btn">Save</button>
         </form>
-        <form action="" method="post">
-            <div class="flex_delete_btn">
-                <input type="hidden" name="collection_id" value="<?php echo $_SESSION["collection"]; ?>">
-                <button type="submit" name="delete" value="delete" class="delete_btn" id="delete"><img src="assets/bin_icon.svg" alt="bin icon" class="bin_icon">Delete Collection</button>
+        <div class="flex_delete_btn">
+            <a href="#popup1" class="delete_btn"><img src="assets/bin_icon.svg" alt="bin icon" class="bin_icon">Delete Collection</a>
+        </div>
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Are you sure?</h2>
+                <p>Performing this action will permanently delete this collection with all the cards in it. This can't be undone!</p>
+                <div class="content">
+                    <a class="close" href="#" class="button_sec">cancel</a>
+                    <form action="" method="post">
+                        <input type="hidden" name="collection_id" value="<?php echo $_SESSION["collection"]; ?>">
+                        <button type="submit" name="delete" value="delete" class="btn" id="delete">delete</button>
+                    </form>
+                </div>
             </div>
-        </form>
+
+        </div>
+
     </div>
 
 </body>
