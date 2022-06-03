@@ -112,18 +112,17 @@ if (isset($_POST["MTG"])) {
         <div class="type_buttons">
 
           <label>
-            <input type="radio" name="pokemon" value="pokemon" class="collection_type_button pkmn_type">
+            <input type="checkbox" name="pokemon" value="pokemon" class="collection_type_button pkmn_type">
             <img src="assets/pkmn_logo.svg" alt="pokemon logo" class="cardlogos pkmn_type">
           </label>
           <label>
-            <input type="radio" name="yugioh" value="yugioh" class="collection_type_button yug_type">
+            <input type="checkbox" name="yugioh" value="yugioh" class="collection_type_button yug_type">
             <img src="assets/yug_logo.svg" alt="yu-gi-oh! logo" class="cardlogos yug_type">
           </label>
           <label>
-            <input type="radio" name="MTG" value="MTG" class="collection_type_button mtg_type">
+            <input type="checkbox" name="MTG" value="MTG" class="collection_type_button mtg_type">
             <img src="assets/mtg_logo.svg" alt="Magic: The Gathering logo" class="cardlogos mtg_type">
           </label>
-
         </div>
       </div>
       <button type="submit" name="collection" class="btn make-coll_btn">save</button>

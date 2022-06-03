@@ -10,16 +10,15 @@ try {
     $error = $th->getMessage();
 }
 if (isset($_POST["delete"])) {
-   
+
     $card = new Cards();
     $card->setCard_id($_POST["cards_id"]);
     $card->DeleteCards();
-    
 }
 $_SESSION["collection"] = $_GET["id"];
 $counter = Cards::getFeedCards();
- //var_dump($_POST["delete"]);
- $feed = Cards::getFeedCards();
+//var_dump($_POST["delete"]);
+$feed = Cards::getFeedCards();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,17 +47,17 @@ $counter = Cards::getFeedCards();
         <a href="">
             <p class="visibility">Visible to friends only</p>
         </a>
-       
+
 
         <div class="collection-flex" id="collection">
             <div class="collection_column">
                 <p>Collection price:</p>
                 <div class="price_inline">
                     <span>
-                        <?php  
-                       
-                         $price = array_column($counter, 'card_price');
-                         echo  array_sum($price) ; 
+                        <?php
+
+                        $price = array_column($counter, 'card_price');
+                        echo  array_sum($price);
                         ?>
                     </span>&nbsp;
                     <p>euro</p>
@@ -67,35 +66,32 @@ $counter = Cards::getFeedCards();
             </div>
             <div class="collection_column">
                 <p>Card amount:</p>
-                <span> <?php  
-                       
-                       echo  count($counter); 
-                      ?></span>
+                <span> <?php
+
+                        echo  count($counter);
+                        ?></span>
             </div>
         </div>
         <!-- if image -->
-        <?php 
-         if( sizeof($counter) <= "0" ){
-        
-     echo'  
+        <?php
+        if (sizeof($counter) <= "0") {
+
+            echo '  
         <div class="empty_state">
             <img src="assets/empty_state_img.svg" alt="empty state illustration" class="empty_state_img"> 
             <p class="empty_state_text">There are no cards in this collection</p>
         </div>
         ';
-        }?>
+        } ?>
         <form action="addCard.php" method="POST">
             <input type="hidden" name="id" value="<?php echo  htmlspecialchars($_GET['id']) ?>"></input>
             <input type="hidden" name="type" value="<?php echo  htmlspecialchars($_GET['type']) ?>"></input>
             <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
         </form>
         <div class="card_scroll">
-  
             <?php
 
-           
-
- //var_dump(Cards::getFeedCards());
+            //var_dump(Cards::getFeedCards());
             $i = 0;
             foreach ($feed as $card) : if ($i == 20) {
                     break;
@@ -111,4 +107,5 @@ $counter = Cards::getFeedCards();
 <style>
 
 </style>
+
 </html>
