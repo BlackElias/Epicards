@@ -77,14 +77,74 @@ label {
 
 .bin_icon {
     width: 20px;
-    padding-right: 15px;
+    padding-right: 15px; 
+    filter: invert(38%) sepia(14%) saturate(2466%) hue-rotate(-769deg) brightness(92%) contrast(529%);
 }
 
 .delete_btn {
-    filter: invert(38%) sepia(14%) saturate(2466%) hue-rotate(-769deg) brightness(92%) contrast(529%);
+   color: red;
     font-size: 1em;
     font-family: "futuraPT medium";
     text-decoration: underline;
     display: flex;
     align-items: center;
 }
+
+/* DELETE CONFIRMATION POPUP */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70% auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 72%;
+    height: 25%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+  .popup h2 {
+    margin: 0;
+  }
+
+  .popup p{
+      margin: 0;
+  }
+
+  a.close{
+    border: solid 4px red;
+    border-radius: 15px;
+    padding: 12px;
+    width: 100px;
+    text-align: center;
+    font-family: "apex mk3";
+    color: black;
+    font-size: 1.1rem;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+  .popup .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }

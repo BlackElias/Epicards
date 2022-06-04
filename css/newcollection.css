@@ -3,7 +3,7 @@
     background-color: white;
     height: 100%;
     margin-top: 90px;
-   /* position: fixed;*/
+    position: fixed;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.45) -20px 25px 0px -25px;
 }
@@ -89,22 +89,55 @@ h3 {
     margin: 0px 15px 15px 0px;
 }
 
+.cardlogos {
+    width: 40%;
+    padding: 10px 15px;
+    border-radius: 20px;
+}
+
 .pkmn_type {
     background-color: #B9C7D6;
 }
 
-.yug_type{
+.yug_type {
     background-color: #EDB6BC;
 }
 
-.mtg_type{
+.mtg_type {
     background-color: #E5BFBB;
 }
-.type_class{
+
+.type_class {
     position: absolute;
     display: none;
 }
-div.type_buttons{
-    display: flex;
-    flex-wrap: wrap;
+
+.make-coll_btn {
+    bottom: 115px;
+    position: fixed;
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 30%;
+}
+
+[type=checkbox] {
+    position: absolute;
+    margin: 0;
+    opacity: 0;
+}
+
+[type=checkbox]+img {
+    cursor: pointer;
+}
+
+[type=checkbox]:checked+.pkmn_type {
+    outline: 4px solid #769ac0;
+}
+
+[type=checkbox]:checked+.yug_type {
+    outline: 4px solid #db848e;
+}
+
+[type=checkbox]:checked+.mtg_type {
+    outline: 4px solid #e4867c;
 }
