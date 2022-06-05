@@ -6,28 +6,26 @@ include_once("navbar.inc.php");
 include_once("bootstrap.php");
 
 try {
-   // $feed = Post::getUserPosts($_SESSION["userId"]);
-    //$allFollowing = Follower::getAllFollowing($_SESSION["userId"]);
-    //$allFollowers = Follower::getAllFollowers($_SESSION["userId"]);
+
     $user = new User();
     $currentUserId = $_SESSION["userId"];
     $currentUser = $user->getUserInfo($currentUserId);
 
     // Update User INFO
 
-  /*  if (!empty($_POST)) {
+    if (!empty($_POST)) {
         $user->setUsername($_POST['username']);
         if ($_POST['username'] !== $currentUser["username"]) {
             $user->checkUsername();
         }
-        $user->setFirstname($_POST['firstname']);
-        $user->setLastname($_POST['lastname']);
+       
         $user->setEmail($_POST['email']);
         if ($_POST['email'] !== $currentUser["email"]) {
             $user->checkEmail();
         }
-        $user->setDescription($_POST['description']);
-*/
+      
+    }
+
         // picture upload
         if (!empty($_FILES["profilePicture"]["name"])) {
             $profilePicture = $user->uploadProfilePicture($_FILES["profilePicture"]["name"]);
@@ -94,23 +92,15 @@ try {
                     <?php endif; ?>
                     <div class="profile-box-names">
                         <h1><?php echo htmlspecialchars($currentUser["username"]) ?></h1>
-                        <h5><?php echo htmlspecialchars($currentUser["firstname"]) . " " .  htmlspecialchars($currentUser["lastname"]) ?></h5>
+                      
                     </div>
                 </div>
-                <p class="profile-box-description"><?php echo htmlspecialchars($currentUser["bio"]) ?></p>
+                
             </div>
         </div>
         </div>
-        <div class="profile-stats-container">
-            <div class="box-container-medium ">
-                <div class="profile-stats-box">
-                    <h4><span><?php echo count($feed) ?></span> Posts</h4>
-                    <h4><span><?php echo count($allFollowers) ?></span> Followers</h4>
-                    <h4><a href="friends.php"><span><?php echo count($allFollowing) ?></span> Following</a></h4>
-                </div>
-            </div>
-            <div class="box-container-small">
-                <div class="btn btn-profile-edit">Edit</div>
+       
+               
             </div>
         </div>
         </div>
@@ -120,34 +110,25 @@ try {
                     <div class="mb-3">
                         <label class="form-label" for=" profilePicture">Edit Profilepicture</label>
                         <input type="file" class="form-control form-border" name="profilePicture" id="profilePicture">
-                        <small class="form-text text-muted" for="removeProfilePicture">Do you want to remove your current profile picture?</small>
-                        <input type="checkbox" name="removeProfilePicture" id="removeProfilePicture">
+                       <!-- <small class="form-text text-muted" for="removeProfilePicture">Do you want to remove your current profile picture?</small>
+                        <input type="checkbox" name="removeProfilePicture" id="removeProfilePicture">-->
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="Username">Edit Username</label>
                         <input type="text" class="form-control form-border" name="username" id="Username" placeholder="Username" value=<?php echo htmlspecialchars($currentUser['username']); ?>>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="Firstname">Edit Firstname</label>
-                        <input type="text" class="form-control form-border" name="firstname" id="Firstname" placeholder="Firstname" value=<?php echo htmlspecialchars($currentUser['firstname']); ?>>
-                    </div>
+                   
                     <div class="mb-3">
                         <label class="form-label" for="Email">Edit Email</label>
                         <input type="email" class="form-control form-border" name="email" id="Email" placeholder="Email" value=<?php echo htmlspecialchars($currentUser['email']); ?>>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="Lastname">Edit Lastname</label>
-                        <input type="text" class="form-control form-border" id="Lastname" name="lastname" placeholder="Lastname" value=<?php echo htmlspecialchars($currentUser['lastname']); ?>>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="Description">Edit Description</label>
-                        <textarea class="form-control form-border" id="Description" name="description" placeholder="Description" rows="3" cols="50"><?php echo htmlspecialchars($currentUser['bio']); ?></textarea>
-                    </div>
+                  
+                
                     <div class="mb-3">
                         <label class="form-label" for="password">Edit Password</label>
                         <input type="password" class="form-control form-border" name="password" id="password">
                     </div>
-                    <hr class="line">
+                    
                     <div class="mb-3">
                         <label class="form-label" for="passwordConfirm">Confirm Password</label>
                         <input type="password" class="form-control form-border" id="passwordConfirm" name="passwordConfirm" required>
@@ -157,24 +138,8 @@ try {
             </form>
         </div>
     </main>
-    <div class="post box-container">
-        <div class="new_post-box">
-            <?php if (!empty($currentUser["picture"])) : ?>
-                <img class="profile-picture" src="<?php echo $currentUser["picture"] ?>" alt="profile picture">
-            <?php endif; ?>
-            <h2 class="new_post-box-title">Share an epic gamer moment!</h2>
-            <a href="new_post.php" class="btn nav-btn">New post</a>
-        </div>
-    </div>
-    <?php if (isset($_POST["RemoveProfilePicture"])) {
-        echo "Profilepicture delete";
-    } ?>
-
-    <?php
-
-    foreach ($feed as $post) :  ?>
-        <?php include("post.inc.php") ?>
-    <?php endforeach; ?>
+   
+    
 </body>
 
 </html>

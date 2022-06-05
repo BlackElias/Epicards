@@ -278,18 +278,18 @@ class User
     {
 
         $conn = Db::getConnection();
-        $statement = $conn->prepare("UPDATE users SET username = :username, firstname = :firstname, lastname = :lastname , bio = :description, email = :email, picture = :picture WHERE id = :currentUserId");
+        $statement = $conn->prepare("UPDATE users SET username = :username, email = :email, picture = :picture WHERE id = :currentUserId");
         $statement->bindValue(":currentUserId", $currentUserId);
 
         $username = $this->getUsername();
        
-        $description = $this->getDescription();
+       
         $email = $this->getEmail();
         $picture = $this->getPicture();
 
         $statement->bindValue(":username", $username);
        
-        $statement->bindValue(":description", $description);
+        
         $statement->bindValue(":email", $email);
         $statement->bindValue(":picture", $picture);
 
@@ -374,7 +374,7 @@ class User
     public function uploadProfilePicture($profilepicture)
     {
         if (!empty($_FILES["profilePicture"]["name"])) {
-            $target_dir = "uploads/profilePictures/";
+            $target_dir = "upload/profilePictures/";
             $file = $profilepicture;
             $path = pathinfo($file);
             $username = $this->getUsername();
