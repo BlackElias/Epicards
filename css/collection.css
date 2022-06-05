@@ -11,20 +11,21 @@
 div.top {
     display: flex;
     align-items: center;
-    padding-top: 35px;
-    padding-bottom: 5px;
-    justify-content: space-evenly;
+    padding-top: 25px;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
     margin-top: 0;
     text-align: center;
-    width: 80%;
+    text-transform: capitalize;
 }
 
 .back_arrow {
     width: 20px;
-    padding-left: 30px;
     padding-bottom: 25px;
     vertical-align: middle;
 }
@@ -33,7 +34,6 @@ h1 {
     width: 23px;
     vertical-align: middle;
     position: relative;
-    right: 30px;
     top: -10px;
 }
 
@@ -47,7 +47,7 @@ h1 {
     border: none;
     padding: 0.9rem 0.05rem 0.9rem 0.9rem;
     border-radius: 0.45rem;
-    width: 75%;
+    width: 80%;
     font-family: "futuraPT medium";
     font-size: 0.9em;
 }
@@ -66,14 +66,21 @@ p {
 
 .visibility {
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .collection-flex {
     display: flex;
-    justify-content: space-around;
-    background-color: white;
-    box-shadow: rgb(0 0 0 / 10%) 0px 25px 35px;
+    justify-content: space-between;
     padding-bottom: 15px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coll_info-background{
+       background-color: white;
+    box-shadow: rgb(0 0 0 / 10%) 0px 25px 35px;
 }
 
 .collection_column {
@@ -81,8 +88,18 @@ p {
     flex-direction: column;
 }
 
+.info_icon{
+    width: 15px;
+    vertical-align: middle;
+    margin-left: 20px;
+    opacity: 70%;
+}
+
 .price_inline {
     display: inline-flex;
+}
+.premium-only_text{
+    color: #615F5F;
 }
 
 .empty_state {
@@ -128,10 +145,16 @@ p {
     border-radius: 10px;
     top: 20px;
     position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card_img {
     width: 10%;
+}
+.card_name{
+    width: 100px;
 }
 
 .bin_icon {

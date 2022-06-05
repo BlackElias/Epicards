@@ -18,9 +18,9 @@ if (isset($_POST["delete"])) {
 $_SESSION["collection"] = $_GET["id"];
 $counter = Cards::getFeedCards();
 
-$premium =User::checkPremium();
- 
- $feed = Cards::getFeedCards();
+$premium = User::checkPremium();
+
+$feed = Cards::getFeedCards();
 
 ?>
 <!DOCTYPE html>
@@ -57,63 +57,62 @@ $premium =User::checkPremium();
                 <p>Collection price:</p>
                 <div class="price_inline">
                     <span>
-
-                        <?php  
+                        <?php
                         $check = array_column($premium, 'premium');
-                  // var_dump(array_values($check) );
-                       if ($check[0]  == 'ja') {
+                        // var_dump(array_values($check) );
+                        if ($check[0]  == 'ja') {
                             $price = array_column($counter, 'card_price');
-                         echo  array_sum($price) ;
-                      
-                         echo '</span>&nbsp;';
-                         echo    '<p>euro</p>';
-                     echo   ' </div>';
- }  else {
-     echo '</span>&nbsp;';
-                echo    '<p>Only for premium users</p>';
-            echo   ' </div>';
- }
-                        
+                            echo    '<p>€</p>';
+                            echo '</span>&nbsp;';
+                            echo  array_sum($price);
+                            echo   ' </div>';
+                        } else {
+                            echo    '<a href="premium.php" class="premium-only_text">Only for premium users</a>';
+                            echo   ' </div>';
+                        }
+
                         ?>
-            </div>
-            <div class="collection_column">
-                <p>Card amount:</p>
-                <span> <?php
-
+                    </span>
+                </div>
+                <div class="collection_column">
+                    <p>Card amount:</p>
+                    <span>
+                        <?php
                         echo  count($counter);
-                        ?></span>
+                        ?>
+                    </span>
+                </div>
             </div>
-        </div>
-        <!-- if image -->
-        <?php
-        if (sizeof($counter) <= "0") {
+            <!-- if image -->
+            <?php
+            if (sizeof($counter) <= "0") {
 
-            echo '  
+                echo '  
         <div class="empty_state">
             <img src="assets/empty_state_img.svg" alt="empty state illustration" class="empty_state_img"> 
             <p class="empty_state_text">There are no cards in this collection</p>
         </div>
         ';
-        } ?>
-        <form action="addCard.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo  htmlspecialchars($_GET['id']) ?>"></input>
-            <input type="hidden" name="type" value="<?php echo  htmlspecialchars($_GET['type']) ?>"></input>
-            <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
-        </form>
-        <div class="card_scroll">
-            <?php
+            } ?>
+            <form action="addCard.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo  htmlspecialchars($_GET['id']) ?>"></input>
+                <input type="hidden" name="type" value="<?php echo  htmlspecialchars($_GET['type']) ?>"></input>
+                <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
+            </form>
+            <div class="card_scroll">
+                <?php
 
-            //var_dump(Cards::getFeedCards());
-            $i = 0;
-            foreach ($feed as $card) : if ($i == 20) {
-                    break;
-                } ?>
+                //var_dump(Cards::getFeedCards());
+                $i = 0;
+                foreach ($feed as $card) : if ($i == 20) {
+                        break;
+                    } ?>
 
-                <?php include("card.inc.php"); ?>
-            <?php $i++;
-            endforeach;  ?>
+                    <?php include("card.inc.php"); ?>
+                <?php $i++;
+                endforeach;  ?>
+            </div>
         </div>
-    </div>
 </body>
 <script src="src/js/app.js"></script>
 <style>

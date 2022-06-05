@@ -93,8 +93,8 @@ if (!empty($_POST["cardName"])) {
     <div>
       <div class="col s12 m8 l9">
         <!-- Teal page content  -->
+  
         <div class="row responsive-img" id="pokeResults">
-
         </div>
       </div>
     </div>
@@ -147,17 +147,17 @@ if (!empty($_POST["cardName"])) {
   </div>
   <!-- The Modal -->
   <button onclick="history.go(-2);" class="button_sec back_btn">back to collection</button>
-<?php if($_POST['type'] == "pokemon"){
-  echo  '<script src="src/js/pokesearch.js"></script>';
-} elseif($_POST['type'] == "yugioh"){
-  echo '<script src="src/js/yugioh.js"></script>';
-} else {
-  echo '<script src="src/js/mtg.js"></script>';
-}
- 
-  
-  
-?>
+  <?php if ($_POST['type'] == "pokemon") {
+    echo  '<script src="src/js/pokesearch.js"></script>';
+  } elseif ($_POST['type'] == "yugioh") {
+    echo '<script src="src/js/yugioh.js"></script>';
+  } else {
+    echo '<script src="src/js/mtg.js"></script>';
+  }
+
+
+
+  ?>
 </body>
 
 </html>
