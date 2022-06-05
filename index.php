@@ -37,13 +37,12 @@ unset($_SESSION['collection_id']);
          <?php
 
          $feed = Collection::getFeedCollections();
-           
+
 
          $i = 0;
          foreach ($feed as $collection) : if ($i == 20) {
-           
+
                break;
-               
             } ?>
 
             <a class="collection-text" href="collection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
@@ -64,12 +63,12 @@ unset($_SESSION['collection_id']);
                                     //  var_dump(  $collection["collection_id"]== $total);
                               // echo  count(Collection::getCards()) 
                               echo Collection::countCards($collection["collection_id"]);
-                                 ?></p>
-                              <p class="">cards</p>
-                           </div>
-                           
-                           <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><?php echo htmlspecialchars($collection['collection_name']) ?></p>
+                              ?></p>
+                           <p class="">cards</p>
                         </div>
+
+                        <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($collection['collection_name']) ?></span></p>
+                     </div>
                   </div>
                </div>
             </a>

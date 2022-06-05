@@ -39,16 +39,28 @@ a{
     margin-right: auto;
     margin-bottom: 10px;
     padding: 9% 0;
+    background-image: url(../assets/collection_card_imgsvg.svg);
+    background-repeat: no-repeat;
+    background-position-x: -22px;
+    background-position-y: 10px;
 }
 .collection_card_text{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.coll_title-text{
+    width: 90px;
+}
+
 p{
     color: white;
     margin: 0;
     font-size: 20px;
+    hyphens: auto;
 }
 .card_icon{
     width: 30px;
@@ -58,6 +70,7 @@ p.collection_title{
     font-family: "apex mk3";
     display: flex;
     align-items: center;
+    margin-left: 40%;
 }
 div.cards_amount{
     display: flex;

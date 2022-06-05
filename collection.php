@@ -39,7 +39,7 @@ $feed = Cards::getFeedCards();
     ?>
     <div class="collection_container">
         <div class="top">
-            <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button>
+            <a href="index.php"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </a>
             <h1 class="collection-name"><?php echo htmlspecialchars($_GET["title"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
@@ -48,28 +48,30 @@ $feed = Cards::getFeedCards();
             <p class="visibility">Visible to friends only</p>
         </a>
 
+        <div class="coll_info-background">
+            <div class="collection-flex" id="collection">
+                <div class="collection_column">
+                    <p>Collection price:</p>
+                    <div class="price_inline">
+                        <p>€</p>&nbsp;
+                        <span>
+                            <?php
 
-        <div class="collection-flex" id="collection">
-            <div class="collection_column">
-                <p>Collection price:</p>
-                <div class="price_inline">
-                    <span>
-                        <?php
+                            $price = array_column($counter, 'card_price');
+                            echo  array_sum($price);
+                            ?>
+                        </span>
+                        <a href="#"><img src="assets/info_icon.svg" alt="info icon" class="info_icon"></a>
+                    </div>
 
-                        $price = array_column($counter, 'card_price');
-                        echo  array_sum($price);
-                        ?>
-                    </span>&nbsp;
-                    <p>euro</p>
                 </div>
+                <div class="collection_column">
+                    <p>Card amount:</p>
+                    <span> <?php
 
-            </div>
-            <div class="collection_column">
-                <p>Card amount:</p>
-                <span> <?php
-
-                        echo  count($counter);
-                        ?></span>
+                            echo  count($counter);
+                            ?></span>
+                </div>
             </div>
         </div>
         <!-- if image -->
