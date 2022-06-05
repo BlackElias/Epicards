@@ -64,7 +64,7 @@ if (!empty($_POST)) {
         </div>
         <div class="mb-3">
           <label for="postDescription" class="form-label">Username</label>
-          <input class="form-control form-border user_input" id="postDescription" name="username" placeholder="Username"></input>
+          <input type="username" class="form-control form-border user_input" id="postDescription" name="username" placeholder="Username"></input>
         </div>
         <div class="mb-3">
           <label for="postTags" class="form-label">Password</label>

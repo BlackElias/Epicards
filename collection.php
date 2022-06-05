@@ -17,8 +17,11 @@ if (isset($_POST["delete"])) {
 }
 $_SESSION["collection"] = $_GET["id"];
 $counter = Cards::getFeedCards();
-//var_dump($_POST["delete"]);
-$feed = Cards::getFeedCards();
+
+$premium =User::checkPremium();
+ 
+ $feed = Cards::getFeedCards();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,22 +59,36 @@ $feed = Cards::getFeedCards();
                         <p>€</p>&nbsp;
                         <span>
                             <?php
+        <div class="collection-flex" id="collection">
+            <div class="collection_column">
+                <p>Collection price:</p>
+                <div class="price_inline">
+                    <span>
 
+                        <?php  
+                        $check = array_column($premium, 'premium');
+                  // var_dump(array_values($check) );
+                       if ($check[0]  == 'ja') {
                             $price = array_column($counter, 'card_price');
-                            echo  array_sum($price);
-                            ?>
-                        </span>
-                        <a href="#"><img src="assets/info_icon.svg" alt="info icon" class="info_icon"></a>
-                    </div>
+                         echo  array_sum($price) ;
+                      
+                         echo '</span>&nbsp;';
+                         echo    '<p>euro</p>';
+                     echo   ' </div>';
+ }  else {
+     echo '</span>&nbsp;';
+                echo    '<p>Only for premium users</p>';
+            echo   ' </div>';
+ }
+                        
+                        ?>
+            </div>
+            <div class="collection_column">
+                <p>Card amount:</p>
+                <span> <?php
 
-                </div>
-                <div class="collection_column">
-                    <p>Card amount:</p>
-                    <span> <?php
-
-                            echo  count($counter);
-                            ?></span>
-                </div>
+                        echo  count($counter);
+                        ?></span>
             </div>
         </div>
         <!-- if image -->

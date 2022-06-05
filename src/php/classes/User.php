@@ -9,6 +9,7 @@ class User
     private $email;
     private $picture;
     private $description;
+    private $premium;
   
 
 
@@ -117,7 +118,45 @@ class User
     {
         return $this->email;
     }
+  /**
+     * Get the value of picture
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
 
+    /**
+     * Set the value of picture
+     *
+     * @return  self
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of premium
+     */ 
+    public function getPremium()
+    {
+        return $this->premium;
+    }
+
+    /**
+     * Set the value of premium
+     *
+     * @return  self
+     */ 
+    public function setPremium($premium)
+    {
+        $this->premium = $premium;
+
+        return $this;
+    }
     /**
      * Set the value of email
      *
@@ -239,18 +278,18 @@ class User
     {
 
         $conn = Db::getConnection();
-        $statement = $conn->prepare("UPDATE users SET username = :username, firstname = :firstname, lastname = :lastname , bio = :description, email = :email, picture = :picture WHERE id = :currentUserId");
+        $statement = $conn->prepare("UPDATE users SET username = :username, email = :email, picture = :picture WHERE id = :currentUserId");
         $statement->bindValue(":currentUserId", $currentUserId);
 
         $username = $this->getUsername();
        
-        $description = $this->getDescription();
+       
         $email = $this->getEmail();
         $picture = $this->getPicture();
 
         $statement->bindValue(":username", $username);
        
-        $statement->bindValue(":description", $description);
+        
         $statement->bindValue(":email", $email);
         $statement->bindValue(":picture", $picture);
 
@@ -292,7 +331,33 @@ class User
 
         return $user;
     }
+    public function updatePremium()
+    {
+        $conn = Db::getConnection();
 
+        $statement = $conn->prepare("UPDATE users SET premium = :premium WHERE id = :currentUserId");
+        $statement->bindValue(":currentUserId", $_SESSION["userId"]);
+
+        $premium= $this->getPremium();
+        $statement->bindValue(":premium", $premium);
+
+        $user = $statement->execute();
+
+        return $user;
+    }
+    public static function checkPremium()
+    {
+        $conn = Db::getConnection();
+
+        $statement = $conn->prepare("SELECT premium FROM users WHERE id = :currentUserId");
+        $statement->bindValue(":currentUserId", $_SESSION["userId"]);
+
+     
+
+        $user = $statement->execute();
+        $user = $statement->fetchAll();
+        return $user;
+    }
     public static function searchUsers($query)
     {
         $conn = Db::getConnection();
@@ -309,7 +374,7 @@ class User
     public function uploadProfilePicture($profilepicture)
     {
         if (!empty($_FILES["profilePicture"]["name"])) {
-            $target_dir = "uploads/profilePictures/";
+            $target_dir = "upload/profilePictures/";
             $file = $profilepicture;
             $path = pathinfo($file);
             $username = $this->getUsername();
@@ -330,23 +395,5 @@ class User
         return $path_filename_ext;
     }
 
-    /**
-     * Get the value of picture
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-
-    /**
-     * Set the value of picture
-     *
-     * @return  self
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
+  
 }
