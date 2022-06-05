@@ -18,7 +18,8 @@ if (isset($_POST["delete"])) {
 }
 $_SESSION["collection"] = $_GET["id"];
 $counter = Cards::getFeedCards();
- //var_dump($_POST["delete"]);
+$premium =User::checkPremium();
+ 
  $feed = Cards::getFeedCards();
 ?>
 <!DOCTYPE html>
@@ -56,14 +57,22 @@ $counter = Cards::getFeedCards();
                 <div class="price_inline">
                     <span>
                         <?php  
-                       
-                         $price = array_column($counter, 'card_price');
-                         echo  array_sum($price) ; 
+                        $check = array_column($premium, 'premium');
+                  // var_dump(array_values($check) );
+                       if ($check[0]  == 'ja') {
+                            $price = array_column($counter, 'card_price');
+                         echo  array_sum($price) ;
+                      
+                         echo '</span>&nbsp;';
+                         echo    '<p>euro</p>';
+                     echo   ' </div>';
+ }  else {
+     echo '</span>&nbsp;';
+                echo    '<p>Only for premium users</p>';
+            echo   ' </div>';
+ }
+                        
                         ?>
-                    </span>&nbsp;
-                    <p>euro</p>
-                </div>
-
             </div>
             <div class="collection_column">
                 <p>Card amount:</p>
