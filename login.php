@@ -58,7 +58,7 @@ if (!empty($_POST)) {
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control form-border password_input" id="password" name="tags" placeholder='Password' />
                 </div>
-                <button type="submit" class="w-100 btn btn-lg submit">Login</button>
+                <button type="submit" class="btn btn-lg submit">Login</button>
                 <h6 class="mt-4 mb-3 text-muted">No account yet? <a href="signup.php">Sign up</a></h6>
             </form>
         </div>
