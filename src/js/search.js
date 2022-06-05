@@ -254,7 +254,7 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
   modalCardName.innerHTML =  modalCard.name;
   modalCardImage.src = modalCard.images.large;
  // cardSaveBtn.setAttribute("class", modalCard.id);
-  url.href = "sell.php?title=" + modalCard.name +"&id="+  modalCard.id + "&img=" + modalCard.images.large ; 
+  url.href = "buy.php?title=" + modalCard.name +"&id="+  modalCard.id; 
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {
       normalPrice.innerHTML =
@@ -315,7 +315,7 @@ function startPageSearch() {
 }
 
 // Button click event that passes input info
-
+searchButton1.addEventListener("click", function () {
   parameterType = selectType.value;
   parameterGeneration = selectGeneration.value;
   searchedName = nameSearch1.value;
@@ -327,7 +327,7 @@ function startPageSearch() {
   searchingPokeData(parameterGeneration, parameterType, searchedName);
 
   resultsContainer.innerHTML = "";
-
+});
 
 
 
@@ -405,7 +405,7 @@ var addCardYugiohPrice= document.getElementById( "addCard-price");
 var addCardYugiohImage= document.getElementById( "addCard-image");
 var urlYugioh = document.getElementById( "buyCard");
 
-
+document.getElementById("search-button").addEventListener("click", () => {
     const cardnameyugioh = document.getElementById('name-input').value;
     console.log(cardnameyugioh)   
      fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardnameyugioh)
@@ -418,6 +418,7 @@ var urlYugioh = document.getElementById( "buyCard");
   
       postyugiohCardInfo(data.data);
     });
+});
   
   function postyugiohCardInfo(datayugioh) {
     for (i = 0; i < datayugioh.length; i++) {
@@ -479,7 +480,7 @@ var urlYugioh = document.getElementById( "buyCard");
     modalCardYugiohImage.src = modalCardYugioh[0].card_images[0].image_url;
     
    
-    urlYugioh.href = "sell.php?title=" + modalCardYugioh.name +"&id="+  modalCardYugioh.id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ; 
+    urlYugioh.href = "buy.php?title=" + modalCardYugioh.name +"&id="+  modalCardYugioh.id ; 
     if (modalCardYugioh) {
       if (modalCardYugioh[0].card_prices[0].tcgplayer_price) {
         normalPrice.innerHTML =
@@ -519,7 +520,7 @@ var addCardMtgPrice= document.getElementById( "addCard-price");
 var addCardMtgImage= document.getElementById( "addCard-image");
 var urlMTG= document.getElementById( "buyCard");
 
-  
+document.getElementById("search-button").addEventListener("click", () => {
     const cardname = document.getElementById('name-input').value;
     console.log(cardname)   
      fetch(' https://api.scryfall.com/cards/search?order=name&q='+ cardname)
@@ -532,6 +533,7 @@ var urlMTG= document.getElementById( "buyCard");
   
       postMtgCardInfo(data.data);
     });
+});
   
   function postMtgCardInfo(datamtg) {
      
@@ -598,7 +600,7 @@ var urlMTG= document.getElementById( "buyCard");
     modalCardMtgImage.src = modalCardmtg.image_uris.large;
     
    
-    urlMTG.href = "sell.php?title=" + modalCardmtg.name+"&id="+  modalCardmtg.id +"&img=" + modalCardmtg.image_uris.large ; 
+    urlMTG.href = "buy.php?title=" + modalCardmtg.name+"&id="+  modalCardmtg.id; 
     if (modalCardmtg) {
       if (modalCardmtg.prices.eur) {
         normalPrice.innerHTML =

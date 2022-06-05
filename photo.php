@@ -134,10 +134,10 @@ $text = $annotation->text()[0];
           <input id="addCard-data" type="hidden" value="" name="cardName"></input>
           <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
           <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
-          </form><input type="hidden" value="" name="id"></input>
-          <button id="card-saver" type="hidden"><img class="responsive-img"></button>
-          <button  ><a id="buyCard" href="">buy</a> </button>
-          
+         
+       <input type="hidden" value="" name="id"></input>
+          <button class="btn" ><a id="buyCard" href="">sell</a> </button>
+           </form>
         
       </div>
     </div>
