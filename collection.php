@@ -17,14 +17,11 @@ if (isset($_POST["delete"])) {
 }
 $_SESSION["collection"] = $_GET["id"];
 $counter = Cards::getFeedCards();
-<<<<<<< HEAD
+
 $premium =User::checkPremium();
  
  $feed = Cards::getFeedCards();
-=======
-//var_dump($_POST["delete"]);
-$feed = Cards::getFeedCards();
->>>>>>> 12babcdefc708ee440a67aa5ab2d5150d546932c
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +57,7 @@ $feed = Cards::getFeedCards();
                 <p>Collection price:</p>
                 <div class="price_inline">
                     <span>
-<<<<<<< HEAD
+
                         <?php  
                         $check = array_column($premium, 'premium');
                   // var_dump(array_values($check) );
@@ -77,8 +74,6 @@ $feed = Cards::getFeedCards();
             echo   ' </div>';
  }
                         
-=======
-
                         ?>
             </div>
             <div class="collection_column">
