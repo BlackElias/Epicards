@@ -361,7 +361,7 @@ class User
     public static function searchUsers($query)
     {
         $conn = Db::getConnection();
-        $statement = $conn->prepare("SELECT * FROM users WHERE INSTR(username, :query) OR INSTR(firstname, :query) OR INSTR(lastname, :query)");
+        $statement = $conn->prepare("SELECT * FROM users WHERE INSTR(username, :query)");
         $statement->bindValue(":query", $query);
 
         $user = $statement->execute();

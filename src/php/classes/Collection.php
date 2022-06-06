@@ -130,13 +130,26 @@ class Collection
         $statement->bindValue(":collection_type", $collection_type);
         $statement->execute();
     }
-    public static function getFeedCollections()
+    public static function getFeedCollections($currentUserId)
     {
         $conn = Db::getConnection();
 
         $sql = "SELECT *, collection_id as collectionId FROM collection JOIN users ON users.id=collection.user_id WHERE  user_id = :user_id ";
         $statement = $conn->prepare($sql);
-        $user_id = $_SESSION["userId"];
+        $user_id = $currentUserId;
+
+        $statement->bindValue(":user_id", $user_id);
+        $statement->execute();
+        $collection = $statement->fetchAll();
+        return $collection;
+    }
+    public static function getFeedCollectionsUnprivate($currentUserId)
+    {
+        $conn = Db::getConnection();
+
+        $sql = "SELECT *, collection_id as collectionId FROM collection JOIN users ON users.id=collection.user_id WHERE  user_id = :user_id AND collection_private = 'unprivate' ";
+        $statement = $conn->prepare($sql);
+        $user_id = $currentUserId;
 
         $statement->bindValue(":user_id", $user_id);
         $statement->execute();

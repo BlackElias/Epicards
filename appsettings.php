@@ -136,7 +136,10 @@ try {
                     </div>
                     <button type="submit" class="w-100 btn btn-lg">Update</button>
             </form>
+
         </div>
+        <div class="container">
+        <a href="logout.php">logout</a></div>
     </main>
    
     
