@@ -1,6 +1,6 @@
 <?php
 include_once("bootstrap.php");
-//include_once("header2.inc.php");
+include_once("header2.inc.php");
 include_once("navbar.inc.php");
 try {
   $user = new User();
@@ -68,15 +68,20 @@ if (!empty($_GET['query'])) {
   <div class="input-field col s12">
 
     <div class="search">
-        <form action="" method="get">
-      <input type="text" id="name-input" placeholder="search name" name="query" name="current-search" class="form_input card_input">
-      <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn">
-   
-        <p class="hide_text">hi</p>
-      </button></form>
-       <button>people</button>
+      <?php if (isset($_GET["cards"])) {
+      echo   '<input type="text" id="name-input" placeholder="search card name" name="query" name="current-search" class="form_input card_input">';
+      echo   '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>';
+ 
+      } else {
+        echo  '<form action="" method="get">';
+     echo  '<input type="text" id="name-input" placeholder="search name" name="query" name="current-search" class="form_input card_input">';
+     echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
+      
+      }?>
+    <div>
+      <button>people</button>
       <button>shops</button>
-      <button>cards</button>
+      <button class="" ><a href="trade_sell.php?cards">  cards</a></button></div>
     </div>
    
     <select class="browser-default" id="generation-search" style="display:none ;">
