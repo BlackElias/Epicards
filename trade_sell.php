@@ -44,6 +44,20 @@ if (!empty($_GET['query'])) {
         $error = $th->getMessage();
     }
 } 
+if (!empty($_GET['shops'])) {
+  try {
+      $user = new User;
+      
+      $searchresult = $_GET['shops'];
+     
+      
+     $users = $user->searchShop($searchresult);
+    
+      
+  }catch (\Throwable $th) {
+      $error = $th->getMessage();
+  }
+} 
 ?>
 <!DOCTYPE html>
 
@@ -72,16 +86,20 @@ if (!empty($_GET['query'])) {
       echo   '<input type="text" id="name-input" placeholder="search card name" name="query" name="current-search" class="form_input card_input">';
       echo   '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>';
  
-      } else {
+      } else if(isset($_GET["shops"])){
         echo  '<form action="" method="get">';
-     echo  '<input type="text" id="name-input" placeholder="search name" name="query" name="current-search" class="form_input card_input">';
-     echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
-      
-      }?>
+        echo  '<input type="text" id="name-input" placeholder="search name" name="shops" name="current-search" class="form_input card_input">';
+        echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
+       
+      } else{ 
+        echo  '<form action="" method="get">';
+        echo  '<input type="text" id="name-input" placeholder="search name" name="query" name="current-search" class="form_input card_input">';
+        echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
+       }?>
     <div>
-      <button>people</button>
-      <button>shops</button>
-      <button class="" ><a href="trade_sell.php?cards">  cards</a></button></div>
+      <button><a href="trade_sell.php">people</a></button>
+      <button><a href="trade_sell.php?shops=">shops</a></button>
+      <button class="" ><a href="trade_sell.php?cards=">  cards</a></button></div>
     </div>
    
     <select class="browser-default" id="generation-search" style="display:none ;">
