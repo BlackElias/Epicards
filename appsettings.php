@@ -133,14 +133,11 @@ try {
                     <div class="container">
                         <a href="logout.php" class="logout-btn">logout</a>
                     </div>
-            </form>
-
+                    </form>
+                </div>
+            </main>
         </div>
-        <div class="container">
-        <a href="logout.php">logout</a></div>
-    </main>
-   
-    
+    </div>
 </body>
 
 </html>
