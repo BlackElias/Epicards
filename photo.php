@@ -1,6 +1,6 @@
 <?php
 include_once("bootstrap.php");
-include_once("header.inc.php");
+include_once("header2.inc.php");
 include_once("navbar.inc.php");
 try {
    $user = new User();
@@ -54,10 +54,10 @@ $text = $annotation->text()[1];
 </nav>
 
 <body>
+  
   <div class="input-field col s12">
 
     <div class="search">
-      
       <input type="text" id="name-input" placeholder="search name" name="current-search" value="<?php echo htmlspecialchars( $text->description()); ?>" class="form_input card_input">
       <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn">
         <p class="hide_text">hi</p>
