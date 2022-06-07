@@ -28,8 +28,9 @@ $imageResource = fopen( "upload/card". $_SESSION["userId"]. ".png", 'r');
 $image = $vision->image($imageResource, [ 'text' ]);
 $annotation = $vision->annotate($image);
 
-$text = $annotation->text()[0];
-
+$text = $annotation->text()[1];
+//var_dump($text);
+//var_dump($vision);
 
 ?>
 <!DOCTYPE html>
@@ -39,13 +40,14 @@ $text = $annotation->text()[0];
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
+ 
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="css/add_card.css">
   <link rel="stylesheet" href="src/css/style.css">
+  <title>Find card</title>
 </head>
 <nav>
 
@@ -55,11 +57,14 @@ $text = $annotation->text()[0];
   <div class="input-field col s12">
 
     <div class="search">
+      
       <input type="text" id="name-input" placeholder="search name" name="current-search" value="<?php echo htmlspecialchars( $text->description()); ?>" class="form_input card_input">
       <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn">
         <p class="hide_text">hi</p>
       </button>
+      
     </div>
+    
     <select class="browser-default" id="generation-search" style="display:none ;">
       <option value="">Choose your option</option>
       <option value="generation/1">1</option>

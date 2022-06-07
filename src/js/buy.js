@@ -477,9 +477,10 @@ var urlYugioh = document.getElementById( "buyCard");
     addCardYugiohImage.value = modalCardYugioh[0].card_images[0].image_url;
     modalCardYugiohName.innerHTML =  modalCardYugioh[0].name;
     modalCardYugiohImage.src = modalCardYugioh[0].card_images[0].image_url;
+    console.log("name"+modalCardYugioh[0].name)
+    console.log("id"+modalCardYugioh[0].id)
     
-   
-    urlYugioh.href = "sell.php?title=" + modalCardYugioh.name +"&id="+  modalCardYugioh.id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ; 
+    urlYugioh.href = "sell.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ; 
     if (modalCardYugioh) {
       if (modalCardYugioh[0].card_prices[0].tcgplayer_price) {
         normalPrice.innerHTML =
@@ -624,6 +625,7 @@ var urlMTG= document.getElementById( "buyCard");
   
   
 startPageSearch();
+
 
 
 
