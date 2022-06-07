@@ -54,7 +54,6 @@ $text = $annotation->text()[1];
 </nav>
 
 <body>
-  
   <div class="input-field col s12">
 
     <div class="search">

@@ -46,7 +46,7 @@ $feed = Cards::getFeedCards();
             <h1 class="collection-name"><?php echo htmlspecialchars($_GET["title"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
-        <!-- if change text and icon -->
+        <!-- if change text  -->
         <a href="">
             <p class="visibility">Visible to friends only</p>
         </a>

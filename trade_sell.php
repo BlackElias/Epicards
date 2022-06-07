@@ -155,7 +155,7 @@ if (!empty($_GET['shops'])) {
       foreach ($users as $searchresult) :  ?>
 
         <a class="search_text" href="people.php?id=<?php echo $searchresult['id']; ?>&username=<?php echo $searchresult['username']; ?>">
-          <div class="searchresult"><?php echo $searchresult['username']; ?> </div>
+          <div class="searchresult"><img src=" <?php echo $searchresult['picture']; ?>" > <?php echo $searchresult['username']; ?> </div>
         </a>
 
     <?php endforeach;

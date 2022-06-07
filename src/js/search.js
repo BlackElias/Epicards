@@ -480,8 +480,7 @@ document.getElementById("search-button").addEventListener("click", () => {
     modalCardYugiohImage.src = modalCardYugioh[0].card_images[0].image_url;
     
    
-    urlYugioh.href = "buy.php?title=" + modalCardYugioh.name +"&id="+  modalCardYugioh.id ; 
-    if (modalCardYugioh) {
+    urlYugioh.href = "sell.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ;     if (modalCardYugioh) {
       if (modalCardYugioh[0].card_prices[0].tcgplayer_price) {
         normalPrice.innerHTML =
           "Price: " + modalCardYugioh[0].card_prices[0].tcgplayer_price;
