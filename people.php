@@ -13,11 +13,10 @@ try {
     $currentUserId = $_GET["id"];
     $currentUser = $user->getUserInfo($currentUserId);
 
-  
 
-        $currentUser = $user->getUserInfo($currentUserId); //---Updated User Fetch---
-    }
- catch (\Throwable $th) {
+
+    $currentUser = $user->getUserInfo($currentUserId); //---Updated User Fetch---
+} catch (\Throwable $th) {
     $error = $th->getMessage();
 }
 
@@ -33,7 +32,6 @@ try {
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/bottom-navbar/profile_bar.css">
     <title>Profile</title>
 </head>
 
@@ -41,37 +39,37 @@ try {
     <div class="top">
         <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button>
         <div class="profile-box-info">
-                    <?php if (!empty($currentUser["picture"])) : ?>
-                        <img class="profile-picture-big" src="<?php echo $currentUser["picture"] ?>" alt="profile picture">
-                    <?php endif; ?>
-                    <div class="profile-box-names">
-                        <h1><?php echo htmlspecialchars($currentUser["username"]) ?></h1>
-                        
-                    </div>
-    </div>
+            <?php if (!empty($currentUser["picture"])) : ?>
+                <img class="profile-picture-big" src="<?php echo $currentUser["picture"] ?>" alt="profile picture">
+            <?php endif; ?>
+            <div class="profile-box-names">
+                <h1><?php echo htmlspecialchars($currentUser["username"]) ?></h1>
+
+            </div>
+        </div>
 </body>
 
 
-    <main>
-        <div class="box-container">
-            <div class="profile-box">
-                
-                </div>
-                
+<main>
+    <div class="box-container">
+        <div class="profile-box">
+
+        </div>
+
+    </div>
+    </div>
+    </div>
+    <div class="profile-stats-container">
+        <div class="box-container-medium ">
+            <div class="profile-stats-box">
+
+
             </div>
         </div>
-        </div>
-        <div class="profile-stats-container">
-            <div class="box-container-medium ">
-                <div class="profile-stats-box">
-                    
-                   
-                </div>
-            </div>
-          
-       
-    </main>
-    <?php
+
+
+</main>
+<?php
 
 
 
@@ -79,31 +77,31 @@ try {
 $i = 0;
 foreach ($feed as $collection) : if ($i == 20) {
 
-      break;
-   } ?>
+        break;
+    } ?>
 
-   <a class="collection-text" href="friendCollection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
-      <div class="container">
-         <div class="collection-pokemon">
-               <div class="collection_card_text">
-                  <div class="cards_amount">
-                     <p><?php 
-                    
-                     echo Collection::countCards($collection["collection_id"]);
-                     ?></p>
-                  <p class="">cards</p>
-               </div>
+    <a class="collection-text" href="friendCollection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
+        <div class="container">
+            <div class="collection-pokemon">
+                <div class="collection_card_text">
+                    <div class="cards_amount">
+                        <p><?php
 
-               <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($collection['collection_name']) ?></span></p>
+                            echo Collection::countCards($collection["collection_id"]);
+                            ?></p>
+                        <p class="">cards</p>
+                    </div>
+
+                    <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($collection['collection_name']) ?></span></p>
+                </div>
             </div>
-         </div>
-      </div>
-   </a>
+        </div>
+    </a>
 <?php $i++;
 endforeach;  ?>
-    
 
- 
+
+
 </body>
 
 </html>

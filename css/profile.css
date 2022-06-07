@@ -3,17 +3,97 @@ div.top {
     align-items: center;
     padding-top: 115px;
     padding-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
     margin-top: 0;
-    text-align: center;
     width: 80%;
 }
+
+div.profile-box-info {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
 
 .back_arrow {
     width: 20px;
     padding-left: 30px;
     padding-bottom: 25px;
     vertical-align: middle;
+}
+
+a {
+    color: black;
+}
+
+.collection-text {
+    text-decoration: none;
+    color: black;
+
+}
+
+.collection-pokemon {
+    background-color: #86AACC;
+    width: 90%;
+    border-radius: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding: 9% 0;
+    background-image: url(../assets/collection_card_imgsvg.svg);
+    background-repeat: no-repeat;
+    background-position-x: -22px;
+    background-position-y: 10px;
+}
+
+.collection_card_text {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coll_title-text {
+    width: 90px;
+}
+
+p {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    hyphens: auto;
+}
+
+.card_icon {
+    width: 30px;
+    padding-right: 15px;
+}
+
+p.collection_title {
+    font-family: "apex mk3";
+    display: flex;
+    align-items: center;
+    margin-left: 40%;
+}
+
+div.cards_amount {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.collections_scroll {
+    height: 60%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

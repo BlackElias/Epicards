@@ -30,6 +30,7 @@ if (!empty($_POST["cardName"])) {
 
 
 
+
 if (!empty($_GET['query'])) {
     try {
         $user = new User;
@@ -58,6 +59,7 @@ if (!empty($_GET['shops'])) {
       $error = $th->getMessage();
   }
 } 
+
 ?>
 <!DOCTYPE html>
 
@@ -71,8 +73,9 @@ if (!empty($_GET['shops'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/add_card.css">
-  <link rel="stylesheet" href="src/css/style.css">
+
+  <link rel="stylesheet" href="css/trade_sell.css">
+
 </head>
 <nav>
 
@@ -81,27 +84,31 @@ if (!empty($_GET['shops'])) {
 <body>
   <div class="input-field col s12">
 
-    <div class="search">
-      <?php if (isset($_GET["cards"])) {
-      echo   '<input type="text" id="name-input" placeholder="search card name" name="query" name="current-search" class="form_input card_input">';
-      echo   '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>';
- 
-      } else if(isset($_GET["shops"])){
-        echo  '<form action="" method="get">';
-        echo  '<input type="text" id="name-input" placeholder="search name" name="shops" name="current-search" class="form_input card_input">';
-        echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
-       
-      } else{ 
-        echo  '<form action="" method="get">';
-        echo  '<input type="text" id="name-input" placeholder="search name" name="query" name="current-search" class="form_input card_input">';
-        echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
-       }?>
-    <div>
-      <button><a href="trade_sell.php">people</a></button>
-      <button><a href="trade_sell.php?shops=">shops</a></button>
-      <button class="" ><a href="trade_sell.php?cards=">  cards</a></button></div>
+    <div class="top-flex">
+      <div class="search">
+        <?php if (isset($_GET["cards"])) {
+          echo   '<input type="text" id="name-input" placeholder="Search for cards" name="query" name="current-search" class="form_input card_input">';
+          echo   '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>';
+        } else if (isset($_GET["shops"])) {
+          echo  '<form action="" method="get">';
+          echo  '<input type="text" id="name-input" placeholder="Search for shops" name="shops" name="current-search" class="form_input card_input">';
+          echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
+        } else {
+          echo  '<form action="" method="get">';
+          echo  '<input type="text" id="name-input" placeholder="Search for other users" name="query" name="current-search" class="form_input card_input">';
+          echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
+        } ?>
+        <div class="search_category">
+          <button><a href="trade_sell.php">people</a></button>
+          <span class="vl_line"></span>
+          <button><a href="trade_sell.php?shops=">shops</a></button>
+          <span class="vl_line"></span>
+          <button class=""><a href="trade_sell.php?cards=">cards</a></button>
+        </div>
+      </div>
     </div>
-   
+
+
     <select class="browser-default" id="generation-search" style="display:none ;">
       <option value="">Choose your option</option>
       <option value="generation/1">1</option>
@@ -133,7 +140,7 @@ if (!empty($_GET['shops'])) {
   </div>
   </ul>
   </div>
- 
+
   <div class="card_scroll">
     <div>
       <div class="col s12 m8 l9">
@@ -143,15 +150,17 @@ if (!empty($_GET['shops'])) {
         </div>
       </div>
     </div>
-  <?php  if( isset($users) ){
-foreach($users as $searchresult):  ?>
 
+    <?php if (isset($users)) {
+      foreach ($users as $searchresult) :  ?>
 
-   <div>
-   <a href="people.php?id=<?php echo $searchresult['id']; ?>&username=<?php echo $searchresult['username']; ?>" ><?php echo $searchresult['username']; ?></a>
-   <br>
-   </div>
-<?php  endforeach;} ?>
+        <a class="search_text" href="people.php?id=<?php echo $searchresult['id']; ?>&username=<?php echo $searchresult['username']; ?>">
+          <div class="searchresult"><?php echo $searchresult['username']; ?> </div>
+        </a>
+
+    <?php endforeach;
+    } ?>
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
 
@@ -163,7 +172,9 @@ foreach($users as $searchresult):  ?>
         <table class="responsive-table highlight">
           <p id="test"></p>
 
-          <tbody style="">
+
+          <tbody>
+
             <tr>
               <td id="priceH">Holofoil Market Price</td>
               <td id="modal-HoloFoil-price"></td>
@@ -186,15 +197,19 @@ foreach($users as $searchresult):  ?>
           <input id="addCard-data" type="hidden" value="" name="cardName"></input>
           <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
           <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
-          </form><input type="hidden" value="" name="id"></input>
-        
-          <button class="btn" ><a id="buyCard" href="">buy</a> </button>
-          
-        
+
+          <link rel="stylesheet" href="css/bottom-navbar/trade_sell_bar.css">
+        </form><input type="hidden" value="" name="id"></input>
+
+        <button class="btn"><a id="buyCard" href="">buy</a> </button>
+
+
+
       </div>
     </div>
   </div>
   <!-- The Modal -->
+
  <?php if (isset($_GET["cards"])) {
      echo '<script src="src/js/search.js"></script>';
 
