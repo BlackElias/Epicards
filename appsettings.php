@@ -34,7 +34,7 @@ try {
     }
 
     // Password Verification  --HIER NIKS ONDER ZETTE!
-    $user->setPassword($_POST["passwordConfirm"]);
+    $user->setPassword(isset($_POST["passwordConfirm"]));
     $user->verifyPassword($currentUser['id']);
 
     if (!empty($_POST["password"])) {
@@ -72,15 +72,7 @@ try {
             <h1>Settings</h1>
         </div>
         <div class="settings_scroll">
-            <?php if (isset($error)) : ?>
-                <div class="user-messages-area">
-                    <div class="alert alert-danger">
-                        <ul>
-                            <li><?php echo $error ?></li>
-                        </ul>
-                    </div>
-                </div>
-            <?php endif; ?>
+           
 
             <main>
                 <div class="box-container">
