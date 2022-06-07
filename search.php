@@ -108,7 +108,7 @@ if (!empty($_POST["cardName"])) {
         <table class="responsive-table highlight">
           <p id="test"></p>
 
-          <tbody style="display: none;">
+          <tbody style="">
             <tr>
               <td id="priceH">Holofoil Market Price</td>
               <td id="modal-HoloFoil-price"></td>
@@ -132,8 +132,8 @@ if (!empty($_POST["cardName"])) {
           <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
           <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
           </form><input type="hidden" value="" name="id"></input>
-          <button id="card-saver" type="hidden"><img class="responsive-img"></button>
-          <button  ><a id="buyCard" href="">buy</a> </button>
+        
+          <button class="btn" ><a id="buyCard" href="">buy</a> </button>
           
         
       </div>
@@ -141,7 +141,7 @@ if (!empty($_POST["cardName"])) {
   </div>
   <!-- The Modal -->
  
-  <script src="src/js/buy.js"></script>
+  <script src="src/js/search.js"></script>
 
 </body>
 

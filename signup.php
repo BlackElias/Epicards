@@ -6,10 +6,10 @@ if (!empty($_POST)) {
   try {
     $user = new User();
     $user->setEmail($_POST["email"]);
-   // $user->checkEmail();
+    $user->checkEmail();
 
     $user->setUsername($_POST["username"]);
-  //  $user->checkUsername();
+  $user->checkUsername();
 
     $user->setPassword($_POST["password"]);
     $user->hashPassword();

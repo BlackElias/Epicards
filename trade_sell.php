@@ -30,30 +30,36 @@ if (!empty($_POST["cardName"])) {
 
 
 
+
 if (!empty($_GET['query'])) {
-  try {
-    $user = new User;
-
-    $searchresult = $_GET['query'];
-
-
-    $users = $user->searchusers($searchresult);
-  } catch (\Throwable $th) {
-    $error = $th->getMessage();
-  }
-}
+    try {
+        $user = new User;
+        
+        $searchresult = $_GET['query'];
+       
+        
+       $users = $user->searchusers($searchresult);
+      
+        
+    }catch (\Throwable $th) {
+        $error = $th->getMessage();
+    }
+} 
 if (!empty($_GET['shops'])) {
   try {
-    $user = new User;
-
-    $searchresult = $_GET['shops'];
-
-
-    $users = $user->searchShop($searchresult);
-  } catch (\Throwable $th) {
-    $error = $th->getMessage();
+      $user = new User;
+      
+      $searchresult = $_GET['shops'];
+     
+      
+     $users = $user->searchShop($searchresult);
+    
+      
+  }catch (\Throwable $th) {
+      $error = $th->getMessage();
   }
-}
+} 
+
 ?>
 <!DOCTYPE html>
 
@@ -67,7 +73,9 @@ if (!empty($_GET['shops'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
   <link rel="stylesheet" href="css/trade_sell.css">
+
 </head>
 <nav>
 
@@ -75,6 +83,7 @@ if (!empty($_GET['shops'])) {
 
 <body>
   <div class="input-field col s12">
+
     <div class="top-flex">
       <div class="search">
         <?php if (isset($_GET["cards"])) {
@@ -98,6 +107,7 @@ if (!empty($_GET['shops'])) {
         </div>
       </div>
     </div>
+
 
     <select class="browser-default" id="generation-search" style="display:none ;">
       <option value="">Choose your option</option>
@@ -140,6 +150,7 @@ if (!empty($_GET['shops'])) {
         </div>
       </div>
     </div>
+
     <?php if (isset($users)) {
       foreach ($users as $searchresult) :  ?>
 
@@ -149,6 +160,7 @@ if (!empty($_GET['shops'])) {
 
     <?php endforeach;
     } ?>
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
 
@@ -160,7 +172,9 @@ if (!empty($_GET['shops'])) {
         <table class="responsive-table highlight">
           <p id="test"></p>
 
+
           <tbody>
+
             <tr>
               <td id="priceH">Holofoil Market Price</td>
               <td id="modal-HoloFoil-price"></td>
@@ -183,20 +197,24 @@ if (!empty($_GET['shops'])) {
           <input id="addCard-data" type="hidden" value="" name="cardName"></input>
           <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
           <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
+
           <link rel="stylesheet" href="css/bottom-navbar/trade_sell_bar.css">
         </form><input type="hidden" value="" name="id"></input>
 
         <button class="btn"><a id="buyCard" href="">buy</a> </button>
 
 
+
       </div>
     </div>
   </div>
   <!-- The Modal -->
-  <?php if (isset($_GET["cards"])) {
-    echo '<script src="src/js/search.js"></script>';
-  } ?>
 
+ <?php if (isset($_GET["cards"])) {
+     echo '<script src="src/js/search.js"></script>';
+
+ } ?>
+  
 </body>
 
 </html>

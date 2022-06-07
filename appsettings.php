@@ -134,7 +134,10 @@ try {
                         <a href="logout.php" class="logout-btn">logout</a>
                     </div>
             </form>
+
         </div>
+        <div class="container">
+        <a href="logout.php">logout</a></div>
     </main>
    
     

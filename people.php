@@ -6,11 +6,11 @@ include_once("navbar.inc.php");
 include_once("bootstrap.php");
 
 try {
-    $feed = Collection::getFeedCollections($_SESSION["userId"]);
+    $feed = Collection::getFeedCollectionsUnprivate($_GET["id"]);
     //$allFollowing = Follower::getAllFollowing($_SESSION["userId"]);
     //$allFollowers = Follower::getAllFollowers($_SESSION["userId"]);
     $user = new User();
-    $currentUserId = $_SESSION["userId"];
+    $currentUserId = $_GET["id"];
     $currentUser = $user->getUserInfo($currentUserId);
 
   
@@ -82,7 +82,7 @@ foreach ($feed as $collection) : if ($i == 20) {
       break;
    } ?>
 
-   <a class="collection-text" href="collection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
+   <a class="collection-text" href="friendCollection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
       <div class="container">
          <div class="collection-pokemon">
                <div class="collection_card_text">

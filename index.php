@@ -36,7 +36,7 @@ unset($_SESSION['collection_id']);
       <div class="collections_scroll">
          <?php
 
-         $feed = Collection::getFeedCollections();
+         $feed = Collection::getFeedCollections($currentUserId);
 
 
          $i = 0;
