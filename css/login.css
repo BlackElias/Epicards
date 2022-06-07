@@ -26,6 +26,7 @@ h1, h6 {
     border: none;
     padding: 0.7rem 0.75rem 0.7rem 3.5rem;
     border-radius: 0.45rem;
+    font-size: 1rem;
 }
 
 .mb-3 {
