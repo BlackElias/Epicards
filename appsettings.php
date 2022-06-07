@@ -33,8 +33,9 @@ try {
         $user->setPicture($currentUser["picture"]);
     }
 
+    
     // Password Verification  --HIER NIKS ONDER ZETTE!
-    $user->setPassword(isset($_POST["passwordConfirm"]));
+    $user->setPassword($_POST["passwordConfirm"]);
     $user->verifyPassword($currentUser['id']);
 
     if (!empty($_POST["password"])) {
@@ -43,6 +44,7 @@ try {
         $user->updatePassword($currentUser['id']);
     }
     // User updates
+    
     $user->updateInfo($currentUser['id']);
 
     $currentUser = $user->getUserInfo($currentUserId); //---Updated User Fetch---
@@ -72,8 +74,7 @@ try {
             <h1>Settings</h1>
         </div>
         <div class="settings_scroll">
-           
-
+       
             <main>
                 <div class="box-container">
                     <div class="profile-box">
@@ -120,7 +121,7 @@ try {
                                     <button type="submit" class="w-100 btn btn-lg">Update</button>
                                 </div>
                             </div>
-                        </form>
+                                        </form>
                     </div>
                     <div class="container">
                         <a href="logout.php" class="logout-btn">logout</a>

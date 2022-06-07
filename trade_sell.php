@@ -202,6 +202,7 @@ if (!empty($_GET['shops'])) {
         </form><input type="hidden" value="" name="id"></input>
 
         <button class="btn"><a id="buyCard" href="">buy</a> </button>
+        <button class="btn"><a id="sellCard" href="">sell</a> </button>
 
 
 

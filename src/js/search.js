@@ -404,7 +404,7 @@ var addCardYugioh= document.getElementById( "addCard-data");
 var addCardYugiohPrice= document.getElementById( "addCard-price");
 var addCardYugiohImage= document.getElementById( "addCard-image");
 var urlYugioh = document.getElementById( "buyCard");
-
+var urlSellYugioh = document.getElementById( "sellCard");
 document.getElementById("search-button").addEventListener("click", () => {
     const cardnameyugioh = document.getElementById('name-input').value;
     console.log(cardnameyugioh)   
@@ -479,8 +479,9 @@ document.getElementById("search-button").addEventListener("click", () => {
     modalCardYugiohName.innerHTML =  modalCardYugioh[0].name;
     modalCardYugiohImage.src = modalCardYugioh[0].card_images[0].image_url;
     
-   
-    urlYugioh.href = "sell.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ;     if (modalCardYugioh) {
+    urlYugioh.href = "sell.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ; 
+
+    urlYugioh.href = "buy.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ;     if (modalCardYugioh) {
       if (modalCardYugioh[0].card_prices[0].tcgplayer_price) {
         normalPrice.innerHTML =
           "Price: " + modalCardYugioh[0].card_prices[0].tcgplayer_price;

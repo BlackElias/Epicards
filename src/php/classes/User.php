@@ -10,6 +10,7 @@ class User
     private $picture;
     private $description;
     private $premium;
+    private $shop;
   
 
 
@@ -187,7 +188,25 @@ class User
 
         return $this;
     }
+/**
+     * Get the value of shop
+     */ 
+    public function getShop()
+    {
+        return $this->shop;
+    }
 
+    /**
+     * Set the value of shop
+     *
+     * @return  self
+     */ 
+    public function setShop($shop)
+    {
+        $this->shop = $shop;
+
+        return $this;
+    }
     /**
      * Get the value of description
      */
@@ -282,7 +301,7 @@ class User
         $statement->bindValue(":currentUserId", $currentUserId);
 
         $username = $this->getUsername();
-       
+      
        
         $email = $this->getEmail();
         $picture = $this->getPicture();
@@ -406,4 +425,6 @@ class User
     }
 
   
+
+    
 }

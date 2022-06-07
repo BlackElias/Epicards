@@ -403,7 +403,7 @@ var priceR = document.getElementById( "priceR");
 var addCardYugioh= document.getElementById( "addCard-data");
 var addCardYugiohPrice= document.getElementById( "addCard-price");
 var addCardYugiohImage= document.getElementById( "addCard-image");
-var urlYugioh = document.getElementById( "buyCard");
+var urlSellYugioh = document.getElementById( "sellCard");
 
 
     const cardnameyugioh = document.getElementById('name-input').value;
