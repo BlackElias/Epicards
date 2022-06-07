@@ -10,6 +10,8 @@ body{
     top: 0px;
     justify-content: space-evenly;
     background-color: white;
+    z-index: 1;
+
 }
 .favicon{
     width: 50px;

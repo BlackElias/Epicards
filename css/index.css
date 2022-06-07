@@ -20,7 +20,7 @@ h1 {
     bottom: 100px;
 }
 
-a{
+a {
     color: black;
 }
 
@@ -44,7 +44,8 @@ a{
     background-position-x: -22px;
     background-position-y: 10px;
 }
-.collection_card_text{
+
+.collection_card_text {
     display: flex;
     align-items: center;
     width: 70%;
@@ -52,32 +53,36 @@ a{
     margin-right: auto;
 }
 
-.coll_title-text{
+.coll_title-text {
     width: 90px;
 }
 
-p{
+p {
     color: white;
     margin: 0;
     font-size: 20px;
     hyphens: auto;
 }
-.card_icon{
+
+.card_icon {
     width: 30px;
     padding-right: 15px;
 }
-p.collection_title{
+
+p.collection_title {
     font-family: "apex mk3";
     display: flex;
     align-items: center;
-    margin-left: 40%;
+    margin-left: 30%;
 }
-div.cards_amount{
+
+div.cards_amount {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.collections_scroll{
+
+.collections_scroll {
     height: 60%;
     overflow: hidden;
     overflow-y: scroll;
