@@ -20,7 +20,7 @@ var addCardPokemon= document.getElementById( "addCard-data");
 var addCardPokemonPrice= document.getElementById( "addCard-price");
 var addCardPokemonImage= document.getElementById( "addCard-image");
 var url = document.getElementById( "buyCard");
-
+var urlSell = document.getElementById( "sellCard");
 
 var cardSaveBtn = document.getElementById("card-saver");
 
@@ -254,6 +254,8 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
   modalCardName.innerHTML =  modalCard.name;
   modalCardImage.src = modalCard.images.large;
  // cardSaveBtn.setAttribute("class", modalCard.id);
+ urlSell.href = "sell.php?title=" + modalCard.name +"&id="+  modalCard.id; 
+
   url.href = "buy.php?title=" + modalCard.name +"&id="+  modalCard.id; 
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {
@@ -479,7 +481,7 @@ document.getElementById("search-button").addEventListener("click", () => {
     modalCardYugiohName.innerHTML =  modalCardYugioh[0].name;
     modalCardYugiohImage.src = modalCardYugioh[0].card_images[0].image_url;
     
-    urlYugioh.href = "sell.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ; 
+    urlSellYugioh.href = "sell.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ; 
 
     urlYugioh.href = "buy.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ;     if (modalCardYugioh) {
       if (modalCardYugioh[0].card_prices[0].tcgplayer_price) {
@@ -519,6 +521,7 @@ var addCardMtg= document.getElementById( "addCard-data");
 var addCardMtgPrice= document.getElementById( "addCard-price");
 var addCardMtgImage= document.getElementById( "addCard-image");
 var urlMTG= document.getElementById( "buyCard");
+var urlSellMTG= document.getElementById( "sellCard");
 
 document.getElementById("search-button").addEventListener("click", () => {
     const cardname = document.getElementById('name-input').value;
@@ -599,7 +602,8 @@ document.getElementById("search-button").addEventListener("click", () => {
     modalCardMtgName.innerHTML =  modalCardmtg.name;
     modalCardMtgImage.src = modalCardmtg.image_uris.large;
     
-   
+    urlSellMTG.href = "sell.php?title=" + modalCardmtg.name+"&id="+  modalCardmtg.id; 
+
     urlMTG.href = "buy.php?title=" + modalCardmtg.name+"&id="+  modalCardmtg.id; 
     if (modalCardmtg) {
       if (modalCardmtg.prices.eur) {
