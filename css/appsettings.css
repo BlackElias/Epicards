@@ -1,4 +1,4 @@
-.collection_container {
+.appsettings_container {
     border-radius: 60px 60px 0px 0px;
     background-color: white;
     height: 100%;
@@ -6,11 +6,6 @@
     position: fixed;
     width: 100%;
     box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
-}
-
-.settings_scroll {
-    overflow: scroll;
-    height: 55%;
 }
 
 div.top {
@@ -34,50 +29,27 @@ h1 {
     vertical-align: middle;
 }
 
-
-.btn {
-    position: fixed;
-    bottom: 150px;
-}
-
-.btn a {
-    color: white;
-}
-
-.form-control {
-    box-shadow: rgb(50 50 93 / 25%) 1px 1px 9px 2px inset;
-    border: none;
-    padding: 0.7rem 0.75rem 0.7rem 0.7rem;
-    border-radius: 0.45rem;
-    font-family: "futuraPT medium";
-    font-size: 1rem;
-}
-
-.mb-3 {
-    margin-bottom: 1.4rem !important;
-    width: 80%;
-    display: block;
+.profile-picture-big {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 100%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    flex-direction: column;
 }
 
-.form-text {
-    color: #615F5F;
-    margin-top: -9px;
-}
-.btn-center{
+.btn-center {
     display: flex;
     justify-content: center;
 }
 
-div.container{
+div.container {
     display: flex;
     justify-content: center;
 }
 
-.logout-btn{
+.logout-btn {
     color: red;
     position: fixed;
     bottom: 100px;

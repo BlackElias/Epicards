@@ -5,7 +5,7 @@ form {
 }
 
 .form_input {
-    box-shadow: rgb(50 50 93 / 25%) 1px 1px 9px 2px inset;
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 8px 0px inset;
     border: none;
     padding: 0.9rem 0.05rem 0.9rem 0.9rem;
     border-radius: 0.45rem;
@@ -40,6 +40,15 @@ form {
 .vl_line {
     border-left: 1.5px solid rgb(0, 0, 0);
     height: 33px;
+}
+
+.profile-pic_search {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 30px;
 }
 
 .search_category a {
@@ -81,7 +90,7 @@ form {
 .searchresult {
     background-color: white;
     width: 90%;
-    padding: 20px;
+    padding: 12px 20px;
     position: relative;
     top: -195px;
     margin-left: auto;
