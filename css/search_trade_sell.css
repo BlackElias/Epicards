@@ -1,0 +1,132 @@
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form_input {
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 8px 0px inset;
+    border: none;
+    padding: 0.9rem 0.05rem 0.9rem 0.9rem;
+    border-radius: 0.45rem;
+    width: 75%;
+    font-family: "futuraPT medium";
+    font-size: 0.9em;
+}
+
+.card_input {
+    background-color: rgb(255, 255, 255);
+}
+
+.search_btn {
+    width: 30px;
+}
+
+.search {
+    top: 85px;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    padding-bottom: 15px;
+    box-shadow: rgb(100 100 111 / 10%) 0px 13px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 1;
+}
+
+.vl_line {
+    border-left: 1.5px solid rgb(0, 0, 0);
+    height: 33px;
+}
+
+.profile-pic_search {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 30px;
+}
+
+.search_category a {
+    text-decoration: none;
+    color: #8B8A8A;
+    font-family: "apex mk3";
+    font-size: 1.25em;
+}
+
+.search_category a:active {
+    color: red;
+}
+
+.search_category {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.card_scroll {
+    overflow: hidden;
+    overflow-y: scroll;
+    position: relative;
+    top: 200px;
+    /* z-index: -1; */
+}
+
+.row {
+    padding-top: 210px;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchresult {
+    background-color: white;
+    width: 90%;
+    padding: 12px 20px;
+    position: relative;
+    top: -195px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+a.search_text {
+    text-decoration: none;
+    color: black;
+    font-family: "futuraPT medium";
+}
+
+a.cancel_btn {
+    text-decoration: none;
+    font-family: "apex mk3";
+    color: black;
+    position: fixed;
+    bottom: 120px;
+    display: flex;
+    justify-content: center;
+    border: 4px solid black;
+    padding: 13px 20px;
+    border-radius: 15px;
+}
+
+.x_icon {
+    width: 12px;
+    margin-right: 10px;
+}
+
+.center_btn {
+    display: flex;
+    justify-content: center;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
