@@ -22,7 +22,7 @@ $_SESSION["collection"] = $_GET["id"];
 $counter = Cards::getFeedCards();
 
 $premium = User::checkPremium();
-
+$private = Collection::getFeedCollectionsPrivate();
 $feed = Cards::getFeedCards();
 
 ?>
@@ -50,9 +50,15 @@ $feed = Cards::getFeedCards();
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
         <!-- if change text  -->
-        <a href="">
-            <p class="visibility">Visible to friends only</p>
-        </a>
+        <?php 
+        $p = array_column($private, 'collection_private');
+        
+        if($p[0] == "private"){
+            echo '<p class="visibility">Visible to you only</p>';
+        }else{
+            echo '<p class="visibility">Visible to friends only</p>';
+        } ?>
+        
 
 
         <div class="collection-flex" id="collection">
