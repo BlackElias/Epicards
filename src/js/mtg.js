@@ -14,6 +14,38 @@ var addCardMtgPrice= document.getElementById( "addCard-price");
 var addCardMtgImage= document.getElementById( "addCard-image");
 
 
+const cardname = document.getElementById('name-input').value;
+console.log(cardname)   
+ fetch(' https://api.scryfall.com/cards/search?order=name&q='+ cardname)
+
+.then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+  console.log(data);
+
+  postMtgCardInfo(data.data);
+});
+
+
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    const cardname = document.getElementById('name-input').value;
+    console.log(cardname)   
+     fetch(' https://api.scryfall.com/cards/search?order=name&q='+ cardname)
+    
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    
+      postMtgCardInfo(data.data);
+    });
+  }
+});
+
+
   document.getElementById("search-button").addEventListener("click", () => {
     const cardname = document.getElementById('name-input').value;
     console.log(cardname)   

@@ -13,7 +13,34 @@ var addCardYugioh= document.getElementById( "addCard-data");
 var addCardYugiohPrice= document.getElementById( "addCard-price");
 var addCardYugiohImage= document.getElementById( "addCard-image");
 
+  const cardname = document.getElementById('name-input').value;
+  console.log(cardname)   
+   fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
+  
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
 
+    postyugiohCardInfo(data.data);
+  });
+  document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      const cardname = document.getElementById('name-input').value;
+      console.log(cardname)   
+       fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
+      
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+    
+        postyugiohCardInfo(data.data);
+      });
+    }
+});
 document.getElementById("search-button").addEventListener("click", () => {
     const cardname = document.getElementById('name-input').value;
     console.log(cardname)   
@@ -75,7 +102,7 @@ document.getElementById("search-button").addEventListener("click", () => {
       });
   }
   
-  // Handles information inside the Card Modal
+  
   function cardModalyugiohInformation(modalCardYugioh) {
     console.log()
     addCardYugioh.value = modalCardYugioh[0].name;
