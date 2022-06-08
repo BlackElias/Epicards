@@ -15,6 +15,8 @@ unset($_SESSION['collection_id']);
 // var_dump($total);
 // $collection = new Collection();
 // $collectionID = $collection->getCollectonId();
+$premium = User::checkPremium();
+$private = Collection::getFeedCollectionsPrivate();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,10 +50,10 @@ unset($_SESSION['collection_id']);
             <a class="collection-text" href="collection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
                <div class="container">
                   <div class="collection-pokemon">
-                        <div class="collection_card_text">
-                           <div class="cards_amount">
-                              <p><?php 
-                             
+                     <div class="collection_card_text">
+                        <div class="cards_amount">
+                           <p><?php
+
                               echo Collection::countCards($collection["collection_id"]);
                               ?></p>
                            <p class="">cards</p>
@@ -65,7 +67,23 @@ unset($_SESSION['collection_id']);
          <?php $i++;
          endforeach;  ?>
       </div>
-      <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
+      <?php
+
+      if (count(Collection::getFeedCollections($currentUserId)) >= 3) {
+         
+
+         $check = array_column($premium, 'premium');
+
+         if ($check[0]  == 'ja') {
+            echo ' <form action="scan.php" method="POST">
+                                <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>                            </form>';
+         }if ($check[0]  == 'nee') {
+            echo  '      <button class="btn-collection button_sec"><a href="premium.php"> Buy premium for more collections</a></button>'         ;
+         }
+      } else {
+         echo ' <form action="scan.php" method="POST">
+                           <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>                            </form>';
+      } ?>
    </div>
 </body>
 

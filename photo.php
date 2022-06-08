@@ -1,6 +1,6 @@
 <?php
 include_once("bootstrap.php");
-include_once("header.inc.php");
+include_once("header2.inc.php");
 include_once("navbar.inc.php");
 try {
    $user = new User();
@@ -28,9 +28,26 @@ $imageResource = fopen( "upload/card". $_SESSION["userId"]. ".png", 'r');
 $image = $vision->image($imageResource, [ 'text' ]);
 $annotation = $vision->annotate($image);
 
-$text = $annotation->text()[0];
+$text = $annotation->text()[1];
+//var_dump($text);
+//var_dump($vision);
+if (!empty($_POST["cardName"])) {
+
+  try {
+    $card = new Cards();
+    $card->setCollectionId($_POST['id']);
+
+    $card->setCard_name($_POST["cardName"]);
+    $card->setCard_price($_POST["cardPrice"]);
+    $card->setCard_image($_POST["cardImage"]);
 
 
+
+    $card->saveCards();
+  } catch (\Throwable $th) {
+    $error = $th->getMessage();
+  }
+}
 ?>
 <!DOCTYPE html>
 
@@ -39,13 +56,14 @@ $text = $annotation->text()[0];
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
+ 
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="css/add_card.css">
   <link rel="stylesheet" href="src/css/style.css">
+  <title>Find card</title>
 </head>
 <nav>
 
@@ -59,7 +77,9 @@ $text = $annotation->text()[0];
       <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn">
         <p class="hide_text">hi</p>
       </button>
+      
     </div>
+    
     <select class="browser-default" id="generation-search" style="display:none ;">
       <option value="">Choose your option</option>
       <option value="generation/1">1</option>
@@ -134,9 +154,10 @@ $text = $annotation->text()[0];
           <input id="addCard-data" type="hidden" value="" name="cardName"></input>
           <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
           <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
-         
-       <input type="hidden" value="" name="id"></input>
-          <button class="btn" ><a id="buyCard" href="">sell</a> </button>
+          <input type="hidden" value="<?php echo $_POST['id'] ?>" name="id"></input>
+            <input type="hidden" value="<?php echo $_POST['type'] ?>" name="type"></input>
+            <button id="card-saver" type="submit" class="btn">add card</button>
+       
            </form>
         
       </div>
@@ -144,7 +165,17 @@ $text = $annotation->text()[0];
   </div>
   <!-- The Modal -->
  
-  <script src="src/js/buy.js"></script>
+  <?php if ($_POST['type'] == "pokemon") {
+    echo  '<script src="src/js/pokesearch.js"></script>';
+  } elseif ($_POST['type'] == "yugioh") {
+    echo '<script src="src/js/yugioh.js"></script>';
+  } else {
+    echo '<script src="src/js/mtg.js"></script>';
+  }
+
+
+
+  ?>
 
 </body>
 

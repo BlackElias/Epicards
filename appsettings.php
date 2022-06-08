@@ -33,6 +33,7 @@ try {
         $user->setPicture($currentUser["picture"]);
     }
 
+    
     // Password Verification  --HIER NIKS ONDER ZETTE!
     $user->setPassword($_POST["passwordConfirm"]);
     $user->verifyPassword($currentUser['id']);
@@ -43,6 +44,7 @@ try {
         $user->updatePassword($currentUser['id']);
     }
     // User updates
+    
     $user->updateInfo($currentUser['id']);
 
     $currentUser = $user->getUserInfo($currentUserId); //---Updated User Fetch---
@@ -79,6 +81,7 @@ try {
                     <img class="profile-picture-big" src="<?php echo $currentUser["picture"] ?>" alt="profile picture">
                 <?php endif; ?>
             </div>
+
         </div>
         <p><?php echo htmlspecialchars($currentUser['username']); ?></p>
         <p><?php echo htmlspecialchars($currentUser['email']); ?></p>
