@@ -55,7 +55,7 @@ select {
 }
 
 input {
-    box-shadow: rgb(50 50 93 / 25%) 1px 1px 9px 2px inset;
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 8px 0px inset;
     border: none;
     padding: 0.9rem 0.05rem 0.9rem 0.9rem;
     border-radius: 0.45rem;
