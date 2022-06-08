@@ -103,11 +103,10 @@ $feed = Cards::getFeedCards();
         </div>
         ';
             } ?>
-            <?php $check = array_column($premium, 'premium');
+            <?php 
                         // var_dump(array_values($check) );
 
-                        if ( count(Collection::getFeedCollections($currentUserId)) >= 3  ) {
-                          echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more collections</a></button>';
+                        if ( count($counter) >= 1000  ) {
 
                             $check = array_column($premium, 'premium');
                             
@@ -115,6 +114,9 @@ $feed = Cards::getFeedCards();
                                 echo ' <form action="scan.php" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
+                            } if ($check[0]  == 'nee') {
+                                echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
+
                             }
                          }else { echo ' <form action="scan.php" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
