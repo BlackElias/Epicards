@@ -32,6 +32,16 @@ p {
     margin: 0;
 }
 
+select {
+    padding: 10px 8px;
+    border-color: white;
+    font-family: 'futuraPT medium';
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 9px 2px;
+    border-radius: 0.45rem;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
 .checkbox_public {
     display: flex;
     align-items: center;
@@ -54,12 +64,14 @@ label.input_label {
 }
 
 .input_field {
-    box-shadow: rgb(0 0 0 / 16%) 0px 1px 8px;
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 8px 0px inset;
     border: none;
     padding: 1rem 0.75rem 0.7rem 1rem;
     border-radius: 0.45rem;
     width: 90%;
     margin-top: 15px;
+    font-family: "futuraPT medium";
+    font-size: 0.9em;
 }
 
 .collection_input {

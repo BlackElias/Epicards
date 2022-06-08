@@ -72,7 +72,7 @@ try {
 
         <div class="top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button>
-            <h1>Edit Settings</h1>
+            <h1>Edit profile</h1>
         </div>
         <div class="settings_scroll">
             <main>
@@ -111,11 +111,10 @@ try {
                                     <label class="form-label" for="password">Edit Password</label>
                                     <input type="password" placeholder="Enter new password" class="form-control form-border" name="password" id="password">
                                 </div>
-
+                                <small id="passwordHelpBlock" class="form-text text-muted">Please verify by entering your current password</small>
                                 <div class="mb-3">
-                                    <label class="form-label" for="passwordConfirm"> Password</label>
+                                    <label class="form-label" for="passwordConfirm">Verify</label>
                                     <input type="password" placeholder="Enter current password" class="form-control form-border" id="passwordConfirm" name="passwordConfirm" required> <br>
-                                    <small id="passwordHelpBlock" class="form-text text-muted">please verify by entering your current password</small>
                                 </div>
                                 <div class="btn-center">
                                     <button type="submit" class="w-100 btn btn-lg">Update</button>

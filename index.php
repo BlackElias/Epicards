@@ -64,8 +64,28 @@ unset($_SESSION['collection_id']);
             </a>
          <?php $i++;
          endforeach;  ?>
+         <div class="hidden_block">hidden</div>
       </div>
       <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
+
+      <?php
+
+      if (count(Collection::getFeedCollections($currentUserId)) >= 3) {
+
+
+         $check = array_column($premium, 'premium');
+
+         if ($check[0]  == 'ja') {
+            echo ' <form action="scan.php" method="POST">
+                                <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>                            </form>';
+         }
+         if ($check[0]  == 'nee') {
+            echo  '      <button class="btn-collection button_sec"><a href="premium.php"> Buy premium for more collections</a></button>';
+         }
+      } else {
+         echo ' <form action="scan.php" method="POST">
+                           <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>                            </form>';
+      } ?>
    </div>
 </body>
 
