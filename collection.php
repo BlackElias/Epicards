@@ -9,16 +9,41 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
-  $_SESSION["CollectionId"]=$_GET['id'];
- $_SESSION["collectionType"]=$_GET['type'];
-  $_SESSION["collectionName"]=$_GET['title'];
+if(isset($_GET['id'])){
+    $_SESSION["CollectionId"]=$_GET['id'];
+}
+if (isset($_GET['type'])) {
+    $_SESSION["collectionType"]=$_GET['type'];
+}
+ if (isset($_GET['title'])) {
+     $_SESSION["collectionName"]=$_GET['title'];
+ } 
+ 
+  
 if (isset($_POST["delete"])) {
 
     $card = new Cards();
     $card->setCard_id($_POST["cards_id"]);
     $card->DeleteCards();
 }
-$_SESSION["collection"] = $_GET["id"];
+if (!empty($_GET['query'])) {
+    try {
+        $card = new Cards;
+        
+        $searchresult = $_GET['query'];
+       
+        
+       $card = $card->searchCards($searchresult);
+      
+        
+    }catch (\Throwable $th) {
+        $error = $th->getMessage();
+    }
+} 
+if (isset($_GET["id"])) {
+    $_SESSION["collection"] = $_GET["id"];
+}
+
 $counter = Cards::getFeedCards();
 
 $premium = User::checkPremium();
@@ -40,13 +65,16 @@ $feed = Cards::getFeedCards();
 </head>
 
 <body>
-    <input type="text" class="form_input card_input" id="card" name="card" placeholder="search card"></input>
+<form action="" method="get">
+         <input type="text" id="name-input" placeholder="Search for other cards" name="query" name="current-search" class="form_input card_input">
+         <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>
+</form>
     <?php //echo htmlspecialchars($_GET['id']); 
     ?>
     <div class="collection_container">
         <div class="top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button>
-            <h1 class="collection-name"><?php echo htmlspecialchars($_GET["title"]) ?></h1>
+            <h1 class="collection-name"><?php echo htmlspecialchars( $_SESSION["collectionName"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
         <!-- if change text  -->
@@ -124,7 +152,21 @@ $feed = Cards::getFeedCards();
            
             <div class="card_scroll">
                 <?php
+if (isset($_GET["query"])) {
+    foreach ($card as $searchresult) :  ?>
 
+<div class="card_info" >
+    <img  src="<?php echo htmlspecialchars($searchresult['card_image']) ?>" alt="card image" class="card_img">
+    <p class="card_name"><?php echo htmlspecialchars($searchresult['card_name']) ?></p>
+    <p id="card-price" class="euro">€ <?php echo htmlspecialchars($searchresult['card_price']) ?></p>
+    <form action="" method="post">
+        <input type="hidden"name="cards_id" value="<?php echo htmlspecialchars($searchresult['cards_id']) ?>">
+    <button type="submit" name="delete" class="bin_icon" value="delete">&#x2715</button>
+    </form>
+</div>
+
+    <?php endforeach;
+} else{
                 //var_dump(Cards::getFeedCards());
                 $i = 0;
                 foreach ($feed as $card) : if ($i == 200) {
@@ -133,7 +175,7 @@ $feed = Cards::getFeedCards();
 
                     <?php include("card.inc.php"); ?>
                 <?php $i++;
-                endforeach;  ?>
+                endforeach; } ?>
             </div>
         </div>
 </body>
