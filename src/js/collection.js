@@ -1,11 +1,7 @@
-
-var private = document.getElementById("private")
-var btnPrivate = document.getElementById("unprivate")
-
-
-
-btnPrivate.onclick = function() {
-    private.style.textDecoration= "underline";
-    console.log("click")
-  
-  }
+function selectOnlyThis(id) {
+    for (var i = 1;i <= 3; i++)
+    {
+        document.getElementById("Check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
