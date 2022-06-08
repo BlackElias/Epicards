@@ -179,6 +179,18 @@ class Cards
         return $this;
         
     }
+    public static function searchCards($query)
+    {
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM cards WHERE INSTR(card_name, :query) AND collection_id = :collection_id ");
+        $statement->bindValue(":query", $query);
+        $collection_id = $_SESSION["collection"];
+
+        $statement->bindValue(":collection_id", $collection_id);
+        $user = $statement->execute();
+        $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $user;
+    }
    
 
 

@@ -156,6 +156,19 @@ class Collection
         $collection = $statement->fetchAll();
         return $collection;
     }
+    public static function getFeedCollectionsPrivate()
+    {
+        $conn = Db::getConnection();
+
+        $sql = "SELECT collection_private FROM collection WHERE  collection_id = :collection_id  ";
+        $statement = $conn->prepare($sql);
+        
+
+        $statement->bindValue(":collection_id", $_SESSION["collection"]);
+        $statement->execute();
+        $collection = $statement->fetchAll();
+        return $collection;
+    }
     public static function getCollectionId()
     {
         $conn = Db::getConnection();

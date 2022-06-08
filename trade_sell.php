@@ -150,7 +150,9 @@ if (!empty($_GET['shops'])) {
       foreach ($users as $searchresult) :  ?>
 
         <a class="search_text" href="people.php?id=<?php echo $searchresult['id']; ?>&username=<?php echo $searchresult['username']; ?>">
+
           <div class="searchresult"><img class="profile-pic_search" src=" <?php echo $searchresult['picture']; ?>"> <span class="username_search"> <?php echo $searchresult['username']; ?> </span></div>
+
         </a>
 
     <?php endforeach;
@@ -197,6 +199,7 @@ if (!empty($_GET['shops'])) {
         </form><input type="hidden" value="" name="id"></input>
 
         <button class="btn"><a id="buyCard" href="">buy</a> </button>
+        <button class="btn"><a id="sellCard" href="">sell</a> </button>
 
 
 

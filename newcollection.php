@@ -94,10 +94,15 @@ if (isset($_POST["MTG"])) {
     </div>
 
     <form action="" method="POST">
+      
       <div class="checkbox_public">
-        <label for="unprivate" class="pointer">Make collection Public</label>
-        <input type="checkbox" name="private" value="unprivate" id="unprivate" class="pointer">
-      </div>
+                <h3 for="unprivate" class="pointer">Make Collection</h3>
+                <select name="private" id="unprivate">
+                    <option value="private">Private </option>
+                    <option value="unprivate">Public</option>
+                </select>
+            </div>
+      
 
       <div class="collection_input">
         <!-- <h3>Collection name</h3> -->
@@ -112,15 +117,15 @@ if (isset($_POST["MTG"])) {
         <div class="type_buttons">
 
           <label>
-            <input type="checkbox" name="pokemon" value="pokemon" class="collection_type_button pkmn_type">
+            <input id="Check1" onclick="selectOnlyThis(this.id)" type="checkbox" name="pokemon" value="pokemon" class="collection_type_button pkmn_type">
             <img src="assets/pkmn_logo.svg" alt="pokemon logo" class="cardlogos pkmn_type">
           </label>
           <label>
-            <input type="checkbox" name="yugioh" value="yugioh" class="collection_type_button yug_type">
+            <input id="Check2" onclick="selectOnlyThis(this.id)" type="checkbox" name="yugioh" value="yugioh" class="collection_type_button yug_type">
             <img src="assets/yug_logo.svg" alt="yu-gi-oh! logo" class="cardlogos yug_type">
           </label>
           <label>
-            <input type="checkbox" name="MTG" value="MTG" class="collection_type_button mtg_type">
+            <input id="Check3" onclick="selectOnlyThis(this.id)" type="checkbox" name="MTG" value="MTG" class="collection_type_button mtg_type">
             <img src="assets/mtg_logo.svg" alt="Magic: The Gathering logo" class="cardlogos mtg_type">
           </label>
         </div>
@@ -129,5 +134,5 @@ if (isset($_POST["MTG"])) {
     </form>
   </div>
 </body>
-
+<script src="src/js/collection.js"></script>
 </html>
