@@ -94,10 +94,15 @@ if (isset($_POST["MTG"])) {
     </div>
 
     <form action="" method="POST">
+      
       <div class="checkbox_public">
-        <label for="unprivate" class="pointer">Make collection Public</label>
-        <input type="checkbox" name="private" value="unprivate" id="unprivate" class="pointer">
-      </div>
+                <h3 for="unprivate" class="pointer">Make Collection</h3>
+                <select name="private" id="unprivate">
+                    <option value="private">Private </option>
+                    <option value="unprivate">Public</option>
+                </select>
+            </div>
+      
 
       <div class="collection_input">
         <!-- <h3>Collection name</h3> -->
@@ -129,5 +134,5 @@ if (isset($_POST["MTG"])) {
     </form>
   </div>
 </body>
-
+<script src="src/js/collection.js"></script>
 </html>

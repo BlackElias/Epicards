@@ -89,7 +89,8 @@ $images = Image::getFeedImage();
         width: 400,
         height: 450,
         image_format: 'jpeg',
-        jpeg_quality: 90
+        jpeg_quality: 90,
+        facingMode: "environment"
     });
   
     Webcam.attach( '#my_camera' );
