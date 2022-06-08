@@ -32,33 +32,29 @@ if (!empty($_POST["cardName"])) {
 
 
 if (!empty($_GET['query'])) {
-    try {
-        $user = new User;
-        
-        $searchresult = $_GET['query'];
-       
-        
-       $users = $user->searchusers($searchresult);
-      
-        
-    }catch (\Throwable $th) {
-        $error = $th->getMessage();
-    }
-} 
+  try {
+    $user = new User;
+
+    $searchresult = $_GET['query'];
+
+
+    $users = $user->searchusers($searchresult);
+  } catch (\Throwable $th) {
+    $error = $th->getMessage();
+  }
+}
 if (!empty($_GET['shops'])) {
   try {
-      $user = new User;
-      
-      $searchresult = $_GET['shops'];
-     
-      
-     $users = $user->searchShop($searchresult);
-    
-      
-  }catch (\Throwable $th) {
-      $error = $th->getMessage();
+    $user = new User;
+
+    $searchresult = $_GET['shops'];
+
+
+    $users = $user->searchShop($searchresult);
+  } catch (\Throwable $th) {
+    $error = $th->getMessage();
   }
-} 
+}
 
 ?>
 <!DOCTYPE html>
@@ -73,7 +69,6 @@ if (!empty($_GET['shops'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
   <link rel="stylesheet" href="css/trade_sell.css">
 
 </head>
@@ -155,7 +150,7 @@ if (!empty($_GET['shops'])) {
       foreach ($users as $searchresult) :  ?>
 
         <a class="search_text" href="people.php?id=<?php echo $searchresult['id']; ?>&username=<?php echo $searchresult['username']; ?>">
-          <div class="searchresult"><?php echo $searchresult['username']; ?> </div>
+          <div class="searchresult"><img class="profile-pic_search" src=" <?php echo $searchresult['picture']; ?>"> <span class="username_search"> <?php echo $searchresult['username']; ?> </span></div>
         </a>
 
     <?php endforeach;
@@ -210,11 +205,10 @@ if (!empty($_GET['shops'])) {
   </div>
   <!-- The Modal -->
 
- <?php if (isset($_GET["cards"])) {
-     echo '<script src="src/js/search.js"></script>';
+  <?php if (isset($_GET["cards"])) {
+    echo '<script src="src/js/search.js"></script>';
+  } ?>
 
- } ?>
-  
 </body>
 
 </html>

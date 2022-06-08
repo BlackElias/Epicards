@@ -1,3 +1,7 @@
+body {
+    background-color: white;
+}
+
 div.top {
     display: flex;
     align-items: center;
@@ -28,6 +32,16 @@ div.profile-box-info {
 
 a {
     color: black;
+}
+
+.profile-picture-big {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
 }
 
 .collection-text {
@@ -92,6 +106,19 @@ div.cards_amount {
     height: 60%;
     overflow: hidden;
     overflow-y: scroll;
+}
+
+.friendlist_btn img {
+    width: 40px;
+    border: solid 3px black;
+    padding: 10px 15px;
+    border-radius: 15px;
+    position: fixed;
+    bottom: 120;
+    bottom: 100px;
+    right: 20px;
+    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 ::-webkit-scrollbar {
