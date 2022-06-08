@@ -103,19 +103,29 @@ $feed = Cards::getFeedCards();
         </div>
         ';
             } ?>
-            <form action="scan.php" method="POST">
-            <input type="hidden" value="<?php echo htmlspecialchars($_GET['title']) ?>" name="collection_name"></input>
+            <?php $check = array_column($premium, 'premium');
+                        // var_dump(array_values($check) );
 
-                <input type="hidden" name="id" value="<?php echo  htmlspecialchars($_GET['id']) ?>"></input>
-                <input type="hidden" name="type" value="<?php echo  htmlspecialchars($_GET['type']) ?>"></input>
-                <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
-            </form>
+                        if ( count(Collection::getFeedCollections($currentUserId)) >= 3  ) {
+                          echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more collections</a></button>';
+
+                            $check = array_column($premium, 'premium');
+                            
+                            if ($check[0]  == 'ja') {
+                                echo ' <form action="scan.php" method="POST">
+                                     <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
+                            </form>';
+                            }
+                         }else { echo ' <form action="scan.php" method="POST">
+                                     <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
+                            </form>';} ?>
+           
             <div class="card_scroll">
                 <?php
 
                 //var_dump(Cards::getFeedCards());
                 $i = 0;
-                foreach ($feed as $card) : if ($i == 20) {
+                foreach ($feed as $card) : if ($i == 200) {
                         break;
                     } ?>
 
