@@ -9,17 +9,17 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
-if(isset($_GET['id'])){
-    $_SESSION["CollectionId"]=$_GET['id'];
+if (isset($_GET['id'])) {
+    $_SESSION["CollectionId"] = $_GET['id'];
 }
 if (isset($_GET['type'])) {
-    $_SESSION["collectionType"]=$_GET['type'];
+    $_SESSION["collectionType"] = $_GET['type'];
 }
- if (isset($_GET['title'])) {
-     $_SESSION["collectionName"]=$_GET['title'];
- } 
- 
-  
+if (isset($_GET['title'])) {
+    $_SESSION["collectionName"] = $_GET['title'];
+}
+
+
 if (isset($_POST["delete"])) {
 
     $card = new Cards();
@@ -29,17 +29,15 @@ if (isset($_POST["delete"])) {
 if (!empty($_GET['query'])) {
     try {
         $card = new Cards;
-        
+
         $searchresult = $_GET['query'];
-       
-        
-       $card = $card->searchCards($searchresult);
-      
-        
-    }catch (\Throwable $th) {
+
+
+        $card = $card->searchCards($searchresult);
+    } catch (\Throwable $th) {
         $error = $th->getMessage();
     }
-} 
+}
 if (isset($_GET["id"])) {
     $_SESSION["collection"] = $_GET["id"];
 }
@@ -65,28 +63,28 @@ $feed = Cards::getFeedCards();
 </head>
 
 <body>
-<form action="" method="get">
-         <input type="text" id="name-input" placeholder="Search for other cards" name="query" name="current-search" class="form_input card_input">
-         <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>
-</form>
+    <form action="" method="get">
+        <input type="text" id="name-input" placeholder="Search cards" name="query" name="current-search" class="form_input card_input">
+        <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>
+    </form>
     <?php //echo htmlspecialchars($_GET['id']); 
     ?>
     <div class="collection_container">
         <div class="top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button>
-            <h1 class="collection-name"><?php echo htmlspecialchars( $_SESSION["collectionName"]) ?></h1>
+            <h1 class="collection-name"><?php echo htmlspecialchars($_SESSION["collectionName"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
         <!-- if change text  -->
-        <?php 
+        <?php
         $p = array_column($private, 'collection_private');
-        
-        if($p[0] == "private"){
+
+        if ($p[0] == "private") {
             echo '<p class="visibility">Visible to you only</p>';
-        }else{
+        } else {
             echo '<p class="visibility">Visible to friends only</p>';
         } ?>
-        
+
 
 
         <div class="collection-flex" id="collection">
@@ -131,51 +129,54 @@ $feed = Cards::getFeedCards();
         </div>
         ';
             } ?>
-            <?php 
-                        // var_dump(array_values($check) );
+            <?php
+            // var_dump(array_values($check) );
 
-                        if ( count($counter) >= 1000  ) {
+            if (count($counter) >= 1000) {
 
-                            $check = array_column($premium, 'premium');
-                            
-                            if ($check[0]  == 'ja') {
-                                echo ' <form action="scan.php" method="POST">
+                $check = array_column($premium, 'premium');
+
+                if ($check[0]  == 'ja') {
+                    echo ' <form action="scan.php" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
-                            } if ($check[0]  == 'nee') {
-                                echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
-
-                            }
-                         }else { echo ' <form action="scan.php" method="POST">
+                }
+                if ($check[0]  == 'nee') {
+                    echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
+                }
+            } else {
+                echo ' <form action="scan.php" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
-                            </form>';} ?>
-           
+                            </form>';
+            } ?>
+
             <div class="card_scroll">
                 <?php
-if (isset($_GET["query"])) {
-    foreach ($card as $searchresult) :  ?>
+                if (isset($_GET["query"])) {
+                    foreach ($card as $searchresult) :  ?>
 
-<div class="card_info" >
-    <img  src="<?php echo htmlspecialchars($searchresult['card_image']) ?>" alt="card image" class="card_img">
-    <p class="card_name"><?php echo htmlspecialchars($searchresult['card_name']) ?></p>
-    <p id="card-price" class="euro">€ <?php echo htmlspecialchars($searchresult['card_price']) ?></p>
-    <form action="" method="post">
-        <input type="hidden"name="cards_id" value="<?php echo htmlspecialchars($searchresult['cards_id']) ?>">
-    <button type="submit" name="delete" class="bin_icon" value="delete">&#x2715</button>
-    </form>
-</div>
+                        <div class="card_info">
+                            <img src="<?php echo htmlspecialchars($searchresult['card_image']) ?>" alt="card image" class="card_img">
+                            <p class="card_name"><?php echo htmlspecialchars($searchresult['card_name']) ?></p>
+                            <p id="card-price" class="euro">€ <?php echo htmlspecialchars($searchresult['card_price']) ?></p>
+                            <form action="" method="post">
+                                <input type="hidden" name="cards_id" value="<?php echo htmlspecialchars($searchresult['cards_id']) ?>">
+                                <button type="submit" name="delete" class="bin_icon" value="delete">&#x2715</button>
+                            </form>
+                        </div>
 
-    <?php endforeach;
-} else{
-                //var_dump(Cards::getFeedCards());
-                $i = 0;
-                foreach ($feed as $card) : if ($i == 200) {
-                        break;
-                    } ?>
+                    <?php endforeach;
+                } else {
+                    //var_dump(Cards::getFeedCards());
+                    $i = 0;
+                    foreach ($feed as $card) : if ($i == 200) {
+                            break;
+                        } ?>
 
-                    <?php include("card.inc.php"); ?>
+                        <?php include("card.inc.php"); ?>
                 <?php $i++;
-                endforeach; } ?>
+                    endforeach;
+                } ?>
             </div>
         </div>
 </body>

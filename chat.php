@@ -20,7 +20,6 @@ include_once("navbar.inc.php");
 
 <body>
 <div class="top">
-      <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button>
       <h1>Chatmessages</h1>
     </div>
 </body>

@@ -22,7 +22,6 @@ include_once("bootstrap.php");
 
 <body>
     <div class="appsettings_container">
-
         <div class="top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button>
             <h1>Settings</h1>
