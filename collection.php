@@ -9,6 +9,9 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
+  $_SESSION["CollectionId"]=$_GET['id'];
+ $_SESSION["collectionType"]=$_GET['type'];
+  $_SESSION["collectionName"]=$_GET['title'];
 if (isset($_POST["delete"])) {
 
     $card = new Cards();
@@ -33,7 +36,7 @@ $feed = Cards::getFeedCards();
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
     <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
-    <title>Document</title>
+    <title>Epicards Collection</title>
 </head>
 
 <body>
@@ -94,7 +97,9 @@ $feed = Cards::getFeedCards();
         </div>
         ';
             } ?>
-            <form action="addCard.php" method="POST">
+            <form action="scan.php" method="POST">
+            <input type="hidden" value="<?php echo htmlspecialchars($_GET['title']) ?>" name="collection_name"></input>
+
                 <input type="hidden" name="id" value="<?php echo  htmlspecialchars($_GET['id']) ?>"></input>
                 <input type="hidden" name="type" value="<?php echo  htmlspecialchars($_GET['type']) ?>"></input>
                 <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>

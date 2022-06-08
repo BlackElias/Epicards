@@ -31,7 +31,23 @@ $annotation = $vision->annotate($image);
 $text = $annotation->text()[1];
 //var_dump($text);
 //var_dump($vision);
+if (!empty($_POST["cardName"])) {
 
+  try {
+    $card = new Cards();
+    $card->setCollectionId($_POST['id']);
+
+    $card->setCard_name($_POST["cardName"]);
+    $card->setCard_price($_POST["cardPrice"]);
+    $card->setCard_image($_POST["cardImage"]);
+
+
+
+    $card->saveCards();
+  } catch (\Throwable $th) {
+    $error = $th->getMessage();
+  }
+}
 ?>
 <!DOCTYPE html>
 
@@ -138,9 +154,10 @@ $text = $annotation->text()[1];
           <input id="addCard-data" type="hidden" value="" name="cardName"></input>
           <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
           <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
-         
-       <input type="hidden" value="" name="id"></input>
-          <button class="btn" ><a id="buyCard" href="">sell</a> </button>
+          <input type="hidden" value="<?php echo $_POST['id'] ?>" name="id"></input>
+            <input type="hidden" value="<?php echo $_POST['type'] ?>" name="type"></input>
+            <button id="card-saver" type="submit" class="btn">add card</button>
+       
            </form>
         
       </div>
@@ -148,7 +165,17 @@ $text = $annotation->text()[1];
   </div>
   <!-- The Modal -->
  
-  <script src="src/js/buy.js"></script>
+  <?php if ($_POST['type'] == "pokemon") {
+    echo  '<script src="src/js/pokesearch.js"></script>';
+  } elseif ($_POST['type'] == "yugioh") {
+    echo '<script src="src/js/yugioh.js"></script>';
+  } else {
+    echo '<script src="src/js/mtg.js"></script>';
+  }
+
+
+
+  ?>
 
 </body>
 
