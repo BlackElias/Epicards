@@ -45,7 +45,10 @@ try {
                 <span class="username_title"><?php echo htmlspecialchars($currentUser["username"]) ?></span>
             </div>
         </div>
-        <a class="edit-profile_btn" href="edit_profile.php"><img src="assets/edit_icon_small.svg" alt="edit icon" class="edit_icon"> edit profile</a>
+        <div class="flex_top-btns">
+            <a href="#" class="friendlist_btn"><img src="assets/friendlist_icon.svg" alt="friendlist icon" class="edit_icon">friendlist</a>
+            <a class="edit-profile_btn" href="edit_profile.php"><img src="assets/edit_icon_small.svg" alt="edit icon" class="edit_icon">edit profile</a>
+        </div>
     </div>
     <main>
 
@@ -62,34 +65,33 @@ try {
         </div>
 
     </main>
-        <div class="posts_scroll">
-            <?php
-            $i = 0;
-            foreach ($feed as $collection) : if ($i == 20) {
-
-                    break;
-                } ?>
-                <a class="collection-text" href="collection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
-                    <div class="container">
-                        <div class="collection-pokemon">
-                            <div class="collection_card_text">
-                                <div class="cards_amount">
-                                    <p><?php
-                                        echo Collection::countCards($collection["collection_id"]);
-                                        ?></p>
-                                    <p class="">cards</p>
-                                </div>
-                                <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($collection['collection_name']) ?></span></p>
+    <div class="posts_scroll">
+        <?php
+        $i = 0;
+        foreach ($feed as $collection) : if ($i == 20) {
+                break;
+            } ?>
+            <a class="collection-text" href="collection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
+                <div class="container">
+                    <div class="collection-pokemon">
+                        <div class="collection_card_text">
+                            <div class="cards_amount">
+                                <p><?php
+                                    echo Collection::countCards($collection["collection_id"]);
+                                    ?></p>
+                                <p class="">cards</p>
                             </div>
+                            <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($collection['collection_name']) ?></span></p>
                         </div>
                     </div>
-                </a>
-            <?php $i++;
-            endforeach;  ?>
+                </div>
+            </a>
+        <?php $i++;
+        endforeach;  ?>
 
-            <a href="#" class="friendlist_btn"><img src="assets/friendlist_icon.svg" alt="friendlist button"></a>
-        </div>
-        <div class="hidden_block">hidden</div>
+        <button class="btn-collection button_sec"><a href="#"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new post</a></button>
+    </div>
+    <div class="hidden_block">hidden</div>
 </body>
 
 </html>
