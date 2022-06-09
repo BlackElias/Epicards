@@ -4,13 +4,13 @@ body {
 
 div.top {
     display: flex;
-    align-items: center;
     padding-top: 100px;
     padding-bottom: 15px;
     width: 80%;
-    justify-content: space-around;
     margin-left: auto;
     margin-right: auto;
+    flex-direction: column;
+    align-items: center;
 }
 
 .username_title {
@@ -22,8 +22,6 @@ div.top {
     color: black;
     font-family: "apex mk3";
     text-decoration: underline;
-    display: flex;
-    justify-content: center;
     margin-top: 20px;
     padding-bottom: 30px;
 }
@@ -109,22 +107,41 @@ div.posts_scroll {
     overflow-y: scroll;
 }
 
-.hidden_block{
+.hidden_block {
     padding: 40px;
     opacity: 0;
 }
 
+.flex_top-btns{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .friendlist_btn img {
-    width: 40px;
-    border: solid 3px black;
-    padding: 10px 15px;
+    width: 30px;
+}
+a.friendlist_btn{
+    color: black;
+    font-family: "apex mk3";
+    border: 3px solid black;
+    padding: 15px 20px;
     border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-collection {
     position: fixed;
-    bottom: 120;
-    bottom: 100px;
     right: 20px;
-    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
-    background-color: rgba(255, 255, 255, 0.7);
+    bottom: 100px;
+}
+
+.btn-collection a{
+    color: black;
 }
 
 ::-webkit-scrollbar {
