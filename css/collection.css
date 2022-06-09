@@ -2,7 +2,7 @@
     border-radius: 60px 60px 0px 0px;
     background-color: white;
     height: 100%;
-    margin-top: 110px;
+    margin-top: 90px;
     position: fixed;
     width: 100%;
     box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
@@ -79,7 +79,7 @@ h1 {
     margin-right: auto;
     top: 85px;
     position: relative;
-    box-shadow: rgb(50 50 93 / 25%) 1px 1px 9px 2px inset;
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 8px 0px inset;
     border: none;
     padding: 0.9rem 0.05rem 0.9rem 0.9rem;
     border-radius: 0.45rem;
@@ -103,6 +103,7 @@ p {
 .visibility {
     text-align: center;
     margin-bottom: 15px;
+    color: #615F5F;
 }
 
 .collection-flex {

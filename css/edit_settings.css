@@ -1,0 +1,129 @@
+.edit-settings_container {
+    border-radius: 60px 60px 0px 0px;
+    background-color: white;
+    height: 100%;
+    margin-top: 90px;
+    position: fixed;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
+}
+
+.settings_scroll {
+    overflow: scroll;
+    height: 66%;
+}
+
+div.top {
+    display: flex;
+    align-items: center;
+    padding-top: 25px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    width: 80%;
+}
+
+.back_arrow {
+    width: 20px;
+    padding-bottom: 25px;
+    vertical-align: middle;
+}
+
+
+.btn {
+    margin-bottom: 45px;
+}
+
+.btn a {
+    color: white;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.profile-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.custom-file-input {
+    color: transparent;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.custom-file-input::before {
+    content: 'change profile picture';
+    color: black;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-family: "apex mk3";
+    text-decoration: underline;
+    font-size: 1.2em;
+}
+
+.custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.custom-file-input {
+    width: 170px;
+}
+
+.form-control {
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 8px 0px inset;
+    border: none;
+    padding: 0.7rem 0.75rem 0.7rem 0.7rem;
+    border-radius: 0.45rem;
+    font-family: "futuraPT medium";
+    font-size: 1rem;
+}
+
+.mb-3 {
+    margin-bottom: 1.4rem !important;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-text {
+    color: #615F5F;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 10px 0;
+}
+
+.btn-center {
+    display: flex;
+    justify-content: center;
+}
+
+div.container {
+    display: flex;
+    justify-content: center;
+}
+
+.logout-btn {
+    color: red;
+    position: fixed;
+    bottom: 100px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

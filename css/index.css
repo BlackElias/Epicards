@@ -83,10 +83,16 @@ div.cards_amount {
 }
 
 .collections_scroll {
-    height: 60%;
+    height: 65vh;
     overflow: hidden;
     overflow-y: scroll;
 }
+
+.hidden_block {
+    padding: 35px;
+    opacity: 0;
+}
+
 
 ::-webkit-scrollbar {
     display: none;

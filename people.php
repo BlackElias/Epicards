@@ -42,10 +42,10 @@ try {
             <?php if (!empty($currentUser["picture"])) : ?>
                 <img class="profile-picture-big" src="<?php echo $currentUser["picture"] ?>" alt="profile picture">
             <?php endif; ?>
-            <div class="profile-box-names">
-                <h1><?php echo htmlspecialchars($currentUser["username"]) ?></h1>
 
-            </div>
+        </div>
+        <div class="profile-box-names">
+            <h1><?php echo htmlspecialchars($currentUser["username"]) ?></h1>
         </div>
 </body>
 

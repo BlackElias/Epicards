@@ -108,7 +108,7 @@ if (!empty($_POST["cardName"])) {
         <table class="responsive-table highlight">
           <p id="test"></p>
 
-          <tbody style="">
+          <tbody>
             <tr>
               <td id="priceH">Holofoil Market Price</td>
               <td id="modal-HoloFoil-price"></td>

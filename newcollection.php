@@ -108,7 +108,7 @@ if (isset($_POST["MTG"])) {
         <!-- <h3>Collection name</h3> -->
 
         <label for="collection_input"  class="input_label">Collection name</label>
-        <input type="name" name="name" class="input_field" required="required" id="collection_input">
+        <input type="name" placeholder="Enter the name of your collection" name="name" class="input_field" required="required" id="collection_input">
 
       </div>
 

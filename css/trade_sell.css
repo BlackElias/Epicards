@@ -1,11 +1,26 @@
-form {
+.trade_sell_container {
+    border-radius: 60px 60px 0px 0px;
+    background-color: white;
+    height: 100%;
+    margin-top: 110px;
+    position: fixed;
     width: 100%;
+    box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
+}
+
+.search {
     display: flex;
+    top: 85px;
+    position: relative;
     justify-content: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .form_input {
-    box-shadow: rgb(50 50 93 / 25%) 1px 1px 9px 2px inset;
+    display: block;
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 8px 0px inset;
     border: none;
     padding: 0.9rem 0.05rem 0.9rem 0.9rem;
     border-radius: 0.45rem;
@@ -14,89 +29,11 @@ form {
     font-size: 0.9em;
 }
 
-.card_input {
-    background-color: rgb(255, 255, 255);
-}
-
 .search_btn {
     width: 30px;
 }
 
-.search {
-    top: 85px;
-    position: fixed;
-    width: 100%;
-    background-color: white;
-    padding-bottom: 15px;
-    box-shadow: rgb(100 100 111 / 10%) 0px 13px 18px;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    z-index: 1;
-}
-
-.vl_line {
-    border-left: 1.5px solid rgb(0, 0, 0);
-    height: 33px;
-}
-
-.search_category a {
+a {
     text-decoration: none;
-    color: #8B8A8A;
-    font-family: "apex mk3";
-    font-size: 1.25em;
-}
-
-.search_category a:active {
-    color: red;
-}
-
-.search_category {
-    display: flex;
-    justify-content: space-between;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-}
-
-.card_scroll {
-    overflow: hidden;
-    overflow-y: scroll;
-    position: relative;
-    top: 200px;
-    /* z-index: -1; */
-}
-
-.row {
-    padding-top: 210px;
-    width: 90%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.searchresult {
-    background-color: white;
-    width: 90%;
-    padding: 20px;
-    position: relative;
-    top: -195px;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-a.search_text {
-    text-decoration: none;
-    color: black;
-    font-family: "futuraPT medium";
-}
-
-::-webkit-scrollbar {
-    display: none;
+    color: #615F5F;
 }
