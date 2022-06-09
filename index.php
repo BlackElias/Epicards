@@ -75,14 +75,14 @@ $private = Collection::getFeedCollectionsPrivate();
          $check = array_column($premium, 'premium');
 
          if ($check[0]  == 'ja') {
-            echo ' <form action="scan.php" method="POST">
-                                <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>                            </form>';
+            echo ' 
+                                <a href="newcollection.php"><button class="btn-collection button_sec"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</button></a> ';
          }if ($check[0]  == 'nee') {
-            echo  '      <button class="btn-collection button_sec"><a href="premium.php"> Buy premium for more collections</a></button>'         ;
+            echo  '      <a href="premium.php"><button class="btn-collection button_sec"> Buy premium for more collections</button></a>'         ;
          }
       } else {
-         echo ' <form action="scan.php" method="POST">
-                           <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>                            </form>';
+         echo ' 
+                           <a href="newcollection.php"><button class="btn-collection button_sec"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</button></a> ';
       } ?>
    </div>
 </body>
