@@ -1,7 +1,5 @@
 <?php
 include_once("bootstrap.php");
-include_once("header.inc.php");
-include_once("navbar.inc.php");
 try {
     $user = new User();
     $currentUserId = $_SESSION["userId"];
@@ -48,6 +46,9 @@ $premium = User::checkPremium();
 $private = Collection::getFeedCollectionsPrivate();
 $feed = Cards::getFeedCards();
 
+include_once("header.inc.php");
+include_once("navbar.inc.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +72,7 @@ $feed = Cards::getFeedCards();
     ?>
     <div class="collection_container">
         <div class="top">
-            <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button>
+           <a href="index.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
             <h1 class="collection-name"><?php echo htmlspecialchars($_SESSION["collectionName"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>

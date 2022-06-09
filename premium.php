@@ -1,28 +1,28 @@
 <?php
 include_once("bootstrap.php");
-include_once("header.inc.php");
-include_once("navbar.inc.php");
 try {
     $user = new User();
     $currentUserId = $_SESSION["userId"];
     $currentUser = $user->getUserInfo($currentUserId);
- } catch (\Throwable $th) {
+} catch (\Throwable $th) {
     $error = $th->getMessage();
- }
- if (!empty($_POST)) {
+}
+if (!empty($_POST)) {
     try {
-      $user = new User();
-      $user->setPremium($_POST["premium"]);
-     
-  
-      $user->updatePremium();
-      
-  
-      header("Location: index.php");
+        $user = new User();
+        $user->setPremium($_POST["premium"]);
+
+
+        $user->updatePremium();
+
+
+        header("Location: index.php");
     } catch (\Throwable $th) {
-      $error = $th->getMessage();
+        $error = $th->getMessage();
     }
- }
+}
+include_once("header.inc.php");
+include_once("navbar.inc.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +51,8 @@ try {
         </div>
         <form action="" method="post">
             <input type="hidden" name="premium" value="ja">
-        <button type="submit" class="w-100 btn_buy btn-lg submit">Buy</button>
-    </form>
+            <button type="submit" class="w-100 btn_buy btn-lg submit">Buy</button>
+        </form>
     </div>
 </body>
 
