@@ -1,8 +1,6 @@
 <?php
 
 include_once("bootstrap.php");
-include_once("header.inc.php");
-include_once("navbar.inc.php");
 
 try {
 
@@ -50,6 +48,9 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
+
+include_once("header.inc.php");
+include_once("navbar.inc.php");
 
 ?>
 

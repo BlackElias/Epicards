@@ -1,7 +1,5 @@
 <?php
 include_once("bootstrap.php");
-include_once("header.inc.php");
-include_once("navbar.inc.php");
 try {
     $user = new User();
     $currentUserId = $_SESSION["userId"];
@@ -21,7 +19,8 @@ $counter = Cards::getFeedCards();
 $premium = User::checkPremium();
 
 $feed = Cards::getFeedCards();
-
+include_once("header.inc.php");
+include_once("navbar.inc.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +46,7 @@ $feed = Cards::getFeedCards();
         </div>
         <!-- if change text and icon -->
         <a href="">
-            
+
         </a>
 
 
@@ -93,7 +92,7 @@ $feed = Cards::getFeedCards();
         </div>
         ';
             } ?>
-           
+
             <div class="card_scroll">
                 <?php
 
@@ -103,15 +102,15 @@ $feed = Cards::getFeedCards();
                         break;
                     } ?>
 
-<div class="card_info" >
-    <img  src="<?php echo htmlspecialchars($card['card_image']) ?>" alt="card image" class="card_img">
-    <p class="card_name"><?php echo htmlspecialchars($card['card_name']) ?></p>
-    <p id="card-price" class="euro">€ <?php echo htmlspecialchars($card['card_price']) ?></p>
-    <form action="" method="post">
-        <input type="hidden"name="cards_id" value="<?php echo htmlspecialchars($card['cards_id']) ?>">
-   
-    </form>
-</div>
+                    <div class="card_info">
+                        <img src="<?php echo htmlspecialchars($card['card_image']) ?>" alt="card image" class="card_img">
+                        <p class="card_name"><?php echo htmlspecialchars($card['card_name']) ?></p>
+                        <p id="card-price" class="euro">€ <?php echo htmlspecialchars($card['card_price']) ?></p>
+                        <form action="" method="post">
+                            <input type="hidden" name="cards_id" value="<?php echo htmlspecialchars($card['cards_id']) ?>">
+
+                        </form>
+                    </div>
                 <?php $i++;
                 endforeach;  ?>
             </div>

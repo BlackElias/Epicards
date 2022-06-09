@@ -1,7 +1,5 @@
 <?php
 include_once("bootstrap.php");
-include_once("header.inc.php");
-include_once("navbar.inc.php");
 try {
     $user = new User();
     $currentUserId = $_SESSION["userId"];
@@ -18,7 +16,9 @@ if (isset($_POST["delete"])) {
     $sell->Delete();
     header("Location: index.php");
 }
-  $feed = Sell::getFeedSell();
+$feed = Sell::getFeedSell();
+include_once("header.inc.php");
+include_once("navbar.inc.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +61,6 @@ foreach ($feed as $row) : if ($i == 20) {
 endforeach;  ?>
 
 
-   
 </body>
 <script src="src/js/app.js"></script>
 <style>

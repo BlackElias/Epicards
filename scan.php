@@ -1,8 +1,7 @@
 <?php
 
 include_once("bootstrap.php");
-include_once("header2.inc.php");
-include_once("navbar.inc.php");
+
 try {
    $user = new User();
    $currentUserId = $_SESSION["userId"];
@@ -41,6 +40,8 @@ if(isset($_POST['image'])){
  
 }
 }
+include_once("header2.inc.php");
+include_once("navbar.inc.php");
 $images = Image::getFeedImage();
 ?>
 <!DOCTYPE html>

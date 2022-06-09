@@ -3,8 +3,6 @@
 
 
 include_once("bootstrap.php");
-//include_once("header2.inc.php");
-include_once("navbar.inc.php");
 try {
     $user = new User();
     $currentUserId = $_SESSION["userId"];
@@ -74,7 +72,8 @@ if (!empty($_GET['shops'])) {
         $error = $th->getMessage();
     }
 }
-
+include_once("header2.inc.php");
+include_once("navbar.inc.php");
 ?>
 <!DOCTYPE html>
 

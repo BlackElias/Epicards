@@ -1,7 +1,5 @@
 <?php
 include_once("bootstrap.php");
-include_once("header.inc.php");
-include_once("navbar.inc.php");
 
 //var_dump($_POST);
 //var_dump($_SESSION["userId"]);
@@ -70,7 +68,8 @@ if (isset($_POST["MTG"])) {
     $error = $th->getMessage();
   }
 }
-
+include_once("header.inc.php");
+include_once("navbar.inc.php");
 ?>
 
 <!DOCTYPE html>

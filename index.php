@@ -1,7 +1,5 @@
 <?php
 include_once("bootstrap.php");
-include_once("header.inc.php");
-include_once("navbar.inc.php");
 try {
    $user = new User();
    $currentUserId = $_SESSION["userId"];
@@ -17,6 +15,8 @@ unset($_SESSION['collection_id']);
 // $collectionID = $collection->getCollectonId();
 $premium = User::checkPremium();
 $private = Collection::getFeedCollectionsPrivate();
+include_once("header.inc.php");
+include_once("navbar.inc.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

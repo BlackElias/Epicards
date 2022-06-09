@@ -1,7 +1,5 @@
 <?php
 include_once("bootstrap.php");
-include_once("header2.inc.php");
-include_once("navbar.inc.php");
 error_reporting(0);
 try {
    $user = new User();
@@ -55,7 +53,8 @@ if (!empty($_POST["cardName"])) {
     $error = $th->getMessage();
   }
 }
-
+include_once("header2.inc.php");
+include_once("navbar.inc.php");
 ?>
 <!DOCTYPE html>
 
@@ -80,7 +79,7 @@ if (!empty($_POST["cardName"])) {
 <body>
   <div class="input-field col s12">
   
-    <div class="search" style="">
+    <div class="search">
     <?php  if($text == null){
      echo '<div><h1 >looks like something went wrong! You can try again by pressing  <button style="text-decoration: underline;" onclick="history.go(-1);">here </button></h1></div>';
     }   ?>
@@ -152,7 +151,7 @@ if (!empty($_POST["cardName"])) {
         <table class="responsive-table highlight">
           <p id="test"></p>
 
-          <tbody style="">
+          <tbody>
             <tr>
               <td id="priceH">Holofoil Market Price</td>
               <td id="modal-HoloFoil-price"></td>

@@ -1,9 +1,6 @@
 <?php
 
 include_once("bootstrap.php");
-include_once("header.inc.php");
-include_once("navbar.inc.php");
-include_once("bootstrap.php");
 
 try {
     $feed = Collection::getFeedCollectionsUnprivate($_GET["id"]);
@@ -19,7 +16,8 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
-
+include_once("header.inc.php");
+include_once("navbar.inc.php");
 ?>
 
 <!DOCTYPE html>
