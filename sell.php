@@ -9,11 +9,9 @@ try {
 }
 $username[0] = $currentUser;
 $usern =  array_column($username, "username");
-//$usern[0] =  ;
+
 $_SESSION["username"] = $usern[0];
-var_dump($currentUser);
-//echo $usern[0];
-var_dump($usern);
+
 
 if (!empty($_POST)) {
   try {
@@ -68,14 +66,14 @@ include_once("navbar.inc.php");
        
 
 
-     <h1><?php echo  htmlspecialchars($_GET['title']) ?></h1>
-            <img src="<?php echo  htmlspecialchars($_GET['img']) ?>" alt="" style="width: 50%;">
+     <h1><?php echo  htmlspecialchars($_SESSION["cardName"] ) ?></h1>
+            <img src="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>" alt="" style="width: 50%;">
             <br>
         <form action="" method="POST">
             
-            <input type="hidden" name="image" value="<?php echo  htmlspecialchars($_GET['img']) ?>"></input>
-            <input type="hidden" name="CardId" value="<?php echo  htmlspecialchars($_GET['id']) ?>"></input>
-            <input type="hidden" name="name" value="<?php echo  htmlspecialchars($_GET['title']) ?>"></input>
+            <input type="hidden" name="image" value="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>"></input>
+            <input type="hidden" name="CardId" value="<?php echo  htmlspecialchars($_SESSION["cardId"]) ?>"></input>
+            <input type="hidden" name="name" value="<?php echo  htmlspecialchars($_SESSION["cardName"]) ?>"></input>
             <label for="">Price</label>
             
             <input type="text" name="price" class="" id=""></input>

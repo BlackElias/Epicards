@@ -1,4 +1,7 @@
 <?php
+
+
+
 include_once("bootstrap.php");
 try {
     $user = new User();
@@ -7,6 +10,22 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
+
+if (isset($_POST["sell"])) {
+$_SESSION["cardName"] = $_POST["cardName"];
+$_SESSION["cardPrice"] =$_POST["cardPrice"];
+$_SESSION["cardImage"] =$_POST["cardImage"];
+$_SESSION["cardId"] =$_POST["cardId"];
+header("Location: sell.php");
+}
+if (isset($_POST["buy"])) {
+    $_SESSION["cardName"] = $_POST["cardName"];
+    $_SESSION["cardPrice"] =$_POST["cardPrice"];
+    $_SESSION["cardImage"] =$_POST["cardImage"];
+    $_SESSION["cardId"] =$_POST["cardId"];
+    header("Location: buy.php");
+    }
+
 
 if (!empty($_POST["cardName"])) {
 
@@ -94,11 +113,11 @@ include_once("navbar.inc.php");
                     echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
                 } ?>
                 <div class="search_category">
-                    <button><a href="trade_sell.php">people</a></button>
+                    <button><a href="search_buy_sell.php">people</a></button>
                     <span class="vl_line"></span>
-                    <button><a href="trade_sell.php?shops=">shops</a></button>
+                    <button><a href="search_buy_sell.php?shops=">shops</a></button>
                     <span class="vl_line"></span>
-                    <button class=""><a href="trade_sell.php?cards=">cards</a></button>
+                    <button class=""><a href="search_buy_sell.php?cards=">cards</a></button>
                 </div>
             </div>
         </div>
@@ -191,17 +210,21 @@ include_once("navbar.inc.php");
                     </tbody>
                 </table>
                 <img class="responsive-img" src="" alt="" id="modal-card-image">
-                <form action="" method="">
+                <form action="" method="post">
 
                     <input id="addCard-data" type="hidden" value="" name="cardName"></input>
                     <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
                     <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
 
                     <link rel="stylesheet" href="css/bottom-navbar/trade_sell_bar.css">
-                </form><input type="hidden" value="" name="id"></input>
+                <input type="hidden" value="" name="id"></input>
+                <input id="buyCard" type="hidden" name="buyCardId" href="">
 
-                <button class="btn"><a id="buyCard" href="">buy</a> </button>
-                <button class="btn"><a id="sellCard" href="">sell</a> </button>
+                <button class="btn" name="buy" type="submit">buy </button>
+
+                <input id="sellCard" type="hidden" name="cardId" value="">
+                
+                <button class="btn" name="sell" type="submit">sell </button></form>
             </div>
         </div>
     </div>

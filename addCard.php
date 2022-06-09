@@ -28,13 +28,13 @@ $image = $vision->image($imageResource, [ 'text' ]);
 $annotation = $vision->annotate($image);
 if($_SESSION["collectionType"] == "pokemon"){
   $text = $annotation->text()[1];
-  
+  echo "te";
 }else{
   $text = $annotation->text()[1];
   $text2 = $annotation->text()[2];
 }
 
-var_dump($text);
+//var_dump( $text);
 //var_dump($vision);
 if (!empty($_POST["cardName"])) {
 
@@ -83,7 +83,13 @@ include_once("navbar.inc.php");
     <?php  if($text == null){
      echo '<div><h1 >looks like something went wrong! You can try again by pressing  <button style="text-decoration: underline;" onclick="history.go(-1);">here </button></h1></div>';
     }   ?>
-      <input type="text" id="name-input" placeholder="search name" name="current-search" value="<?php echo htmlspecialchars( $text->description());?> <?php echo htmlspecialchars( $text2->description()); ?>" class="form_input card_input">
+      <input type="text" id="name-input" placeholder="search name" name="current-search" value="<?php if($_SESSION["collectionType"] == "pokemon"){
+ echo htmlspecialchars( $text->description());
+}else{
+  echo htmlspecialchars( $text->description()); 
+ echo " ";
+  echo htmlspecialchars( $text2->description()); 
+}?> " class="form_input card_input">
       <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn">
         <p class="hide_text">hi</p>
       </button>

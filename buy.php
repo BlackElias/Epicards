@@ -7,8 +7,8 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
-$_SESSION["CardId"] = $_GET["id"];
-//var_dump($_POST["delete"]);
+
+
 if (isset($_POST["delete"])) {
 
     $sell = new Sell();
@@ -40,12 +40,11 @@ include_once("navbar.inc.php");
     <div class="collection_container">
         <div class="top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button>
-            <h1 class="collection-name">Buy <?php echo htmlspecialchars($_GET['title']) ?></h1>
+            <h1 class="collection-name">Buy <?php echo htmlspecialchars($_SESSION["cardName"]) ?></h1>
            
         </div>
         <?php
 
-//var_dump(Cards::getFeedCards());
 $i = 0;
 foreach ($feed as $row) : if ($i == 20) {
         break;
