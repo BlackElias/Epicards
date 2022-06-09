@@ -32,7 +32,7 @@ try {
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Profile</title>
+    <title>Epicards | <?php echo htmlspecialchars($currentUser["username"]) ?></title>
 </head>
 
 <body>

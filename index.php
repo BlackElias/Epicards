@@ -66,7 +66,7 @@ $private = Collection::getFeedCollectionsPrivate();
             </a>
          <?php $i++;
          endforeach;  ?>
-         <div class="hidden_block">hidden</div>
+         <div class="hidden_block"></div>
       </div>
       <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
 
