@@ -169,17 +169,18 @@ if (isset($_GET["query"])) {
 } else{
                 //var_dump(Cards::getFeedCards());
                 $i = 0;
-                foreach ($feed as $card) : if ($i == 200) {
+                foreach ($feed as $card) : if ($i == 1000) {
                         break;
                     } ?>
 
-                    <?php include("card.inc.php"); ?>
+<?php include("card.inc.php"); ?>
                 <?php $i++;
                 endforeach; } ?>
             </div>
         </div>
 </body>
 <script src="src/js/app.js"></script>
+
 <style>
 
 </style>
