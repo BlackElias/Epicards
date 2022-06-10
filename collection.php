@@ -182,7 +182,7 @@ if (isset($_GET["query"])) {
                 <?php $i++;
                     endforeach;
                 } ?>
-                <div class="hidden_block">hidden</div>
+               
             </div>
         </div>
 </body>

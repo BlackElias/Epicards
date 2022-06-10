@@ -8,10 +8,10 @@ if (!empty($_POST)) {
         $user->setUsername($_POST["username"]);
         $user->setPassword($_POST["password"]);
         $user->canlogin();
-        session_start();
+       
         $username = $user->getUsername();
         $currentUser = $user->getLoggedUser($username);
-        session_start();
+       
         $_SESSION["userId"] = $currentUser["id"];
         header("Location: index.php");
     } catch (\Throwable $th) {
