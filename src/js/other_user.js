@@ -35,7 +35,7 @@ fetch('src/ajax/checkFollow.php', {
     .then(response => response.json())
     .then(result => {
       console.log('Success:', result);
-      followButton.innerHTML = "Follow";
+      followButton.innerHTML = '<img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">add friend';
     })
     .catch(error => {
       console.error('Error:', error);
@@ -55,7 +55,7 @@ fetch('src/ajax/checkFollow.php', {
       .then(response => response.json())
       .then(result => {
         console.log('Success:', result);
-        followButton.innerHTML = "Unfollow";
+        followButton.innerHTML = "Unfriend";
       })
       .catch(error => {
         console.error('Error:', error);
