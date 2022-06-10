@@ -35,5 +35,25 @@
 
 a {
     text-decoration: none;
-    color: #615F5F;
+}
+
+.btn-collection {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+}
+
+.btn-collection {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+}
+
+.btn-collection a {
+    color: black;
+}
+.icon_plus{
+    width: 20px;
+    padding-right: 7px;
+    vertical-align: baseline;
 }

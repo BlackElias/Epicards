@@ -68,8 +68,7 @@ include_once("navbar.inc.php");
          endforeach;  ?>
          <div class="hidden_block"></div>
       </div>
-      <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
-
+     
       <?php
 
       if (count(Collection::getFeedCollections($currentUserId)) >= 3) {
@@ -79,15 +78,14 @@ include_once("navbar.inc.php");
 
          if ($check[0]  == 'ja') {
 
-            echo ' 
-                                <a href="newcollection.php"><button class="btn-collection button_sec"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</button></a> ';
+            echo '<a href="newcollection.php"><button class="btn-collection button_sec"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</button></a> ';
          }if ($check[0]  == 'nee') {
-            echo  '      <a href="premium.php"><button class="btn-collection button_sec"> Buy premium for more collections</button></a>'         ;
-
+            echo  '<div class="btn-middle">
+                        <a href="premium.php"><button class="btn-premium-collection button_sec">get premium for more collections</button></a>
+                  </div>';
          }
       } else {
-         echo ' 
-                           <a href="newcollection.php"><button class="btn-collection button_sec"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</button></a> ';
+         echo '<a href="newcollection.php"><button class="btn-collection button_sec"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</button></a> ';
       } ?>
    </div>
 </body>

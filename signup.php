@@ -9,7 +9,7 @@ if (!empty($_POST)) {
     $user->checkEmail();
 
     $user->setUsername($_POST["username"]);
-  $user->checkUsername();
+    $user->checkUsername();
 
     $user->setPassword($_POST["password"]);
     $user->hashPassword();
@@ -71,9 +71,11 @@ if (!empty($_POST)) {
           <input type="password" name="password" class="form-control form-border password_input" id="postTags" name="tags" placeholder='Password' />
         </div>
         <button type="submit" class="btn btn-lg submit">Sign up</button>
+        <div class="hidden_block">hidden</div>
         <h6 class="mt-4 mb-3 text-muted">Already have an account? <a href="login.php">Login</a></h6>
       </form>
     </div>
+
   </main>
 </body>
 

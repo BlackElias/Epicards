@@ -87,7 +87,6 @@ include_once("navbar.inc.php");
             </a>
         <?php $i++;
         endforeach;  ?>
-
         <button class="btn-collection button_sec"><a href="#"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new post</a></button>
     </div>
     <div class="hidden_block">hidden</div>
