@@ -66,7 +66,7 @@ include_once("navbar.inc.php");
             </a>
          <?php $i++;
          endforeach;  ?>
-         <div class="hidden_block">hidden</div>
+         <div class="hidden_block"></div>
       </div>
      
       <?php

@@ -254,9 +254,9 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
   modalCardName.innerHTML =  modalCard.name;
   modalCardImage.src = modalCard.images.large;
  // cardSaveBtn.setAttribute("class", modalCard.id);
- urlSell.href = "sell.php?title=" + modalCard.name +"&id="+  modalCard.id; 
+ urlSell.value =  modalCard.id; 
 
-  url.href = "buy.php?title=" + modalCard.name +"&id="+  modalCard.id; 
+  url.value = modalCard.id; 
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {
       normalPrice.innerHTML =
@@ -315,7 +315,21 @@ function startPageSearch() {
 
   resultsContainer.innerHTML = "";
 }
-
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    parameterType = selectType.value;
+    parameterGeneration = selectGeneration.value;
+    searchedName = nameSearch1.value;
+    searchedName = searchedName.toLowerCase();
+  
+    console.log(
+      "Type: " + parameterType + "  Generation: " + parameterGeneration
+    );
+    searchingPokeData(parameterGeneration, parameterType, searchedName);
+  
+    resultsContainer.innerHTML = "";
+  }
+});
 // Button click event that passes input info
 searchButton1.addEventListener("click", function () {
   parameterType = selectType.value;
@@ -407,6 +421,22 @@ var addCardYugiohPrice= document.getElementById( "addCard-price");
 var addCardYugiohImage= document.getElementById( "addCard-image");
 var urlYugioh = document.getElementById( "buyCard");
 var urlSellYugioh = document.getElementById( "sellCard");
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    const cardname = document.getElementById('name-input').value;
+    console.log(cardname)   
+     fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
+    
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+  
+      postyugiohCardInfo(data.data);
+    });
+  }
+});
 document.getElementById("search-button").addEventListener("click", () => {
     const cardnameyugioh = document.getElementById('name-input').value;
     console.log(cardnameyugioh)   
@@ -481,9 +511,10 @@ document.getElementById("search-button").addEventListener("click", () => {
     modalCardYugiohName.innerHTML =  modalCardYugioh[0].name;
     modalCardYugiohImage.src = modalCardYugioh[0].card_images[0].image_url;
     
-    urlSellYugioh.href = "sell.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ; 
+    urlSellYugioh.value = modalCardYugioh[0].id ; 
 
-    urlYugioh.href = "buy.php?title=" + modalCardYugioh[0].name +"&id="+  modalCardYugioh[0].id+"&img=" +  modalCardYugioh[0].card_images[0].image_url ;     if (modalCardYugioh) {
+    urlYugioh.value =  modalCardYugioh[0].id
+        if (modalCardYugioh) {
       if (modalCardYugioh[0].card_prices[0].tcgplayer_price) {
         normalPrice.innerHTML =
           "Price: " + modalCardYugioh[0].card_prices[0].tcgplayer_price;
@@ -522,6 +553,23 @@ var addCardMtgPrice= document.getElementById( "addCard-price");
 var addCardMtgImage= document.getElementById( "addCard-image");
 var urlMTG= document.getElementById( "buyCard");
 var urlSellMTG= document.getElementById( "sellCard");
+
+document.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    const cardname = document.getElementById('name-input').value;
+    console.log(cardname)   
+     fetch(' https://api.scryfall.com/cards/search?order=name&q='+ cardname)
+    
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    
+      postMtgCardInfo(data.data);
+    });
+  }
+});
 
 document.getElementById("search-button").addEventListener("click", () => {
     const cardname = document.getElementById('name-input').value;
@@ -602,9 +650,9 @@ document.getElementById("search-button").addEventListener("click", () => {
     modalCardMtgName.innerHTML =  modalCardmtg.name;
     modalCardMtgImage.src = modalCardmtg.image_uris.large;
     
-    urlSellMTG.href = "sell.php?title=" + modalCardmtg.name+"&id="+  modalCardmtg.id; 
+    urlSellMTG.value =  modalCardmtg.id; 
 
-    urlMTG.href = "buy.php?title=" + modalCardmtg.name+"&id="+  modalCardmtg.id; 
+    urlMTG.value =   modalCardmtg.id; 
     if (modalCardmtg) {
       if (modalCardmtg.prices.eur) {
         normalPrice.innerHTML =

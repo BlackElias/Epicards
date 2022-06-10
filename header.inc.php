@@ -1,5 +1,6 @@
 <?php
 include_once("bootstrap.php");
+$premium = User::checkPremium();
 ?>
 
 <!DOCTYPE html>

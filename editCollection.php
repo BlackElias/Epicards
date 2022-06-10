@@ -56,7 +56,7 @@ include_once("navbar.inc.php");
         <form action="" method="post">
             <div class="rename_coll">
                 <label for="Change collection name">Rename collection</label>
-                <input type="text" name="collection_name" placeholder="Insert new collection name">
+                <input type="text" name="collection_name" value="<?php echo htmlspecialchars($currentCollection["collection_name"])?>" placeholder="Insert new collection name">
             </div>
             <div class="checkbox_public">
                 <label for="unprivate" class="pointer">Visibility</label>

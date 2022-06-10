@@ -155,28 +155,30 @@ include_once("navbar.inc.php");
 
             <div class="card_scroll">
                 <?php
-                if (isset($_GET["query"])) {
-                    foreach ($card as $searchresult) :  ?>
 
-                        <div class="card_info">
-                            <img src="<?php echo htmlspecialchars($searchresult['card_image']) ?>" alt="card image" class="card_img">
-                            <p class="card_name"><?php echo htmlspecialchars($searchresult['card_name']) ?></p>
-                            <p id="card-price" class="euro">€ <?php echo htmlspecialchars($searchresult['card_price']) ?></p>
-                            <form action="" method="post">
-                                <input type="hidden" name="cards_id" value="<?php echo htmlspecialchars($searchresult['cards_id']) ?>">
-                                <button type="submit" name="delete" class="bin_icon" value="delete">&#x2715</button>
-                            </form>
-                        </div>
+if (isset($_GET["query"])) {
+    foreach ($card as $searchresult) :  ?>
 
-                    <?php endforeach;
-                } else {
-                    //var_dump(Cards::getFeedCards());
-                    $i = 0;
-                    foreach ($feed as $card) : if ($i == 1000) {
-                            break;
-                        } ?>
+<div class="card_info" >
+    <img  src="<?php echo htmlspecialchars($searchresult['card_image']) ?>" alt="card image" class="card_img">
+    <p class="card_name"><?php echo htmlspecialchars($searchresult['card_name']) ?></p>
+    <p id="card-price" class="euro">€ <?php echo htmlspecialchars($searchresult['card_price']) ?></p>
+    <form action="" method="post">
+        <input type="hidden"name="cards_id" value="<?php echo htmlspecialchars($searchresult['cards_id']) ?>">
+    <button type="submit" name="delete" class="bin_icon" value="delete">&#x2715</button>
+    </form>
+</div>
 
-                        <?php include("card.inc.php"); ?>
+    <?php endforeach;
+} else{
+                //var_dump(Cards::getFeedCards());
+                $i = 0;
+                foreach ($feed as $card) : if ($i == 1000) {
+                        break;
+                    } ?>
+
+<?php include("card.inc.php"); ?>
+
                 <?php $i++;
                     endforeach;
                 } ?>
@@ -185,6 +187,7 @@ include_once("navbar.inc.php");
         </div>
 </body>
 <script src="src/js/app.js"></script>
+
 <style>
 
 </style>

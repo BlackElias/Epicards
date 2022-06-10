@@ -175,7 +175,7 @@ class Sell
 
         $sql = "SELECT * FROM sell WHERE CardId = :CardId ";
         $statement = $conn->prepare($sql);
-        $Card = $_SESSION["CardId"];
+        $Card = $_SESSION["cardId"];
 
         $statement->bindValue(":CardId", $Card);
         $statement->execute();
