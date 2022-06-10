@@ -68,8 +68,7 @@ include_once("navbar.inc.php");
          endforeach;  ?>
          <div class="hidden_block">hidden</div>
       </div>
-      <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
-
+     
       <?php
 
       if (count(Collection::getFeedCollections($currentUserId)) >= 3) {
@@ -78,15 +77,15 @@ include_once("navbar.inc.php");
          $check = array_column($premium, 'premium');
 
          if ($check[0]  == 'ja') {
-            echo ' <form action="scan.php" method="POST">
-                                <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>                            </form>';
-         }
-         if ($check[0]  == 'nee') {
-            echo  '      <button class="btn-collection button_sec"><a href="premium.php"> Buy premium for more collections</a></button>';
+
+            echo '<a href="newcollection.php"><button class="btn-collection button_sec"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</button></a> ';
+         }if ($check[0]  == 'nee') {
+            echo  '<div class="btn-middle">
+                        <a href="premium.php"><button class="btn-premium-collection button_sec">get premium for more collections</button></a>
+                  </div>';
          }
       } else {
-         echo ' <form action="scan.php" method="POST">
-                           <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>                            </form>';
+         echo '<a href="newcollection.php"><button class="btn-collection button_sec"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</button></a> ';
       } ?>
    </div>
 </body>

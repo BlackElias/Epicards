@@ -89,10 +89,23 @@ div.cards_amount {
 }
 
 .hidden_block {
-    padding: 35px;
+    padding: 50px;
     opacity: 0;
 }
 
+.btn-premium-collection {
+    position: fixed;
+    bottom: 100px;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.btn-middle {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+}
 
 ::-webkit-scrollbar {
     display: none;

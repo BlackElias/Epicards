@@ -65,14 +65,16 @@ include_once("navbar.inc.php");
 
 <body>
     <form action="" method="get">
-        <input type="text" id="name-input" placeholder="Search cards" name="query" name="current-search" class="form_input card_input">
-        <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>
+        <div class="search">
+            <input type="text" id="name-input" placeholder="Search cards" name="query" name="current-search" class="form_input card_input">
+            <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>
+        </div>
     </form>
     <?php //echo htmlspecialchars($_GET['id']); 
     ?>
     <div class="collection_container">
         <div class="top">
-           <a href="index.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
+            <a href="index.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
             <h1 class="collection-name"><?php echo htmlspecialchars($_SESSION["collectionName"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
@@ -170,7 +172,7 @@ include_once("navbar.inc.php");
                 } else {
                     //var_dump(Cards::getFeedCards());
                     $i = 0;
-                    foreach ($feed as $card) : if ($i == 200) {
+                    foreach ($feed as $card) : if ($i == 1000) {
                             break;
                         } ?>
 
@@ -178,6 +180,7 @@ include_once("navbar.inc.php");
                 <?php $i++;
                     endforeach;
                 } ?>
+                <div class="hidden_block">hidden</div>
             </div>
         </div>
 </body>

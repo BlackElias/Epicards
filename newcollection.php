@@ -91,47 +91,49 @@ include_once("navbar.inc.php");
       <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button>
       <h1>Add collection</h1>
     </div>
-
-    <form action="" method="POST">
-      
-      <div class="checkbox_public">
-                <h3 for="unprivate" class="pointer">Make Collection</h3>
-                <select name="private" id="unprivate">
-                    <option value="private">Private </option>
-                    <option value="unprivate">Public</option>
-                </select>
-            </div>
-      
-
-      <div class="collection_input">
-        <!-- <h3>Collection name</h3> -->
-
-        <label for="collection_input"  class="input_label">Collection name</label>
-        <input type="name" placeholder="Enter the name of your collection" name="name" class="input_field" required="required" id="collection_input">
-
-      </div>
-
-      <div class="collection_type">
-        <h3>Type collection</h3>
-        <div class="type_buttons">
-
-          <label>
-            <input id="Check1" onclick="selectOnlyThis(this.id)" type="checkbox" name="pokemon" value="pokemon" class="collection_type_button pkmn_type">
-            <img src="assets/pkmn_logo.svg" alt="pokemon logo" class="cardlogos pkmn_type">
-          </label>
-          <label>
-            <input id="Check2" onclick="selectOnlyThis(this.id)" type="checkbox" name="yugioh" value="yugioh" class="collection_type_button yug_type">
-            <img src="assets/yug_logo.svg" alt="yu-gi-oh! logo" class="cardlogos yug_type">
-          </label>
-          <label>
-            <input id="Check3" onclick="selectOnlyThis(this.id)" type="checkbox" name="MTG" value="MTG" class="collection_type_button mtg_type">
-            <img src="assets/mtg_logo.svg" alt="Magic: The Gathering logo" class="cardlogos mtg_type">
-          </label>
+    <div class="scroll_container">
+      <form action="" method="POST">
+        <div class="checkbox_public">
+          <h3 for="unprivate" class="pointer">Make Collection</h3>
+          <select name="private" id="unprivate">
+            <option value="private">Private </option>
+            <option value="unprivate">Public</option>
+          </select>
         </div>
-      </div>
-      <button type="submit" name="collection" class="btn make-coll_btn">save</button>
-    </form>
+
+
+        <div class="collection_input">
+          <!-- <h3>Collection name</h3> -->
+
+          <label for="collection_input" class="input_label">Collection name</label>
+          <input type="name" placeholder="Enter the name of your collection" name="name" class="input_field" required="required" id="collection_input">
+
+        </div>
+
+        <div class="collection_type">
+          <h3>Type collection</h3>
+          <div class="type_buttons">
+
+            <label>
+              <input id="Check1" onclick="selectOnlyThis(this.id)" type="checkbox" name="pokemon" value="pokemon" class="collection_type_button pkmn_type">
+              <img src="assets/pkmn_logo.svg" alt="pokemon logo" class="cardlogos pkmn_type">
+            </label>
+            <label>
+              <input id="Check2" onclick="selectOnlyThis(this.id)" type="checkbox" name="yugioh" value="yugioh" class="collection_type_button yug_type">
+              <img src="assets/yug_logo.svg" alt="yu-gi-oh! logo" class="cardlogos yug_type">
+            </label>
+            <label>
+              <input id="Check3" onclick="selectOnlyThis(this.id)" type="checkbox" name="MTG" value="MTG" class="collection_type_button mtg_type">
+              <img src="assets/mtg_logo.svg" alt="Magic: The Gathering logo" class="cardlogos mtg_type">
+            </label>
+          </div>
+        </div>
+        <button type="submit" name="collection" class="btn make-coll_btn">save</button>
+      </form>
+      <div class="hidden_block">hidden</div>
+    </div>
   </div>
 </body>
 <script src="src/js/collection.js"></script>
+
 </html>
