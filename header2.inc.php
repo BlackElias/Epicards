@@ -11,7 +11,7 @@ $premium = User::checkPremium();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/header2.css">
-  <link rel="icon" type="image/x-icon" href="/upload/favicon.png">
+  <link rel="shortcut icon" type="image/jpg" href="assets/favicon.svg"/>
   
 </head>
 
