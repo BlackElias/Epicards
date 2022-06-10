@@ -45,7 +45,7 @@ include_once("navbar.inc.php");
             </div>
         </div>
         <div class="flex_top-btns">
-            <a href="#" class="friendlist_btn"><img src="assets/friendlist_icon.svg" alt="friendlist icon" class="edit_icon">friendlist</a>
+            <a href="friendlist.php" class="friendlist_btn"><img src="assets/friendlist_icon.svg" alt="friendlist icon" class="edit_icon">friendlist</a>
             <a class="edit-profile_btn" href="edit_profile.php"><img src="assets/edit_icon_small.svg" alt="edit icon" class="edit_icon">edit profile</a>
         </div>
     </div>

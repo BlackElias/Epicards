@@ -28,9 +28,7 @@ $allFollowing = Follower::getAllFollowing($_SESSION["userId"]);
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
-var_dump($currentUserId);
-var_dump($otherUserid);
-var_dump($allFollowers);
+
 //include_once("header2.inc.php");
 include_once("navbar.inc.php");
 ?>
