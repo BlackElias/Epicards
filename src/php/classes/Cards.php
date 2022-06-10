@@ -8,11 +8,6 @@ class Cards
     private $card_image;
     private $card_id;
 
-
-
-
-
-
     /**
      * Get the value of collectionId
      */ 
@@ -165,6 +160,7 @@ class Cards
         $collection = $statement->fetchAll();
         return $collection;
     }
+
     public function DeleteCards()
     {
         $conn = Db::getConnection();
@@ -177,8 +173,8 @@ class Cards
         $statement->execute();
 
         return $this;
-        
     }
+
     public static function searchCards($query)
     {
         $conn = Db::getConnection();
@@ -190,14 +186,15 @@ class Cards
         $user = $statement->execute();
         $user = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $user;
+    }  
+
+    public static function mapJsonToCards(array $data) {
+        $card = new Cards();
+        foreach($data as $key => $val) {
+            if(property_exists(__CLASS__,$key)) {
+                $card->$key = $val;
+            }
+        }
+        return $card;
     }
-   
-
-
-
-
-  
-
-
-  
 }
