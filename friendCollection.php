@@ -32,7 +32,7 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
     <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
-    <title>Document</title>
+    <title>Epicards | Friends collection</title>
 </head>
 
 <body>
