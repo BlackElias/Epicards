@@ -4,19 +4,34 @@ include_once("bootstrap.php");
 
 try {
     $feed = Collection::getFeedCollectionsUnprivate($_GET["id"]);
-    //$allFollowing = Follower::getAllFollowing($_SESSION["userId"]);
-    //$allFollowers = Follower::getAllFollowers($_SESSION["userId"]);
+    
     $user = new User();
-    $currentUserId = $_GET["id"];
+    $currentUserId = $_SESSION["userId"];
     $currentUser = $user->getUserInfo($currentUserId);
 
+    $otherUserid = $_GET["id"];
+    $otherUser = $user->getUserInfo($otherUserid);
+$allFollowing = Follower::getAllFollowing($_SESSION["userId"]);
+    $allFollowers = Follower::getAllFollowers($_SESSION["userId"]);
 
+    $follower = new Follower();
+    $follower->setUser_id($currentUserId);
+    $follower->setFollower_id($otherUserid);
+    $check = $follower->checkFollowed();
+    if (!empty($check)) {
+        $followedId = $check[0]["id"];
+    } else {
+        $followedId = " ";
+    }
 
     $currentUser = $user->getUserInfo($currentUserId); //---Updated User Fetch---
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
-include_once("header2.inc.php");
+var_dump($currentUserId);
+var_dump($otherUserid);
+var_dump($allFollowers);
+//include_once("header2.inc.php");
 include_once("navbar.inc.php");
 ?>
 
@@ -30,7 +45,7 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/people.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Epicards | People<?php echo htmlspecialchars($currentUser["username"]) ?></title>
+    <title>Epicards | <?php echo htmlspecialchars($otherUser["username"]) ?></title>
 </head>
 
 <body>
@@ -38,15 +53,17 @@ include_once("navbar.inc.php");
         <div class="top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button>
             <div class="profile-box-info">
-                <?php if (!empty($currentUser["picture"])) : ?>
-                    <img class="profile-picture-big" src="<?php echo $currentUser["picture"] ?>" alt="profile picture">
+                <?php if (!empty($otherUser["picture"])) : ?>
+                    <img class="profile-picture-big" src="<?php echo $otherUser["picture"] ?>" alt="profile picture">
                 <?php endif; ?>
                 <div class="profile-box-names">
-                    <span class="username"><?php echo htmlspecialchars($currentUser["username"]) ?></span>
+                    <span class="username"><?php echo htmlspecialchars($otherUser["username"]) ?></span>
                 </div>
             </div>
         </div>
         <div class="top_btns">
+        <div class="btn btn-profile-follow" data-followid="<?php echo $followedId ?>" data-followedUser="<?php echo $otherUser['id'] ?>"><?php echo $followedId !== " "  ? "Unfollow" : "Follow" ?></div>
+            
             <button class="btn_add-friend"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">add friend</button>
             <a href="#" class="chat_btn"><img src="assets/chat_icon.svg" alt="chat icon" class="chat_icon_small">chat</a>
         </div>
@@ -112,5 +129,5 @@ endforeach;  ?>
 
 
 </body>
-
+<script src="src/js/other_user.js"></script>
 </html>
