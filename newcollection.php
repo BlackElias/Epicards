@@ -82,7 +82,7 @@ include_once("navbar.inc.php");
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
   <link rel="stylesheet" href="css/newcollection.css">
-  <title>new collection</title>
+  <title>Epicards | new collection</title>
 </head>
 
 <body>

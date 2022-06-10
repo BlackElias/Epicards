@@ -15,7 +15,7 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/chat.css">
     <link rel="stylesheet" href="css/bottom-navbar/chat_bar.css">
-    <title>Chat</title>
+    <title>Epicards | Chat</title>
 </head>
 
 <body>

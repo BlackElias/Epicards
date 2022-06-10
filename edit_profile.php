@@ -64,7 +64,7 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/edit_settings.css">
     <link rel="stylesheet" href="css/bottom-navbar/profile_bar.css">
-    <title>Profile</title>
+    <title>Epicards | Profile</title>
 </head>
 
 <body>

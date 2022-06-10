@@ -60,7 +60,8 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
     <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
-    <title>Epicards Collection</title>
+    
+    <title>Epicards |  Collection</title>
 </head>
 
 <body>
@@ -182,7 +183,7 @@ if (isset($_GET["query"])) {
                 <?php $i++;
                     endforeach;
                 } ?>
-                <div class="hidden_block">hidden</div>
+               
             </div>
         </div>
 </body>

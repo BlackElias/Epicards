@@ -30,7 +30,7 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/people.css">
     <link rel="stylesheet" href="css/index.css">
-    <title>Epicards | <?php echo htmlspecialchars($currentUser["username"]) ?></title>
+    <title>Epicards | People<?php echo htmlspecialchars($currentUser["username"]) ?></title>
 </head>
 
 <body>

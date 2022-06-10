@@ -8,10 +8,10 @@ if (!empty($_POST)) {
         $user->setUsername($_POST["username"]);
         $user->setPassword($_POST["password"]);
         $user->canlogin();
-        session_start();
+       
         $username = $user->getUsername();
         $currentUser = $user->getLoggedUser($username);
-        session_start();
+       
         $_SESSION["userId"] = $currentUser["id"];
         header("Location: index.php");
     } catch (\Throwable $th) {
@@ -31,7 +31,7 @@ if (!empty($_POST)) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/login.css">
-    <title>Document</title>
+    <title>Epicards | Login</title>
 </head>
 
 <body>
