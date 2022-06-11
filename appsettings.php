@@ -15,7 +15,8 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/appsettings.css">
 
-    <title>Epicards | Profile</title>
+    <title>Epicards | Settings</title>
+
 </head>
 
 <body>
