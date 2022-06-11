@@ -1,0 +1,91 @@
+div.title_backbtn {
+    display: flex;
+    padding-top: 110px;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.top {
+    background-color: white;
+    box-shadow: rgb(100 100 111 / 10%) 0px 13px 18px;
+    padding-bottom: 20px;
+
+}
+
+button {
+    padding: 0;
+}
+
+.back_arrow {
+    width: 20px;
+    vertical-align: middle;
+    padding: 0;
+}
+
+h1 {
+    width: 100%;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.form_input {
+    display: block;
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 8px 0px inset;
+    border: none;
+    padding: 0.9rem 0.05rem 0.9rem 0.9rem;
+    border-radius: 0.45rem;
+    width: 75%;
+    font-family: "futuraPT medium";
+    font-size: 0.9em;
+}
+
+.search_btn {
+    width: 30px;
+    margin-left: 5px;
+}
+
+a {
+    color: black;
+}
+
+.profile-box-info {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 12px 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-picture-big {
+    margin-right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.container_scroll {
+    position: relative;
+    top: 10px;
+    overflow: scroll;
+    height: 70vh;
+}
+
+.hidden_block {
+    text-align: center;
+    padding: 30px;
+    opacity: 0;
+}
