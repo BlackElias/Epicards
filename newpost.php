@@ -9,7 +9,7 @@ ini_set("display_errors","On");
 
 if($_POST){
   var_dump(class_exists('Trade'));
-  $card = new Trade();
+  
   $type = $_POST["type"];
   $name = $_POST["name"];
   $trade = new Trade();
@@ -17,7 +17,7 @@ if($_POST){
   $trade->setName($name);
   var_dump($type);
   var_dump($name);
-  // $trade->save();
+   $trade->save();
   // header("Location: index.php");
 }
 ?>

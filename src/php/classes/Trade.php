@@ -98,7 +98,7 @@ class Trade
         
         $statement = $conn->prepare($sql);
        
-        $statement->bindValue(":user_id", $_SESSION["user_id"]);
+        $statement->bindValue(":user_id", $_SESSION["userId"]);
         $statement->bindValue(":name", $this->name);
         $statement->bindValue(":type", $this->type);
         $statement->execute();
