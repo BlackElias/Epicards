@@ -1,5 +1,8 @@
 <?php
-include_once(__DIR__ . "/Db.php");
+namespace src\php\classes\Cards;
+use src\php\classes\db\Db;
+use PDO;
+
 class Cards
 {
     private $collectionId;
@@ -147,18 +150,10 @@ class Cards
        
         $statement->execute();
     }
+
     public static function getFeedCards()
     {
-        $conn = Db::getConnection();
-
-        $sql = "SELECT * FROM cards WHERE collection_id = :collection_id ";
-        $statement = $conn->prepare($sql);
-        $collection_id = $_SESSION["collection"];
-
-        $statement->bindValue(":collection_id", $collection_id);
-        $statement->execute();
-        $collection = $statement->fetchAll();
-        return $collection;
+        return Cards::getCardsByCollectionId($_SESSION["collection"]);
     }
 
     public function DeleteCards()
@@ -187,6 +182,18 @@ class Cards
         $user = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $user;
     }  
+
+    public static function getCardsByCollectionId(int $collectionId){
+        $conn = Db::getConnection();
+
+        $sql = "SELECT * FROM cards WHERE collection_id = :collection_id ";
+        $statement = $conn->prepare($sql);
+        
+        $statement->bindValue(":collection_id", $collectionId);
+        $statement->execute();
+        $collection = $statement->fetchAll();
+        return $collection;
+    }
 
     public static function mapJsonToCards(array $data) {
         $card = new Cards();

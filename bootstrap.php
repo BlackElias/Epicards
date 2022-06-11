@@ -1,4 +1,5 @@
 <?php
+// namespace bootstrap;
 spl_autoload_register(function () {
     include_once("src/php/classes/Collection.php");
     include_once("src/php/classes/Db.php");

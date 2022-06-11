@@ -1,4 +1,6 @@
 <?php
+namespace src\php\classes\Db;
+use PDO;
 class db
 {
     private static $conn;

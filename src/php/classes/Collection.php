@@ -1,5 +1,6 @@
 <?php
-include_once(__DIR__ . "/Db.php");
+use src\php\classes\db\Db;
+
 class Collection
 {
     private $userId;
@@ -7,11 +8,6 @@ class Collection
     private $collectionPrivate;
     private $collectionType;
     private $collectonId;
-
-
-
-
-
 
     /**
      * Get the value of userId
@@ -130,6 +126,7 @@ class Collection
         $statement->bindValue(":collection_type", $collection_type);
         $statement->execute();
     }
+
     public static function getFeedCollections($currentUserId)
     {
         $conn = Db::getConnection();
@@ -156,6 +153,7 @@ class Collection
         $collection = $statement->fetchAll();
         return $collection;
     }
+
     public static function getFeedCollectionsPrivate()
     {
         $conn = Db::getConnection();
@@ -180,6 +178,7 @@ class Collection
         $collection = $statement->fetchAll();
         return $collection;
     }
+    
     public static function getCards(){
         $conn = Db::getConnection();
         $sql = " SELECT *  FROM collection JOIN users ON users.id=collection.user_id JOIN cards where cards.collection_id=collection.collection_id";
@@ -189,6 +188,7 @@ class Collection
         $collection = $statement->fetchAll();
         return $collection;
     }
+
     public function getCollectionInfo($colId)
     {
         $conn = Db::getConnection();
@@ -258,7 +258,4 @@ class Collection
         $count = $statement->rowCount();
         return $count;
     }
-
-
-   
 }

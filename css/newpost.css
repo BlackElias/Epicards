@@ -1,4 +1,4 @@
-.trade_sell_container {
+.post_container {
     border-radius: 60px 60px 0px 0px;
     background-color: white;
     height: 100%;
@@ -33,16 +33,35 @@
     width: 30px;
 }
 
+.btn-sell{
+    position: fixed;
+    left: 5%;
+    bottom: 200px;
+    width: 150px;
+}
+
+.btn-trade{
+    position: fixed;
+    right: 5%;
+    bottom: 200px;
+    width: 150px;
+}
+
+.collection-name{
+    position: fixed;
+    left: 50%;
+    margin-top: 20px;
+    width: 250px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 a {
     text-decoration: none;
     color: #615F5F;
 }
 
-.btn-post {
-    position: fixed;
-    left: 50%;
-    bottom: 100px;
-    width: 250px;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+h3{
+    font-family: "futuraPT bold";
+    text-align: center;
 }
