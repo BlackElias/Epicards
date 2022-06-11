@@ -10,6 +10,8 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
+include_once("header2.inc.php");
+include_once("navbar.inc.php");
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +26,12 @@ try {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bottom-navbar/profile_bar.css">
+    <link rel="stylesheet" href="css/friendlist.css">
     <title>Profile</title>
 </head>
 
 <body>
-    <?php include_once("header.inc.php") ?>
     <?php if (isset($error)) : ?>
         <div class="user-messages-area">
             <div class="alert alert-danger">
@@ -40,19 +43,35 @@ try {
     <?php endif; ?>
 
     <main>
-        <div class="box-container">
-            <?php foreach ($allFollowers as $follower) : ?>
-                <div class="profile-box">
-                    <div class="profile-box-info">
-                        <img class="profile-picture-big" src="<?php echo $follower["picture"] ?>" alt="profile picture">
-                        <div class="profile-box-names">
-                            <a href=" people.php?id=<?php echo $follower["id"] ?>">
-                                <h1><?php echo htmlspecialchars($follower["username"]) ?></h1>
-                            </a>
-                        </div>
-                    </div>
+    <div class="box-container">
+            <div class="top">
+                <div class="title_backbtn">
+                    <a href="profile.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button></a>
+                    <h1>Friendlist</h1>
                 </div>
-            <?php endforeach; ?>
+                <div class="search">
+                    <input type="text" id="name-input" placeholder="Search for users, cards and shops" name="current-search" class="form_input card_input">
+                    <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn">
+                    </button>
+                </div>
+            </div>
+            <div class="container_scroll">
+                <?php foreach ($allFollowers as $follower) : ?>
+                    <div class="profile-box">
+                        <a href="people.php?id=<?php echo $follower["id"] ?>">
+                            <div class="profile-box-info">
+                                <img class="profile-picture-big" src="<?php echo $follower["picture"] ?>" alt="profile picture">
+                                <div class="profile-box-names">
+
+                                    <?php echo htmlspecialchars($follower["username"]) ?>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+                <div class="hidden_block">hidden</div>
+            </div>
         </div>
     </main>
 </body>

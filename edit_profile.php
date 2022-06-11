@@ -69,15 +69,13 @@ include_once("navbar.inc.php");
 
 <body>
     <div class="edit-settings_container">
-
         <div class="top">
-            <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button>
+            <a href="profile.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button></a>
             <h1>Edit profile</h1>
         </div>
         <div class="settings_scroll">
             <main>
                 <div class="box-container">
-
                     <div class="box-container edit-container hidden">
                         <form method="POST" enctype="multipart/form-data">
                             <div class="form-row form-spacing">
