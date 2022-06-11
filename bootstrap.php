@@ -9,6 +9,7 @@ spl_autoload_register(function () {
     include_once("src/php/classes/Cards.php");
     include_once("src/php/classes/Image.php");
     include_once("src/php/classes/Sell.php");
+    include_once("src/php/classes/Trade.php");
     
 });
 
