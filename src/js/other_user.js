@@ -2,14 +2,18 @@ let follow = true;
 const followButton = document.querySelector(".btn-profile-follow");
 let followeduser = followButton.dataset.followeduser;
 let followid = followButton.dataset.followid; // Waarom Kleine letters??
+let user = followButton.dataset.dataname;
+let picture = followButton.dataset.datapicture;
 console.log(followeduser)
+console.log(user)
 followButton.addEventListener("click", () => {
 
   var res;
   const check = new FormData();
 
   check.append("followeduser", followeduser);
-
+  check.append("username", user);
+  check.append("picture", picture);
 fetch('src/ajax/checkFollow.php', {
   method: 'POST',
   body: check
@@ -47,6 +51,8 @@ fetch('src/ajax/checkFollow.php', {
       const follow = new FormData();
   
       follow.append("followeduser", followeduser);
+      follow.append("username", user);
+      follow.append("picture", picture);
     
       fetch('src/ajax/addFollower.php', {
         method: 'POST',

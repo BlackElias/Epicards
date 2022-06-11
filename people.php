@@ -60,7 +60,7 @@ include_once("navbar.inc.php");
             </div>
         </div>
         <div class="top_btns">
-        <div class="btn btn-profile-follow" data-followid="<?php echo $followedId ?>" data-followedUser="<?php echo $otherUser['id'] ?>"><?php echo $followedId !== " "  ? "Unfriend" : '<img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">add friend' ?></div>
+        <div class="btn btn-profile-follow" data-datapicture="<?php echo $otherUser['picture'] ?>" data-followid="<?php echo $followedId ?>" data-dataname="<?php echo $otherUser['username'] ?>" data-followedUser="<?php echo $otherUser['id'] ?>"><?php echo $followedId !== " "  ? "Unfriend" : '<img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">add friend' ?></div>
             
             
             <a href="#" class="chat_btn"><img src="assets/chat_icon.svg" alt="chat icon" class="chat_icon_small">chat</a>
