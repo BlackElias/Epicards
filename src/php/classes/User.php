@@ -1,4 +1,5 @@
 <?php
+
 use src\php\classes\db\db;
 
 class User

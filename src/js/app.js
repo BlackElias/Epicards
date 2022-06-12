@@ -3,7 +3,8 @@ var modal = document.getElementById("myModal");
 var price = document.getElementById("collection");
 var private = document.getElementById("private")
 var btnPrivate = document.getElementById("unprivate")
-
+var text = document.getElementById("text")
+var arrow = document.getElementById("arrow")
 var btn = document.getElementById("myBtn");
 
 
@@ -13,6 +14,8 @@ var span = document.getElementsByClassName("close")[0];
 btn.onclick = function() {
   modal.style.display = "block";
   price.style.backgroundColor = "transparent";
+  arrow.style.display = "none";
+  text.style.display = "none";
 }
 
 btnPrivate.onclick = function() {

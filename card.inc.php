@@ -18,6 +18,7 @@ include_once("bootstrap.php");
 
   <!-- Modal content -->
   <div class="modal-content">
+    
     <span class="close" onclick="onlySpan<?php echo $i ?>(this.id)">&times;</span>
     <p class="card_name-modal"><?php echo htmlspecialchars($card['card_name']) ?></p>
     <img src="<?php echo htmlspecialchars($card['card_image']) ?>" alt="card image" class="card_img_big">
@@ -26,12 +27,15 @@ include_once("bootstrap.php");
 
 </div>
 <script>
+  var text = document.getElementById("text")
+var arrow = document.getElementById("arrow")
   function onlyBtn<?php echo $i ?>(id) {
 
 
     var modal<?php echo $i ?> = document.getElementById("myModal<?php echo $i ?>");
     modal<?php echo $i ?>.style.display = "block";
-
+    arrow.style.display = "none";
+  text.style.display = "none";
 
   }
 
@@ -39,7 +43,8 @@ include_once("bootstrap.php");
 
     var modal<?php echo $i ?> = document.getElementById("myModal<?php echo $i ?>")
     modal<?php echo $i ?>.style.display = "none";
-
+    arrow.style.display = "inline";
+  text.style.display = "block";
 
   }
 </script>
