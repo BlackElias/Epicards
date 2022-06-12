@@ -148,3 +148,12 @@ a.friendlist_btn{
 ::-webkit-scrollbar {
     display: none;
 }
+
+.btn-post {
+    position: fixed;
+    left: 50%;
+    bottom: 80px;
+    width: 250px;
+    -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

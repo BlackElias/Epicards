@@ -1,6 +1,17 @@
 <?php
 use src\php\classes\Cards\Cards;
+use src\php\classes\Trade\Trade;
 include_once("bootstrap.php");
+$trade;
+
+if(isset($_GET['id'])){
+    //regex against cross side scripting (XSS)
+    $clean = preg_replace("/[^a-zA-Z0-9 ]/","",$_GET['id']);
+    $trade = Trade::getTradeById($clean);
+}else{
+
+}
+
 try {
     $user = new User();
     $currentUserId = $_SESSION["userId"];
@@ -9,35 +20,13 @@ try {
     $error = $th->getMessage();
 }
 
-
-
-if (isset($_POST["delete"])) {
-
-    $card = new Cards();
-    $card->setCard_id($_POST["cards_id"]);
-    $card->DeleteCards();
-}
-if (!empty($_GET['query'])) {
-    try {
-        $card = new Cards;
-
-        $searchresult = $_GET['query'];
-
-
-        $card = $card->searchCards($searchresult);
-    } catch (\Throwable $th) {
-        $error = $th->getMessage();
-    }
-}
-$name = $_SESSION["collectionName"];
-
-if ($name == "Wishlist") {
-    $link = "search_card.php";
-} else{
-     $link = "scan.php";
+if (isset($_POST["deleteCard"])) {
+    $trade = Trade::getTradeById($_POST["tradeId"]);
+    $trade->removeCard($_POST["cardId"]);
+    header("Location: index.php");
 }
 
-$counter = Cards::getFeedCards();
+$amountCards = $trade->countCards();
 
 $premium = User::checkPremium();
 $private = Collection::getFeedCollectionsPrivate();
@@ -57,56 +46,40 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
     <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
-    
-    <title>Epicards |  Collection</title>
+    <title>Epicards Trade</title>
 </head>
 
 <body>
     <form action="" method="get">
-        <div class="search">
-            <input type="text" id="name-input" placeholder="Search cards" name="query" name="current-search" class="form_input card_input">
-            <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>
-        </div>
+        <input type="text" id="name-input" placeholder="Search cards" name="query" name="current-search" class="form_input card_input">
+        <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>
     </form>
     <?php //echo htmlspecialchars($_GET['id']); 
     ?>
     <div class="collection_container">
         <div class="top">
-            <a href="index.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
-            <h1 class="collection-name"><?php echo htmlspecialchars($_SESSION["collectionName"]) ?></h1>
+           <a href="index.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
+            <h1 class="collection-name"><?php echo htmlspecialchars($trade["name"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
-        <!-- if change text  -->
-        <?php
-        $p = array_column($private, 'collection_private');
-
-        if ($p[0] == "private") {
-            echo '<p class="visibility">Visible to you only</p>';
-        } else {
-            echo '<p class="visibility">Visible to friends only</p>';
-        } ?>
-
-
 
         <div class="collection-flex" id="collection">
             <div class="collection_column">
-                <p>Collection price:</p>
+                <p><?php echo $trade->getType() ?> price</p>
                 <div class="price_inline">
                     <span>
                         <?php
                         $check = array_column($premium, 'premium');
                         // var_dump(array_values($check) );
                         if ($check[0]  == 'ja') {
-                            $price = array_column($counter, 'card_price');
                             echo    '<p>€</p>';
                             echo '</span>&nbsp;';
-                            echo  array_sum($price);
+                            echo  $trade->priceCards();
                             echo   ' </div>';
                         } else {
                             echo    '<a href="premium.php" class="premium-only_text">Only for premium users</a>';
                             echo   ' </div>';
                         }
-
                         ?>
                     </span>
                 </div>
@@ -114,14 +87,14 @@ include_once("navbar.inc.php");
                     <p>Card amount:</p>
                     <span>
                         <?php
-                        echo  count($counter);
+                        echo  $amountCards;
                         ?>
                     </span>
                 </div>
             </div>
             <!-- if image -->
             <?php
-            if (sizeof($counter) <= "0") {
+            if ($amountCards <= "0") {
 
                 echo '  
         <div class="empty_state">
@@ -133,22 +106,23 @@ include_once("navbar.inc.php");
             <?php
             // var_dump(array_values($check) );
 
-            if (count($counter) >= 1000) {
+            if ($amountCards >= 1000) {
 
                 $check = array_column($premium, 'premium');
 
                 if ($check[0]  == 'ja') {
-                    echo ' <form action="'.$link.'" method="POST">
-                                     <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
-                            </form>';
+                    //add knop redirect kaarten toevoegen
                 }
                 if ($check[0]  == 'nee') {
                     echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
                 }
             } else {
-                echo ' <form action="'.$link.'" method="POST">
-                                     <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
-                            </form>';
+               //add knop redirect kaarten toevoegen
+               $url;
+               ?>
+
+
+               <?php
             } ?>
 
             <div class="card_scroll">
@@ -180,7 +154,6 @@ if (isset($_GET["query"])) {
                 <?php $i++;
                     endforeach;
                 } ?>
-               
             </div>
         </div>
 </body>

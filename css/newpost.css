@@ -1,0 +1,67 @@
+.post_container {
+    border-radius: 60px 60px 0px 0px;
+    background-color: white;
+    height: 100%;
+    margin-top: 110px;
+    position: fixed;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
+}
+
+.search {
+    display: flex;
+    top: 85px;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form_input {
+    display: block;
+    box-shadow: rgb(50 50 93 / 25%) 1px 1px 8px 0px inset;
+    border: none;
+    padding: 0.9rem 0.05rem 0.9rem 0.9rem;
+    border-radius: 0.45rem;
+    width: 75%;
+    font-family: "futuraPT medium";
+    font-size: 0.9em;
+}
+
+.search_btn {
+    width: 30px;
+}
+
+.btn-sell{
+    position: fixed;
+    left: 5%;
+    bottom: 200px;
+    width: 150px;
+}
+
+.btn-trade{
+    position: fixed;
+    right: 5%;
+    bottom: 200px;
+    width: 150px;
+}
+
+.collection-name{
+    position: fixed;
+    left: 50%;
+    margin-top: 20px;
+    width: 250px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+a {
+    text-decoration: none;
+    color: #615F5F;
+}
+
+h3{
+    font-family: "futuraPT bold";
+    text-align: center;
+}
