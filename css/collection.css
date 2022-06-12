@@ -176,6 +176,12 @@ p {
     margin-left: 20px;
     opacity: 70%;
 }
+.card_name{
+    width: 100px;
+}
+.price_name{
+    width: 65px;
+}
 
 .price_inline {
     display: inline-flex;
@@ -255,7 +261,7 @@ p {
 
 .hidden_block {
     text-align: center;
-    padding: 50px;
+    padding: 45px;
     opacity: 0;
 }
 
