@@ -97,7 +97,7 @@ if (!empty($_POST)) {
          
 
          $check = array_column($premium, 'premium');
-var_dump($check[0]);
+
          if ($check[0]  == 'ja') {
 
             echo '<a href="newcollection.php"><button class="btn-collection button_sec"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</button></a> ';
