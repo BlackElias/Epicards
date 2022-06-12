@@ -1,4 +1,8 @@
 <?php
+namespace src\php\classes\Follower;
+use src\php\classes\Db\db;
+use PDO;
+
 include_once(__DIR__ . "/Db.php");
 class Follower
 {

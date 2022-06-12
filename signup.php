@@ -1,5 +1,6 @@
 <?php
-
+use src\php\classes\User\User;
+use src\php\classes\Collection\Collection;
 include_once("bootstrap.php");
 
 if (!empty($_POST)) {
