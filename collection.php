@@ -1,5 +1,9 @@
 <?php
+
 use src\php\classes\Cards\Cards;
+use src\php\classes\User\User;
+use src\php\classes\Collection\Collection;
+
 include_once("bootstrap.php");
 try {
     $user = new User();
@@ -33,12 +37,11 @@ $name = $_SESSION["collectionName"];
 
 if ($name == "Wishlist") {
     $link = "search_card.php";
-} else{
-     $link = "scan.php";
+} else {
+    $link = "scan.php";
 }
 
 $counter = Cards::getFeedCards();
-
 $premium = User::checkPremium();
 $private = Collection::getFeedCollectionsPrivate();
 $feed = Cards::getFeedCards();
@@ -136,7 +139,7 @@ include_once("navbar.inc.php");
                 $check = array_column($premium, 'premium');
 
                 if ($check[0]  == 'ja') {
-                    echo ' <form action="'.$link.'" method="POST">
+                    echo ' <form action="' . $link . '" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
                 }
@@ -144,7 +147,7 @@ include_once("navbar.inc.php");
                     echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
                 }
             } else {
-                echo ' <form action="'.$link.'" method="POST">
+                echo ' <form action="' . $link . '" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
             } ?>
@@ -178,7 +181,7 @@ include_once("navbar.inc.php");
                 <?php $i++;
                     endforeach;
                 } ?>
-
+                <div class="hidden_block">hidden</div>
             </div>
         </div>
 </body>
