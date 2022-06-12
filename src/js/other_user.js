@@ -55,7 +55,7 @@ fetch('src/ajax/checkFollow.php', {
       .then(response => response.json())
       .then(result => {
         console.log('Success:', result);
-        followButton.innerHTML = "Unfriend";
+        followButton.innerHTML = '<img src="assets/x_icon.svg" alt="plus icon" class="plus_icon">unfriend';
       })
       .catch(error => {
         console.error('Error:', error);

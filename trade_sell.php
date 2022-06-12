@@ -31,7 +31,7 @@ include_once("navbar.inc.php");
   </a>
   <div class="trade_sell_container">
     <div class="top_links">
-      <a href="trade_sell.php" class="friends_link">Friends</a>
+      <a href="trade_sell.php" class="friends_link">Feed</a>
       <span class="vl_line"></span>
       <a href="trade_sell-shops.php" class="shops_link">Shops</a>
     </div>

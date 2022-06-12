@@ -90,4 +90,6 @@ a:hover {
     text-align: center;
     padding: 50px;
     opacity: 0;
+    position: relative;
+    top: 40px;
 }

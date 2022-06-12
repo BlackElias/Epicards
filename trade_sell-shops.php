@@ -32,15 +32,11 @@ include_once("navbar.inc.php");
   </a>
   <div class="trade_sell_container">
     <div class="top_links">
-      <a href="trade_sell.php" class="friends_link">Friends</a>
+      <a href="trade_sell.php" class="friends_link">Feed</a>
       <span class="vl_line"></span>
       <a href="trade_sell-shops.php" class="shops_link">Shops</a>
     </div>
-    <div class="empty_state">
-      <img src="assets/emptystate_no-friends.svg" alt="empty state illustration" class="empty_state_img">
-      <p class="empty_state_text">You don't have friends added yet. <br> Search for friends in the search bar above!</p>
-    </div> <button class="btn-collection button_sec"><a href="#"><img src="assets/plus_icon.svg" alt="plus icon" class="icon_plus">new post</a></button>
-  </div>
+   
 
 </body>
 

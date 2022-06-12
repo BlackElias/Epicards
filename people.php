@@ -29,7 +29,7 @@ $allFollowing = Follower::getAllFollowing($_SESSION["userId"]);
     $error = $th->getMessage();
 }
 
-//include_once("header2.inc.php");
+include_once("header2.inc.php");
 include_once("navbar.inc.php");
 ?>
 
@@ -60,15 +60,13 @@ include_once("navbar.inc.php");
             </div>
         </div>
         <div class="top_btns">
-        <div class="btn btn-profile-follow" data-followid="<?php echo $followedId ?>" data-followedUser="<?php echo $otherUser['id'] ?>"><?php echo $followedId !== " "  ? "Unfriend" : '<img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">add friend' ?></div>
-            
-            
+        <div class="button_sec btn-profile-follow" data-datapicture="<?php echo $otherUser['picture'] ?>" data-followid="<?php echo $followedId ?>" data-dataname="<?php echo $otherUser['username'] ?>" data-followedUser="<?php echo $otherUser['id'] ?>"><?php echo $followedId !== " "  ? '<img src="assets/x_icon.svg" alt="plus icon" class="plus_icon">unfriend' : '<img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">add friend' ?></div>
             <a href="#" class="chat_btn"><img src="assets/chat_icon.svg" alt="chat icon" class="chat_icon_small">chat</a>
         </div>
         <div class="lower_btns">
-            <a href="#">activity</a>
+            <a href="#" class="activity_btn">activity</a>
             <span class="vl_line"></span>
-            <a href="#">collections</a>
+            <a href="people.php" class="collection_btn">collections</a>
         </div>
     </div>
 </body>

@@ -43,35 +43,59 @@ include_once("navbar.inc.php");
     <?php endif; ?>
 
     <main>
-    <div class="box-container">
+
+        <div class="box-container">
             <div class="top">
                 <div class="title_backbtn">
                     <a href="profile.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button></a>
                     <h1>Friendlist</h1>
                 </div>
                 <div class="search">
-                    <input type="text" id="name-input" placeholder="Search for users, cards and shops" name="current-search" class="form_input card_input">
-                    <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn">
-                    </button>
+
+                    <form action="" method="get">
+                        <input type="text" id="name-input" placeholder="Search for other users" name="query" name="current-search" class="form_input card_input">
+                        <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>
+                    </form>
+
                 </div>
+
             </div>
-            <div class="container_scroll">
+            <div class="box-container">
+                <?php
+                //var_dump(isset($_GET["query"]));
+                if (isset($_GET["query"])) {
+                    if (isset($users)) {
+                        foreach ($users as $searchresult) :  ?>
+
+                            <a class="search_text profile-box-info" href="people.php?id=<?php echo $searchresult['follower_id']; ?>&username=<?php echo $searchresult['username']; ?>">
+
+                                <div class="searchresult"><img class="profile-pic_search profile-picture-big" src="<?php echo $searchresult['picture']; ?>"><span class="username_search profile-box-names"><?php echo $searchresult['username']; ?></span></div>
+
+                            </a>
+
+                    <?php endforeach;
+                    }
+                } else { ?>
+            </div>
+            <?php echo '<div class="box-container">'; ?>
+            <div class="list_scroll">
                 <?php foreach ($allFollowers as $follower) : ?>
-                    <div class="profile-box">
-                        <a href="people.php?id=<?php echo $follower["id"] ?>">
-                            <div class="profile-box-info">
-                                <img class="profile-picture-big" src="<?php echo $follower["picture"] ?>" alt="profile picture">
-                                <div class="profile-box-names">
+                  <?php echo '<a href=" people.php?id='?><?php echo $follower["id"] ?><?php echo '">';
+           echo'        <div class="profile-box">';
+           echo'           <div class="profile-box-info">';
+           echo'          <img class="profile-picture-big" src="'?><?php echo $follower["picture"] ?><?php echo'" alt="profile picture">';
+           echo'           <div class="profile-box-names">';
+                       echo'             <p '?><?php echo $follower["id"] ?><?php echo '"></p>
+                                         <span>'?><?php echo htmlspecialchars($follower["username"]) ?><?php echo '</span>';
 
-                                    <?php echo htmlspecialchars($follower["username"]) ?>
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
-                <div class="hidden_block">hidden</div>
+                       echo'            </div>';
+                       echo'         </div>';
+                       echo'      </div>';
+                       echo'               </a>';?>
+            <?php endforeach;
+                } ?>
             </div>
+            <div class="hidden_block">hidden</div>
         </div>
     </main>
 </body>
