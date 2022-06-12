@@ -185,6 +185,7 @@ include_once("navbar.inc.php");
         <div id="myModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
+            <div class="modal-background">
                 <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times; close</span>
                 <h4 id="modal-card-name"></h4>
                 <p id="modal-card-type"></p>
@@ -226,6 +227,7 @@ include_once("navbar.inc.php");
                 <input id="sellCard" type="hidden" name="cardId" value="">
                 
                 <button class="btn" name="sell" type="submit">sell </button></form>
+            </div>
             </div>
         </div>
     </div>

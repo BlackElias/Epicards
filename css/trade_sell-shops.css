@@ -5,3 +5,59 @@ a.friends_link{
 a.shops_link{
     color: red;
 }
+.modal-content {
+    height: 100%;
+    background-color: rgba(224, 224, 224, 0.75);
+}
+
+#modal-card-image {
+    width: 70%;
+    border-radius: 20px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    margin-top: 1em;
+}
+
+.title_img_center {
+    position: relative;
+    left: 15%;
+    right: 15%;
+
+}
+
+#card-saver {
+    width: 130px !important;
+    font-family: "apex mk3";
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(0deg, rgba(225, 27, 56, 1) 0%, rgba(232, 69, 51, 1) 100%);
+    color: white;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 1.25em;
+    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-background {
+    background-color: white;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 10%;
+    position: relative;
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+    border-radius: 20px;
+    padding-top: 10px;
+}
+
+h4 {
+    width: 70%;
+    margin-top: 20px;
+}
+
+span.close {
+    margin: 20px;
+}
