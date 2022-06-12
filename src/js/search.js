@@ -676,8 +676,3 @@ document.getElementById("search-button").addEventListener("click", () => {
   
   
 startPageSearch();
-<div class="empty_state">
-      <img src="assets/emptystate_no-friends.svg" alt="empty state illustration" class="empty_state_img">
-      <p class="empty_state_text">You don't have friends added yet. <br> Search for friends in the search bar above!</p>
-    </div>
-    

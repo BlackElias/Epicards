@@ -53,11 +53,11 @@ $images = Image::getFeedImage();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/add_card.css">
-    <link rel="stylesheet" href="src/css/style.css">
+   
     <style type="text/css">
         #results { padding:20px; border:1px solid; background:#ccc; }
         #my_camera-ios_div{ top: 10%;}
-        #my_camera{padding-top: 10%;}
+        #my_camera{padding-top: 0%; margin-left: -20%;}
         video{ width: 100% !important}
     </style>
 </head>
@@ -66,13 +66,13 @@ $images = Image::getFeedImage();
   
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal" class="modal" >
 
   <!-- Modal content -->
   <div class="modal-content">
   <div class="modal-background">
     <span class="close">&times;</span>
-    <h3>Pleas center the picture in the middle of the webcam. Be sure that the Card name is clearly visible! Then press submit</h3>
+    <h3>Pleas center the picture in the middle of the webcam. Be sure that the Card name is clearly visible! <br> Then press submit</h3>
     
   </div>
   </div>
@@ -106,8 +106,8 @@ $images = Image::getFeedImage();
 <!-- Configure a few settings and attach camera -->
 <script language="JavaScript">
     Webcam.set({
-        width: 400,
-        height: 450,
+        width: 410,
+        height: 340,
         image_format: 'jpeg',
         jpeg_quality: 90,
         constraints: {
