@@ -163,7 +163,7 @@ include_once("navbar.inc.php");
 
   <!-- The Modal -->
   <a href="collection.php"> <button class="button_sec back_btn"> back to collection</button></a>
-   <script src="src/js/search.js"></script>
+   <script src="src/js/wish_search.js"></script>
 
 
 

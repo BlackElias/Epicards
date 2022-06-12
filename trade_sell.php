@@ -22,7 +22,7 @@ include_once("navbar.inc.php");
 </head>
 
 <body>
-  <a href="search_buy_sell.php">
+  <a href="search_buy_sell.php?query=">
     <div class="search">
       <input type="text" id="name-input" placeholder="Search for users, cards and shops" name="current-search" class="form_input card_input">
       <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn">

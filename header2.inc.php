@@ -26,7 +26,7 @@ $premium = User::checkPremium();
       echo  '<a href="premium.php" class="btn_premium">go premium</a>';
     } ?>
 
-    <a href="#"><img src="assets/cart_icon.svg" alt="cart icon" class="icon cart_icon"></a>
+    <a href="#"><img src="assets/notification.svg" alt="cart icon" class="icon cart_icon"></a>
     <a href="appsettings.php"><img src="assets/settings_icon.svg" alt="cart icon" class="icon cart_icon"></a>
   </div>
 

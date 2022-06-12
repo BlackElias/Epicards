@@ -113,11 +113,11 @@ include_once("navbar.inc.php");
                     echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
                 } ?>
                 <div class="search_category">
-                    <button><a href="search_buy_sell.php">people</a></button>
+                    <button><a href="search_buy_sell.php?query="style="<?php if (isset($_GET['query'])) { echo 'color: red;';}  ?>">people</a></button>
                     <span class="vl_line"></span>
-                    <button><a href="search_buy_sell.php?shops=">shops</a></button>
+                    <button><a href="search_buy_sell.php?shops=" style="<?php  if(isset($_GET['shops'])) { echo 'color: red;';}?>">shops</a></button>
                     <span class="vl_line"></span>
-                    <button class=""><a href="search_buy_sell.php?cards=">cards</a></button>
+                    <button class=""><a href="search_buy_sell.php?cards="style="<?php  if(isset($_GET['cards'])) { echo 'color: red;';}?>">cards</a></button>
                 </div>
             </div>
         </div>

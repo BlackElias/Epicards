@@ -82,7 +82,7 @@ include_once("navbar.inc.php");
         if ($p[0] == "private") {
             echo '<p class="visibility">Visible to you only</p>';
         } else {
-            echo '<p class="visibility">Visible to friends only</p>';
+            echo '<p class="visibility">Visible to everyone</p>';
         } ?>
 
 
