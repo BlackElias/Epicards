@@ -70,6 +70,11 @@ div.top {
     font-size: 1rem;
 }
 
+.btn-profile-follow {
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
 img.plus_icon {
     width: 11px;
     padding-right: 7px;

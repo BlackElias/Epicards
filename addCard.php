@@ -1,4 +1,6 @@
 <?php
+use src\php\classes\Cards\Cards;
+
 include_once("bootstrap.php");
 error_reporting(0);
 try {

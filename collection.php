@@ -1,4 +1,5 @@
 <?php
+use src\php\classes\Cards\Cards;
 include_once("bootstrap.php");
 try {
     $user = new User();
@@ -56,8 +57,8 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
     <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
-    
-    <title>Epicards |  Collection</title>
+
+    <title>Epicards | Collection</title>
 </head>
 
 <body>
@@ -71,10 +72,11 @@ include_once("navbar.inc.php");
     ?>
     <div class="collection_container">
         <div class="top">
-            <a href="index.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
+            <a href="index.php" class="btn_z-index"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
             <h1 class="collection-name"><?php echo htmlspecialchars($_SESSION["collectionName"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
+
         <!-- if change text  -->
         <?php
         $p = array_column($private, 'collection_private');
@@ -84,9 +86,6 @@ include_once("navbar.inc.php");
         } else {
             echo '<p class="visibility">Visible to everyone</p>';
         } ?>
-
-
-
         <div class="collection-flex" id="collection">
             <div class="collection_column">
                 <p>Collection price:</p>
@@ -153,33 +152,33 @@ include_once("navbar.inc.php");
             <div class="card_scroll">
                 <?php
 
-if (isset($_GET["query"])) {
-    foreach ($card as $searchresult) :  ?>
+                if (isset($_GET["query"])) {
+                    foreach ($card as $searchresult) :  ?>
 
-<div class="card_info" >
-    <img  src="<?php echo htmlspecialchars($searchresult['card_image']) ?>" alt="card image" class="card_img">
-    <p class="card_name"><?php echo htmlspecialchars($searchresult['card_name']) ?></p>
-    <p id="card-price" class="euro">€ <?php echo htmlspecialchars($searchresult['card_price']) ?></p>
-    <form action="" method="post">
-        <input type="hidden"name="cards_id" value="<?php echo htmlspecialchars($searchresult['cards_id']) ?>">
-    <button type="submit" name="delete" class="bin_icon" value="delete">&#x2715</button>
-    </form>
-</div>
+                        <div class="card_info">
+                            <img src="<?php echo htmlspecialchars($searchresult['card_image']) ?>" alt="card image" class="card_img">
+                            <p class="card_name"><?php echo htmlspecialchars($searchresult['card_name']) ?></p>
+                            <p id="card-price" class="euro">€ <?php echo htmlspecialchars($searchresult['card_price']) ?></p>
+                            <form action="" method="post">
+                                <input type="hidden" name="cards_id" value="<?php echo htmlspecialchars($searchresult['cards_id']) ?>">
+                                <button type="submit" name="delete" class="bin_icon" value="delete">&#x2715</button>
+                            </form>
+                        </div>
 
-    <?php endforeach;
-} else{
-                //var_dump(Cards::getFeedCards());
-                $i = 0;
-                foreach ($feed as $card) : if ($i == 1000) {
-                        break;
-                    } ?>
+                    <?php endforeach;
+                } else {
+                    //var_dump(Cards::getFeedCards());
+                    $i = 0;
+                    foreach ($feed as $card) : if ($i == 1000) {
+                            break;
+                        } ?>
 
-<?php include("card.inc.php"); ?>
+                        <?php include("card.inc.php"); ?>
 
                 <?php $i++;
                     endforeach;
                 } ?>
-               
+
             </div>
         </div>
 </body>

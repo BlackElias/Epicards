@@ -9,11 +9,11 @@
 }
 
 .logo {
-    width: 200px;
+    width: 40vw;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     margin-top: 40px;
 }
 
@@ -48,14 +48,14 @@ h2 {
 
 .premium_info {
     background-color: white;
-    box-shadow: rgba(100, 100, 111, 0.25) 0px 7px 29px 0px;
+    box-shadow: rgb(100 100 111 / 25%) 0px 7px 29px 0px;
     width: 90%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     border-radius: 15px;
     padding-bottom: 20px;
-    height: 25%;
+    height: 30%;
 }
 
 .btn_buy {

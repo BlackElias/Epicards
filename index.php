@@ -1,5 +1,10 @@
 <?php
+
+use src\php\classes\Trade\Trade;
+
 include_once("bootstrap.php");
+//error_reporting(E_ALL);
+//ini_set("display_errors","On");
 try {
    $user = new User();
    $currentUserId = $_SESSION["userId"];
@@ -72,7 +77,7 @@ if (!empty($_POST)) {
                               ?></p>
                            <p class="">cards</p>
                         </div>
-</form>
+          </form>
                         <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($collection['collection_name']) ?></span></p>
                      </div>
                   </div>
@@ -83,7 +88,9 @@ if (!empty($_POST)) {
          endforeach;  ?>
          <div class="hidden_block"></div>
       </div>
-     
+      
+      <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
+
       <?php
 
       if (count(Collection::getFeedCollections($currentUserId)) >= 3) {

@@ -27,6 +27,11 @@ a {
 .collection-text {
     text-decoration: none;
     color: black;
+}
+
+.post-text {
+    text-decoration: none;
+    color: black;
 
 }
 
@@ -83,6 +88,12 @@ div.cards_amount {
 }
 
 .collections_scroll {
+    height: 65vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.posts_scroll {
     height: 65vh;
     overflow: hidden;
     overflow-y: scroll;
