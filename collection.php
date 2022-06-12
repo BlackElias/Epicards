@@ -7,15 +7,7 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
-if (isset($_GET['id'])) {
-    $_SESSION["CollectionId"] = $_GET['id'];
-}
-if (isset($_GET['type'])) {
-    $_SESSION["collectionType"] = $_GET['type'];
-}
-if (isset($_GET['title'])) {
-    $_SESSION["collectionName"] = $_GET['title'];
-}
+
 
 
 if (isset($_POST["delete"])) {
@@ -36,8 +28,12 @@ if (!empty($_GET['query'])) {
         $error = $th->getMessage();
     }
 }
-if (isset($_GET["id"])) {
-    $_SESSION["collection"] = $_GET["id"];
+$name = $_SESSION["collectionName"];
+
+if ($name == "Wishlist") {
+    $link = "search_card.php";
+} else{
+     $link = "scan.php";
 }
 
 $counter = Cards::getFeedCards();
@@ -141,7 +137,7 @@ include_once("navbar.inc.php");
                 $check = array_column($premium, 'premium');
 
                 if ($check[0]  == 'ja') {
-                    echo ' <form action="scan.php" method="POST">
+                    echo ' <form action="'.$link.'" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
                 }
@@ -149,7 +145,7 @@ include_once("navbar.inc.php");
                     echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
                 }
             } else {
-                echo ' <form action="scan.php" method="POST">
+                echo ' <form action="'.$link.'" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
             } ?>
