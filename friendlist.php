@@ -2,6 +2,8 @@
 use src\php\classes\User\User;
 use src\php\classes\Follower\Follower;
 use src\php\classes\db\Db;
+use src\php\classes\follower\Follower;
+use src\php\classes\user\User;
 include_once("bootstrap.php");
 $conn = Db::getConnection();
 try {

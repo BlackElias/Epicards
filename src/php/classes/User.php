@@ -1,5 +1,6 @@
 <?php
 namespace src\php\classes\User;
+
 use src\php\classes\db\db;
 use PDO;
 use Exception;
