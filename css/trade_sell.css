@@ -35,6 +35,16 @@
 
 a {
     text-decoration: none;
+    color: #615F5F;
+}
+
+.btn-post {
+    position: fixed;
+    left: 50%;
+    bottom: 100px;
+    width: 250px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .vl_line {
@@ -108,3 +118,4 @@ a.friends_link {
     padding-right: 7px;
     vertical-align: baseline;
 }
+

@@ -42,7 +42,7 @@ if (!empty($_POST["cardName"])) {
 
   try {
     $card = new Cards();
-    $card->setCollectionId($_POST['id']);
+    $card->setCollectionId($_SESSION["collection"]);
 
     $card->setCard_name($_POST["cardName"]);
     $card->setCard_price($_POST["cardPrice"]);
@@ -191,7 +191,7 @@ include_once("navbar.inc.php");
   
 
   <!-- The Modal -->
-  <a href="collection.php?title=<?php echo htmlspecialchars($_SESSION["collectionName"]) ?>&id=<?php echo htmlspecialchars($_SESSION["CollectionId"]) ?>&type=<?php echo htmlspecialchars($_SESSION["collectionType"]) ?>"> <button class="button_sec back_btn"> back to collection</button></a>
+  <a href="collection.php"> <button class="button_sec back_btn"> back to collection</button></a>
   <?php if ($_SESSION["collectionType"] == "pokemon") {
     echo  '<script src="src/js/pokesearch.js"></script>';
   } elseif ($_SESSION["collectionType"] == "yugioh") {

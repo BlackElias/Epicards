@@ -115,7 +115,7 @@ include_once("navbar.inc.php");
                                     <input type="password" placeholder="Enter current password" class="form-control form-border" id="passwordConfirm" name="passwordConfirm" required> <br>
                                 </div>
                                 <div class="btn-center">
-                                    <button type="submit" class="w-100 btn btn-lg">Update</button>
+                                    <button type="submit" class="w-100 btn btn-lg">Update profile</button>
                                 </div>
                             </div>
                         </form>

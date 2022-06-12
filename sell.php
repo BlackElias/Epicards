@@ -54,50 +54,38 @@ include_once("navbar.inc.php");
 </head>
 
 <body>
-    <input type="text" class="form_input card_input" id="card" name="card" placeholder="search card"></input>
+   
     <?php //echo htmlspecialchars($_GET['id']); 
     ?>
     <div class="collection_container">
         <div class="top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button>
-            <h1 class="collection-name">Sell Card</h1>
+            <h1 class="collection-name" style="margin-right:30%;">Sell Card</h1>
            
         </div>
        
 
-
+<div  >
      <h1><?php echo  htmlspecialchars($_SESSION["cardName"] ) ?></h1>
-            <img src="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>" alt="" style="width: 50%;">
+            <img  src="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>" alt="" style="width: 50%; margin-left: 25%;">
             <br>
-        <form action="" method="POST">
+        <form action="" method="POST" >
             
             <input type="hidden" name="image" value="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>"></input>
             <input type="hidden" name="CardId" value="<?php echo  htmlspecialchars($_SESSION["cardId"]) ?>"></input>
             <input type="hidden" name="name" value="<?php echo  htmlspecialchars($_SESSION["cardName"]) ?>"></input>
-            <label for="">Price</label>
+            <label style="margin-left:20% !important; margin-bottom: 5%" for="">Price</label>
             
-            <input type="text" name="price" class="" id=""></input>
+            <input style="margin-bottom: 2% !important;  margin-top: 2% !important; width: 40% !important; display: inline ;" type="text" name="price" class="form_input card_input" id=""></input>
             <button type="submit" href="" class="btn">sell card</button>
         </form>
       
         </div>
     </div>
+</div>
 
 
-
-    <h1><?php echo  htmlspecialchars($_SESSION["cardName"]) ?></h1>
-    <img src="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>" alt="" style="width: 50%;">
-    <br>
-    <form action="" method="POST">
-
-      <input type="hidden" name="image" value="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>"></input>
-      <input type="hidden" name="CardId" value="<?php echo  htmlspecialchars($_SESSION["cardId"]) ?>"></input>
-      <input type="hidden" name="name" value="<?php echo  htmlspecialchars($_SESSION["cardName"]) ?>"></input>
-      <label for="">Price</label>
-
-      <input type="text" name="price" class="" id=""></input>
-      <button type="submit" href="" class="btn">sell card</button>
-    </form>
+  
 
   </div>
   </div>

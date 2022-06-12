@@ -18,13 +18,27 @@ if (!empty($_POST)) {
 
     $username = $user->getUsername();
     $currentUser = $user->getLoggedUser($username);
+    
     session_start();
     $_SESSION["userId"] = $currentUser["id"];
+    $col = new Collection();
 
+    $currentUserId = $_SESSION["userId"];
+
+    $col->setCollectionName("Wishlist");
+    // $user->checkEmail();
+
+    $col->setCollectionType("all");
+    //  $user->checkUsername();
+   
+    $col->setCollectionPrivate("unprivate");
+
+    $col->saveCollection($currentUserId); 
     header("Location: index.php");
   } catch (\Throwable $th) {
     $error = $th->getMessage();
   }
+  
 }
 
 ?>
