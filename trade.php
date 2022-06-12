@@ -1,6 +1,8 @@
 <?php
 use src\php\classes\Cards\Cards;
 use src\php\classes\Trade\Trade;
+use src\php\classes\User\User;
+use src\php\classes\Collection\Collection;
 include_once("bootstrap.php");
 $trade;
 

@@ -1,6 +1,9 @@
 <?php
+namespace src\php\classes\User;
 
 use src\php\classes\db\db;
+use PDO;
+use Exception;
 
 class User
 {
@@ -77,9 +80,6 @@ class User
         $this->username = $username;
         return $this;
     }
-
-
-  
 
     /**
      * Get the value of password
