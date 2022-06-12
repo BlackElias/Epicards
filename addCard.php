@@ -40,7 +40,7 @@ if (!empty($_POST["cardName"])) {
 
   try {
     $card = new Cards();
-    $card->setCollectionId($_POST['id']);
+    $card->setCollectionId($_SESSION["collection"]);
 
     $card->setCard_name($_POST["cardName"]);
     $card->setCard_price($_POST["cardPrice"]);
@@ -70,7 +70,7 @@ include_once("navbar.inc.php");
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="css/add_card.css">
   <link rel="stylesheet" href="src/css/style.css">
-  <title>Find card</title>
+  <title>Epicards | add card</title>
 </head>
 <nav>
 
@@ -189,7 +189,7 @@ include_once("navbar.inc.php");
   
 
   <!-- The Modal -->
-  <a href="collection.php?title=<?php echo htmlspecialchars($_SESSION["collectionName"]) ?>&id=<?php echo htmlspecialchars($_SESSION["CollectionId"]) ?>&type=<?php echo htmlspecialchars($_SESSION["collectionType"]) ?>"> <button class="button_sec back_btn"> back to collection</button></a>
+  <a href="collection.php"> <button class="button_sec back_btn"> back to collection</button></a>
   <?php if ($_SESSION["collectionType"] == "pokemon") {
     echo  '<script src="src/js/pokesearch.js"></script>';
   } elseif ($_SESSION["collectionType"] == "yugioh") {

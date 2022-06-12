@@ -1,0 +1,207 @@
+body {
+    background-color: white;
+}
+
+button {
+    padding: 0;
+}
+
+div.top {
+    display: flex;
+    padding-top: 100px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.background_top {
+    background-color: white;
+    box-shadow: rgb(100 100 111 / 10%) 0px 13px 18px;
+    padding-bottom: 20px;
+}
+
+.profile-box-names {
+    width: 130px;
+}
+
+.profile-box-info {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.back_arrow {
+    width: 20px;
+}
+
+.username_title {
+    font-family: "futuraPT bold";
+    font-size: 2em;
+}
+
+.profile-picture-big {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 20px;
+}
+
+.top_background {
+    background-color: white;
+    box-shadow: rgb(100 100 111 / 10%) 0px 13px 18px;
+}
+
+.btn_add-friend {
+    color: black;
+    font-family: "apex mk3";
+    border: 3px solid red;
+    padding: 12px 15px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+img.plus_icon {
+    width: 11px;
+    padding-right: 7px;
+}
+
+.chat_btn {
+    font-family: "apex mk3";
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+    width: 90px;
+}
+
+img.chat_icon_small {
+    width: 22px;
+    padding-right: 12px;
+}
+
+.top_btns {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lower_btns {
+    font-family: "apex mk3";
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.vl_line {
+    border-left: 1.5px solid rgb(0, 0, 0);
+    height: 25px;
+}
+
+.collection-text {
+    text-decoration: none;
+    color: black;
+}
+
+.collection-pokemon {
+    background-color: #86AACC;
+    width: 90%;
+    border-radius: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+    padding: 9% 0;
+    background-image: url(../assets/collection_card_imgsvg.svg);
+    background-repeat: no-repeat;
+    background-position-x: -22px;
+    background-position-y: 10px;
+}
+
+.collection_card_text {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coll_title-text {
+    width: 90px;
+}
+
+p {
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    hyphens: auto;
+}
+
+.card_icon {
+    width: 30px;
+    padding-right: 15px;
+}
+
+p.collection_title {
+    font-family: "apex mk3";
+    display: flex;
+    align-items: center;
+    margin-left: 40%;
+}
+
+div.cards_amount {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+div.posts_scroll {
+    height: 60vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.hidden_block {
+    padding: 40px;
+    opacity: 0;
+}
+
+.flex_top-btns {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-collection {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+}
+
+.btn-collection a {
+    color: black;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

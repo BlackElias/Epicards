@@ -9,7 +9,7 @@ if (!empty($_POST)) {
     $user->checkEmail();
 
     $user->setUsername($_POST["username"]);
-  $user->checkUsername();
+    $user->checkUsername();
 
     $user->setPassword($_POST["password"]);
     $user->hashPassword();
@@ -18,13 +18,27 @@ if (!empty($_POST)) {
 
     $username = $user->getUsername();
     $currentUser = $user->getLoggedUser($username);
+    
     session_start();
     $_SESSION["userId"] = $currentUser["id"];
+    $col = new Collection();
 
+    $currentUserId = $_SESSION["userId"];
+
+    $col->setCollectionName("Wishlist");
+    // $user->checkEmail();
+
+    $col->setCollectionType("all");
+    //  $user->checkUsername();
+   
+    $col->setCollectionPrivate("unprivate");
+
+    $col->saveCollection($currentUserId); 
     header("Location: index.php");
   } catch (\Throwable $th) {
     $error = $th->getMessage();
   }
+  
 }
 
 ?>
@@ -40,7 +54,7 @@ if (!empty($_POST)) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/signup.css">
-  <title>Document</title>
+  <title>Epicards | signup</title>
 </head>
 
 <body>
@@ -71,9 +85,11 @@ if (!empty($_POST)) {
           <input type="password" name="password" class="form-control form-border password_input" id="postTags" name="tags" placeholder='Password' />
         </div>
         <button type="submit" class="btn btn-lg submit">Sign up</button>
+        <div class="hidden_block">hidden</div>
         <h6 class="mt-4 mb-3 text-muted">Already have an account? <a href="login.php">Login</a></h6>
       </form>
     </div>
+
   </main>
 </body>
 

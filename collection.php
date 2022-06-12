@@ -8,15 +8,7 @@ try {
 } catch (\Throwable $th) {
     $error = $th->getMessage();
 }
-if (isset($_GET['id'])) {
-    $_SESSION["CollectionId"] = $_GET['id'];
-}
-if (isset($_GET['type'])) {
-    $_SESSION["collectionType"] = $_GET['type'];
-}
-if (isset($_GET['title'])) {
-    $_SESSION["collectionName"] = $_GET['title'];
-}
+
 
 
 if (isset($_POST["delete"])) {
@@ -37,8 +29,12 @@ if (!empty($_GET['query'])) {
         $error = $th->getMessage();
     }
 }
-if (isset($_GET["id"])) {
-    $_SESSION["collection"] = $_GET["id"];
+$name = $_SESSION["collectionName"];
+
+if ($name == "Wishlist") {
+    $link = "search_card.php";
+} else{
+     $link = "scan.php";
 }
 
 $counter = Cards::getFeedCards();
@@ -61,19 +57,22 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
     <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
-    <title>Epicards Collection</title>
+    
+    <title>Epicards |  Collection</title>
 </head>
 
 <body>
     <form action="" method="get">
-        <input type="text" id="name-input" placeholder="Search cards" name="query" name="current-search" class="form_input card_input">
-        <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>
+        <div class="search">
+            <input type="text" id="name-input" placeholder="Search cards" name="query" name="current-search" class="form_input card_input">
+            <button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button>
+        </div>
     </form>
     <?php //echo htmlspecialchars($_GET['id']); 
     ?>
     <div class="collection_container">
         <div class="top">
-           <a href="index.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
+            <a href="index.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
             <h1 class="collection-name"><?php echo htmlspecialchars($_SESSION["collectionName"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
@@ -139,7 +138,7 @@ include_once("navbar.inc.php");
                 $check = array_column($premium, 'premium');
 
                 if ($check[0]  == 'ja') {
-                    echo ' <form action="scan.php" method="POST">
+                    echo ' <form action="'.$link.'" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
                 }
@@ -147,7 +146,7 @@ include_once("navbar.inc.php");
                     echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
                 }
             } else {
-                echo ' <form action="scan.php" method="POST">
+                echo ' <form action="'.$link.'" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
             } ?>
@@ -181,6 +180,7 @@ if (isset($_GET["query"])) {
                 <?php $i++;
                     endforeach;
                 } ?>
+               
             </div>
         </div>
 </body>

@@ -29,7 +29,7 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/bottom-navbar/profile_bar.css">
-    <title>Profile</title>
+    <title>Epicards | Profile</title>
 </head>
 
 <body>
@@ -45,7 +45,7 @@ include_once("navbar.inc.php");
             </div>
         </div>
         <div class="flex_top-btns">
-            <a href="#" class="friendlist_btn"><img src="assets/friendlist_icon.svg" alt="friendlist icon" class="edit_icon">friendlist</a>
+            <a href="friendlist.php" class="friendlist_btn"><img src="assets/friendlist_icon.svg" alt="friendlist icon" class="edit_icon">friendlist</a>
             <a class="edit-profile_btn" href="edit_profile.php"><img src="assets/edit_icon_small.svg" alt="edit icon" class="edit_icon">edit profile</a>
         </div>
     </div>
@@ -88,7 +88,8 @@ include_once("navbar.inc.php");
         <?php $i++;
         endforeach;  ?>
 
-        <button class="btn-post button_sec"><a href="newpost.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new post</a></button>
+        <button class="btn-collection button_sec"><a href="newpost.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new post</a></button>
+
     </div>
     <div class="hidden_block">hidden</div>
 </body>

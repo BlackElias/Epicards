@@ -64,20 +64,18 @@ include_once("navbar.inc.php");
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/edit_settings.css">
     <link rel="stylesheet" href="css/bottom-navbar/profile_bar.css">
-    <title>Profile</title>
+    <title>Epicards | Profile</title>
 </head>
 
 <body>
     <div class="edit-settings_container">
-
         <div class="top">
-            <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button>
+            <a href="profile.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"></button></a>
             <h1>Edit profile</h1>
         </div>
         <div class="settings_scroll">
             <main>
                 <div class="box-container">
-
                     <div class="box-container edit-container hidden">
                         <form method="POST" enctype="multipart/form-data">
                             <div class="form-row form-spacing">
@@ -117,7 +115,7 @@ include_once("navbar.inc.php");
                                     <input type="password" placeholder="Enter current password" class="form-control form-border" id="passwordConfirm" name="passwordConfirm" required> <br>
                                 </div>
                                 <div class="btn-center">
-                                    <button type="submit" class="w-100 btn btn-lg">Update</button>
+                                    <button type="submit" class="w-100 btn btn-lg">Update profile</button>
                                 </div>
                             </div>
                         </form>

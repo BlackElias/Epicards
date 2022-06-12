@@ -47,13 +47,13 @@ $images = Image::getFeedImage();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Capture webcam</title>
+    <title>Epicards | Scan Card</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <style type="text/css">
         #results { padding:20px; border:1px solid; background:#ccc; }
-        #my_camera-ios_div{background-color: red; top: 10%;}
+        #my_camera-ios_div{ top: 10%;}
         #my_camera{padding-top: 10%;}
         video{ width: 100% !important}
     </style>
@@ -91,7 +91,10 @@ $images = Image::getFeedImage();
         height: 450,
         image_format: 'jpeg',
         jpeg_quality: 90,
-        facingMode: "environment"
+        constraints: {
+            
+            facingMode: "environment"
+        }
     });
   
     Webcam.attach( '#my_camera' );
