@@ -1,9 +1,11 @@
 <?php
-
-use src\php\classes\Trade;
-use src\php\classes\User\User;
+ob_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+use src\php\classes\Trade\Trade;
 use src\php\classes\Collection\Collection;
-
+use src\php\classes\User\User;
 include_once("bootstrap.php");
 //error_reporting(E_ALL);
 //ini_set("display_errors","On");
@@ -17,24 +19,14 @@ try {
 $cards = Collection::getCards();
 $total = array_column($cards, 'collection_id');
 unset($_SESSION['collection_id']);
-// var_dump($total);
-// $collection = new Collection();
-// $collectionID = $collection->getCollectonId();
 $premium = User::checkPremium();
-//$private = Collection::getFeedCollectionsPrivate();
-
 if (!empty($_POST)) {
    $_SESSION["collection"] = $_POST['id'];
-
-
    $_SESSION["collectionType"] = $_POST['type'];
-
-
    $_SESSION["collectionName"] = $_POST['title'];
-
    header("Location: collection.php");
-  
-} include_once("header.inc.php");
+}
+include_once("header.inc.php");
 include_once("navbar.inc.php");
 ?>
 <!DOCTYPE html>

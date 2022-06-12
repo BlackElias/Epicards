@@ -2,7 +2,7 @@
 use src\php\classes\Cards\Cards;
 use src\php\classes\trade\Trade;
 //get id from url 
-
+use src\php\classes\Collection\Collection;
 $tradeId = 2;
 
 if(isset($_POST["card_id"])){
@@ -48,11 +48,11 @@ try {
         ?>
 
         <div class="card_info" >
-            <img  src="<?php echo htmlspecialchars($card['card_image']) ?>" alt="card image" class="card_img">
-            <p class="card_name"><?php echo htmlspecialchars($card['card_name']) ?></p>
-            <p id="card-price" class="euro">€ <?php echo htmlspecialchars($card['card_price']) ?></p>
+            <img  src="<?php echo htmlspecialchars($card['card_image']); ?>" alt="card image" class="card_img">
+            <p class="card_name"><?php echo htmlspecialchars($card['card_name']); ?></p>
+            <p id="card-price" class="euro">€ <?php echo htmlspecialchars($card['card_price']); ?></p>
             <form action="" method="post">
-                <input type="hidden"name="cards_id" value="<?php echo htmlspecialchars($card['cards_id']) ?>">
+                <input type="hidden"name="cards_id" value="<?php echo htmlspecialchars($card['cards_id']); ?>">
                 <button type="submit" name="card" class="bin_icon">
                     <img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">
                 </button>

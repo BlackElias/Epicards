@@ -76,7 +76,7 @@ include_once("navbar.inc.php");
     ?>
     <div class="collection_container">
         <div class="top">
-            <a href="index.php" class="btn_z-index"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
+            <a href="index.php" class="btn_z-index"><button><img src="assets/back_arrow.svg" id="arrow" alt="back arrow" class="back_arrow"> </button></a>
             <h1 class="collection-name"><?php echo htmlspecialchars($_SESSION["collectionName"]) ?></h1>
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
