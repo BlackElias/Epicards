@@ -6,6 +6,8 @@ class Follower
     private $user_id;
     private $follower_id;
     private $status;
+    private $username;
+    private $picture;
 
     /**
      * Get the value of id
@@ -85,24 +87,72 @@ class Follower
         $this->status = $status;
 
         return $this;
-    }
+    } /**
+    * Get the value of username
+    */ 
+   public function getUsername()
+   {
+       return $this->username;
+   }
+
+   /**
+    * Set the value of username
+    *
+    * @return  self
+    */ 
+   public function setUsername($username)
+   {
+       $this->username = $username;
+
+       return $this;
+   }  /**
+   * Get the value of picture
+   */ 
+  public function getPicture()
+  {
+      return $this->picture;
+  }
+
+  /**
+   * Set the value of picture
+   *
+   * @return  self
+   */ 
+  public function setPicture($picture)
+  {
+      $this->picture = $picture;
+
+      return $this;
+  }
 
     public function saveFollower()
     {
         $conn = Db::getConnection();
-        $statement = $conn->prepare("INSERT INTO followers (user_id, follower_id) VALUES (:user_id, :follower_id)");
+        $statement = $conn->prepare("INSERT INTO followers (user_id, follower_id, username, picture) VALUES (:user_id, :follower_id, :username, :picture)");
 
         $user_id = $this->getUser_id();
         $follower_id = $this->getFollower_id();
-
+        $username = $this->getUsername();
+        $picture = $this->getPicture();
+        $statement->bindValue(":username", $username);
         $statement->bindValue(":user_id", $user_id);
+        $statement->bindValue(":picture", $picture);
         $statement->bindValue(":follower_id", $follower_id);
 
         $result = $statement->execute();
 
         return $result;
     }
-
+    public static function searchFollowers($query)
+    {
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM followers  WHERE INSTR(username, :query) AND user_id = :user_id");
+        $statement->bindValue(":query", $query);
+        $statement->bindValue(":user_id", $_SESSION["userId"]);
+        $user = $statement->execute();
+        $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $user;
+    }
     public function removeFollower()
     {
         $conn = Db::getConnection();
@@ -159,4 +209,8 @@ class Follower
 
         return $result;
     }
+
+   
+
+  
 }

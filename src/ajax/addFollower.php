@@ -4,8 +4,9 @@
     if(!empty($_POST)){
         $follower = new Follower();
         $follower->setFollower_id($_POST["followeduser"]);
+        $follower->setUsername($_POST["username"]);
         $follower->setUser_id($_SESSION["userId"]);
-
+        $follower->setPicture($_POST["picture"]);
         $result = $follower->saveFollower();
 
         $response = [

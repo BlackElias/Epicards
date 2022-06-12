@@ -1,5 +1,5 @@
 <?php
-include_once(__DIR__ . "/Db.php");
+use src\php\classes\db\db;
 
 class User
 {

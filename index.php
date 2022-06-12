@@ -1,5 +1,10 @@
 <?php
+
+use src\php\classes\Trade\Trade;
+
 include_once("bootstrap.php");
+//error_reporting(E_ALL);
+//ini_set("display_errors","On");
 try {
    $user = new User();
    $currentUserId = $_SESSION["userId"];
@@ -14,9 +19,20 @@ unset($_SESSION['collection_id']);
 // $collection = new Collection();
 // $collectionID = $collection->getCollectonId();
 $premium = User::checkPremium();
-$private = Collection::getFeedCollectionsPrivate();
+//$private = Collection::getFeedCollectionsPrivate();
 include_once("header.inc.php");
 include_once("navbar.inc.php");
+if (!empty($_POST)) {
+   $_SESSION["collection"] = $_POST['id'];
+
+
+   $_SESSION["collectionType"] = $_POST['type'];
+
+
+   $_SESSION["collectionName"] = $_POST['title'];
+
+   header("Location: collection.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +62,11 @@ include_once("navbar.inc.php");
 
                break;
             } ?>
-
-            <a class="collection-text" href="collection.php?title=<?php echo $collection["collection_name"] ?>&id=<?php echo $collection["collection_id"] ?>&type=<?php echo $collection["collection_type"] ?>">
+         <form action="" method="post">
+            <button type="submit" class="collection-text" style="width: 100%;" >
+            <input type="hidden" name="title" value="<?php echo $collection["collection_name"] ?>">
+            <input type="hidden" name="id" value="<?php echo $collection["collection_id"] ?>">
+            <input type="hidden" name="type" value="<?php echo $collection["collection_type"] ?>">
                <div class="container">
                   <div class="collection-pokemon">
                      <div class="collection_card_text">
@@ -58,17 +77,20 @@ include_once("navbar.inc.php");
                               ?></p>
                            <p class="">cards</p>
                         </div>
-
+          </form>
                         <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($collection['collection_name']) ?></span></p>
                      </div>
                   </div>
                </div>
-            </a>
+         </button>
+         </form>
          <?php $i++;
          endforeach;  ?>
          <div class="hidden_block"></div>
       </div>
-     
+      
+      <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
+
       <?php
 
       if (count(Collection::getFeedCollections($currentUserId)) >= 3) {

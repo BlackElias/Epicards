@@ -5,7 +5,8 @@
         $follower = new Follower();
         $follower->setFollower_id($_POST["followeduser"]);
         $follower->setUser_id($_SESSION["userId"]);
-
+        $follower->setUsername($_POST["username"]);
+        $follower->setPicture($_POST["picture"]);
         $result = $follower->checkFollowed();
 
         $response = [

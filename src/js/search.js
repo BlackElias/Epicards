@@ -6,7 +6,6 @@ selectType = document.getElementById("type-search");
 cardsOnPage = document.getElementsByClassName("resultsImage");
 nameSearch1 = document.getElementById("name-input");
 
-//Instantiate View Card Modal
 var modal = document.getElementById("myModal");
 var modalCardName = document.getElementById("modal-card-name");
 var reverseHolofoilPrice = document.getElementById(
@@ -20,25 +19,20 @@ var addCardPokemon= document.getElementById( "addCard-data");
 var addCardPokemonPrice= document.getElementById( "addCard-price");
 var addCardPokemonImage= document.getElementById( "addCard-image");
 var url = document.getElementById( "buyCard");
-var urlSell = document.getElementById( "sellCard");
+
 
 var cardSaveBtn = document.getElementById("card-saver");
 
-// Get the <span> element that closes the modal [This is just w3Schools basic modal setup]
 var cardDisplayClose = document.getElementsByClassName("close")[0];
 var collectionsDisplayClose = document.getElementsByClassName("close")[1];
 
-// Instantiate Collections Modal
 var collectionsModal = document.getElementById("collections-modal");
 var collectionResults = document.getElementById("collection-results");
 
 var savedCardsBtn1 = document.getElementById("show-saved");
 
 
-// Function that returns both the name and parameter search inputs
 function searchingPokeData(theGeneration, theType, name) {
-  // Sorted
-  // Check to see if there is a type and generation being searched
   if (theGeneration && theType && !name) {
     generationURL = "https://pokeapi.co/api/v2/" + theGeneration;
 
@@ -47,20 +41,16 @@ function searchingPokeData(theGeneration, theType, name) {
         return response.json();
       })
       .then(function (data) {
-        // Returns an array of the Generation requested
         var pokemonGenerationArray = [];
 
         for (i = 0; i < data.pokemon_species.length; i++) {
           pokemonGenerationArray.push(data.pokemon_species[i].name);
         }
 
-        // Run the array through the TCG Api
         console.log(pokemonGenerationArray);
         getCardsOfType(theType, pokemonGenerationArray);
       });
 
-    // Sorted
-    // Check to see if there is only a generation being searched
   } else if (theGeneration && !theType && !name) {
     generationURL = "https://pokeapi.co/api/v2/" + theGeneration;
 
@@ -69,20 +59,16 @@ function searchingPokeData(theGeneration, theType, name) {
         return response.json();
       })
       .then(function (data) {
-        // Returns an array of the Generation requested
         var pokemonGenerationArray = [];
 
         for (i = 0; i < data.pokemon_species.length; i++) {
           pokemonGenerationArray.push(data.pokemon_species[i].name);
         }
 
-        // Run the array through the TCG Api
         console.log(pokemonGenerationArray);
         searchingTCGData(pokemonGenerationArray);
       });
 
-    // Sorted
-    // Check to see if there is only a type being searched
   } else if (theType && !theGeneration && !name) {
     typeCardURL = "https://api.pokemontcg.io/v2/cards?q=types:" + theType;
 
@@ -96,8 +82,6 @@ function searchingPokeData(theGeneration, theType, name) {
         postPokemonCardInfo(data.data);
       });
 
-    // Non Sorted
-    // Check if there was a name inputed
   } else if (name) {
     finalURL = "https://pokeapi.co/api/v2/pokemon/" + name;
 
@@ -114,9 +98,6 @@ function searchingPokeData(theGeneration, theType, name) {
       });
   }
 }
-
-// Sorted
-// Sort the cards being taken from the tcg array by Type
 function getCardsOfType(type, genArray) {
   for (i = 0; i < genArray.length; i++) {
     pokeCardURL = "https://api.pokemontcg.io/v2/cards?q=name:" + genArray[i];
@@ -133,7 +114,7 @@ function getCardsOfType(type, genArray) {
         return response.json();
       })
       .then(function (data) {
-        // Sort through per card per pokemon name
+    
         for (x = 0; x < data.data.length; x++) {
           if (data.data[x].types[0] === type) {
             console.log(data.data[x]);
@@ -145,8 +126,6 @@ function getCardsOfType(type, genArray) {
   }
 }
 
-// Non Sorted
-// Takes the names from the PokeAPI database and runs for matches in TCG
 function searchingTCGData(pokemonData) {
   for (i = 0; i < pokemonData.length; i++) {
     pokeCardURL = "https://api.pokemontcg.io/v2/cards?q=name:" + pokemonData[i];
@@ -170,8 +149,7 @@ function searchingTCGData(pokemonData) {
   }
 }
 
-// Takes the TCG data and pulls individual card data
-// Sets the card id as the actual html item id
+
 function postPokemonCardInfo(dataTCG) {
   for (i = 0; i < dataTCG.length; i++) {
     console.log(dataTCG[i]);
@@ -190,9 +168,7 @@ function postPokemonCardInfo(dataTCG) {
   }
 }
 
-// Pre-Sorted version of the above function
-// Takes the TCG data and pulls individual card data
-// Sets the card id as the actual html item id
+
 function postTypePokemonCardInfo(dataTCG) {
   console.log("datattcg"+dataTCG);
   var cardImage = document.createElement("img");
@@ -209,7 +185,7 @@ function postTypePokemonCardInfo(dataTCG) {
   });
 }
 
-// Runs a search query based on the current card you clicked
+
 function cardClickInformation(cardObject) {
   clickCardURL = "https://api.pokemontcg.io/v2/cards/" + cardObject;
 
@@ -230,7 +206,7 @@ function cardClickInformation(cardObject) {
     });
 }
 
-// Handles information inside the Card Modal
+
 function cardModalInformation(modalCard) {
         addCardPokemon.value = modalCard.name;
         //console.log(modalCard.tcgplayer.prices.holofoil.market)
@@ -253,14 +229,13 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
         addCardPokemonImage.value = modalCard.images.large;
   modalCardName.innerHTML =  modalCard.name;
   modalCardImage.src = modalCard.images.large;
- // cardSaveBtn.setAttribute("class", modalCard.id);
- urlSell.value =  modalCard.id; 
-
-  url.value = modalCard.id; 
+  cardSaveBtn.setAttribute("class", modalCard.id);
+  
   if (modalCard.tcgplayer) {
     if (modalCard.tcgplayer.prices.normal) {
       normalPrice.innerHTML =
-        "Price: " + modalCard.tcgplayer.prices.normal.market.toFixed(2);
+        "Price: " + modalCard.tcgplayer.prices.normal.market;
+        
     } else {
       normalPrice.innerHTML = " N/A";
     }
@@ -268,7 +243,7 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
     if (modalCard.tcgplayer.prices.reverseholofoil) {
       reverseHolofoilPrice.innerHTML =
         "Price: " +
-        modalCard.tcgplayer.prices.reverseholofoil.market.toFixed(2);
+        modalCard.tcgplayer.prices.reverseholofoil.market;
     } else {
       reverseHolofoilPrice.innerHTML = " N/A";
     }
@@ -276,7 +251,7 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
     if (modalCard.tcgplayer.prices.holofoil) {
       holoFoilPrice.innerHTML =
         "Price: " +
-        modalCard.tcgplayer.prices.holofoil.market.toFixed(2);
+        modalCard.tcgplayer.prices.holofoil.market;
     } else {
       holoFoilPrice.innerHTML = " N/A";
     }
@@ -286,7 +261,7 @@ if(typeof modalCard.tcgplayer.prices.reverseholofoil   !== 'undefined'){
   modal.style.display = "block";
 }
 
-// Modal handling
+
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -297,7 +272,7 @@ window.onclick = function (event) {
   }
 };
 
-// Handle the event to run a search when the page loads
+
 function startPageSearch() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -315,22 +290,37 @@ function startPageSearch() {
 
   resultsContainer.innerHTML = "";
 }
-document.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-    parameterType = selectType.value;
-    parameterGeneration = selectGeneration.value;
-    searchedName = nameSearch1.value;
-    searchedName = searchedName.toLowerCase();
-  
-    console.log(
-      "Type: " + parameterType + "  Generation: " + parameterGeneration
-    );
-    searchingPokeData(parameterGeneration, parameterType, searchedName);
-  
-    resultsContainer.innerHTML = "";
-  }
+
+parameterType = selectType.value;
+  parameterGeneration = selectGeneration.value;
+  searchedName = nameSearch1.value;
+  searchedName = searchedName.toLowerCase();
+
+  console.log(
+    "Type: " + parameterType + "  Generation: " + parameterGeneration
+  );
+  searchingPokeData(parameterGeneration, parameterType, searchedName);
+
+  resultsContainer.innerHTML = "";
+
+
+  document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      parameterType = selectType.value;
+      parameterGeneration = selectGeneration.value;
+      searchedName = nameSearch1.value;
+      searchedName = searchedName.toLowerCase();
+    
+      console.log(
+        "Type: " + parameterType + "  Generation: " + parameterGeneration
+      );
+      searchingPokeData(parameterGeneration, parameterType, searchedName);
+    
+      resultsContainer.innerHTML = "";
+    }
 });
-// Button click event that passes input info
+
+
 searchButton1.addEventListener("click", function () {
   parameterType = selectType.value;
   parameterGeneration = selectGeneration.value;
@@ -374,37 +364,7 @@ function getSavedCards(cardObject) {
   }
 }
 
-//yugioh
-/*
-const getValueInput = () =>{
-  const cardname = document.querySelector('input').value;
-  console.log(cardname)   
-   fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
-.then(response => response.json())
-.then(data => console.log(data))
-fetch(' https://api.magicthegathering.io/v1/cards?name='+ cardname)
-.then(response => response.json())
-.then(data => console.log( data))
-postTypeYugiohCardInfo(cardname)
-}
-function postTypeYugiohCardInfo(cardname) {
-  console.log("cardname:" +cardname);
-  var cardImage = document.createElement("img");
-  resultsContainer.appendChild(cardImage);
- 
-  cardImage.id = data.id;
- 
-  cardImage.setAttribute("class", "resultsImage");
-  cardImage.src = image_url;
 
-  cardImage.addEventListener("click", function (e) {
-    console.log(this);
-    var cardID = this.id;
-
-    cardClickInformation(cardID);
-  });
-}
-*/
 
 resultsContainer = document.getElementById("pokeResults");
 var modalCardYugiohImage = document.getElementById("modal-card-image");
@@ -419,10 +379,25 @@ var priceR = document.getElementById( "priceR");
 var addCardYugioh= document.getElementById( "addCard-data");
 var addCardYugiohPrice= document.getElementById( "addCard-price");
 var addCardYugiohImage= document.getElementById( "addCard-image");
-var urlYugioh = document.getElementById( "buyCard");
-var urlSellYugioh = document.getElementById( "sellCard");
-document.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
+
+  
+  document.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      const cardname = document.getElementById('name-input').value;
+      console.log(cardname)   
+       fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
+      
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+    
+        postyugiohCardInfo(data.data);
+      });
+    }
+});
+document.getElementById("search-button").addEventListener("click", () => {
     const cardname = document.getElementById('name-input').value;
     console.log(cardname)   
      fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardname)
@@ -435,23 +410,7 @@ document.addEventListener("keyup", function(event) {
   
       postyugiohCardInfo(data.data);
     });
-  }
-});
-document.getElementById("search-button").addEventListener("click", () => {
-    const cardnameyugioh = document.getElementById('name-input').value;
-    console.log(cardnameyugioh)   
-     fetch(' https://db.ygoprodeck.com/api/v7/cardinfo.php?&fname='+ cardnameyugioh)
-    
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-  
-      postyugiohCardInfo(data.data);
-    });
-});
-  
+  })
   function postyugiohCardInfo(datayugioh) {
     for (i = 0; i < datayugioh.length; i++) {
       console.log(datayugioh[i].card_images[0].image_url);
@@ -499,7 +458,7 @@ document.getElementById("search-button").addEventListener("click", () => {
       });
   }
   
-  // Handles information inside the Card Modal
+  
   function cardModalyugiohInformation(modalCardYugioh) {
     console.log()
     addCardYugioh.value = modalCardYugioh[0].name;
@@ -511,10 +470,9 @@ document.getElementById("search-button").addEventListener("click", () => {
     modalCardYugiohName.innerHTML =  modalCardYugioh[0].name;
     modalCardYugiohImage.src = modalCardYugioh[0].card_images[0].image_url;
     
-    urlSellYugioh.value = modalCardYugioh[0].id ; 
-
-    urlYugioh.value =  modalCardYugioh[0].id
-        if (modalCardYugioh) {
+    cardSaveBtn.setAttribute("class", modalCardYugioh.id);
+  
+    if (modalCardYugioh) {
       if (modalCardYugioh[0].card_prices[0].tcgplayer_price) {
         normalPrice.innerHTML =
           "Price: " + modalCardYugioh[0].card_prices[0].tcgplayer_price;
@@ -551,8 +509,9 @@ var priceR = document.getElementById( "priceR");
 var addCardMtg= document.getElementById( "addCard-data");
 var addCardMtgPrice= document.getElementById( "addCard-price");
 var addCardMtgImage= document.getElementById( "addCard-image");
-var urlMTG= document.getElementById( "buyCard");
-var urlSellMTG= document.getElementById( "sellCard");
+
+
+
 
 document.addEventListener("keyup", function(event) {
   if (event.keyCode === 13) {
@@ -571,7 +530,8 @@ document.addEventListener("keyup", function(event) {
   }
 });
 
-document.getElementById("search-button").addEventListener("click", () => {
+
+  document.getElementById("search-button").addEventListener("click", () => {
     const cardname = document.getElementById('name-input').value;
     console.log(cardname)   
      fetch(' https://api.scryfall.com/cards/search?order=name&q='+ cardname)
@@ -584,8 +544,7 @@ document.getElementById("search-button").addEventListener("click", () => {
   
       postMtgCardInfo(data.data);
     });
-});
-  
+  })
   function postMtgCardInfo(datamtg) {
      
     for (i = 0; i < datamtg.length; i++) {
@@ -650,9 +609,8 @@ document.getElementById("search-button").addEventListener("click", () => {
     modalCardMtgName.innerHTML =  modalCardmtg.name;
     modalCardMtgImage.src = modalCardmtg.image_uris.large;
     
-    urlSellMTG.value =  modalCardmtg.id; 
-
-    urlMTG.value =   modalCardmtg.id; 
+    cardSaveBtn.setAttribute("class", modalCardmtg.id);
+  
     if (modalCardmtg) {
       if (modalCardmtg.prices.eur) {
         normalPrice.innerHTML =
@@ -678,7 +636,3 @@ document.getElementById("search-button").addEventListener("click", () => {
   
   
 startPageSearch();
-
-
-
-

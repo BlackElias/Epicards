@@ -1,4 +1,5 @@
 <?php
+// namespace bootstrap;
 spl_autoload_register(function () {
     include_once("src/php/classes/Collection.php");
     include_once("src/php/classes/Db.php");
@@ -8,6 +9,7 @@ spl_autoload_register(function () {
     include_once("src/php/classes/Cards.php");
     include_once("src/php/classes/Image.php");
     include_once("src/php/classes/Sell.php");
+    include_once("src/php/classes/Trade.php");
     include_once("src/php/classes/Followers.php");
     
 });
