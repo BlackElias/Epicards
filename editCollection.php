@@ -14,6 +14,8 @@ $currentCollectionId = $_SESSION["collection"];
 $currentCollection = $col->getCollectionInfo($currentCollectionId);
 //var_dump($_POST["delete"]);
 //var_dump($_POST["collection_id"]);
+$name = $_SESSION["collectionName"];
+
 
 if (isset($_POST["info"])) {
 
@@ -57,9 +59,16 @@ include_once("navbar.inc.php");
         </div>
         <form action="" method="post">
             <div class="rename_coll">
-                <label for="Change collection name">Rename collection</label>
-                <input type="text" name="collection_name" value="<?php echo htmlspecialchars($currentCollection["collection_name"])?>" placeholder="Insert new collection name">
-            </div>
+                <?php if ($name == "Wishlist") {
+    echo " ";
+} else{
+   echo' <label for="Change collection name">Rename collection</label>';
+    echo'<input type="text" name="collection_name" value="';
+     echo htmlspecialchars($currentCollection["collection_name"]);
+      echo '" placeholder="Insert new collection name">';
+       
+}?>
+                  </div>
             <div class="checkbox_public">
                 <label for="unprivate" class="pointer">Visibility</label>
                 <select name="private" id="unprivate">
