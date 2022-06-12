@@ -30,6 +30,12 @@ a {
 
 }
 
+.post-text {
+    text-decoration: none;
+    color: black;
+
+}
+
 .collection-pokemon {
     background-color: #86AACC;
     width: 90%;
@@ -83,6 +89,12 @@ div.cards_amount {
 }
 
 .collections_scroll {
+    /*height: 65vh;*/
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.posts_scroll {
     height: 65vh;
     overflow: hidden;
     overflow-y: scroll;

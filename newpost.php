@@ -3,22 +3,22 @@ use src\php\classes\Trade\Trade;
 include_once("bootstrap.php");
 include_once("header.inc.php");
 include_once("navbar.inc.php");
-var_dump(class_exists('Trade'));
-error_reporting(E_ALL);
-ini_set("display_errors","On");
+//var_dump(class_exists('Trade'));
+//error_reporting(E_ALL);
+//ini_set("display_errors","On");
 
 if($_POST){
-  var_dump(class_exists('Trade'));
+  //var_dump(class_exists('Trade'));
   
   $type = $_POST["type"];
   $name = $_POST["name"];
   $trade = new Trade();
   $trade->setType($type);
   $trade->setName($name);
-  var_dump($type);
-  var_dump($name);
+  //var_dump($type);
+  //var_dump($name);
    $trade->save();
-  // header("Location: index.php");
+  header("Location: index.php");
 }
 ?>
 

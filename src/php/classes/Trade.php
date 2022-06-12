@@ -132,6 +132,37 @@ class Trade
         $statement->bindValue(":trade_id", $tradeId);
         $statement->bindValue(":cards_id", $cardId);
 
+        $statement->execute(); 
+    }
+    
+    public static function getTradeByUserId($userId){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM trade WHERE user_id = :userId AND type = :type ");
+        $statement->bindValue(":userId", $userId);
+        $statement->bindValue(":type", "trade");
         $statement->execute();
+        $trade = $statement->fetchAll();
+        
+        return $trade;
+    }
+
+    public static function getSellByUserId($userId){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("SELECT * FROM trade WHERE user_id = :userId AND type = :type ");
+        $statement->bindValue(":userId", $userId);
+        $statement->bindValue(":type", "sell");
+        $statement->execute();
+        $trade = $statement->fetchAll();
+        
+        return $trade;
+    }
+
+    public static function count($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from cards where trade_id = :trade_id");
+        $statement->bindValue(":trade_id", $id);
+        $statement->execute();
+        $count = $statement->rowCount();
+        return $count;
     }
 }
