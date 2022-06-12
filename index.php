@@ -22,8 +22,7 @@ unset($_SESSION['collection_id']);
 // $collectionID = $collection->getCollectonId();
 $premium = User::checkPremium();
 //$private = Collection::getFeedCollectionsPrivate();
-include_once("header.inc.php");
-include_once("navbar.inc.php");
+
 if (!empty($_POST)) {
    $_SESSION["collection"] = $_POST['id'];
 
@@ -34,6 +33,8 @@ if (!empty($_POST)) {
    $_SESSION["collectionName"] = $_POST['title'];
 
    header("Location: collection.php");
+   include_once("header.inc.php");
+include_once("navbar.inc.php");
 }
 ?>
 <!DOCTYPE html>
