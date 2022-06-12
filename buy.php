@@ -1,4 +1,5 @@
 <?php
+ob_start();
 use src\php\classes\User\User;
 use src\php\classes\Sell\Sell;
 include_once("bootstrap.php");
@@ -31,12 +32,12 @@ include_once("navbar.inc.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
-    <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
+   
     <title>Epicards | Buy cards</title>
 </head>
 
 <body>
-    <input type="text" class="form_input card_input" id="card" name="card" placeholder="search card"></input>
+    
     <?php //echo htmlspecialchars($_GET['id']); 
     ?>
     <div class="collection_container">

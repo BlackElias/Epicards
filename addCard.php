@@ -85,7 +85,7 @@ include_once("navbar.inc.php");
   
     <div class="search">
     <?php  if($text == null){
-     echo '<div><h1 >looks like something went wrong! You can try again by pressing  <button style="text-decoration: underline;" onclick="history.go(-1);">here </button></h1></div>';
+     echo '<div><h1 >looks like something went wrong! You can try again by pressing  <button style="text-decoration: underline;" onclick="history.go(-2);">here </button></h1></div>';
     }   ?>
       <input type="text" id="name-input" placeholder="search name" name="current-search" value="<?php if($_SESSION["collectionType"] == "pokemon"){
  echo htmlspecialchars( $text->description());

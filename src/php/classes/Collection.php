@@ -2,7 +2,7 @@
 namespace src\php\classes\Collection;
 use PDO;
 use Exception;
-use src\php\classes\Db\Db;
+use src\php\classes\db\Db;
 
 class Collection
 {

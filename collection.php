@@ -1,9 +1,7 @@
 <?php
-
 use src\php\classes\Cards\Cards;
 use src\php\classes\User\User;
 use src\php\classes\Collection\Collection;
-
 include_once("bootstrap.php");
 try {
     $user = new User();
@@ -37,8 +35,8 @@ $name = $_SESSION["collectionName"];
 
 if ($name == "Wishlist") {
     $link = "search_card.php";
-} else {
-    $link = "scan.php";
+} else{
+     $link = "scan.php";
 }
 
 $counter = Cards::getFeedCards();
@@ -59,6 +57,7 @@ include_once("navbar.inc.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/collection.css">
     <link rel="stylesheet" href="css/collection.css">
     <link rel="stylesheet" href="css/bottom-navbar/collection_bar.css">
 
@@ -86,9 +85,9 @@ include_once("navbar.inc.php");
         $p = array_column($private, 'collection_private');
 
         if ($p[0] == "private") {
-            echo '<p class="visibility">Visible to you only</p>';
+            echo '<p class="visibility" id="text">Visible to you only</p>';
         } else {
-            echo '<p class="visibility">Visible to friends only</p>';
+            echo '<p class="visibility" id="text">Visible to everyone</p>';
         } ?>
         <div class="collection-flex" id="collection">
             <div class="collection_column">
@@ -140,7 +139,7 @@ include_once("navbar.inc.php");
                 $check = array_column($premium, 'premium');
 
                 if ($check[0]  == 'ja') {
-                    echo ' <form action="' . $link . '" method="POST">
+                    echo ' <form action="'.$link.'" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
                 }
@@ -148,7 +147,7 @@ include_once("navbar.inc.php");
                     echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
                 }
             } else {
-                echo ' <form action="' . $link . '" method="POST">
+                echo ' <form action="'.$link.'" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
             } ?>
@@ -182,7 +181,7 @@ include_once("navbar.inc.php");
                 <?php $i++;
                     endforeach;
                 } ?>
-                <div class="hidden_block">hidden</div>
+ <div class="hidden_block"></div>
             </div>
         </div>
 </body>

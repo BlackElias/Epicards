@@ -1,4 +1,5 @@
 <?php
+ob_start();
 use src\php\classes\User\User;
 use src\php\classes\Image\Image;
 include_once("bootstrap.php");
