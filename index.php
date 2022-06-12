@@ -33,9 +33,9 @@ if (!empty($_POST)) {
    $_SESSION["collectionName"] = $_POST['title'];
 
    header("Location: collection.php");
-   include_once("header.inc.php");
+  
+} include_once("header.inc.php");
 include_once("navbar.inc.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
