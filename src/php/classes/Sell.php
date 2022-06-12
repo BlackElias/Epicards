@@ -1,4 +1,5 @@
 <?php
+namespace src\php\classes\Sell;
 include_once(__DIR__ . "/Db.php");
 use src\php\classes\db\Db;
 class Sell

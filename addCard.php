@@ -1,5 +1,7 @@
 <?php
+use src\php\classes\User\User;
 use src\php\classes\Cards\Cards;
+use src\php\classes\Image\Image;
 
 include_once("bootstrap.php");
 error_reporting(0);

@@ -1,5 +1,7 @@
 <?php
-
+use src\php\classes\User\User;
+use src\php\classes\Follower\Follower;
+use src\php\classes\Collection\Collection;
 include_once("bootstrap.php");
 
 try {
@@ -11,7 +13,7 @@ try {
 
     $otherUserid = $_GET["id"];
     $otherUser = $user->getUserInfo($otherUserid);
-$allFollowing = Follower::getAllFollowing($_SESSION["userId"]);
+    $allFollowing = Follower::getAllFollowing($_SESSION["userId"]);
     $allFollowers = Follower::getAllFollowers($_SESSION["userId"]);
 
     $follower = new Follower();

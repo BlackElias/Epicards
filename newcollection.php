@@ -1,4 +1,5 @@
 <?php
+use src\php\classes\Collection\Collection;
 include_once("bootstrap.php");
 
 //var_dump($_POST);

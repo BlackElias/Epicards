@@ -18,7 +18,7 @@ if($_POST){
   //var_dump($type);
   //var_dump($name);
    $trade->save();
-  header("Location: index.php");
+  header("Location: trade_sell.php");
 }
 ?>
 
