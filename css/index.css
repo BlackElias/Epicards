@@ -89,7 +89,7 @@ div.cards_amount {
 }
 
 .collections_scroll {
-    /*height: 65vh;*/
+    height: 65vh;
     overflow: hidden;
     overflow-y: scroll;
 }
