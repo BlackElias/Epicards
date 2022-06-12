@@ -155,9 +155,9 @@ h3 {
     outline: 4px solid #e4867c;
 }
 
-.hidden_block{
+.hidden_block {
     text-align: center;
-    padding: 15px;
+    padding: 25px;
     opacity: 0;
 }
 

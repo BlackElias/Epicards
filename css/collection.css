@@ -7,43 +7,82 @@
     width: 100%;
     box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
 }
+
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    float: right;
+    width: 80%;
+    height: 60%;
+    z-index: 25;
+    border-radius: 20px;
+}
+
+.card_name-modal {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card_img_big {
+    width: 70%;
+    display: flex;
+    /* justify-content: center; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.modal_price {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* The Close Button */
+.close {
+    color: black;
+    /* float: right; */
     font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+    /* font-weight: bold; */
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
+    padding: 0px 10px;
+    border-radius: 7px;
+}
+
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
+
 div.top {
     display: flex;
     align-items: center;
@@ -58,6 +97,7 @@ h1 {
     margin-top: 0;
     text-align: center;
     text-transform: capitalize;
+    z-index: -1;
 }
 
 .back_arrow {
@@ -71,6 +111,7 @@ h1 {
     vertical-align: middle;
     position: relative;
     top: -10px;
+    z-index: -1;
 }
 
 .search {
@@ -100,6 +141,7 @@ h1 {
 
 p {
     margin: 0;
+    z-index: -1;
 }
 
 .visibility {
@@ -117,17 +159,18 @@ p {
     margin-right: auto;
 }
 
-.coll_info-background{
-       background-color: white;
+.coll_info-background {
+    background-color: white;
     box-shadow: rgb(0 0 0 / 10%) 0px 25px 35px;
 }
 
 .collection_column {
     display: flex;
     flex-direction: column;
+    z-index: -1;
 }
 
-.info_icon{
+.info_icon {
     width: 15px;
     vertical-align: middle;
     margin-left: 20px;
@@ -137,7 +180,8 @@ p {
 .price_inline {
     display: inline-flex;
 }
-.premium-only_text{
+
+.premium-only_text {
     color: #615F5F;
 }
 
@@ -187,13 +231,12 @@ p {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
+    z-index: 0;
 }
 
 .card_img {
     width: 10%;
-}
-.card_name{
-    width: 100px;
 }
 
 .bin_icon {
@@ -210,10 +253,10 @@ p {
 
 }
 
-.hidden_block{
-   text-align: center;
-   padding: 50px;
-   opacity: 0;
+.hidden_block {
+    text-align: center;
+    padding: 50px;
+    opacity: 0;
 }
 
 ::-webkit-scrollbar {
