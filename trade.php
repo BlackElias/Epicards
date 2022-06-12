@@ -1,15 +1,21 @@
 <?php
+
+use GPBMetadata\Google\Monitoring\V3\Alert;
 use src\php\classes\Cards\Cards;
 use src\php\classes\Trade\Trade;
 use src\php\classes\User\User;
 use src\php\classes\Collection\Collection;
+error_reporting(E_ALL);
+ini_set("display_errors","On");
 include_once("bootstrap.php");
 $trade;
-
+$cards;
 if(isset($_GET['id'])){
     //regex against cross side scripting (XSS)
     $clean = preg_replace("/[^a-zA-Z0-9 ]/","",$_GET['id']);
     $trade = Trade::getTradeById($clean);
+    $cards = Cards::getCardsByTradeId($clean);
+    //var_dump($cards);
 }else{
 
 }
@@ -22,22 +28,23 @@ try {
     $error = $th->getMessage();
 }
 
-if (isset($_POST["deleteCard"])) {
-    $trade = Trade::getTradeById($_POST["tradeId"]);
-    $trade->removeCard($_POST["cardId"]);
-    header("Location: index.php");
+if (isset($_POST["delete"])) {
+    $trade = Trade::getTradeById($trade["id"]);
+    $test = $_POST["cards_id"];
+    Trade::removeCard($test);
+    $location = "Location: ". "trade.php?id=". $trade["id"];
+    header($location);
 }
 
-$amountCards = $trade->countCards();
 
 $premium = User::checkPremium();
 $private = Collection::getFeedCollectionsPrivate();
-$feed = Cards::getFeedCards();
 
 include_once("header.inc.php");
 include_once("navbar.inc.php");
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,14 +67,16 @@ include_once("navbar.inc.php");
     ?>
     <div class="collection_container">
         <div class="top">
-           <a href="index.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
+           <a href="trade_sell.php"><button><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button></a>
             <h1 class="collection-name"><?php echo htmlspecialchars($trade["name"]) ?></h1>
-            <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
+            <form action="" method="post">
+            <button type="submit" name="remove" class="bin_icon" value="delete" onclick="myFunction()">delete post</button>
+            </form>
         </div>
 
         <div class="collection-flex" id="collection">
             <div class="collection_column">
-                <p><?php echo $trade->getType() ?> price</p>
+                <p><?php echo $trade["type"] ?> price</p>
                 <div class="price_inline">
                     <span>
                         <?php
@@ -76,7 +85,7 @@ include_once("navbar.inc.php");
                         if ($check[0]  == 'ja') {
                             echo    '<p>€</p>';
                             echo '</span>&nbsp;';
-                            echo  $trade->priceCards();
+                            echo  array_sum(array_column($cards, 'card_price'));
                             echo   ' </div>';
                         } else {
                             echo    '<a href="premium.php" class="premium-only_text">Only for premium users</a>';
@@ -89,14 +98,14 @@ include_once("navbar.inc.php");
                     <p>Card amount:</p>
                     <span>
                         <?php
-                        echo  $amountCards;
+                        echo  count($cards);
                         ?>
                     </span>
                 </div>
             </div>
             <!-- if image -->
             <?php
-            if ($amountCards <= "0") {
+            if (count($cards) <= "0") {
 
                 echo '  
         <div class="empty_state">
@@ -108,7 +117,7 @@ include_once("navbar.inc.php");
             <?php
             // var_dump(array_values($check) );
 
-            if ($amountCards >= 1000) {
+            if (count($cards) >= 1000) {
 
                 $check = array_column($premium, 'premium');
 
@@ -138,7 +147,7 @@ if (isset($_GET["query"])) {
     <p class="card_name"><?php echo htmlspecialchars($searchresult['card_name']) ?></p>
     <p id="card-price" class="euro">€ <?php echo htmlspecialchars($searchresult['card_price']) ?></p>
     <form action="" method="post">
-        <input type="hidden"name="cards_id" value="<?php echo htmlspecialchars($searchresult['cards_id']) ?>">
+        <input type="hidden"name="cards_id" value="<?php echo htmlspecialchars($trade['cards_id']) ?>">
     <button type="submit" name="delete" class="bin_icon" value="delete">&#x2715</button>
     </form>
 </div>
@@ -147,11 +156,11 @@ if (isset($_GET["query"])) {
 } else{
                 //var_dump(Cards::getFeedCards());
                 $i = 0;
-                foreach ($feed as $card) : if ($i == 1000) {
+                foreach ($cards as $card) : if ($i == 1000) {
                         break;
                     } ?>
 
-<?php include("card.inc.php"); ?>
+                <?php include("card.inc.php"); ?>
 
                 <?php $i++;
                     endforeach;
@@ -161,8 +170,26 @@ if (isset($_GET["query"])) {
 </body>
 <script src="src/js/app.js"></script>
 
+<script>
+    function myFunction() {
+        var x;
+        var r = confirm("Are you sure you want to delete this post?");
+        if (r == "true") {
+            <?php
+            if (isset($_POST["remove"])) {
+            Trade::deleteTrade($trade["id"]);
+            header("Location: trade_sell.php");
+            }
+            ?>
+        }
+        else {
+            x = "You deleted it anyway!";
+            alert(x);
+        }
+    }
+</script>
 <style>
 
 </style>
 
-</html>
+</html> 

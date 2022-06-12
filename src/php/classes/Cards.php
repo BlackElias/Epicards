@@ -156,6 +156,11 @@ class Cards
         return Cards::getCardsByCollectionId($_SESSION["collection"]);
     }
 
+    public static function getTradeCards()
+    {
+        return Cards::getCardsByTradeId($_GET['id']);
+    }
+
     public function DeleteCards()
     {
         $conn = Db::getConnection();
@@ -193,6 +198,18 @@ class Cards
         $statement->execute();
         $collection = $statement->fetchAll();
         return $collection;
+    }
+
+    public static function getCardsByTradeId(int $trade_id){
+        $conn = Db::getConnection();
+
+        $sql = "SELECT * FROM cards WHERE trade_id = :trade_id ";
+        $statement = $conn->prepare($sql);
+        
+        $statement->bindValue(":trade_id", $trade_id);
+        $statement->execute();
+        $trade = $statement->fetchAll();
+        return $trade;
     }
 
     public static function mapJsonToCards(array $data) {

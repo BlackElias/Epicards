@@ -4,6 +4,15 @@ use src\php\classes\Cards\Cards;
 
 include_once("bootstrap.php");
 
+$cards;
+if(isset($_GET['id'])){
+    //regex against cross side scripting (XSS)
+    $clean = preg_replace("/[^a-zA-Z0-9 ]/","",$_GET['id']);
+    $cards = Cards::getCardsByTradeId($clean);
+    //var_dump($cards);
+}else{
+
+}
 
 include_once("header.inc.php");
 include_once("navbar.inc.php");
@@ -45,6 +54,7 @@ include_once("navbar.inc.php");
 
     <?php
     $trade = Trade::getTradeByUserId($_SESSION["userId"]);
+    $sell = Trade::getSellByUserId($_SESSION["userId"]);
             if (sizeof($trade) <= "0") {
 
                 echo '  
@@ -74,18 +84,46 @@ include_once("navbar.inc.php");
                         <div class="cards_amount">
                            <p><?php
 
-                              echo Trade::count($trade["id"]);
+                              echo Trade::countCards($post["id"]);
+                           
                               ?></p>
                            <p class="">cards</p>
                         </div>
 
-                        <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($post['name']) ?></span></p>
+                        <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($post['name']. " ". $post['type']) ?></span></p>
                      </div>
                   </div>
                </div>
             </a>
          <?php $i++;
          
+         endforeach;  ?>
+
+         <?php foreach ($sell as $post) : if ($i == 20) {
+
+         break;
+         } ?>
+
+         <a class="post-text" href="trade.php?id=<?php echo $post["id"] ?>">
+         <div class="container">
+            <div class="collection-pokemon">
+               <div class="collection_card_text">
+                  <div class="cards_amount">
+                     <p><?php
+
+                        echo Trade::countCards($post["id"]);
+                     
+                        ?></p>
+                     <p class="">cards</p>
+                  </div>
+
+                  <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($post['name']. " ". $post['type']) ?></span></p>
+               </div>
+            </div>
+         </div>
+         </a>
+         <?php $i++;
+
          endforeach;  ?>
          <div class="hidden_block"></div>
          <button class="btn-collection button_sec"><a href="newpost.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new post</a></button>

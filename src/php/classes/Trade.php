@@ -2,6 +2,9 @@
 namespace src\php\classes\Trade;
 use src\php\classes\Cards\Cards;
 use src\php\classes\db\Db;
+use PDO;
+use Exception;
+use Throwable;
 
 class Trade
 {
@@ -64,20 +67,27 @@ class Trade
         Trade::addCardByTradeId($card->getId, $this->Id);
     }
 
-    public function removeCard(Cards $card){
-        $idx = array_search($card, $this->cards, true);
-        if($idx){
-            \array_splice($array, 1, $idx);
-            $card->DeleteCards();
-        }
+    public static function removeCard($card){
+        
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("UPDATE cards SET trade_id = NULL where cards_id = :card_id");
+        $statement->bindValue(":card_id", $card);
+        $statement->execute();
+        
     }
 
     public function getCards(){
         return $this->cards;
     }
 
-    public function countCards(){
-        return count($this->cards);
+    public static function countCards($id){
+        $conn = Db::getConnection();
+        $statement = $conn->prepare("select * from cards where trade_id = :trade_id");
+        $statement->bindValue(":trade_id", $id);
+        $statement->execute();
+        $count = $statement->rowCount();
+       
+        return $count;
     }
 
     public function priceCards(){
@@ -120,8 +130,8 @@ class Trade
         $statement->bindValue(":id", $id);
         
         $result = $statement->execute();
-        $result = $statement->fetchAll();
-
+        $result = $statement->fetch();
+        //var_dump(array_keys($result));
         return $result;
     }
 
@@ -157,12 +167,25 @@ class Trade
         return $trade;
     }
 
-    public static function count($id){
+    public function getTradeInfo($tradeId)
+    {
         $conn = Db::getConnection();
-        $statement = $conn->prepare("select * from cards where trade_id = :trade_id");
-        $statement->bindValue(":trade_id", $id);
+        $statement = $conn->prepare("SELECT * FROM trade WHERE id = :userId");
+        $statement->bindValue(":userId", $tradeId);
         $statement->execute();
-        $count = $statement->rowCount();
-        return $count;
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+        if (empty($user)) {
+            throw new Exception(" No user is logged in.");
+        }
+        return $user;
+    }
+
+    public static function deleteTrade($tradeId)
+    {
+        $conn = Db::getConnection();
+        $sql = "DELETE FROM trade WHERE id = :id";
+        $statement = $conn->prepare($sql);
+        $statement->bindValue(":id", $tradeId);
+        $statement->execute(); 
     }
 }
