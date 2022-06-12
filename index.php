@@ -88,43 +88,6 @@ if (!empty($_POST)) {
          endforeach;  ?>
          <div class="hidden_block"></div>
       </div>
-
-      <h1>My posts</h1>
-      
-      <div class="collections_scroll">
-      <?php
-
-         $trade = Trade::getTradeByUserId($currentUserId);
-         var_dump($currentUserId);
-
-         $i = 0;
-         foreach ($trade as $post) : if ($i == 20) {
-
-               break;
-            } ?>
-
-            <a class="post-text" href="trade.php?id=<?php echo $post["id"] ?>">
-               <div class="container">
-                  <div class="collection-pokemon">
-                     <div class="collection_card_text">
-                        <div class="cards_amount">
-                           <p><?php
-
-                              echo Trade::count($trade["id"]);
-                              ?></p>
-                           <p class="">cards</p>
-                        </div>
-
-                        <p class="collection_title"> <img src="assets/card_icon.svg" class="card_icon" alt=""><span class="coll_title-text"><?php echo htmlspecialchars($post['name']) ?></span></p>
-                     </div>
-                  </div>
-               </div>
-            </a>
-         <?php $i++;
-         
-         endforeach;  ?>
-         <div class="hidden_block"></div>
-      </div>
       
       <button class="btn-collection button_sec"><a href="newcollection.php"><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon"> New collection</a></button>
 
