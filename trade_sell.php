@@ -48,10 +48,10 @@ include_once("navbar.inc.php");
             if (sizeof($trade) <= "0") {
 
                 echo '  
-        <div class="empty_state">
-            <img src="assets/empty_state_img.svg" alt="empty state illustration" class="empty_state_img"> 
-            <p class="empty_state_text">There are no cards in this collection</p>
-        </div>
+                <div class="empty_state">
+                <img src="assets/emptystate_no-friends.svg" alt="empty state illustration" class="empty_state_img">
+                <p class="empty_state_text">You do not have friends added yet. <br> Search for friends in the search bar above!</p>
+                </div>
         ';
             } ?>
       
