@@ -74,7 +74,7 @@ $images = Image::getFeedImage();
     <h3>Pleas center the picture in the middle of the webcam. Be sure that the Card name is clearly visible! Then press submit</h3>
     
   </div>
-
+  </div>
 </div>
 <div class="col-md-12 text-center">
 <div class="container">
@@ -125,7 +125,7 @@ $images = Image::getFeedImage();
     }
     // Get the modal
 var modal = document.getElementById("myModal");
-
+var modalbg = document.getElementById("modal-background");
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
@@ -140,6 +140,7 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+  modalbg.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
