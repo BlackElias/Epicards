@@ -35,7 +35,7 @@ if (isset($_POST["collection_id"])) {
     $col->setCollectonId($_POST["collection_id"]);
     $col->DeleteCollection2();
     header("Location: index.php");
-}
+} 
 include_once("header.inc.php");
 include_once("navbar.inc.php");
 ?>

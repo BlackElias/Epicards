@@ -1,6 +1,7 @@
 <?php
 use src\php\classes\Cards\Cards;
 use src\php\classes\User\User;
+use src\php\classes\Sell\Sell;
 use src\php\classes\Collection\Collection;
 include_once("bootstrap.php");
 try {
@@ -38,7 +39,14 @@ if ($name == "Wishlist") {
 } else{
      $link = "scan.php";
 }
-
+if (isset($_POST["sell"])) {
+    $_SESSION["cardName"] = $_POST["name"];
+    
+    $_SESSION["cardImage"] =$_POST['image'];
+    $_SESSION["cardId"] =$_POST["CardId"];
+    
+    header("Location: sell.php");
+    }
 $counter = Cards::getFeedCards();
 
 $premium = User::checkPremium();

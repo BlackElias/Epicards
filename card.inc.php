@@ -23,6 +23,13 @@ include_once("bootstrap.php");
     <p class="card_name-modal"><?php echo htmlspecialchars($card['card_name']) ?></p>
     <img src="<?php echo htmlspecialchars($card['card_image']) ?>" alt="card image" class="card_img_big">
     <p id="card-price" class="euro modal_price">€ <?php echo htmlspecialchars($card['card_price']) ?></p>
+    <form action="" method="POST">
+          <input type="hidden" name="image" value="<?php echo htmlspecialchars($card['card_image']) ?>"></input>
+          <input type="hidden" name="CardId" value="<?php echo htmlspecialchars($card['cards_id'])  ?>"></input>
+          <input type="hidden" name="name" value="<?php echo htmlspecialchars($card['card_name'])?>"></input>
+   
+          <button type="submit" name="sell" value="sell card"  class="btn"><a href=""></a> sell card</button>
+        </form>
   </div>
 
 </div>

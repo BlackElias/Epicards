@@ -176,11 +176,11 @@ class Sell
     {
         $conn = Db::getConnection();
 
-        $sql = "SELECT * FROM sell WHERE CardId = :CardId ";
+        $sql = "SELECT * FROM sell WHERE image = :image ";
         $statement = $conn->prepare($sql);
-        $Card = $_SESSION["cardId"];
+        $Card = $_SESSION["cardImage"];
 
-        $statement->bindValue(":CardId", $Card);
+        $statement->bindValue(":image", $Card);
         $statement->execute();
         $collection = $statement->fetchAll();
         return $collection;

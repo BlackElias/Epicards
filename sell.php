@@ -2,6 +2,7 @@
 ob_start();
 use src\php\classes\User\User;
 use src\php\classes\Sell\Sell;
+use src\php\classes\Cards\Cards;
 include_once("bootstrap.php");
 try {
   $user = new User();
@@ -32,7 +33,9 @@ if (!empty($_POST)) {
 
 
     $sell->save();
-
+    $card = new Cards();
+    $card->setCard_id($_POST["CardId"]);
+    $card->DeleteCards();
 
 
     header("Location: index.php");
