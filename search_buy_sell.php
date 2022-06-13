@@ -227,7 +227,7 @@ include_once("navbar.inc.php");
 
                 <input id="sellCard" type="hidden" name="cardId" value="">
                 
-                <button class="btn" name="sell" type="submit">sell </button></form>
+                <button style="display: none;" class="btn" name="sell" type="submit">sell </button></form>
             </div>
             </div>
         </div>
