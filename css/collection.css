@@ -8,6 +8,17 @@
     box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
 }
 
+<<<<<<< Updated upstream
+=======
+.card_name {
+    width: 100px;
+}
+
+.price_name {
+    width: 65px;
+}
+
+>>>>>>> Stashed changes
 /* The Modal (background) */
 .modal {
     display: none;
@@ -95,9 +106,9 @@ div.top {
 
 h1 {
     margin-top: 0;
-    text-align: center;
     text-transform: capitalize;
     z-index: -1;
+    width: 100%;
 }
 
 .back_arrow {
