@@ -1,0 +1,38 @@
+.sell-card_container {
+    border-radius: 60px 60px 0px 0px;
+    background-color: white;
+    height: 100%;
+    margin-top: 90px;
+    position: fixed;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.price_input {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_input {
+    width: 40% !important;
+    margin-left: 10px;
+}
+
+div.sell_scroll {
+    height: 65vh;
+    overflow: scroll;
+}
+
+.hidden_block {
+    text-align: center;
+    padding: 30px;
+    opacity: 0;
+}

@@ -32,7 +32,7 @@ include_once("navbar.inc.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/collection.css">
-   
+    <link rel="stylesheet" href="css/buy.css">
     <title>Epicards | Buy cards</title>
 </head>
 
@@ -41,7 +41,7 @@ include_once("navbar.inc.php");
     <?php //echo htmlspecialchars($_GET['id']); 
     ?>
     <div class="collection_container">
-        <div class="top">
+        <div class="buy_top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button>
             <h1 class="collection-name">Buy <?php echo htmlspecialchars($_SESSION["cardName"]) ?></h1>
            
