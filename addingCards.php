@@ -1,6 +1,7 @@
 <?php
 use src\php\classes\Cards\Cards;
 use src\php\classes\trade\Trade;
+use src\php\classes\collection\Collection;
 //get id from url 
 
 $tradeId = 2;

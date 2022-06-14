@@ -1,8 +1,10 @@
 <?php
+
 use src\php\classes\Cards\Cards;
 use src\php\classes\User\User;
 use src\php\classes\Sell\Sell;
 use src\php\classes\Collection\Collection;
+
 include_once("bootstrap.php");
 try {
     $user = new User();
@@ -36,17 +38,17 @@ $name = $_SESSION["collectionName"];
 
 if ($name == "Wishlist") {
     $link = "search_card.php";
-} else{
-     $link = "scan.php";
+} else {
+    $link = "scan.php";
 }
 if (isset($_POST["sell"])) {
     $_SESSION["cardName"] = $_POST["name"];
-    
-    $_SESSION["cardImage"] =$_POST['image'];
-    $_SESSION["cardId"] =$_POST["CardId"];
-    
+
+    $_SESSION["cardImage"] = $_POST['image'];
+    $_SESSION["cardId"] = $_POST["CardId"];
+
     header("Location: sell.php");
-    }
+}
 $counter = Cards::getFeedCards();
 
 $premium = User::checkPremium();
@@ -88,79 +90,81 @@ include_once("navbar.inc.php");
             <a href="editCollection.php"><img src="assets/edit_icon.svg" alt="edit icon" class="edit_icon"></a>
         </div>
 
-        <!-- if change text  -->
-        <?php
-        $p = array_column($private, 'collection_private');
+        <div class="card_scroll">
 
-        if ($p[0] == "private") {
-            echo '<p class="visibility" id="text">Visible to you only</p>';
-        } else {
-            echo '<p class="visibility" id="text">Visible to everyone</p>';
-        } ?>
-        <div class="collection-flex" id="collection">
-            <div class="collection_column">
-                <p>Collection price:</p>
-                <div class="price_inline">
-                    <span>
-                        <?php
-                        $check = array_column($premium, 'premium');
-                        // var_dump(array_values($check) );
-                        if ($check[0]  == 'ja') {
-                            $price = array_column($counter, 'card_price');
-                            echo    '<p>€</p>';
-                            echo '</span>&nbsp;';
-                            echo  array_sum($price);
-                            echo   ' </div>';
-                        } else {
-                            echo    '<a href="premium.php" class="premium-only_text">Only for premium users</a>';
-                            echo   ' </div>';
-                        }
-
-                        ?>
-                    </span>
-                </div>
-                <div class="collection_column">
-                    <p>Card amount:</p>
-                    <span>
-                        <?php
-                        echo  count($counter);
-                        ?>
-                    </span>
-                </div>
-            </div>
-            <!-- if image -->
+            <!-- if change text  -->
             <?php
-            if (sizeof($counter) <= "0") {
+            $p = array_column($private, 'collection_private');
 
-                echo '  
+            if ($p[0] == "private") {
+                echo '<p class="visibility" id="text">Visible to you only</p>';
+            } else {
+                echo '<p class="visibility" id="text">Visible to everyone</p>';
+            } ?>
+            <div class="collection-flex" id="collection">
+                <div class="collection_column">
+                    <p>Collection price:</p>
+                    <div class="price_inline">
+                        <span>
+                            <?php
+                            $check = array_column($premium, 'premium');
+                            // var_dump(array_values($check) );
+                            if ($check[0]  == 'ja') {
+                                $price = array_column($counter, 'card_price');
+                                echo    '<p>€</p>';
+                                echo '</span>&nbsp;';
+                                echo  array_sum($price);
+                                echo   ' </div>';
+                            } else {
+                                echo    '<a href="premium.php" class="premium-only_text">Only for premium users</a>';
+                                echo   ' </div>';
+                            }
+
+                            ?>
+                        </span>
+                    </div>
+                    <div class="collection_column">
+                        <p>Card amount:</p>
+                        <span>
+                            <?php
+                            echo  count($counter);
+                            ?>
+                        </span>
+                    </div>
+                </div>
+                <!-- if image -->
+                <?php
+                if (sizeof($counter) <= "0") {
+
+                    echo '  
         <div class="empty_state">
             <img src="assets/empty_state_img.svg" alt="empty state illustration" class="empty_state_img"> 
             <p class="empty_state_text">There are no cards in this collection</p>
         </div>
         ';
-            } ?>
-            <?php
-            // var_dump(array_values($check) );
+                } ?>
+                <?php
+                // var_dump(array_values($check) );
 
-            if (count($counter) >= 1000) {
+                if (count($counter) >= 1000) {
 
-                $check = array_column($premium, 'premium');
+                    $check = array_column($premium, 'premium');
 
-                if ($check[0]  == 'ja') {
-                    echo ' <form action="'.$link.'" method="POST">
+                    if ($check[0]  == 'ja') {
+                        echo ' <form action="' . $link . '" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
-                }
-                if ($check[0]  == 'nee') {
-                    echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
-                }
-            } else {
-                echo ' <form action="'.$link.'" method="POST">
+                    }
+                    if ($check[0]  == 'nee') {
+                        echo  '<button href="premium.php" class="button_sec btn-add_card "><a href="premium.php" style="color: black;">Buy premium for more cards</a></button>';
+                    }
+                } else {
+                    echo ' <form action="' . $link . '" method="POST">
                                      <button type="submit" href="addCard.php" class="button_sec btn-add_card "><img src="assets/plus_icon.svg" alt="plus icon" class="plus_icon">new card</button>
                             </form>';
-            } ?>
+                } ?>
 
-            <div class="card_scroll">
+
                 <?php
 
                 if (isset($_GET["query"])) {
@@ -189,7 +193,7 @@ include_once("navbar.inc.php");
                 <?php $i++;
                     endforeach;
                 } ?>
- <div class="hidden_block"></div>
+                <div class="hidden_block"></div>
             </div>
         </div>
 </body>

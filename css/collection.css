@@ -45,18 +45,21 @@
     height: 60%;
     z-index: 25;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card_name-modal {
-    width: 70%;
     margin-left: auto;
     margin-right: auto;
+    z-index: 1;
+    width: 55%;
 }
 
 .card_img_big {
-    width: 70%;
+    width: 55%;
     display: flex;
-    /* justify-content: center; */
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
@@ -64,21 +67,22 @@
 }
 
 .modal_price {
-    width: 70%;
+    width: 55%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
+    z-index: 1;
 }
 
 /* The Close Button */
 .close {
     color: black;
-    /* float: right; */
     font-size: 28px;
-    /* font-weight: bold; */
     background-color: white;
     box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
     padding: 0px 10px;
     border-radius: 7px;
+    width: 14px;
 }
 
 .close:hover,
@@ -250,7 +254,7 @@ p {
 
 .card_scroll {
     position: relative;
-    height: 45%;
+    height: 60vh;
     overflow: hidden;
     overflow-y: scroll;
     top: -9px;
