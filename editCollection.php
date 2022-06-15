@@ -94,9 +94,7 @@ include_once("navbar.inc.php");
                     </form>
                 </div>
             </div>
-
         </div>
-
     </div>
 
 </body>

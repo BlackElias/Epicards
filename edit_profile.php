@@ -1,5 +1,7 @@
 <?php
+
 use src\php\classes\User\User;
+
 include_once("bootstrap.php");
 
 try {
