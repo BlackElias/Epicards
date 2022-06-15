@@ -131,16 +131,21 @@ a.cancel_btn {
 
 ::-webkit-scrollbar {
     display: none;
-}.modal-content {
+}
+
+.modal-content {
     height: 100%;
     background-color: rgba(224, 224, 224, 0.75);
 }
 
 #modal-card-image {
-    width: 70%;
+    width: 60%;
     border-radius: 20px;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
     margin-top: 1em;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .title_img_center {
@@ -172,18 +177,40 @@ a.cancel_btn {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    top: 10%;
+    top: 4%;
     position: relative;
     box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
     border-radius: 20px;
-    padding-top: 10px;
+    font-family: "futuraPT medium";
+    padding: 20px;
+}
+
+.modal_content-center {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
 }
 
 h4 {
     width: 70%;
     margin-top: 20px;
+    font-family: "futuraPT bold";
 }
 
+p {
+    margin-bottom: 5px;
+}
+
+
 span.close {
-    margin: 20px;
+    color: black;
+    font-size: 28px;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
+    padding: 0px 10px;
+    border-radius: 7px;
+    width: 40px;
+    cursor: pointer;
 }

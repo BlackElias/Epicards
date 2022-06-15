@@ -27,7 +27,7 @@
                 <a href="index.php"> <img src="assets/archive_icon.svg" alt="archive icon" class="nav_icons archive_icon"></a><span class="nav_text collection_text">Collection</span>
             </div>
             <div class="nav_item">
-                <a href="trade_sell.php"><img src="assets/trade_sell_icon.svg" alt="archive icon" class="nav_icons trade_sell_icon"></a><span class="nav_text trade_sell_text">Trade & Sell</span>
+                <a href="trade_sell.php"><img src="assets/trade_sell_icon.svg" alt="archive icon" class="nav_icons trade_sell_icon"></a><span class="nav_text trade_sell_text">Community</span>
             </div>
             <div class="nav_item">
                 <a href="chat.php"> <img src="assets/chat_icon.svg" alt="archive icon" class="nav_icons chat_icon"></a><span class="nav_text chat_text">Chat</span>

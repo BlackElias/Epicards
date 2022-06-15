@@ -1,4 +1,4 @@
-div.buy_top{
+div.buy_top {
     display: flex;
     align-items: center;
     padding-top: 25px;
@@ -6,6 +6,106 @@ div.buy_top{
     margin-left: auto;
     margin-right: auto;
 }
-h1{
+
+h1 {
     width: 100%;
+}
+
+p {
+    z-index: 2;
+}
+
+.buy_card-background {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 20px 0px;
+}
+
+.buy_info {
+    display: flex;
+    color: black;
+    justify-content: space-between;
+}
+
+.user_info {
+    margin-left: 20px;
+    width: 140px;
+    z-index: auto;
+}
+
+.price_info {
+    width: 140px;
+    color: #615F5F;
+    z-index: auto;
+    margin-right: 20px;
+}
+
+.chat_btn {
+    color: black;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+/* POPUP */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 50% auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 72%;
+    height: 25%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.popup h2 {
+    text-align: center;
+    color: black;
+}
+
+.popup p {
+    margin: 0;
+}
+
+a.close {
+    color: black;
+    font-size: 28px;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
+    padding: 0px 10px;
+    border-radius: 7px;
+    width: 14px;
+}
+
+.popup .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -38,6 +38,10 @@ div.top {
     border-radius: 100%;
 }
 
+.profile-box-names {
+    text-align: center;
+}
+
 .top_background {
     background-color: white;
     box-shadow: rgb(100 100 111 / 10%) 0px 13px 18px;
@@ -112,7 +116,7 @@ div.posts_scroll {
     opacity: 0;
 }
 
-.flex_top-btns{
+.flex_top-btns {
     display: flex;
     align-items: center;
     width: 80%;
@@ -125,7 +129,8 @@ div.posts_scroll {
 .friendlist_btn img {
     width: 30px;
 }
-a.friendlist_btn{
+
+a.friendlist_btn {
     color: black;
     font-family: "apex mk3";
     border: 3px solid black;
@@ -141,7 +146,7 @@ a.friendlist_btn{
     bottom: 100px;
 }
 
-.btn-collection a{
+.btn-collection a {
     color: black;
 }
 
@@ -155,5 +160,5 @@ a.friendlist_btn{
     bottom: 80px;
     width: 250px;
     -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }

@@ -77,7 +77,7 @@ include_once("navbar.inc.php");
     <div>
       <div class="sell_scroll">
         <h2><?php echo  htmlspecialchars($_SESSION["cardName"]) ?></h2>
-        <img src="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>" alt="" style="width: 50%; margin-left: 25%;">
+        <img src="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>" alt="" style="width: 50%; margin-left: 25%; border-radius: 20px;">
         <br>
         <form action="" method="POST">
           <input type="hidden" name="image" value="<?php echo  htmlspecialchars($_SESSION["cardImage"]) ?>"></input>

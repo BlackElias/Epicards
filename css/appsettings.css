@@ -29,14 +29,31 @@ h1 {
     vertical-align: middle;
 }
 
-.profile-picture-big {
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    border-radius: 100%;
+.settings_btn {
+    display: flex;
+    flex-direction: column;
+}
+
+.one_btn a {
+    color: black;
+}
+
+.one_btn img {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.one_btn {
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
+    padding: 20px 0px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
 }
 
 .btn-center {
@@ -45,8 +62,11 @@ h1 {
 }
 
 div.container {
-    display: flex;
-    justify-content: center;
+    position: fixed;
+    bottom: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .logout-btn {

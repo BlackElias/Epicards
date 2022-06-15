@@ -1,5 +1,6 @@
 <?php
 ob_start();
+
 use src\php\classes\User\User;
 use src\php\classes\Cards\Cards;
 
@@ -14,19 +15,19 @@ try {
 }
 
 if (isset($_POST["sell"])) {
-$_SESSION["cardName"] = $_POST["cardName"];
-$_SESSION["cardPrice"] =$_POST["cardPrice"];
-$_SESSION["cardImage"] =$_POST["cardImage"];
-$_SESSION["cardId"] =$_POST["cardId"];
-header("Location: sell.php");
+    $_SESSION["cardName"] = $_POST["cardName"];
+    $_SESSION["cardPrice"] = $_POST["cardPrice"];
+    $_SESSION["cardImage"] = $_POST["cardImage"];
+    $_SESSION["cardId"] = $_POST["cardId"];
+    header("Location: sell.php");
 }
 if (isset($_POST["buy"])) {
     $_SESSION["cardName"] = $_POST["cardName"];
-    $_SESSION["cardPrice"] =$_POST["cardPrice"];
-    $_SESSION["cardImage"] =$_POST["cardImage"];
-    $_SESSION["cardId"] =$_POST["cardId"];
+    $_SESSION["cardPrice"] = $_POST["cardPrice"];
+    $_SESSION["cardImage"] = $_POST["cardImage"];
+    $_SESSION["cardId"] = $_POST["cardId"];
     header("Location: buy.php");
-    }
+}
 
 
 if (!empty($_POST["cardName"])) {
@@ -90,6 +91,7 @@ include_once("navbar.inc.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/search_trade_sell.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/bottom-navbar/trade_sell_bar.css">
 
 </head>
@@ -115,11 +117,17 @@ include_once("navbar.inc.php");
                     echo  '<button id="search-button" class="search_btn"><img src="assets/search_icon.svg" alt="search button" class="search_btn"></button></form>';
                 } ?>
                 <div class="search_category">
-                    <button><a href="search_buy_sell.php?query="style="<?php if (isset($_GET['query'])) { echo 'color: red;';}  ?>">people</a></button>
+                    <button><a href="search_buy_sell.php?query=" style="<?php if (isset($_GET['query'])) {
+                                                                            echo 'color: red;';
+                                                                        }  ?>">people</a></button>
                     <span class="vl_line"></span>
-                    <button><a href="search_buy_sell.php?shops=" style="<?php  if(isset($_GET['shops'])) { echo 'color: red;';}?>">shops</a></button>
+                    <button><a href="search_buy_sell.php?shops=" style="<?php if (isset($_GET['shops'])) {
+                                                                            echo 'color: red;';
+                                                                        } ?>">shops</a></button>
                     <span class="vl_line"></span>
-                    <button class=""><a href="search_buy_sell.php?cards="style="<?php  if(isset($_GET['cards'])) { echo 'color: red;';}?>">cards</a></button>
+                    <button class=""><a href="search_buy_sell.php?cards=" style="<?php if (isset($_GET['cards'])) {
+                                                                                        echo 'color: red;';
+                                                                                    } ?>">cards</a></button>
                 </div>
             </div>
         </div>
@@ -186,49 +194,52 @@ include_once("navbar.inc.php");
         <div id="myModal" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
-            <div class="modal-background">
-                <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times; close</span>
-                <h4 id="modal-card-name"></h4>
-                <p id="modal-card-type"></p>
-                <table class="responsive-table highlight">
-                    <p id="test"></p>
+                <div class="modal-background">
+                    <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times;</span>
+                    <div class="modal_content-center">
+                        <h4 id="modal-card-name"></h4>
+                        <p id="modal-card-type"></p>
+                        <table class="responsive-table highlight">
+                            <p id="test"></p>
 
 
-                    <tbody>
+                            <tbody>
 
-                        <tr>
-                            <td id="priceH">Holofoil Market Price</td>
-                            <td id="modal-HoloFoil-price"></td>
-                        </tr>
-                        <tr>
-                            <td id="priceR">Reverse Holofoil Market Price</td>
-                            <td id="modal-reverseHolofoil-price"></td>
+                                <tr>
+                                    <td id="priceH">Holofoil Market Price</td>
+                                    <td id="modal-HoloFoil-price"></td>
+                                </tr>
+                                <tr>
+                                    <td id="priceR">Reverse Holofoil Market Price</td>
+                                    <td id="modal-reverseHolofoil-price"></td>
 
-                        </tr>
-                        <tr>
-                            <td>Normal Market Price</td>
-                            <td id="modal-normal-price"></td>
+                                </tr>
+                                <tr>
+                                    <td>Normal Market Price</td>
+                                    <td id="modal-normal-price"></td>
 
-                        </tr>
-                    </tbody>
-                </table>
-                <img class="responsive-img" src="" alt="" id="modal-card-image">
-                <form action="" method="post">
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> <img class="responsive-img" src="" alt="" id="modal-card-image">
 
-                    <input id="addCard-data" type="hidden" value="" name="cardName"></input>
-                    <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
-                    <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
+                    <form action="" method="post">
 
-                    <link rel="stylesheet" href="css/bottom-navbar/trade_sell_bar.css">
-                <input type="hidden" value="" name="id"></input>
-                <input id="buyCard" type="hidden" name="buyCardId" href="">
+                        <input id="addCard-data" type="hidden" value="" name="cardName"></input>
+                        <input id="addCard-price" type="hidden" value="" name="cardPrice"></input>
+                        <input id="addCard-image" type="hidden" value="" name="cardImage"></input>
 
-                <button class="btn" name="buy" type="submit">buy </button>
+                        <link rel="stylesheet" href="css/bottom-navbar/trade_sell_bar.css">
+                        <input type="hidden" value="" name="id"></input>
+                        <input id="buyCard" type="hidden" name="buyCardId" href="">
 
-                <input id="sellCard" type="hidden" name="cardId" value="">
-                
-                <button style="display: none;" class="btn" name="sell" type="submit">sell </button></form>
-            </div>
+                        <button class="btn" name="buy" type="submit" style="padding: 10px; margin-top:20px;">buy</button>
+
+                        <input id="sellCard" type="hidden" name="cardId" value="">
+
+                        <button style="display: none;" class="btn" name="sell" type="submit">sell</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

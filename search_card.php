@@ -119,7 +119,7 @@ include_once("navbar.inc.php");
       <!-- Modal content -->
       <div class="modal-content">
       <div class="modal-background">
-        <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times; close</span>
+        <span onclick="document.getElementById('myModal').style.display='none'" class="close">&times;</span>
         <div class="title_img_center">
         <h4 id="modal-card-name"></h4>
         <p id="modal-card-type"></p>

@@ -28,8 +28,7 @@ include_once("bootstrap.php");
           <input type="hidden" name="CardId" value="<?php echo htmlspecialchars($card['cards_id'])  ?>"></input>
           <input type="hidden" name="name" value="<?php echo htmlspecialchars($card['card_name'])?>"></input>
    
-          <button type="submit" name="sell" value="sell card"  class="btn"><a href=""></a> sell card</button>
-        </form>
+          <button type="submit" name="sell" value="sell card"  class="sell-trade_btn"><a href=""></a>sell card
   </div>
 
 </div>
