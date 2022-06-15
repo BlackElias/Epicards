@@ -1,3 +1,13 @@
+.buy_container {
+    border-radius: 60px 60px 0px 0px;
+    background-color: white;
+    height: 100%;
+    margin-top: 90px;
+    position: fixed;
+    width: 100%;
+    box-shadow: rgb(0 0 0 / 45%) 0px 50px 71px 0px;
+}
+
 div.buy_top {
     display: flex;
     align-items: center;
@@ -36,6 +46,7 @@ p {
     margin-left: 20px;
     width: 140px;
     z-index: auto;
+    font-weight: bold;
 }
 
 .price_info {
@@ -43,6 +54,7 @@ p {
     color: #615F5F;
     z-index: auto;
     margin-right: 20px;
+    font-weight: bold;
 }
 
 .chat_btn {
