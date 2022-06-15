@@ -43,7 +43,7 @@ include_once("navbar.inc.php");
 
     <?php //echo htmlspecialchars($_GET['id']); 
     ?>
-    <div class="collection_container">
+    <div class="buy_container">
         <div class="buy_top">
             <button onclick="history.go(-1);"><img src="assets/back_arrow.svg" alt="back arrow" class="back_arrow"> </button>
             <h1 class="collection-name">Buy <?php echo htmlspecialchars($_SESSION["cardName"]) ?></h1>
