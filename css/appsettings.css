@@ -29,9 +29,16 @@ h1 {
     vertical-align: middle;
 }
 
+.settings_scroll {
+    margin-top: 20px;
+    overflow: scroll;
+    height: 60vh;
+}
+
 .settings_btn {
     display: flex;
     flex-direction: column;
+
 }
 
 .one_btn a {
@@ -54,6 +61,12 @@ h1 {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    color: black;
+}
+
+div.hidden {
+    align-items: center;
+    opacity: 0;
 }
 
 .btn-center {
@@ -62,11 +75,10 @@ h1 {
 }
 
 div.container {
-    position: fixed;
-    bottom: 110px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    margin-top: 20px;
 }
 
 .logout-btn {
@@ -77,4 +89,68 @@ div.container {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+/* DELETE CONFIRMATION POPUP */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 40% auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 72%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.popup h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.popup p {
+    margin: 20px 0;
+}
+
+.button_sec {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.close {
+    color: black;
+    font-size: 28px;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 15%) 0px 0px 15px;
+    padding: 0px 10px;
+    border-radius: 7px;
+    width: 14px;
+}
+
+
+.popup .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

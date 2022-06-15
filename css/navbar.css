@@ -45,7 +45,7 @@ div.nav_item a {
     width: 100%;
 }
 
-/*@media only screen and (min-width: 650px) {
+@media only screen and (min-width: 650px) {
     #overlay {
         background-image: url(../assets/background_img.png);
         background-size: cover;
@@ -106,4 +106,4 @@ div.nav_item a {
     .mobile_icon {
         width: 65px;
     }
-}*/
+}
