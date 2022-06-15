@@ -9,3 +9,29 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }
+
+body{
+    background-image: url(../assets/background_img.png);
+    background-repeat: no-repeat;
+}
+p {
+    font-size: 2.1em;
+    text-align: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.tool_icon {
+    width: 8%;
+    filter: invert(38%) sepia(14%) saturate(2466%) hue-rotate(-769deg) brightness(92%) contrast(529%);
+}
+
+.constr_page {
+    position: relative;
+    top: 100px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+}

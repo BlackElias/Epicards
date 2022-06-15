@@ -90,7 +90,7 @@ $images = Image::getFeedImage();
     <!-- Modal content -->
     <div class="modal-content">
       <div class="modal-background">
-        <h3>Please center the card in the middle of your camera. Be sure that the Card name is clearly visible! <br> Then press submit.</h3>
+        <h3 styles="text-align: center;">Please center the card in the middle of your camera. Be sure that the Card name is clearly visible! <br> Then press submit.</h3>
         <span class="close button_sec">I understand</span>
       </div>
     </div>
