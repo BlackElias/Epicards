@@ -1,7 +1,7 @@
 <?php
 
 include_once("bootstrap.php");
-include_once("header.inc.php");
+include_once("header2.inc.php");
 include_once("navbar.inc.php");
 ?>
 
@@ -19,8 +19,9 @@ include_once("navbar.inc.php");
 </head>
 
 <body>
-<div class="top">
-      <h1>Chatmessages</h1>
+    <div class="constr_page">
+        <p>This page is under construction. <br> Please check in later!</p>
+        <img src="assets/tool.svg" alt="tool icon" class="tool_icon">
     </div>
 </body>
 
